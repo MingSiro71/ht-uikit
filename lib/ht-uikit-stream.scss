@@ -1,0 +1,23 @@
+@import "config/_font.scss";
+@import "config/_colors.scss";
+@import "config/_layout.scss";
+
+/* ========================================================================
+   Component: Stream
+ ========================================================================== */
+.ht-stream-container {
+  display: flex;
+
+  .ht-stream-mainstream {
+    min-width: map-get($stream-width, main-min);
+  }
+  .ht-stream-substream-narrow {
+    width: map-get($stream-width, narrow);
+  }
+  .ht-stream-substream-medium {
+    width: map-get($stream-width, medium);
+  }
+  .ht-stream-substream-broad {
+    width: map-get($stream-width, broad);
+  }
+}

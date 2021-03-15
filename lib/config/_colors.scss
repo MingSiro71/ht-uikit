@@ -1,0 +1,187 @@
+/* 
+ * _colors.scss: Defines colors for areas and objects
+ *
+    *base: Base color and standard text colors
+    *bicolor: The second base color
+    *tricolor: The third base color
+    *danger: Areas which user should not touch in usual case use this colors
+    *primary: Colors for object which user should watch at first
+    *secondary: Colors for object which is important next to primary
+    *accent: Accent color for object which is no relation for user flow
+    *toolbar: Colers for user interface which can be find that not the parts of page, but utility object
+    *information: Colors for infomation message or telop
+    *warning: Colors for warning message or telop
+    *error: Colors for error message or telop
+ */
+
+/* 
+ * base
+ */
+$base-background: #f0f0e9;
+$base-text: #3c3d36;
+$base-color: (
+    basis: $base-background,
+    reflection: lighten($base-background, 30%),
+    highlight: lighten($base-background, 15%),
+    shaded: darken($base-background, 10%),
+    shadow: darken($base-background, 25%),
+    text: $base-text,
+    text-link: lighten($base-text, 15%),
+    text-light: lighten($base-text, 25%),
+    heading: saturate($base-text, 20%),
+    heading-light: lighten(saturate($base-text, 20%), 25%),
+    fogging: rgba(0,0,0,0.1),
+);
+/* 
+ * bicolor
+ */
+$bicolor-background: #d1deff;
+$bicolor-text: #313745;
+$bicolor-color: (
+    basis: $bicolor-background,
+    reflection: lighten($bicolor-background, 30%),
+    highlight: lighten($bicolor-background, 15%),
+    shaded: darken($bicolor-background, 10%),
+    shadow: darken($bicolor-background, 25%),
+    text: $bicolor-text,
+    text-link: lighten($bicolor-text, 15%),
+    text-light: lighten($bicolor-text, 25%),
+    heading: saturate($bicolor-text, 20%),
+    heading-light: lighten(saturate($bicolor-text, 20%), 25%),
+    fogging: rgba(0,0,0,0.1),
+);
+/* 
+ * tricolor
+ */
+$tricolor-background: #ff6c4f;
+$tricolor-text: #ffffff;
+$tricolor-color: (
+    basis: $tricolor-background,
+    reflection: lighten($tricolor-background, 30%),
+    highlight: lighten($tricolor-background, 15%),
+    shaded: darken($tricolor-background, 10%),
+    shadow: darken($tricolor-background, 25%),
+    text: $tricolor-text,
+    text-link: lighten($tricolor-text, 15%),
+    text-light: lighten($tricolor-text, 25%),
+    heading: saturate($tricolor-text, 20%),
+    heading-light: lighten(saturate($tricolor-text, 20%), 25%),
+    fogging: rgba(0,0,0,0.1),
+);
+/* 
+ * danger
+ */
+$danger-background: #ff4529;
+$danger-text: #444742;
+$danger-color: (
+    basis: $danger-background,
+    reflection: lighten($danger-background, 30%),
+    highlight: lighten($danger-background, 15%),
+    shaded: darken($danger-background, 10%),
+    shadow: darken($danger-background, 25%),
+    text: $danger-text,
+    text-link: lighten($danger-text, 15%),
+    text-light: lighten($danger-text, 25%),
+    heading: saturate($danger-text, 20%),
+    heading-light: lighten(saturate($danger-text, 20%), 25%),
+    fogging: rgba(0,0,0,0.1),
+);
+/* 
+ * primary
+ */
+$primary-background: #30c297;
+$primary-text: #fcfcf9;
+$primary-color: (
+    basis: $primary-background,
+    highlight: lighten($primary-background, 30%),
+    selected: lighten($primary-background, 15%),
+    active: saturate($primary-background, 10%),
+    pushed: darken($tricolor-background, 10%),
+    text: $primary-text,
+    text-highlight: lighten($primary-text, 30%),
+    text-lighten: lighten($primary-text, 15%),
+    text-shaded: darken($primary-text, 10%),
+);
+/* 
+ * secondary
+ */
+$secondary-background: #30c297;
+$secondary-text: #fcfcf9;
+$secondary-color: (
+    basis: $secondary-background,
+    highlight: lighten($secondary-background, 30%),
+    selected: lighten($secondary-background, 15%),
+    active: saturate($secondary-background, 10%),
+    pushed: darken($tricolor-background, 10%),
+    text: $secondary-text,
+    text-highlight: lighten($secondary-text, 30%),
+    text-lighten: lighten($secondary-text, 15%),
+    text-shaded: darken($secondary-text, 10%),
+);
+/* 
+ * accent
+ */
+$accent-background: #ffc526;
+$accent-innertext: #38402b;
+$accent-color: (
+    basis: $accent-background,
+    highlight: lighten($accent-background, 30%),
+    selected: lighten($accent-background, 15%),
+    active: saturate($accent-background, 10%),
+    pushed: darken($accent-background, 10%),
+    innertext: $accent-innertext,
+    innertext-highlight: lighten($accent-innertext, 30%),
+    innertext-lighten: lighten($accent-innertext, 15%),
+    innertext-shaded: darken($accent-innertext, 10%),
+);
+/* 
+ * toolbar
+ */
+$toolbar-background: #444742;
+$toolbar-text: #f2f2f2;
+$toolbar-color: (
+    basis: $toolbar-background,
+    reflection: lighten($toolbar-background, 30%),
+    highlight: lighten($toolbar-background, 15%),
+    shaded: darken($toolbar-background, 10%),
+    shadow: darken($toolbar-background, 25%),
+    text: $toolbar-text,
+    text-link: lighten($toolbar-text, 15%),
+    text-light: lighten($toolbar-text, 25%),
+    heading: saturate($toolbar-text, 20%),
+    heading-light: lighten(saturate($toolbar-text, 20%), 25%),
+    fogging: rgba(0,0,0,0.1),
+);
+/* 
+ * infomation
+ */
+$information-background: #444742;
+$information-text: #f2f2f2;
+$infomation-color: (
+    basis: $information-background,
+    highlight: lighten($information-background, 15%),
+    text: $information-text,
+    text-light: lighten($information-text, 25%),
+);
+/* 
+ * warning
+ */
+$warning-background: #444742;
+$warning-text: #f2f2f2;
+$warning-color: (
+    basis: $warning-background,
+    highlight: lighten($warning-background, 15%),
+    text: $warning-text,
+    text-light: lighten($warning-text, 25%),
+);
+/* 
+ * error
+ */
+$error-background: #444742;
+$error-text: #f2f2f2;
+$error-color: (
+    basis: $error-background,
+    highlight: lighten($error-background, 15%),
+    text: $error-text,
+    text-light: lighten($error-text, 25%),
+);

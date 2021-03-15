@@ -1,0 +1,298 @@
+/* 
+ * _colors.scss: Defines colors for areas and objects
+ *
+    *base: Base color and standard text colors
+    *bicolor: The second base color
+    *tricolor: The third base color
+    *danger: Areas which user should not touch in usual case use this colors
+    *primary: Colors for object which user should watch at first
+    *secondary: Colors for object which is important next to primary
+    *accent: Accent color for object which is no relation for user flow
+    *toolbar: Colers for user interface which can be find that not the parts of page, but utility object
+    *information: Colors for infomation message or telop
+    *warning: Colors for warning message or telop
+    *error: Colors for error message or telop
+ */
+/* 
+ * base
+ */
+/* 
+ * bicolor
+ */
+/* 
+ * tricolor
+ */
+/* 
+ * danger
+ */
+/* 
+ * primary
+ */
+/* 
+ * secondary
+ */
+/* 
+ * accent
+ */
+/* 
+ * toolbar
+ */
+/* 
+ * infomation
+ */
+/* 
+ * warning
+ */
+/* 
+ * error
+ */
+/* Header bar */
+header.ht-header {
+  position: relative;
+  height: 3rem;
+  width: 100%;
+}
+
+header.ht-header .ht-header-object-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 3rem;
+}
+
+header.ht-header .ht-header-object-left {
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+header.ht-header .ht-header-object-right {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+header.ht-header .ht-header-logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+header.ht-header:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+header.ht-header.ht-header-seamless:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+/* footer for scroll buffer */
+.ht-buffer {
+  display: flex;
+  width: 100%;
+  height: 5rem;
+  color: rgba(127, 127, 127, 0.2);
+  align-items: flex-end;
+  cursor: default;
+}
+
+.ht-buffer *::selection {
+  background-color: transparent;
+}
+
+/* hentech popup control */
+.ht-popup {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: fit-content;
+  max-height: 90vh;
+  width: 90vw;
+  margin: auto;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 10;
+}
+
+.ht-popup-inner {
+  display: inline-block;
+  padding: 1rem 0;
+  max-height: 90vh;
+  overflow: scroll;
+  background-color: #fff;
+  border-radius: 1rem;
+  border: solid 2px #2b3631;
+  font-size: 1rem;
+}
+
+.ht-popup-inner .uk-nav > li {
+  border-bottom: solid 1px #2b3631;
+  padding: 0.5rem 0rem;
+  margin: 0 1rem;
+}
+
+.ht-popup-inner .uk-nav > li:last-child {
+  border-bottom: solid 0px #2b3631;
+}
+
+/* hentech alert control */
+main.ht-main {
+  margin: 0;
+  padding-top: 1.5rem;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  height: calc(100vh - 1.5rem - 3rem);
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.ht-info-field {
+  position: absolute;
+  top: 3rem;
+  width: 100%;
+  z-index: 5;
+}
+
+.ht-info-field li.ht-info-tab {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  padding-left: 0.5rem;
+  width: 100%;
+}
+
+.ht-info-field li.ht-info-tab-info h1 a, .ht-info-field li.ht-info-tab-info h1 .uk-link, .ht-info-field li.ht-info-tab-info h2 a, .ht-info-field li.ht-info-tab-info h2 .uk-link, .ht-info-field li.ht-info-tab-info h3 a, .ht-info-field li.ht-info-tab-info h3 .uk-link, .ht-info-field li.ht-info-tab-info h4 a, .ht-info-field li.ht-info-tab-info h4 .uk-link, .ht-info-field li.ht-info-tab-info h5 a, .ht-info-field li.ht-info-tab-info h5 .uk-link, .ht-info-field li.ht-info-tab-info h6 a, .ht-info-field li.ht-info-tab-info h6 .uk-link {
+  color: inherit;
+}
+
+.ht-info-field li.ht-info-tab-warning {
+  color: #f2f2f2;
+}
+
+.ht-info-field li.ht-info-tab-warning a:hover, .ht-info-field li.ht-info-tab-warning .uk-link:hover,
+.ht-info-field li.ht-info-tab-warning a:active, .ht-info-field li.ht-info-tab-warning .uk-link:active {
+  color: white;
+}
+
+.ht-info-field li.ht-info-tab-warning h1 a, .ht-info-field li.ht-info-tab-warning h1 .uk-link, .ht-info-field li.ht-info-tab-warning h2 a, .ht-info-field li.ht-info-tab-warning h2 .uk-link, .ht-info-field li.ht-info-tab-warning h3 a, .ht-info-field li.ht-info-tab-warning h3 .uk-link, .ht-info-field li.ht-info-tab-warning h4 a, .ht-info-field li.ht-info-tab-warning h4 .uk-link, .ht-info-field li.ht-info-tab-warning h5 a, .ht-info-field li.ht-info-tab-warning h5 .uk-link, .ht-info-field li.ht-info-tab-warning h6 a, .ht-info-field li.ht-info-tab-warning h6 .uk-link {
+  color: inherit;
+}
+
+.ht-info-field li.ht-info-tab-warning:before {
+  content: "! : ";
+}
+
+.ht-info-field li.ht-info-tab-danger {
+  color: #444742;
+}
+
+.ht-info-field li.ht-info-tab-danger a, .ht-info-field li.ht-info-tab-danger .uk-link {
+  color: #6a6f67;
+}
+
+.ht-info-field li.ht-info-tab-danger a:hover, .ht-info-field li.ht-info-tab-danger .uk-link:hover,
+.ht-info-field li.ht-info-tab-danger a:active, .ht-info-field li.ht-info-tab-danger .uk-link:active {
+  color: #838980;
+}
+
+.ht-info-field li.ht-info-tab-danger h1 a, .ht-info-field li.ht-info-tab-danger h1 .uk-link, .ht-info-field li.ht-info-tab-danger h2 a, .ht-info-field li.ht-info-tab-danger h2 .uk-link, .ht-info-field li.ht-info-tab-danger h3 a, .ht-info-field li.ht-info-tab-danger h3 .uk-link, .ht-info-field li.ht-info-tab-danger h4 a, .ht-info-field li.ht-info-tab-danger h4 .uk-link, .ht-info-field li.ht-info-tab-danger h5 a, .ht-info-field li.ht-info-tab-danger h5 .uk-link, .ht-info-field li.ht-info-tab-danger h6 a, .ht-info-field li.ht-info-tab-danger h6 .uk-link {
+  color: inherit;
+}
+
+.ht-info-field li.ht-info-tab-danger h1 a:hover, .ht-info-field li.ht-info-tab-danger h1 .uk-link:hover,
+.ht-info-field li.ht-info-tab-danger h1 a:active, .ht-info-field li.ht-info-tab-danger h1 .uk-link:active, .ht-info-field li.ht-info-tab-danger h2 a:hover, .ht-info-field li.ht-info-tab-danger h2 .uk-link:hover,
+.ht-info-field li.ht-info-tab-danger h2 a:active, .ht-info-field li.ht-info-tab-danger h2 .uk-link:active, .ht-info-field li.ht-info-tab-danger h3 a:hover, .ht-info-field li.ht-info-tab-danger h3 .uk-link:hover,
+.ht-info-field li.ht-info-tab-danger h3 a:active, .ht-info-field li.ht-info-tab-danger h3 .uk-link:active, .ht-info-field li.ht-info-tab-danger h4 a:hover, .ht-info-field li.ht-info-tab-danger h4 .uk-link:hover,
+.ht-info-field li.ht-info-tab-danger h4 a:active, .ht-info-field li.ht-info-tab-danger h4 .uk-link:active, .ht-info-field li.ht-info-tab-danger h5 a:hover, .ht-info-field li.ht-info-tab-danger h5 .uk-link:hover,
+.ht-info-field li.ht-info-tab-danger h5 a:active, .ht-info-field li.ht-info-tab-danger h5 .uk-link:active, .ht-info-field li.ht-info-tab-danger h6 a:hover, .ht-info-field li.ht-info-tab-danger h6 .uk-link:hover,
+.ht-info-field li.ht-info-tab-danger h6 a:active, .ht-info-field li.ht-info-tab-danger h6 .uk-link:active {
+  color: #7ea167;
+}
+
+.ht-info-field li.ht-info-tab-danger:before {
+  content: "! : ";
+}
+
+/* Solid list */
+.ht-solid-list *::selection {
+  background-color: transparent;
+}
+
+.ht-solid-list ul {
+  margin-left: 0;
+}
+
+.ht-solid-list ul ul {
+  margin-left: 1.5rem;
+}
+
+.ht-solid-list li {
+  line-height: 2.25rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ht-solid-list li ul, .ht-solid-list li h1, .ht-solid-list li h2, .ht-solid-list li h3, .ht-solid-list li h4, .ht-solid-list li h5, .ht-solid-list li h6 {
+  width: 100%;
+}
+
+.ht-solid-list li.ht-solid-list-link {
+  height: 2.25rem;
+  width: 100%;
+  border-top-style: solid;
+  border-top-width: 0.5px;
+  border-bottom-style: solid;
+  border-bottom-width: 0.5px;
+  border-left-style: none;
+  border-right-style: none;
+}
+
+.ht-solid-list li.ht-solid-list-link div.ht-solid-list-link-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.ht-solid-list li.ht-solid-list-link div.ht-solid-list-link-wrapper:not(.ht-solid-list-button-overlay):first-child {
+  padding-left: 0.5rem;
+}
+
+.ht-solid-list li.ht-solid-list-link div.ht-solid-list-link-wrapper .ht-solid-list-button-overlay {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+}
+
+.ht-solid-list li.ht-solid-list-link div.ht-solid-list-link-wrapper .ht-solid-list-button-overlay:hover, .ht-solid-list li.ht-solid-list-link div.ht-solid-list-link-wrapper .ht-solid-list-button-overlay:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.ht-solid-list li.ht-solid-list-link div.ht-solid-list-link-wrapper .ht-solid-list-button-overlay:hover:focus {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.ht-solid-list li.ht-solid-list-link + .ht-solid-list-link {
+  border-top-style: none;
+}
+/*# sourceMappingURL=ht-components.css.map */

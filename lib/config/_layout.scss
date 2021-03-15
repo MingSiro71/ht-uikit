@@ -1,0 +1,19 @@
+$base-text-size: 16px;
+$window-layout: (
+    header-height: 3rem,
+    main-setback: 1.5rem,
+    outer-margin: 8px,
+);
+$breakpoint: (
+    modarn_mobile: 480px,
+    tablet: 768px,
+    include_desktop: 960px,
+    exclusive_desktop: 1200px,
+);
+$stream-width: (
+    narrow: 240px,
+    medium: 360px,
+    broad: 480px,
+    main-max: 720px,
+    main-min: 480px,
+)

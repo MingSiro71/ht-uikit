@@ -1,0 +1,764 @@
+/* HT-UIkit-advanced-components scss 1.0.0 */
+/* Base: UIkit 3.1.7 | http://www.getuikit.com */
+/* Edit: Hentech */
+/* Required theme configurations
+  1. _font.scss: Defines Font family, Standard size and sizes for header
+  2. _colors.scss: Defines colors for
+    *base: Base color and standard text colors
+    *bicolor: The second base color
+    *tricolor: The third base color
+    *danger: Areas which user should not touch in usual case use this colors
+    *primary: Colors for object which user should watch at first
+    *secondary: Colors for object which is important next to primary
+    *accent: Accent color for object which is no relation for user flow
+    *toolbar: Colers for user interface which can be find that not the parts of page, but utility object
+    *information: Colors for infomation message or telop
+    *warning: Colors for warning message or telop
+    *error: Colors for error message or telop
+  3. _layout.scss: Defines sizes and placement of base partitions 
+    *header
+    *main
+    *footer
+    *overlay
+*/
+/* 
+ * _colors.scss: Defines colors for areas and objects
+ *
+    *base: Base color and standard text colors
+    *bicolor: The second base color
+    *tricolor: The third base color
+    *danger: Areas which user should not touch in usual case use this colors
+    *primary: Colors for object which user should watch at first
+    *secondary: Colors for object which is important next to primary
+    *accent: Accent color for object which is no relation for user flow
+    *toolbar: Colers for user interface which can be find that not the parts of page, but utility object
+    *information: Colors for infomation message or telop
+    *warning: Colors for warning message or telop
+    *error: Colors for error message or telop
+ */
+/* 
+ * base
+ */
+/* 
+ * bicolor
+ */
+/* 
+ * tricolor
+ */
+/* 
+ * danger
+ */
+/* 
+ * primary
+ */
+/* 
+ * secondary
+ */
+/* 
+ * accent
+ */
+/* 
+ * toolbar
+ */
+/* 
+ * infomation
+ */
+/* 
+ * warning
+ */
+/* 
+ * error
+ */
+/* Over view
+ * Table: assign to "table" and "ul.ht-table" for each themes
+ *   *base
+ *   *bicolor
+ *   *tricolor
+ *   *danger
+ *   *toolkit
+ * Form range
+ * Label: Small markers, for each types
+ *   *plane (base)
+ *   *information
+ *   *warning
+ *   *error
+ * Dotnav
+ * Lightbox
+ * Sticky
+ */
+/* ========================================================================
+   Component: Table
+ ========================================================================== */
+/*
+ * 1. Remove most spacing between table cells.
+ * 2. Behave like a block element
+ * 3. Style
+ */
+.uk-table {
+  /* 1 */
+  border-collapse: collapse;
+  border-spacing: 0;
+  /* 2 */
+  width: 100%;
+  /* 3 */
+  margin-bottom: 20px;
+}
+
+/* Add margin if adjacent element */
+* + .uk-table {
+  margin-top: 20px;
+}
+
+/* Header cell
+ ========================================================================== */
+/*
+ * 1. Style
+ */
+.uk-table th {
+  padding: 16px 12px;
+  text-align: left;
+  vertical-align: bottom;
+  /* 1 */
+  font-size: 0.875rem;
+  font-weight: normal;
+  color: var(--sub-text-color);
+  text-transform: uppercase;
+}
+
+/* Cell
+ ========================================================================== */
+.uk-table td {
+  padding: 16px 12px;
+  vertical-align: top;
+}
+
+/*
+ * Remove margin from the last-child
+ */
+.uk-table td > :last-child {
+  margin-bottom: 0;
+}
+
+/* Footer
+ ========================================================================== */
+.uk-table tfoot {
+  font-size: 0.875rem;
+}
+
+/* Caption
+ ========================================================================== */
+.uk-table caption {
+  font-size: 0.875rem;
+  text-align: left;
+  color: var(--sub-text-color);
+}
+
+/* Alignment modifier
+ ========================================================================== */
+.uk-table-middle,
+.uk-table-middle td {
+  vertical-align: middle !important;
+}
+
+/* Style modifiers
+ ========================================================================== */
+/*
+ * Divider
+ */
+.uk-table-divider > tr:not(:first-child),
+.uk-table-divider > :not(:first-child) > tr,
+.uk-table-divider > :first-child > tr:not(:first-child) {
+  border-top: 1px solid #e5e5e5;
+}
+
+/*
+ * Striped
+ */
+.uk-table-striped > tr:nth-of-type(odd),
+.uk-table-striped tbody tr:nth-of-type(odd) {
+  background: #f8f8f8;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/*
+ * Hover
+ */
+.uk-table-hover > tr:hover,
+.uk-table-hover tbody tr:hover {
+  background: #ffd;
+}
+
+/* Active state
+ ========================================================================== */
+.uk-table > tr.uk-active,
+.uk-table tbody tr.uk-active {
+  background: #ffd;
+}
+
+/* Size modifier
+ ========================================================================== */
+.uk-table-small th,
+.uk-table-small td {
+  padding: 10px 12px;
+}
+
+.uk-table-large th,
+.uk-table-large td {
+  padding: 22px 12px;
+}
+
+/* Justify modifier
+ ========================================================================== */
+.uk-table-justify th:first-child,
+.uk-table-justify td:first-child {
+  padding-left: 0;
+}
+
+.uk-table-justify th:last-child,
+.uk-table-justify td:last-child {
+  padding-right: 0;
+}
+
+/* Cell size modifier
+ ========================================================================== */
+.uk-table-shrink {
+  width: 1px;
+}
+
+.uk-table-expand {
+  min-width: 150px;
+}
+
+/* Cell link modifier
+ ========================================================================== */
+/*
+ * Does not work with `uk-table-justify` at the moment
+ */
+.uk-table-link {
+  padding: 0 !important;
+}
+
+.uk-table-link > a {
+  display: block;
+  padding: 16px 12px;
+}
+
+.uk-table-small .uk-table-link > a {
+  padding: 10px 12px;
+}
+
+/* Responsive table
+ ========================================================================== */
+/* Phone landscape and smaller */
+@media (max-width: 959px) {
+  .uk-table-responsive,
+  .uk-table-responsive tbody,
+  .uk-table-responsive th,
+  .uk-table-responsive td,
+  .uk-table-responsive tr {
+    display: block;
+  }
+  .uk-table-responsive thead {
+    display: none;
+  }
+  .uk-table-responsive th,
+  .uk-table-responsive td {
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    overflow: visible !important;
+    white-space: normal !important;
+  }
+  .uk-table-responsive th:not(:first-child):not(.uk-table-link),
+  .uk-table-responsive td:not(:first-child):not(.uk-table-link),
+  .uk-table-responsive .uk-table-link:not(:first-child) > a {
+    padding-top: 5px !important;
+  }
+  .uk-table-responsive th:not(:last-child):not(.uk-table-link),
+  .uk-table-responsive td:not(:last-child):not(.uk-table-link),
+  .uk-table-responsive .uk-table-link:not(:last-child) > a {
+    padding-bottom: 5px !important;
+  }
+  .uk-table-justify.uk-table-responsive th,
+  .uk-table-justify.uk-table-responsive td {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.uk-table tbody tr {
+  transition: background-color 0.1s linear;
+}
+
+/* ========================================================================
+   Component: Form Range
+ ========================================================================== */
+/*
+ * 1. Normalize and defaults
+ * 2. Prevent content overflow if a fixed width is used
+ * 3. Take the full width
+ * 4. Remove default style
+ * 5. Remove white background in Chrome
+ * 6. Remove padding in IE11
+ */
+.uk-range {
+  /* 1 */
+  box-sizing: border-box;
+  margin: 0;
+  vertical-align: middle;
+  /* 2 */
+  max-width: 100%;
+  /* 3 */
+  width: 100%;
+  /* 4 */
+  -webkit-appearance: none;
+  /* 5 */
+  background: transparent;
+  /* 6 */
+  padding: 0;
+}
+
+/* Focus */
+.uk-range:focus {
+  outline: none;
+}
+
+.uk-range::-moz-focus-outer {
+  border: none;
+}
+
+/* IE11 Reset */
+.uk-range::-ms-track {
+  height: 15px;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+/*
+ * Improves consistency of cursor style for clickable elements
+ */
+.uk-range:not(:disabled)::-webkit-slider-thumb {
+  cursor: pointer;
+}
+
+.uk-range:not(:disabled)::-moz-range-thumb {
+  cursor: pointer;
+}
+
+.uk-range:not(:disabled)::-ms-thumb {
+  cursor: pointer;
+}
+
+/* Thumb
+ ========================================================================== */
+/*
+ * 1. Reset
+ * 2. Style
+ */
+/* Webkit */
+.uk-range::-webkit-slider-thumb {
+  /* 1 */
+  -webkit-appearance: none;
+  margin-top: -7px;
+  /* 2 */
+  height: 15px;
+  width: 15px;
+  border-radius: 500px;
+  background: #fff;
+  border: 1px solid #cccccc;
+}
+
+/* Firefox */
+.uk-range::-moz-range-thumb {
+  /* 1 */
+  border: none;
+  /* 2 */
+  height: 15px;
+  width: 15px;
+  border-radius: 500px;
+  background: #fff;
+  border: 1px solid #cccccc;
+}
+
+/* Edge */
+.uk-range::-ms-thumb {
+  /* 1 */
+  margin-top: 0;
+}
+
+/* IE11 */
+.uk-range::-ms-thumb {
+  /* 1 */
+  border: none;
+  /* 2 */
+  height: 15px;
+  width: 15px;
+  border-radius: 500px;
+  background: #fff;
+  border: 1px solid #cccccc;
+}
+
+/* Edge + IE11 */
+.uk-range::-ms-tooltip {
+  display: none;
+}
+
+/* Track
+ ========================================================================== */
+/*
+ * 1. Safari doesn't have a focus state. Using active instead.
+ */
+/* Webkit */
+.uk-range::-webkit-slider-runnable-track {
+  height: 3px;
+  background: #ebebeb;
+  border-radius: 500px;
+}
+
+.uk-range:focus::-webkit-slider-runnable-track,
+.uk-range:active::-webkit-slider-runnable-track {
+  background: #d2d2d2;
+}
+
+/* Firefox */
+.uk-range::-moz-range-track {
+  height: 3px;
+  background: #ebebeb;
+  border-radius: 500px;
+}
+
+.uk-range:focus::-moz-range-track {
+  background: #d2d2d2;
+}
+
+/* Edge */
+.uk-range::-ms-fill-lower,
+.uk-range::-ms-fill-upper {
+  height: 3px;
+  background: #ebebeb;
+  border-radius: 500px;
+}
+
+.uk-range:focus::-ms-fill-lower,
+.uk-range:focus::-ms-fill-upper {
+  background: #d2d2d2;
+}
+
+/* ========================================================================
+   Component: Label
+ ========================================================================== */
+.uk-label {
+  display: inline-block;
+  padding: 0 10px;
+  background: var(--text-color);
+  line-height: 1.5;
+  font-size: 0.875rem;
+  color: #fff;
+  vertical-align: middle;
+  white-space: nowrap;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+
+/* Color modifiers
+ ========================================================================== */
+/*
+ * Success
+ */
+.uk-label-success {
+  background-color: #32d296;
+  color: #fff;
+}
+
+/*
+ * Warning
+ */
+.uk-label-warning {
+  background-color: #faa05a;
+  color: #fff;
+}
+
+/*
+ * Danger
+ */
+.uk-label-danger {
+  background-color: var(--danger-color);
+  color: #fff;
+}
+
+/* ========================================================================
+   Component: Dotnav
+ ========================================================================== */
+/*
+ * 1. Allow items to wrap into the next line
+ * 2. Reset list
+ * 3. Gutter
+ */
+.uk-dotnav {
+  display: flex;
+  /* 1 */
+  flex-wrap: wrap;
+  /* 2 */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  /* 3 */
+  margin-left: -12px;
+}
+
+/*
+ * 1. Space is allocated solely based on content dimensions: 0 0 auto
+ * 2. Gutter
+ */
+.uk-dotnav > * {
+  /* 1 */
+  flex: none;
+  /* 2 */
+  padding-left: 12px;
+}
+
+/* Items
+ ========================================================================== */
+/*
+ * Items
+ * 1. Hide text if present
+ */
+.uk-dotnav > * > * {
+  display: block;
+  box-sizing: border-box;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: transparent;
+  /* 1 */
+  text-indent: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 1px solid rgba(102, 102, 102, 0.4);
+  transition: 0.2s ease-in-out;
+  transition-property: background-color, border-color;
+}
+
+/* Hover + Focus */
+.uk-dotnav > * > :hover,
+.uk-dotnav > * > :focus {
+  background-color: rgba(102, 102, 102, 0.6);
+  outline: none;
+  border-color: transparent;
+}
+
+/* OnClick */
+.uk-dotnav > * > :active {
+  background-color: rgba(102, 102, 102, 0.2);
+  border-color: transparent;
+}
+
+/* Active */
+.uk-dotnav > .uk-active > * {
+  background-color: rgba(102, 102, 102, 0.6);
+  border-color: transparent;
+}
+
+/* Modifier: 'uk-dotnav-vertical'
+ ========================================================================== */
+/*
+ * 1. Change direction
+ * 2. Gutter
+ */
+.uk-dotnav-vertical {
+  /* 1 */
+  flex-direction: column;
+  /* 2 */
+  margin-left: 0;
+  margin-top: -12px;
+}
+
+/* 2 */
+.uk-dotnav-vertical > * {
+  padding-left: 0;
+  padding-top: 12px;
+}
+
+/* ========================================================================
+   Component: Lightbox
+ ========================================================================== */
+/*
+ * 1. Hide by default
+ * 2. Set position
+ * 3. Allow scrolling for the modal dialog
+ * 4. Horizontal padding
+ * 5. Mask the background page
+ * 6. Fade-in transition
+ */
+.uk-lightbox {
+  /* 1 */
+  display: none;
+  /* 2 */
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1010;
+  /* 5 */
+  background: #000;
+  /* 6 */
+  opacity: 0;
+  transition: opacity 0.15s linear;
+}
+
+/*
+ * Open
+ * 1. Center child
+ * 2. Fade-in
+ */
+.uk-lightbox.uk-open {
+  display: block;
+  /* 2 */
+  opacity: 1;
+}
+
+/* Page
+ ========================================================================== */
+/*
+ * Prevent scrollbars
+ */
+.uk-lightbox-page {
+  overflow: hidden;
+}
+
+/* Item
+ ========================================================================== */
+/*
+ * 1. Center child within the viewport
+ * 2. Not visible by default
+ * 3. Color needed for spinner icon
+ * 4. Optimize animation
+ * 5. Responsiveness
+ *    Using `vh` for `max-height` to fix image proportions after resize in Safari and Opera
+ *    Using `vh` and `vw` to make responsive image work in IE11
+ * 6. Suppress outline on focus
+ */
+.uk-lightbox-items > * {
+  /* 1 */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* 2 */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  /* 3 */
+  color: rgba(255, 255, 255, 0.7);
+  /* 4 */
+  will-change: transform, opacity;
+}
+
+/* 5 */
+.uk-lightbox-items > * > * {
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
+/* 6 */
+.uk-lightbox-items > :focus {
+  outline: none;
+}
+
+.uk-lightbox-items > * > :not(iframe) {
+  width: auto;
+  height: auto;
+}
+
+.uk-lightbox-items > .uk-active {
+  display: flex;
+}
+
+/* Toolbar
+ ========================================================================== */
+.uk-lightbox-toolbar {
+  padding: 10px 10px;
+  background: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.uk-lightbox-toolbar > * {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Toolbar Icon (Close)
+ ========================================================================== */
+.uk-lightbox-toolbar-icon {
+  padding: 5px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/*
+ * Hover
+ */
+.uk-lightbox-toolbar-icon:hover {
+  color: #fff;
+}
+
+/* Button (Slidenav)
+ ========================================================================== */
+/*
+ * 1. Center icon vertically and horizontally
+ */
+.uk-lightbox-button {
+  box-sizing: border-box;
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.7);
+  /* 1 */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*
+ * Hover
+ */
+.uk-lightbox-button:hover {
+  color: #fff;
+}
+
+/* Caption
+ ========================================================================== */
+/* Iframe
+ ========================================================================== */
+.uk-lightbox-iframe {
+  width: 80%;
+  height: 80%;
+}
+
+/* ========================================================================
+   Component: Sticky
+ ========================================================================== */
+/*
+ * 1. Resolve frame rate issues on devices with lower frame rates by forcing hardware acceleration
+ */
+.uk-sticky-fixed {
+  z-index: 980;
+  box-sizing: border-box;
+  margin: 0 !important;
+  /* 1 */
+  backface-visibility: hidden;
+}
+
+/*
+ * Faster animations
+ */
+.uk-sticky[class*='uk-animation-'] {
+  animation-duration: 0.2s;
+}
+
+.uk-sticky.uk-animation-reverse {
+  animation-duration: 0.2s;
+}
+/*# sourceMappingURL=ht-uikit-advanced-components.css.map */

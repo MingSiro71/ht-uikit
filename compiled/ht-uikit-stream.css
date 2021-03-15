@@ -1,0 +1,71 @@
+/* 
+ * _colors.scss: Defines colors for areas and objects
+ *
+    *base: Base color and standard text colors
+    *bicolor: The second base color
+    *tricolor: The third base color
+    *danger: Areas which user should not touch in usual case use this colors
+    *primary: Colors for object which user should watch at first
+    *secondary: Colors for object which is important next to primary
+    *accent: Accent color for object which is no relation for user flow
+    *toolbar: Colers for user interface which can be find that not the parts of page, but utility object
+    *information: Colors for infomation message or telop
+    *warning: Colors for warning message or telop
+    *error: Colors for error message or telop
+ */
+/* 
+ * base
+ */
+/* 
+ * bicolor
+ */
+/* 
+ * tricolor
+ */
+/* 
+ * danger
+ */
+/* 
+ * primary
+ */
+/* 
+ * secondary
+ */
+/* 
+ * accent
+ */
+/* 
+ * toolbar
+ */
+/* 
+ * infomation
+ */
+/* 
+ * warning
+ */
+/* 
+ * error
+ */
+/* ========================================================================
+   Component: Stream
+ ========================================================================== */
+.ht-stream-container {
+  display: flex;
+}
+
+.ht-stream-container .ht-stream-mainstream {
+  min-width: 480px;
+}
+
+.ht-stream-container .ht-stream-substream-narrow {
+  width: 240px;
+}
+
+.ht-stream-container .ht-stream-substream-medium {
+  width: 360px;
+}
+
+.ht-stream-container .ht-stream-substream-broad {
+  width: 480px;
+}
+/*# sourceMappingURL=ht-uikit-stream.css.map */
