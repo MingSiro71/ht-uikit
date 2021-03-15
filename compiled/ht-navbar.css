@@ -1,0 +1,122 @@
+/* HT-Navbar scss 1.0.0 */
+/* Copyright (c) 2021 Hentech under MIT Lisence */
+/* 
+ * _colors.scss: Defines colors for areas and objects
+ *
+    *base: Base color and standard text colors
+    *bicolor: The second base color
+    *tricolor: The third base color
+    *danger: Areas which user should not touch in usual case use this colors
+    *primary: Colors for object which user should watch at first
+    *secondary: Colors for object which is important next to primary
+    *accent: Accent color for object which is no relation for user flow
+    *toolbar: Colers for user interface which can be find that not the parts of page, but utility object
+    *information: Colors for infomation message or telop
+    *warning: Colors for warning message or telop
+    *error: Colors for error message or telop
+ */
+/* 
+ * base
+ */
+/* 
+ * bicolor
+ */
+/* 
+ * tricolor
+ */
+/* 
+ * danger
+ */
+/* 
+ * primary
+ */
+/* 
+ * secondary
+ */
+/* 
+ * accent
+ */
+/* 
+ * toolbar
+ */
+/* 
+ * infomation
+ */
+/* 
+ * warning
+ */
+/* 
+ * error
+ */
+/* ========================================================================
+   Component: Navbar
+ ========================================================================== */
+/* Header bar */
+header.ht-header {
+  position: relative;
+  height: 3rem;
+  width: 100%;
+}
+
+header.ht-header .ht-header-object-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 3rem;
+}
+
+header.ht-header .ht-header-object-left {
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+header.ht-header .ht-header-object-right {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+header.ht-header .ht-header-logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+header.ht-header:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+header.ht-header.ht-header-seamless:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+/* ========================================================================
+   Component: Buffer
+ ========================================================================== */
+/* footer for scroll buffer */
+.ht-buffer {
+  display: flex;
+  width: 100%;
+  height: 5rem;
+  color: rgba(127, 127, 127, 0.2);
+  align-items: flex-end;
+  cursor: default;
+}
+
+.ht-buffer *::selection {
+  background-color: transparent;
+}
+/*# sourceMappingURL=ht-navbar.css.map */

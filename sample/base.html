@@ -17,6 +17,14 @@
   <title>HT-UIKit | Base</title>
 </head>
 <body>
+  <!-- navbar:
+    (default): Scroll out when scrolled
+    sticky: Stick to the top of the window
+
+    left: Locate to left with margin from left
+    right: Locate to right with margin from right
+    center: Locate to center in usual and keep margin from "left" and "right" though viewport become narrow
+  -->
   <header class="ht-vavbar-container ht-vavbar-container-sticky">
     <!-- navibar can be bound by block element or not -->
     <div style="max-width: 1080px">
@@ -28,13 +36,49 @@
             <text>LOGO<text>
           </a>
         </div>
+        <div class="ht-vavbar-center"></div>
         <div class="ht-vavbar-right"></div>
       </nav>
     </div>
   </header>
+
+  <!-- theme:
+    (default) / base
+    bicolor
+    tricolor
+    toolbar
+    danger
+    : Defines mainly color patterns of inner objects
+      they can over write another of them
+  -->
+  <!-- Basic block elements:
+    p,ul,ol,dl,pre,address,fieldset,figure
+    : Each of them takes mergin defined in layout.scss
+
+    ul,ol: Include li
+    dl: Include dt and dd
+    pre: Includes preformatted text, can be include code tag
+    fieldset: Includes input form which can be wrapped by some block or inline element
+    figure: Discripts elements is figure and can include figcaption
+    ul and ol nests into another of them
+  -->
+  <!-- Heading:
+    h1 to h6: Font size is defined in font.scss
+    (default): Takes margin the same as Basic block elements
+    border: Takes holizon below
+    no-space: Takes no margin after heading
+  -->
+  <!-- Link:
+    Adopted to a or .uk-link
+    (default): 
+    muted:
+    text:
+    heading: 
+    silent: 
+  -->
   <section>
-    <p>p tag takes margin to bottom 20px</p>
-    <p>p tag not the first takes margin also from top 20px</p>
+    <p>First block element with &lt;p&gt; tag</p>
+    <p>Block element with &lt;p&gt; tag</p>
 
     <a href="">Link with a tag</a><br>
     <span class="uk-link">Link with uk-link</span><br>
@@ -67,7 +111,7 @@ Preformed Text
       <footer>in youbun</footer>
     </blockquote>
     <span class="uk-icon">
-      
+
 
     </span>
   </section>

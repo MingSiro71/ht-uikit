@@ -1,0 +1,54 @@
+/* HT-Telop scss 1.0.0 */
+/* Copyright (c) 2021 Hentech under MIT Lisence */
+/* 
+ * _colors.scss: Defines colors for areas and objects
+ *
+    *base: Base color and standard text colors
+    *bicolor: The second base color
+    *tricolor: The third base color
+    *danger: Areas which user should not touch in usual case use this colors
+    *primary: Colors for object which user should watch at first
+    *secondary: Colors for object which is important next to primary
+    *accent: Accent color for object which is no relation for user flow
+    *toolbar: Colers for user interface which can be find that not the parts of page, but utility object
+    *information: Colors for infomation message or telop
+    *warning: Colors for warning message or telop
+    *error: Colors for error message or telop
+ */
+/* 
+ * base
+ */
+/* 
+ * bicolor
+ */
+/* 
+ * tricolor
+ */
+/* 
+ * danger
+ */
+/* 
+ * primary
+ */
+/* 
+ * secondary
+ */
+/* 
+ * accent
+ */
+/* 
+ * toolbar
+ */
+/* 
+ * infomation
+ */
+/* 
+ * warning
+ */
+/* 
+ * error
+ */
+/* ========================================================================
+   Component: Telop
+ ========================================================================== */
+/*# sourceMappingURL=ht-infobar.css.map */

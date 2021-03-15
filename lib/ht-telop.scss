@@ -1,0 +1,102 @@
+/* HT-Telop scss 1.0.0 */
+/* Copyright (c) 2021 Hentech under MIT Lisence */
+
+@import "config/_font.scss";
+@import "config/_colors.scss";
+@import "config/_layout.scss";
+
+/* ========================================================================
+   Component: Telop
+ ========================================================================== */
+
+ /* hentech alert control */
+// main setback
+main.ht-main{
+  margin: 0;
+  padding-top: map-get($window-layout, main-setback);
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  height: calc(100vh - #{map-get($window-layout, main-setback)} - #{map-get($window-layout, header-height)});
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.ht-info-field{
+  position: absolute;
+  top: map-get($window-layout, header-height);
+  width: 100%;
+  z-index: 5;
+  li.ht-info-tab{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    padding-left: 0.5rem;
+    width: 100%;
+  }
+  li.ht-info-tab-info{
+    background-color: map-get($accent-color, base);
+    color: map-get($accent-color, text);
+    a, .uk-link{
+      color: map-get($accent-color, text-link);  
+    }
+    a:hover, .uk-link:hover,
+    a:active, .uk-link:active{
+      color: map-get($accent-color, text-light);  
+    }
+    h1, h2, h3, h4, h5, h6{
+      a, .uk-link{
+        color: inherit;  
+      }
+      a:hover, .uk-link:hover,
+      a:active, .uk-link:active{
+        color: map-get($accent-color, heading-light);  
+      }
+    }
+  }
+  li.ht-info-tab-warning{
+    background-color: map-get($warning-color, base);
+    color: map-get($warning-color, text);
+    a, .uk-link{
+      color: map-get($warning-color, text-link);  
+    }
+    a:hover, .uk-link:hover,
+    a:active, .uk-link:active{
+      color: map-get($warning-color, text-light);  
+    }
+    h1, h2, h3, h4, h5, h6{
+      a, .uk-link{
+        color: inherit;  
+      }
+      a:hover, .uk-link:hover,
+      a:active, .uk-link:active{
+        color: map-get($warning-color, heading-light);  
+      }
+    }
+    &:before{
+      content: "! : "      
+    }
+  }
+  li.ht-info-tab-danger{
+    background-color: map-get($danger-color, base);
+    color: map-get($danger-color, text);
+    a, .uk-link{
+      color: map-get($danger-color, text-link);  
+    }
+    a:hover, .uk-link:hover,
+    a:active, .uk-link:active{
+      color: map-get($danger-color, text-light);  
+    }
+    h1, h2, h3, h4, h5, h6{
+      a, .uk-link{
+        color: inherit;  
+      }
+      a:hover, .uk-link:hover,
+      a:active, .uk-link:active{
+        color: map-get($danger-color, heading-light);  
+      }
+    }
+    &:before{
+      content: "! : "      
+    }
+  }
+}

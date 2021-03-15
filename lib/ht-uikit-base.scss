@@ -1,0 +1,991 @@
+/* HT-UIkit scss 1.0.0 */
+/* Base: UIkit 3.1.7 | http://www.getuikit.com */ 
+/* Edit: Hentech */
+
+/* Required theme configurations
+  1. _font.scss: Defines Font family, Standard size and sizes for header
+  2. _colors.scss: Defines colors for
+    *base: Base color and standard text colors
+    *bicolor: The second base color
+    *tricolor: The third base color
+    *danger: Areas which user should not touch in usual case use this colors
+    *primary: Colors for object which user should watch at first
+    *secondary: Colors for object which is important next to primary
+    *accent: Accent color for object which is no relation for user flow
+    *toolbar: Colers for user interface which can be find that not the parts of page, but utility object
+    *information: Colors for infomation message or telop
+    *warning: Colors for warning message or telop
+    *error: Colors for error message or telop
+  3. _layout.scss: Defines sizes and placement of base partitions 
+    *header
+    *main
+    *footer
+    *overlay
+*/
+
+@import "config/_font.scss";
+@import "config/_colors.scss";
+@import "config/_layout.scss";
+
+/* Over view
+ * Sanitation
+ * Base
+ * Theme
+ * Link: assign to "a" and ".ht-link", for each themes
+ *   *base
+ *   *bicolor
+ *   *tricolor
+ *   *danger
+ *   *toolbar
+ * Spinner
+ * Progress
+ */
+
+/* ========================================================================
+   Component: Base
+ ========================================================================== */
+/*
+ * 1. Set `font-size` to support `rem` units
+ *    Not using `font` property because a leading hyphen (e.g. -apple-system) causes the font to break in IE11 and Edge
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ * 3. Style
+ */
+html {
+  /* 1 */
+  font-family: $font-family;
+  font-size: $font-size-base;
+  font-weight: normal;
+  line-height: 1.5;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 3 */
+  background: map-get($base-color, basis);
+  color: map-get($base-color, text);
+}
+// Remove the margin in all browsers.
+body { margin: 0; }
+// Unify text align to bottom
+text * { vertical-align: text-bottom; }
+.ht-base {
+  background: map-get($base-color, basis);
+  color: map-get($base-color, text);
+}
+.ht-bicolor {
+  background: map-get($bicolor-color, basis);
+  color: map-get($bicolor-color, text);
+}
+.ht-tricolor {
+  background: map-get($tricolor-color, basis);
+  color: map-get($tricolor-color, text);
+}
+.ht-toolbar {
+  background: map-get($toolbar-color, basis);
+  color: map-get($toolbar-color, text);
+}
+.ht-danger {
+  background: map-get($danger-color, basis);
+  color: map-get($danger-color, text);
+}
+/* Links
+ ========================================================================== */
+/*
+ * Remove the outline on focused links when they are also active or hovered
+ */
+a,.uk-link{
+  text-decoration: none;
+  cursor: pointer;
+  color: map-get($base-color, text-link);
+  &:active,&:hover{
+    outline: none;
+    color: map-get($base-color, text-light);
+    text-decoration: underline;
+  }
+}
+.ht-base {
+  a,.uk-link{
+    color: map-get($base-color, text-link);
+    &:active,&:hover{
+      color: map-get($base-color, text-light);
+    }
+  }
+}
+.ht-bicolor {
+  a,.uk-link{
+    color: map-get($bicolor-color, text-link);
+      &:active,&:hover{
+      color: map-get($bicolor-color, text-light);
+    }
+  }
+}
+.ht-tricolor {
+  a,.uk-link{
+    color: map-get($tricolor-color, text-link);
+    &:active,&:hover{
+      color: map-get($tricolor-color, text-light);
+    }
+  }
+}
+.ht-toolbar {
+  a,.uk-link{
+    color: map-get($toolbar-color, text-link);
+    &:active,&:hover{
+      color: map-get($toolbar-color, text-light);
+    }
+  }
+}
+.ht-danger {
+  a,.uk-link{
+    color: map-get($danger-color, text-link);
+    &:active,&:hover{
+      color: map-get($danger-color, text-light);
+    }
+  }
+}
+/* Text-level semantics
+ ========================================================================== */
+/*
+ * 1. Add the correct text decoration in Edge.
+ * 2. The shorthand declaration `underline dotted` is not supported in Safari.
+ */
+abbr[title] {
+  /* 1 */
+  text-decoration: underline dotted;
+  /* 2 */
+  -webkit-text-decoration-style: dotted;
+}
+/*
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,strong {
+  font-weight: bolder;
+}
+/*
+ * 1. Consolas has a better baseline in running text compared to `Courier`
+ * 2. Correct the odd `em` font sizing in all browsers.
+ * 3. Style
+ */
+:not(pre) {
+  >code,>kbd,>samp{
+    /* 1 */
+    font-family: Consolas, monaco, monospace;
+    /* 2 */
+    font-size: 0.875rem;
+    /* 3 */
+    white-space: nowrap;
+    padding: 2px 6px;
+    background: #f8f8f8;
+  }
+}
+/* Embedded content
+ ========================================================================== */
+/*
+ * Remove the gap between embedded content and the bottom of their containers.
+ */
+audio,canvas,iframe,
+img,svg,video {
+  vertical-align: middle;
+}
+/*
+ * 1. Add responsiveness.
+ * 2. Auto-scale the height. Only needed if `height` attribute is present.
+ * 3. Corrects responsive `max-width` behavior if padding and border are used.
+ * 4. Exclude SVGs for IE11 because they don't preserve their aspect ratio.
+ */
+canvas,img,video {
+  /* 1 */
+  max-width: 100%;
+  /* 2 */
+  height: auto;
+  /* 3 */
+  box-sizing: border-box;
+}
+/* 4 */
+@supports (display: block) {
+  svg {
+    max-width: 100%;
+    height: auto;
+    box-sizing: border-box;
+  }
+}
+/*
+ * Hide the overflow in IE.
+ */
+svg:not(:root) {
+  overflow: hidden;
+}
+/*
+ * 1. Fix lazy loading images if parent element is set to `display: inline` and has `overflow: hidden`.
+ * 2. Hide `alt` text for lazy loading images.
+ * Note: Selector for background while loading img[data-src*='.jpg'][src*='data:image'] { background: grey; }
+ */
+img:not([src]) {
+  /* 1 */
+  min-width: 1px;
+  /* 2 */
+  visibility: hidden;
+}
+/*
+ * Iframe
+ * Remove border in all browsers
+ */
+iframe {
+  border: 0;
+}
+/* Block elements
+ ========================================================================== */
+/*
+ * Margins
+ */
+p,
+ul,
+ol,
+dl,
+pre,
+address,
+fieldset,
+figure {
+  margin: 0 0 20px 0;
+}
+/* Add margin if adjacent element */
+* + p,
+* + ul,
+* + ol,
+* + dl,
+* + pre,
+* + address,
+* + fieldset,
+* + figure {
+  margin-top: 20px;
+}
+/* Lists
+ ========================================================================== */
+ul,
+ol {
+  /* padding-left: 30px; */
+  padding-left: 0;
+}
+/*
+ * Reset margin for nested lists
+ */
+ul > li > ul,
+ul > li > ol,
+ol > li > ol,
+ol > li > ul {
+  margin: 0;
+}
+/* Description lists
+ ========================================================================== */
+dt {
+  font-weight: bold;
+}
+dd {
+  margin-left: 0;
+}
+/* Horizontal rules
+ ========================================================================== */
+/*
+ * 1. Show the overflow in Chrome, Edge and IE.
+ * 2. Add the correct text-align in Edge and IE.
+ * 3. Style
+ */
+hr {
+  /* 1 */
+  overflow: visible;
+  /* 2 */
+  text-align: inherit;
+  /* 3 */
+  margin: 0 0 20px 0;
+  border: 0;
+  border-top: 1px solid map-get($base-color, "fogging");
+}
+/* Add margin if adjacent element */
+* + hr {
+  margin-top: 20px;
+}
+.ht-bicolor hr {
+  border-top: 1px solid map-get($bicolor-color, "fogging");
+}
+.ht-tricolor hr {
+  border-top: 1px solid map-get($tricolor-color, "fogging");
+}
+.ht-toolbar hr {
+  border-top: 1px solid map-get($toolbar-color, "fogging");
+}
+.ht-danger hr {
+  border-top: 1px solid map-get($danger-color, "fogging");
+}
+/* Address
+ ========================================================================== */
+address {
+  font-style: normal;
+}
+/* Blockquotes
+ ========================================================================== */
+blockquote {
+  margin: 0 0 20px 0;
+  // font-size: 1.25rem;
+  line-height: 1.5;
+  font-style: italic;
+  color: #333;
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+  footer {
+    margin-top: 10px;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: inherit;
+    ::before {
+      content: "— ";
+    }
+  }
+}
+/* Add margin if adjacent element */
+* + blockquote {
+  margin-top: 20px;
+}
+/* Preformatted text
+ ========================================================================== */
+/*
+ * 1. Contain overflow in all browsers.
+ */
+pre {
+  font: 0.875rem / 1.5 Consolas, monaco, monospace;
+  color: var(--text-color);
+  -moz-tab-size: 4;
+  tab-size: 4;
+  /* 1 */
+  overflow: auto;
+  padding: 10px;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  background: #fff;
+}
+pre code {
+  font-family: Consolas, monaco, monospace;
+}
+/* Selection pseudo-element
+ ========================================================================== */
+::selection {
+  background: rgba(127,127,127,0.8);
+  color: inherit;
+  text-shadow: none;
+}
+/* HTML5 elements
+ ========================================================================== */
+/*
+ * 1. Add the correct display in Edge, IE 10+, and Firefox.
+ * 2. Add the correct display in IE.
+ */
+details, main {
+  /* 2 */
+  display: block;
+}
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+  display: list-item;
+}
+/*
+ * Add the correct display in IE.
+ */
+template {
+  display: none;
+}
+/* ========================================================================
+   Component: Theme
+ ========================================================================== */
+/* primary
+ ========================================================================== */
+.ht-theme-primary {
+  background: map-get($primary-color, basis);
+  color: map-get($primary-color, text);  
+  h1,h2,h3,h4,h5,h6 {
+    color: map-get($primary-color, heading);
+  }
+  path, polyline, line, path {
+    stroke: map-get($primary-color, text);
+    fill: map-get($primary-color, text);
+  }
+  a, uk-link {
+    color: map-get($primary-color, text-link);
+    path, polyline, line, path {
+      stroke: map-get($primary-color, text-link);
+      fill: map-get($primary-color, text-link);
+    }
+    &:hover{
+      color: map-get($primary-color, text-light);
+      path, polyline, line, path {
+        stroke: map-get($primary-color, text-light);
+        fill: map-get($primary-color, text-light);
+      }
+    }
+  }
+}
+/* secondary
+ ========================================================================== */
+.ht-theme-secondary {
+  background: map-get($secondary-color, basis);
+  color: map-get($secondary-color, text);  
+  h1,h2,h3,h4,h5,h6 {
+    color: map-get($secondary-color, heading);
+  }
+  path, polyline, line, path {
+    stroke: map-get($secondary-color, text);
+    fill: map-get($secondary-color, text);
+  }
+  a, uk-link {
+    color: map-get($secondary-color, text-link);
+    path, polyline, line, path {
+      stroke: map-get($secondary-color, text-link);
+      fill: map-get($secondary-color, text-link);
+    }
+    &:hover{
+      color: map-get($secondary-color, text-light);
+      path, polyline, line, path {
+        stroke: map-get($secondary-color, text-light);
+        fill: map-get($secondary-color, text-light);
+      }
+    }
+  }
+}
+/* accent
+ ========================================================================== */
+.ht-theme-accent {
+  background: map-get($accent-color, basis);
+  color: map-get($accent-color, text);  
+  h1,h2,h3,h4,h5,h6 {
+    color: map-get($accent-color, heading);
+  }
+  path, polyline, line, path {
+    stroke: map-get($accent-color, text);
+    fill: map-get($accent-color, text);
+  }
+  a, uk-link {
+    color: map-get($accent-color, text-link);
+    path, polyline, line, path {
+      stroke: map-get($accent-color, text-link);
+      fill: map-get($accent-color, text-link);
+    }
+    &:hover{
+      color: map-get($accent-color, text-light);
+      path, polyline, line, path {
+        stroke: map-get($accent-color, text-light);
+        fill: map-get($accent-color, text-light);
+      }
+    }
+  }
+}
+/* object
+ ========================================================================== */
+.ht-theme-object {
+  background: map-get($toolbar-color, basis);
+  color: map-get($toolbar-color, text);  
+  h1,h2,h3,h4,h5,h6 {
+    color: map-get($toolbar-color, heading);
+  }
+  path, polyline, line, path {
+    stroke: map-get($toolbar-color, text);
+    fill: map-get($toolbar-color, text);
+  }
+  a, uk-link {
+    color: map-get($toolbar-color, text-link);
+    path, polyline, line, path {
+      stroke: map-get($toolbar-color, text-link);
+      fill: map-get($toolbar-color, text-link);
+    }
+    &:hover{
+      color: map-get($toolbar-color, text-light);
+      path, polyline, line, path {
+        stroke: map-get($toolbar-color, text-light);
+        fill: map-get($toolbar-color, text-light);
+      }
+    }
+  }
+}
+/* warning
+ ========================================================================== */
+.ht-theme-warning {
+  background: map-get($warning-color, basis);
+  color: map-get($warning-color, text);  
+  h1,h2,h3,h4,h5,h6 {
+    color: map-get($warning-color, heading);
+  }
+  path, polyline, line, path {
+    stroke: map-get($warning-color, text);
+    fill: map-get($warning-color, text);
+  }
+  a, uk-link {
+    color: map-get($warning-color, text-link);
+    path, polyline, line, path {
+      stroke: map-get($warning-color, text-link);
+      fill: map-get($warning-color, text-link);
+    }
+    &:hover{
+      color: map-get($warning-color, text-light);
+      path, polyline, line, path {
+        stroke: map-get($warning-color, text-light);
+        fill: map-get($warning-color, text-light);
+      }
+    }
+  }
+}
+/* danger
+ ========================================================================== */
+.ht-theme-danger {
+  background: map-get($danger-color, basis);
+  color: map-get($danger-color, text);  
+  h1,h2,h3,h4,h5,h6 {
+    color: map-get($danger-color, heading);
+  }
+  path, polyline, line, path {
+    stroke: map-get($danger-color, text);
+    fill: map-get($danger-color, text);
+  }
+  a, uk-link {
+    color: map-get($danger-color, text-link);
+    path, polyline, line, path {
+      stroke: map-get($danger-color, text-link);
+      fill: map-get($danger-color, text-link);
+    }
+    &:hover{
+      color: map-get($danger-color, text-light);
+      path, polyline, line, path {
+        stroke: map-get($danger-color, text-light);
+        fill: map-get($danger-color, text-light);
+      }
+    }
+  }
+}
+/* ========================================================================
+   Component: Link
+ ========================================================================== */
+/* Muted
+ ========================================================================== */
+a.uk-link-muted,
+.uk-link-muted a {
+  color: map-get($base-color, text-light);
+}
+a.uk-link-muted:hover,
+.uk-link-muted a:hover{
+  color: map-get($base-color, text);
+}
+.ht-base {
+  a.uk-link-muted,
+  .uk-link-muted a {
+    color: map-get($base-color, text-light);
+  }
+  a.uk-link-muted:hover,
+  .uk-link-muted a:hover{
+    color: map-get($base-color, text);
+  }
+}
+.ht-bicolor {
+  a.uk-link-muted,
+  .uk-link-muted a {
+    color: map-get($bicolor-color, text-light);
+  }
+  a.uk-link-muted:hover,
+  .uk-link-muted a:hover{
+    color: map-get($bicolor-color, text);
+  }
+}
+.ht-tricolor {
+  a.uk-link-muted,
+  .uk-link-muted a {
+    color: map-get($tricolor-color, text-light);
+  }
+  a.uk-link-muted:hover,
+  .uk-link-muted a:hover{
+    color: map-get($tricolor-color, text);
+  }
+}
+.ht-danger {
+  a.uk-link-muted,
+  .uk-link-muted a {
+    color: map-get($danger-color, text-light);
+  }
+  a.uk-link-muted:hover,
+  .uk-link-muted a:hover{
+    color: map-get($danger-color, text);
+  }
+}
+.ht-toolbar {
+  a.uk-link-muted,
+  .uk-link-muted a {
+    color: map-get($toolbar-color, text-light);
+  }
+  a.uk-link-muted:hover,
+  .uk-link-muted a:hover{
+    color: map-get($toolbar-color, text);
+  }
+}
+/* Text
+ ========================================================================== */
+a.uk-link-text,
+.uk-link-text a {
+  color: map-get($base-color, text-link);
+}
+a.uk-link-text:hover,
+.uk-link-text a:hover{
+  color: map-get($base-color, text-light);
+}
+.ht-base {
+  a.uk-link-text,
+  .uk-link-text a {
+    color: map-get($base-color, text-link);
+  }
+  a.uk-link-text:hover,
+  .uk-link-text a:hover{
+    color: map-get($base-color, text-light);
+  }
+}
+.ht-bicolor {
+  a.uk-link-text,
+  .uk-link-text a {
+    color: map-get($bicolor-color, text-link);
+  }
+  a.uk-link-text:hover,
+  .uk-link-text a:hover{
+    color: map-get($bicolor-color, text-light);
+  }
+}
+.ht-tricolor {
+  a.uk-link-text,
+  .uk-link-text a {
+    color: map-get($tricolor-color, text-link);
+  }
+  a.uk-link-text:hover,
+  .uk-link-text a:hover{
+    color: map-get($tricolor-color, text-light);
+  }
+}
+.ht-danger {
+  a.uk-link-text,
+  .uk-link-text a {
+    color: map-get($danger-color, text-link);
+  }
+  a.uk-link-text:hover,
+  .uk-link-text a:hover{
+    color: map-get($danger-color, text-light);
+  }
+}
+.ht-toolbar {
+  a.uk-link-text,
+  .uk-link-text a {
+    color: map-get($toolbar-color, text-link);
+  }
+  a.uk-link-text:hover,
+  .uk-link-text a:hover{
+    color: map-get($toolbar-color, text-light);
+  }
+}
+/* Heading
+ ========================================================================== */
+a.uk-link-heading,
+.uk-link-heading a {
+  color: inherit;
+}
+a.uk-link-heading:hover,
+.uk-link-heading a:hover,
+.uk-link-toggle:hover .uk-link-heading,
+.uk-link-toggle:focus .uk-link-heading {
+  color: map-get($base-color, heading-light);
+  text-decoration: none;
+}
+.ht-theme-primary {
+  a.uk-link-heading:hover,
+  .uk-link-heading a:hover,
+  .uk-link-toggle:hover .uk-link-heading,
+  .uk-link-toggle:focus .uk-link-heading {
+    color: map-get($primary-color, heading-light);
+  }
+}
+.ht-theme-secondary {
+  a.uk-link-heading:hover,
+  .uk-link-heading a:hover,
+  .uk-link-toggle:hover .uk-link-heading,
+  .uk-link-toggle:focus .uk-link-heading {
+    color: map-get($secondary-color, heading-light);
+  }
+}
+.ht-theme-accent {
+  a.uk-link-heading:hover,
+  .uk-link-heading a:hover,
+  .uk-link-toggle:hover .uk-link-heading,
+  .uk-link-toggle:focus .uk-link-heading {
+    color: map-get($accent-color, heading-light);
+  }
+}
+.ht-theme-object {
+  a.uk-link-heading:hover,
+  .uk-link-heading a:hover,
+  .uk-link-toggle:hover .uk-link-heading,
+  .uk-link-toggle:focus .uk-link-heading {
+    color: map-get($toolbar-color, heading-light);
+  }
+}
+
+.ht-theme-warning {
+  a.uk-link-heading:hover,
+  .uk-link-heading a:hover,
+  .uk-link-toggle:hover .uk-link-heading,
+  .uk-link-toggle:focus .uk-link-heading {
+    color: map-get($warning-color, heading-light);
+  }
+}
+.ht-theme-danger {
+  a.uk-link-heading:hover,
+  .uk-link-heading a:hover,
+  .uk-link-toggle:hover .uk-link-heading,
+  .uk-link-toggle:focus .uk-link-heading {
+    color: map-get($danger-color, heading-light);
+  }
+}
+
+/* ========================================================================
+   Component: Spinner
+ ========================================================================== */
+/*
+ * Adopts `uk-icon`
+ */
+/* SVG
+ ========================================================================== */
+.uk-spinner > * {
+  animation: uk-spinner-rotate 1.4s linear infinite;
+}
+@keyframes uk-spinner-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}
+/*
+ * Circle
+ */
+.uk-spinner > * > * {
+  stroke-dasharray: 88px;
+  stroke-dashoffset: 0;
+  transform-origin: center;
+  animation: uk-spinner-dash 1.4s ease-in-out infinite;
+  stroke-width: 1;
+  stroke-linecap: round;
+}
+@keyframes uk-spinner-dash {
+  0% {
+    stroke-dashoffset: 88px;
+  }
+  50% {
+    stroke-dashoffset: 22px;
+    transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 88px;
+    transform: rotate(450deg);
+  }
+}
+/* ========================================================================
+   Component: Tab
+ ========================================================================== */
+/*
+ * 1. Allow items to wrap into the next line
+ * 2. Gutter
+ * 3. Reset list
+ */
+.uk-tab {
+  display: flex;
+  /* 1 */
+  flex-wrap: wrap;
+  /* 2 */
+  margin-left: -20px;
+  /* 3 */
+  padding: 0;
+  list-style: none;
+  position: relative;
+}
+.uk-tab::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  right: 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+/*
+ * 1. Space is allocated solely based on content dimensions: 0 0 auto
+ * 2. Gutter
+ * 3. Create position context for dropdowns
+ */
+.uk-tab > * {
+  /* 1 */
+  flex: none;
+  /* 2 */
+  padding-left: 20px;
+  /* 3 */
+  position: relative;
+}
+/* Items
+ ========================================================================== */
+/*
+ * Items must target `a` elements to exclude other elements (e.g. dropdowns)
+ * 1. Center text if a width is set
+ * 2. Style
+ */
+.uk-tab > * > a {
+  /* 1 */
+  display: block;
+  text-align: center;
+  /* 2 */
+  padding: 5px 10px;
+  color: var(--sub-text-color);
+  border-bottom: 1px solid transparent;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  transition: color 0.1s ease-in-out;
+}
+/* Hover + Focus */
+.uk-tab > * > a:hover,
+.uk-tab > * > a:focus {
+  color: var(--text-color);
+  text-decoration: none;
+}
+/* Active */
+.uk-tab > .uk-active > a {
+  color: #333;
+  border-color: var(--text-color);
+}
+/* Disabled */
+.uk-tab > .uk-disabled > a {
+  color: var(--sub-text-color);
+}
+/* Position modifier
+ ========================================================================== */
+/*
+ * Bottom
+ */
+.uk-tab-bottom::before {
+  top: 0;
+  bottom: auto;
+}
+.uk-tab-bottom > * > a {
+  border-top: 1px solid transparent;
+  border-bottom: none;
+}
+/*
+ * Left + Right
+ * 1. Reset Gutter
+ */
+.uk-tab-left,
+.uk-tab-right {
+  flex-direction: column;
+  /* 1 */
+  margin-left: 0;
+}
+/* 1 */
+.uk-tab-left > *,
+.uk-tab-right > * {
+  padding-left: 0;
+}
+.uk-tab-left::before {
+  top: 0;
+  bottom: 0;
+  left: auto;
+  right: 0;
+  border-left: 1px solid #e5e5e5;
+  border-bottom: none;
+}
+.uk-tab-right::before {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: auto;
+  border-left: 1px solid #e5e5e5;
+  border-bottom: none;
+}
+.uk-tab-left > * > a {
+  text-align: left;
+  border-right: 1px solid transparent;
+  border-bottom: none;
+}
+.uk-tab-right > * > a {
+  text-align: left;
+  border-left: 1px solid transparent;
+  border-bottom: none;
+}
+.uk-tab .uk-dropdown {
+  margin-left: 30px;
+}
+
+/* ========================================================================
+   Component: Progress
+ ========================================================================== */
+/*
+ * 1. Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ * 2. Remove default style
+ * 3. Behave like a block element
+ * 4. Remove borders in Firefox and Edge
+ * 5. Set background color for progress container in Firefox, IE11 and Edge
+ * 6. Style
+ */
+.uk-progress {
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /* 3 */
+  display: block;
+  width: 100%;
+  /* 4 */
+  border: 0;
+  /* 5 */
+  background-color: #f8f8f8;
+  /* 6 */
+  margin-bottom: 20px;
+  height: 15px;
+  border-radius: 500px;
+  overflow: hidden;
+}
+/* Add margin if adjacent element */
+* + .uk-progress {
+  margin-top: 20px;
+}
+/*
+ * Remove animated circles for indeterminate state in IE11 and Edge
+ */
+.uk-progress:indeterminate {
+  color: transparent;
+}
+/*
+ * Progress container
+ * 2. Remove progress bar for indeterminate state in Firefox
+ */
+.uk-progress::-webkit-progress-bar {
+  background-color: #f8f8f8;
+  border-radius: 500px;
+  overflow: hidden;
+}
+/* 2 */
+.uk-progress:indeterminate::-moz-progress-bar {
+  width: 0;
+}
+/*
+ * Progress bar
+ * 1. Remove right border in IE11 and Edge
+ */
+.uk-progress::-webkit-progress-value {
+  background-color: var(--text-color);
+  transition: width 0.6s ease;
+}
+.uk-progress::-moz-progress-bar {
+  background-color: var(--text-color);
+}
+.uk-progress::-ms-fill {
+  background-color: var(--text-color);
+  transition: width 0.6s ease;
+  /* 1 */
+  border: 0;
+}
