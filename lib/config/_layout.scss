@@ -1,19 +1,51 @@
-$base-text-size: 16px;
-$window-layout: (
-    header-height: 3rem,
-    main-setback: 1.5rem,
-    outer-margin: 8px,
+/* 
+ * _layout.scss: Defines window breakpoint and indent size 
+ *
+  Stream-width:
+    Width Definitions for Stream Component
+    It is recomended that keep main-min smaller than 375
+    enough not to hide content in small mobile
+  Breakpoint
+    Devices are called here
+      - mobile: mobile phone such as smartphone
+        mobile-portlate
+        mobile-landscape
+      - notebook: Laptop and tablet computer
+                  Using tablet in landscape layout, is included in workstation 
+      - workstation: Computers larger than notebook such as desktop computer
+  Others
+    nav-height: Height of navigation bar
+ */
+
+$stream-width: (
+  main-max: 720px,
+  main-min: 480px,
+  sub: 240px,
 );
 $breakpoint: (
-    modarn_mobile: 480px,
-    tablet: 768px,
-    include_desktop: 960px,
-    exclusive_desktop: 1200px,
+  mobile-portlate: 480px,
+  mobile-landscape: 896px,
+  notebook: 1024px,
 );
-$stream-width: (
-    narrow: 240px,
-    medium: 360px,
-    broad: 480px,
-    main-max: 720px,
-    main-min: 480px,
-)
+$nav-height: (
+  mobile-portlate: 60px,
+  mobile-landscape: 80px,
+  notebook: 80px,
+  workstation: 80px,
+);
+
+/* Do not touch! Auto configuration */
+$bp-max: (
+  mobile-portlate: 'screen and (max-width: #{map-get($breakpoint, mobile-portlate)})',
+  mobile-landscape: 'screen and (max-width: #{map-get($breakpoint, mobile-landscape)})',
+  notebook: 'screen and (max-width: #{map-get($breakpoint, notebook)})'
+);
+$bp-min: (
+  mobile-landscape: 'screen and (min-width: #{calc(#{map-get($breakpoint, mobile-portlate)} + 1px)})',
+  notebook: 'screen and (min-width: #{calc(#{map-get($breakpoint, mobile-landscape)} + 1px)})',
+  workstation: 'screen and (min-width: #{calc(#{map-get($breakpoint, notebook)} + 1px)})',
+);
+$bp-bound: (
+  mobile-landscape: 'screen and (min-width: calc(#{map-get($breakpoint, mobile-portlate)} + 1px)) and (max-width: #{map-get($breakpoint, mobile-landscape)})',
+  notebook: 'screen and (min-width: calc(#{map-get($breakpoint, mobile-landscape)} + 1px)) and (max-width: #{map-get($breakpoint, notebook)})',
+);

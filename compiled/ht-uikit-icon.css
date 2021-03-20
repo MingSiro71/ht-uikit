@@ -4,17 +4,46 @@
 /* 
  * _colors.scss: Defines colors for areas and objects
  *
-    *base: Base color and standard text colors
-    *bicolor: The second base color
-    *tricolor: The third base color
-    *danger: Areas which user should not touch in usual case use this colors
-    *primary: Colors for object which user should watch at first
-    *secondary: Colors for object which is important next to primary
-    *accent: Accent color for object which is no relation for user flow
-    *toolbar: Colers for user interface which can be find that not the parts of page, but utility object
-    *information: Colors for infomation message or telop
-    *warning: Colors for warning message or telop
-    *error: Colors for error message or telop
+  Themes:
+    Areas:
+      *base: Base color and standard text colors
+      *bicolor: The second base color
+      *tricolor: The third base color
+      *toolbar: Colers for user interface which can be find that not the parts of page, but utility object
+      *danger: Areas which user should not touch in usual case use this colors
+    Objects:
+      *primary: Colors for object which user should watch at first
+      *secondary: Colors for object which is important next to primary
+      *accent: Accent color for object which is no relation for user flow
+    Nocices:
+      *information: Colors for infomation message or telop
+      *warning: Colors for warning message or telop
+      *error: Colors for error message or telop
+
+  Colors for each theme:
+    Areas:
+      basis: Used for background color
+      dent: Impless there is a dent which is used for hr or border
+      text: Text color
+      text-muted: Text color which is muted, also used link hover
+      text-active: Text in active element
+      heading: Used for heading, which is stronger than text color
+      link: Impress that text is link
+      link-ontouch: Used for link on touch or on cursor
+
+      Only toolbar and danger:
+        ontouch: User touches or cursor is on
+        active: Impress the element is active seemes to be pushed
+    Objects:
+      basis: Used for object's background color
+      ontouch: User touches or cursor is on, seems to be reflecting ray
+      active: Impress the element is active, seems pushed
+      text: Text color
+    Nocices:
+      basis: Used for object's background color
+      ontouch: User touches or cursor is on
+      dent: Used when view type is signboard
+      text: Text color
  */
 /* 
  * base
@@ -26,8 +55,11 @@
  * tricolor
  */
 /* 
- * danger
+ * toolbar
  */
+/* 
+  * danger
+  */
 /* 
  * primary
  */
@@ -38,17 +70,33 @@
  * accent
  */
 /* 
- * toolbar
- */
-/* 
- * infomation
- */
+  * infomation
+  */
 /* 
  * warning
  */
 /* 
  * error
  */
+/* 
+ * _layout.scss: Defines window breakpoint and indent size 
+ *
+  Stream-width:
+    Width Definitions for Stream Component
+    It is recomended that keep main-min smaller than 375
+    enough not to hide content in small mobile
+  Breakpoint
+    Devices are called here
+      - mobile: mobile phone such as smartphone
+        mobile-portlate
+        mobile-landscape
+      - notebook: Laptop and tablet computer
+                  Using tablet in landscape layout, is included in workstation 
+      - workstation: Computers larger than notebook such as desktop computer
+  Others
+    nav-height: Height of navigation bar
+ */
+/* Do not touch! Auto configuration */
 /* ========================================================================
    Component: Icon
  ========================================================================== */
@@ -62,8 +110,7 @@
  * 6. Remove the inheritance of text transform in Edge, Firefox, and IE.
  * 7. Remove default `button` padding and background color
  * 8. Style
- * 9. Fill all SVG elements with the current text color if no `fill` attribute is set
- * 10. Let the container fit the height of the icon
+ * 9. Adjust container height fits to icon
  */
 .uk-icon {
   /* 1 */
@@ -85,19 +132,7 @@
   /* 8 */
   display: inline-block;
   /* 9 */
-  fill: currentcolor;
-  /* 10 */
   line-height: 0;
-}
-
-.uk-icon {
-  z-index: 0;
-}
-
-/* Match to text color */
-rect, path, polylie, line {
-  stroke: currentColor;
-  fill: currentColor;
 }
 
 /* Required for `button`. */
@@ -116,11 +151,11 @@ button.uk-icon:not(:disabled) {
 /*
  * Set the fill and stroke color of all SVG elements to the current text color
  */
-.uk-icon:not(.uk-preserve) [fill*='#']:not(.uk-preserve) {
+.uk-icon:not(.uk-icon-original):not(.uk-spinner) [fill*='#']:not(.uk-icon-original):not(.uk-spinner) {
   fill: currentcolor;
 }
 
-.uk-icon:not(.uk-preserve) [stroke*='#']:not(.uk-preserve) {
+.uk-icon:not(.uk-icon-original):not(.uk-spinner) [stroke*='#']:not(.uk-icon-original):not(.uk-spinner) {
   stroke: currentcolor;
 }
 
@@ -150,20 +185,253 @@ button.uk-icon:not(:disabled) {
 /*
  * Link
  */
-.uk-icon-link {
-  color: var(--sub-text-color);
+a.uk-icon, .uk-link.uk-icon, a .uk-icon, .uk-link .uk-icon {
+  color: #3090ff;
 }
 
-.uk-icon-link:hover,
-.uk-icon-link:focus {
-  color: var(--text-color);
-  outline: none;
+a.uk-icon:active, a.uk-icon:hover, a.uk-icon:focus, .uk-link.uk-icon:active, .uk-link.uk-icon:hover, .uk-link.uk-icon:focus, a .uk-icon:active, a .uk-icon:hover, a .uk-icon:focus, .uk-link .uk-icon:active, .uk-link .uk-icon:hover, .uk-link .uk-icon:focus {
+  color: #0075fc;
 }
 
-/* OnClick + Active */
-.uk-icon-link:active,
-.uk-active > .uk-icon-link {
-  color: #595959;
+a.uk-icon:visited, .uk-link.uk-icon:visited, a .uk-icon:visited, .uk-link .uk-icon:visited {
+  color: #3090ff;
+}
+
+.ht-bicolor a.uk-icon, .ht-bicolor .uk-link.uk-icon, .ht-bicolor a .uk-icon, .ht-bicolor .uk-link .uk-icon,
+a.ht-bicolor.uk-icon, .ht-bicolor.uk-link.uk-icon, a.ht-bicolor .uk-icon, .ht-bicolor.uk-link .uk-icon {
+  color: #3090ff;
+}
+
+.ht-bicolor a.uk-icon:active, .ht-bicolor a.uk-icon:hover, .ht-bicolor a.uk-icon:focus, .ht-bicolor .uk-link.uk-icon:active, .ht-bicolor .uk-link.uk-icon:hover, .ht-bicolor .uk-link.uk-icon:focus, .ht-bicolor a .uk-icon:active, .ht-bicolor a .uk-icon:hover, .ht-bicolor a .uk-icon:focus, .ht-bicolor .uk-link .uk-icon:active, .ht-bicolor .uk-link .uk-icon:hover, .ht-bicolor .uk-link .uk-icon:focus,
+a.ht-bicolor.uk-icon:active,
+a.ht-bicolor.uk-icon:hover,
+a.ht-bicolor.uk-icon:focus, .ht-bicolor.uk-link.uk-icon:active, .ht-bicolor.uk-link.uk-icon:hover, .ht-bicolor.uk-link.uk-icon:focus, a.ht-bicolor .uk-icon:active, a.ht-bicolor .uk-icon:hover, a.ht-bicolor .uk-icon:focus, .ht-bicolor.uk-link .uk-icon:active, .ht-bicolor.uk-link .uk-icon:hover, .ht-bicolor.uk-link .uk-icon:focus {
+  color: #0075fc;
+}
+
+.ht-bicolor a.uk-icon:visited, .ht-bicolor .uk-link.uk-icon:visited, .ht-bicolor a .uk-icon:visited, .ht-bicolor .uk-link .uk-icon:visited,
+a.ht-bicolor.uk-icon:visited, .ht-bicolor.uk-link.uk-icon:visited, a.ht-bicolor .uk-icon:visited, .ht-bicolor.uk-link .uk-icon:visited {
+  color: #3090ff;
+}
+
+.ht-tricolor a.uk-icon, .ht-tricolor .uk-link.uk-icon, .ht-tricolor a .uk-icon, .ht-tricolor .uk-link .uk-icon,
+a.ht-tricolor.uk-icon, .ht-tricolor.uk-link.uk-icon, a.ht-tricolor .uk-icon, .ht-tricolor.uk-link .uk-icon {
+  color: #ffef00;
+}
+
+.ht-tricolor a.uk-icon:active, .ht-tricolor a.uk-icon:hover, .ht-tricolor a.uk-icon:focus, .ht-tricolor .uk-link.uk-icon:active, .ht-tricolor .uk-link.uk-icon:hover, .ht-tricolor .uk-link.uk-icon:focus, .ht-tricolor a .uk-icon:active, .ht-tricolor a .uk-icon:hover, .ht-tricolor a .uk-icon:focus, .ht-tricolor .uk-link .uk-icon:active, .ht-tricolor .uk-link .uk-icon:hover, .ht-tricolor .uk-link .uk-icon:focus,
+a.ht-tricolor.uk-icon:active,
+a.ht-tricolor.uk-icon:hover,
+a.ht-tricolor.uk-icon:focus, .ht-tricolor.uk-link.uk-icon:active, .ht-tricolor.uk-link.uk-icon:hover, .ht-tricolor.uk-link.uk-icon:focus, a.ht-tricolor .uk-icon:active, a.ht-tricolor .uk-icon:hover, a.ht-tricolor .uk-icon:focus, .ht-tricolor.uk-link .uk-icon:active, .ht-tricolor.uk-link .uk-icon:hover, .ht-tricolor.uk-link .uk-icon:focus {
+  color: #ccbf00;
+}
+
+.ht-tricolor a.uk-icon:visited, .ht-tricolor .uk-link.uk-icon:visited, .ht-tricolor a .uk-icon:visited, .ht-tricolor .uk-link .uk-icon:visited,
+a.ht-tricolor.uk-icon:visited, .ht-tricolor.uk-link.uk-icon:visited, a.ht-tricolor .uk-icon:visited, .ht-tricolor.uk-link .uk-icon:visited {
+  color: #ffef00;
+}
+
+.ht-toolbar a.uk-icon, .ht-toolbar .uk-link.uk-icon, .ht-toolbar a .uk-icon, .ht-toolbar .uk-link .uk-icon,
+a.ht-toolbar.uk-icon, .ht-toolbar.uk-link.uk-icon, a.ht-toolbar .uk-icon, .ht-toolbar.uk-link .uk-icon {
+  color: #f2f2f2;
+}
+
+.ht-toolbar a.uk-icon:active, .ht-toolbar a.uk-icon:hover, .ht-toolbar a.uk-icon:focus, .ht-toolbar .uk-link.uk-icon:active, .ht-toolbar .uk-link.uk-icon:hover, .ht-toolbar .uk-link.uk-icon:focus, .ht-toolbar a .uk-icon:active, .ht-toolbar a .uk-icon:hover, .ht-toolbar a .uk-icon:focus, .ht-toolbar .uk-link .uk-icon:active, .ht-toolbar .uk-link .uk-icon:hover, .ht-toolbar .uk-link .uk-icon:focus,
+a.ht-toolbar.uk-icon:active,
+a.ht-toolbar.uk-icon:hover,
+a.ht-toolbar.uk-icon:focus, .ht-toolbar.uk-link.uk-icon:active, .ht-toolbar.uk-link.uk-icon:hover, .ht-toolbar.uk-link.uk-icon:focus, a.ht-toolbar .uk-icon:active, a.ht-toolbar .uk-icon:hover, a.ht-toolbar .uk-icon:focus, .ht-toolbar.uk-link .uk-icon:active, .ht-toolbar.uk-link .uk-icon:hover, .ht-toolbar.uk-link .uk-icon:focus {
+  color: #e0d1d1;
+}
+
+.ht-toolbar a.uk-icon:visited, .ht-toolbar .uk-link.uk-icon:visited, .ht-toolbar a .uk-icon:visited, .ht-toolbar .uk-link .uk-icon:visited,
+a.ht-toolbar.uk-icon:visited, .ht-toolbar.uk-link.uk-icon:visited, a.ht-toolbar .uk-icon:visited, .ht-toolbar.uk-link .uk-icon:visited {
+  color: #f2f2f2;
+}
+
+.ht-danger a.uk-icon, .ht-danger .uk-link.uk-icon, .ht-danger a .uk-icon, .ht-danger .uk-link .uk-icon,
+a.ht-danger.uk-icon, .ht-danger.uk-link.uk-icon, a.ht-danger .uk-icon, .ht-danger.uk-link .uk-icon {
+  color: #362626;
+}
+
+.ht-danger a.uk-icon:active, .ht-danger a.uk-icon:hover, .ht-danger a.uk-icon:focus, .ht-danger .uk-link.uk-icon:active, .ht-danger .uk-link.uk-icon:hover, .ht-danger .uk-link.uk-icon:focus, .ht-danger a .uk-icon:active, .ht-danger a .uk-icon:hover, .ht-danger a .uk-icon:focus, .ht-danger .uk-link .uk-icon:active, .ht-danger .uk-link .uk-icon:hover, .ht-danger .uk-link .uk-icon:focus,
+a.ht-danger.uk-icon:active,
+a.ht-danger.uk-icon:hover,
+a.ht-danger.uk-icon:focus, .ht-danger.uk-link.uk-icon:active, .ht-danger.uk-link.uk-icon:hover, .ht-danger.uk-link.uk-icon:focus, a.ht-danger .uk-icon:active, a.ht-danger .uk-icon:hover, a.ht-danger .uk-icon:focus, .ht-danger.uk-link .uk-icon:active, .ht-danger.uk-link .uk-icon:hover, .ht-danger.uk-link .uk-icon:focus {
+  color: #1c0d0d;
+}
+
+.ht-danger a.uk-icon:visited, .ht-danger .uk-link.uk-icon:visited, .ht-danger a .uk-icon:visited, .ht-danger .uk-link .uk-icon:visited,
+a.ht-danger.uk-icon:visited, .ht-danger.uk-link.uk-icon:visited, a.ht-danger .uk-icon:visited, .ht-danger.uk-link .uk-icon:visited {
+  color: #362626;
+}
+
+.ht-base a.uk-icon, .ht-base .uk-link.uk-icon, .ht-base a .uk-icon, .ht-base .uk-link .uk-icon,
+a.ht-base.uk-icon, .ht-base.uk-link.uk-icon, a.ht-base .uk-icon, .ht-base.uk-link .uk-icon {
+  color: #3090ff;
+}
+
+.ht-base a.uk-icon:active, .ht-base a.uk-icon:hover, .ht-base a.uk-icon:focus, .ht-base .uk-link.uk-icon:active, .ht-base .uk-link.uk-icon:hover, .ht-base .uk-link.uk-icon:focus, .ht-base a .uk-icon:active, .ht-base a .uk-icon:hover, .ht-base a .uk-icon:focus, .ht-base .uk-link .uk-icon:active, .ht-base .uk-link .uk-icon:hover, .ht-base .uk-link .uk-icon:focus,
+a.ht-base.uk-icon:active,
+a.ht-base.uk-icon:hover,
+a.ht-base.uk-icon:focus, .ht-base.uk-link.uk-icon:active, .ht-base.uk-link.uk-icon:hover, .ht-base.uk-link.uk-icon:focus, a.ht-base .uk-icon:active, a.ht-base .uk-icon:hover, a.ht-base .uk-icon:focus, .ht-base.uk-link .uk-icon:active, .ht-base.uk-link .uk-icon:hover, .ht-base.uk-link .uk-icon:focus {
+  color: #0075fc;
+}
+
+.ht-base a.uk-icon:visited, .ht-base .uk-link.uk-icon:visited, .ht-base a .uk-icon:visited, .ht-base .uk-link .uk-icon:visited,
+a.ht-base.uk-icon:visited, .ht-base.uk-link.uk-icon:visited, a.ht-base .uk-icon:visited, .ht-base.uk-link .uk-icon:visited {
+  color: #3090ff;
+}
+
+a.uk-link-muted.uk-icon, a.uk-link-muted .uk-icon,
+.uk-link-muted a.uk-icon, .uk-link-muted a .uk-icon {
+  color: #3c3d36;
+}
+
+a.uk-link-muted.uk-icon:active, a.uk-link-muted.uk-icon:hover, a.uk-link-muted.uk-icon:focus, a.uk-link-muted .uk-icon:active, a.uk-link-muted .uk-icon:hover, a.uk-link-muted .uk-icon:focus,
+.uk-link-muted a.uk-icon:active,
+.uk-link-muted a.uk-icon:hover,
+.uk-link-muted a.uk-icon:focus, .uk-link-muted a .uk-icon:active, .uk-link-muted a .uk-icon:hover, .uk-link-muted a .uk-icon:focus {
+  color: #3c3d36;
+}
+
+.ht-bicolor a.uk-link-muted.uk-icon, .ht-bicolor a.uk-link-muted .uk-icon,
+.ht-bicolor .uk-link-muted a.uk-icon, .ht-bicolor .uk-link-muted a .uk-icon,
+a.ht-bicolor.uk-link-muted.uk-icon, a.ht-bicolor.uk-link-muted .uk-icon,
+.ht-bicolor.uk-link-muted a.uk-icon, .ht-bicolor.uk-link-muted a .uk-icon,
+.uk-link-muted a.ht-bicolor.uk-icon, .uk-link-muted a.ht-bicolor .uk-icon,
+.uk-link-muted a .ht-bicolor.uk-icon {
+  color: #313745;
+}
+
+.ht-bicolor a.uk-link-muted.uk-icon:active, .ht-bicolor a.uk-link-muted.uk-icon:hover, .ht-bicolor a.uk-link-muted.uk-icon:focus, .ht-bicolor a.uk-link-muted .uk-icon:active, .ht-bicolor a.uk-link-muted .uk-icon:hover, .ht-bicolor a.uk-link-muted .uk-icon:focus,
+.ht-bicolor .uk-link-muted a.uk-icon:active,
+.ht-bicolor .uk-link-muted a.uk-icon:hover,
+.ht-bicolor .uk-link-muted a.uk-icon:focus, .ht-bicolor .uk-link-muted a .uk-icon:active, .ht-bicolor .uk-link-muted a .uk-icon:hover, .ht-bicolor .uk-link-muted a .uk-icon:focus,
+a.ht-bicolor.uk-link-muted.uk-icon:active,
+a.ht-bicolor.uk-link-muted.uk-icon:hover,
+a.ht-bicolor.uk-link-muted.uk-icon:focus, a.ht-bicolor.uk-link-muted .uk-icon:active, a.ht-bicolor.uk-link-muted .uk-icon:hover, a.ht-bicolor.uk-link-muted .uk-icon:focus,
+.ht-bicolor.uk-link-muted a.uk-icon:active,
+.ht-bicolor.uk-link-muted a.uk-icon:hover,
+.ht-bicolor.uk-link-muted a.uk-icon:focus, .ht-bicolor.uk-link-muted a .uk-icon:active, .ht-bicolor.uk-link-muted a .uk-icon:hover, .ht-bicolor.uk-link-muted a .uk-icon:focus,
+.uk-link-muted a.ht-bicolor.uk-icon:active,
+.uk-link-muted a.ht-bicolor.uk-icon:hover,
+.uk-link-muted a.ht-bicolor.uk-icon:focus, .uk-link-muted a.ht-bicolor .uk-icon:active, .uk-link-muted a.ht-bicolor .uk-icon:hover, .uk-link-muted a.ht-bicolor .uk-icon:focus,
+.uk-link-muted a .ht-bicolor.uk-icon:active,
+.uk-link-muted a .ht-bicolor.uk-icon:hover,
+.uk-link-muted a .ht-bicolor.uk-icon:focus {
+  color: #313745;
+}
+
+.ht-tricolor a.uk-link-muted.uk-icon, .ht-tricolor a.uk-link-muted .uk-icon,
+.ht-tricolor .uk-link-muted a.uk-icon, .ht-tricolor .uk-link-muted a .uk-icon,
+a.ht-tricolor.uk-link-muted.uk-icon, a.ht-tricolor.uk-link-muted .uk-icon,
+.ht-tricolor.uk-link-muted a.uk-icon, .ht-tricolor.uk-link-muted a .uk-icon,
+.uk-link-muted a.ht-tricolor.uk-icon, .uk-link-muted a.ht-tricolor .uk-icon,
+.uk-link-muted a .ht-tricolor.uk-icon {
+  color: #ffffff;
+}
+
+.ht-tricolor a.uk-link-muted.uk-icon:active, .ht-tricolor a.uk-link-muted.uk-icon:hover, .ht-tricolor a.uk-link-muted.uk-icon:focus, .ht-tricolor a.uk-link-muted .uk-icon:active, .ht-tricolor a.uk-link-muted .uk-icon:hover, .ht-tricolor a.uk-link-muted .uk-icon:focus,
+.ht-tricolor .uk-link-muted a.uk-icon:active,
+.ht-tricolor .uk-link-muted a.uk-icon:hover,
+.ht-tricolor .uk-link-muted a.uk-icon:focus, .ht-tricolor .uk-link-muted a .uk-icon:active, .ht-tricolor .uk-link-muted a .uk-icon:hover, .ht-tricolor .uk-link-muted a .uk-icon:focus,
+a.ht-tricolor.uk-link-muted.uk-icon:active,
+a.ht-tricolor.uk-link-muted.uk-icon:hover,
+a.ht-tricolor.uk-link-muted.uk-icon:focus, a.ht-tricolor.uk-link-muted .uk-icon:active, a.ht-tricolor.uk-link-muted .uk-icon:hover, a.ht-tricolor.uk-link-muted .uk-icon:focus,
+.ht-tricolor.uk-link-muted a.uk-icon:active,
+.ht-tricolor.uk-link-muted a.uk-icon:hover,
+.ht-tricolor.uk-link-muted a.uk-icon:focus, .ht-tricolor.uk-link-muted a .uk-icon:active, .ht-tricolor.uk-link-muted a .uk-icon:hover, .ht-tricolor.uk-link-muted a .uk-icon:focus,
+.uk-link-muted a.ht-tricolor.uk-icon:active,
+.uk-link-muted a.ht-tricolor.uk-icon:hover,
+.uk-link-muted a.ht-tricolor.uk-icon:focus, .uk-link-muted a.ht-tricolor .uk-icon:active, .uk-link-muted a.ht-tricolor .uk-icon:hover, .uk-link-muted a.ht-tricolor .uk-icon:focus,
+.uk-link-muted a .ht-tricolor.uk-icon:active,
+.uk-link-muted a .ht-tricolor.uk-icon:hover,
+.uk-link-muted a .ht-tricolor.uk-icon:focus {
+  color: #ffffff;
+}
+
+.ht-toolbar a.uk-link-muted.uk-icon, .ht-toolbar a.uk-link-muted .uk-icon,
+.ht-toolbar .uk-link-muted a.uk-icon, .ht-toolbar .uk-link-muted a .uk-icon,
+a.ht-toolbar.uk-link-muted.uk-icon, a.ht-toolbar.uk-link-muted .uk-icon,
+.ht-toolbar.uk-link-muted a.uk-icon, .ht-toolbar.uk-link-muted a .uk-icon,
+.uk-link-muted a.ht-toolbar.uk-icon, .uk-link-muted a.ht-toolbar .uk-icon,
+.uk-link-muted a .ht-toolbar.uk-icon {
+  color: #f2f2f2;
+}
+
+.ht-toolbar a.uk-link-muted.uk-icon:active, .ht-toolbar a.uk-link-muted.uk-icon:hover, .ht-toolbar a.uk-link-muted.uk-icon:focus, .ht-toolbar a.uk-link-muted .uk-icon:active, .ht-toolbar a.uk-link-muted .uk-icon:hover, .ht-toolbar a.uk-link-muted .uk-icon:focus,
+.ht-toolbar .uk-link-muted a.uk-icon:active,
+.ht-toolbar .uk-link-muted a.uk-icon:hover,
+.ht-toolbar .uk-link-muted a.uk-icon:focus, .ht-toolbar .uk-link-muted a .uk-icon:active, .ht-toolbar .uk-link-muted a .uk-icon:hover, .ht-toolbar .uk-link-muted a .uk-icon:focus,
+a.ht-toolbar.uk-link-muted.uk-icon:active,
+a.ht-toolbar.uk-link-muted.uk-icon:hover,
+a.ht-toolbar.uk-link-muted.uk-icon:focus, a.ht-toolbar.uk-link-muted .uk-icon:active, a.ht-toolbar.uk-link-muted .uk-icon:hover, a.ht-toolbar.uk-link-muted .uk-icon:focus,
+.ht-toolbar.uk-link-muted a.uk-icon:active,
+.ht-toolbar.uk-link-muted a.uk-icon:hover,
+.ht-toolbar.uk-link-muted a.uk-icon:focus, .ht-toolbar.uk-link-muted a .uk-icon:active, .ht-toolbar.uk-link-muted a .uk-icon:hover, .ht-toolbar.uk-link-muted a .uk-icon:focus,
+.uk-link-muted a.ht-toolbar.uk-icon:active,
+.uk-link-muted a.ht-toolbar.uk-icon:hover,
+.uk-link-muted a.ht-toolbar.uk-icon:focus, .uk-link-muted a.ht-toolbar .uk-icon:active, .uk-link-muted a.ht-toolbar .uk-icon:hover, .uk-link-muted a.ht-toolbar .uk-icon:focus,
+.uk-link-muted a .ht-toolbar.uk-icon:active,
+.uk-link-muted a .ht-toolbar.uk-icon:hover,
+.uk-link-muted a .ht-toolbar.uk-icon:focus {
+  color: #f2f2f2;
+}
+
+.ht-danger a.uk-link-muted.uk-icon, .ht-danger a.uk-link-muted .uk-icon,
+.ht-danger .uk-link-muted a.uk-icon, .ht-danger .uk-link-muted a .uk-icon,
+a.ht-danger.uk-link-muted.uk-icon, a.ht-danger.uk-link-muted .uk-icon,
+.ht-danger.uk-link-muted a.uk-icon, .ht-danger.uk-link-muted a .uk-icon,
+.uk-link-muted a.ht-danger.uk-icon, .uk-link-muted a.ht-danger .uk-icon,
+.uk-link-muted a .ht-danger.uk-icon {
+  color: #e9e9e9;
+}
+
+.ht-danger a.uk-link-muted.uk-icon:active, .ht-danger a.uk-link-muted.uk-icon:hover, .ht-danger a.uk-link-muted.uk-icon:focus, .ht-danger a.uk-link-muted .uk-icon:active, .ht-danger a.uk-link-muted .uk-icon:hover, .ht-danger a.uk-link-muted .uk-icon:focus,
+.ht-danger .uk-link-muted a.uk-icon:active,
+.ht-danger .uk-link-muted a.uk-icon:hover,
+.ht-danger .uk-link-muted a.uk-icon:focus, .ht-danger .uk-link-muted a .uk-icon:active, .ht-danger .uk-link-muted a .uk-icon:hover, .ht-danger .uk-link-muted a .uk-icon:focus,
+a.ht-danger.uk-link-muted.uk-icon:active,
+a.ht-danger.uk-link-muted.uk-icon:hover,
+a.ht-danger.uk-link-muted.uk-icon:focus, a.ht-danger.uk-link-muted .uk-icon:active, a.ht-danger.uk-link-muted .uk-icon:hover, a.ht-danger.uk-link-muted .uk-icon:focus,
+.ht-danger.uk-link-muted a.uk-icon:active,
+.ht-danger.uk-link-muted a.uk-icon:hover,
+.ht-danger.uk-link-muted a.uk-icon:focus, .ht-danger.uk-link-muted a .uk-icon:active, .ht-danger.uk-link-muted a .uk-icon:hover, .ht-danger.uk-link-muted a .uk-icon:focus,
+.uk-link-muted a.ht-danger.uk-icon:active,
+.uk-link-muted a.ht-danger.uk-icon:hover,
+.uk-link-muted a.ht-danger.uk-icon:focus, .uk-link-muted a.ht-danger .uk-icon:active, .uk-link-muted a.ht-danger .uk-icon:hover, .uk-link-muted a.ht-danger .uk-icon:focus,
+.uk-link-muted a .ht-danger.uk-icon:active,
+.uk-link-muted a .ht-danger.uk-icon:hover,
+.uk-link-muted a .ht-danger.uk-icon:focus {
+  color: #e9e9e9;
+}
+
+.ht-base a.uk-link-muted.uk-icon, .ht-base a.uk-link-muted .uk-icon,
+.ht-base .uk-link-muted a.uk-icon, .ht-base .uk-link-muted a .uk-icon,
+a.ht-base.uk-link-muted.uk-icon, a.ht-base.uk-link-muted .uk-icon,
+.ht-base.uk-link-muted a.uk-icon, .ht-base.uk-link-muted a .uk-icon,
+.uk-link-muted a.ht-base.uk-icon, .uk-link-muted a.ht-base .uk-icon,
+.uk-link-muted a .ht-base.uk-icon {
+  color: #3c3d36;
+}
+
+.ht-base a.uk-link-muted.uk-icon:active, .ht-base a.uk-link-muted.uk-icon:hover, .ht-base a.uk-link-muted.uk-icon:focus, .ht-base a.uk-link-muted .uk-icon:active, .ht-base a.uk-link-muted .uk-icon:hover, .ht-base a.uk-link-muted .uk-icon:focus,
+.ht-base .uk-link-muted a.uk-icon:active,
+.ht-base .uk-link-muted a.uk-icon:hover,
+.ht-base .uk-link-muted a.uk-icon:focus, .ht-base .uk-link-muted a .uk-icon:active, .ht-base .uk-link-muted a .uk-icon:hover, .ht-base .uk-link-muted a .uk-icon:focus,
+a.ht-base.uk-link-muted.uk-icon:active,
+a.ht-base.uk-link-muted.uk-icon:hover,
+a.ht-base.uk-link-muted.uk-icon:focus, a.ht-base.uk-link-muted .uk-icon:active, a.ht-base.uk-link-muted .uk-icon:hover, a.ht-base.uk-link-muted .uk-icon:focus,
+.ht-base.uk-link-muted a.uk-icon:active,
+.ht-base.uk-link-muted a.uk-icon:hover,
+.ht-base.uk-link-muted a.uk-icon:focus, .ht-base.uk-link-muted a .uk-icon:active, .ht-base.uk-link-muted a .uk-icon:hover, .ht-base.uk-link-muted a .uk-icon:focus,
+.uk-link-muted a.ht-base.uk-icon:active,
+.uk-link-muted a.ht-base.uk-icon:hover,
+.uk-link-muted a.ht-base.uk-icon:focus, .uk-link-muted a.ht-base .uk-icon:active, .uk-link-muted a.ht-base .uk-icon:hover, .uk-link-muted a.ht-base .uk-icon:focus,
+.uk-link-muted a .ht-base.uk-icon:active,
+.uk-link-muted a .ht-base.uk-icon:hover,
+.uk-link-muted a .ht-base.uk-icon:focus {
+  color: #3c3d36;
 }
 
 /*
@@ -172,11 +440,8 @@ button.uk-icon:not(:disabled) {
  */
 .uk-icon-button {
   box-sizing: border-box;
-  width: 36px;
-  height: 36px;
-  border-radius: 500px;
-  background: #f8f8f8;
-  color: var(--sub-text-color);
+  border-radius: 1000px;
+  background-color: rgba(127, 127, 127, 0.3);
   vertical-align: middle;
   /* 1 */
   display: inline-flex;
@@ -189,15 +454,138 @@ button.uk-icon:not(:disabled) {
 /* Hover + Focus */
 .uk-icon-button:hover,
 .uk-icon-button:focus {
-  background-color: #ebebeb;
-  color: var(--text-color);
+  background-color: rgba(207, 207, 207, 0.4);
   outline: none;
 }
 
 /* OnClick + Active */
 .uk-icon-button:active,
 .uk-active > .uk-icon-button {
-  background-color: #dfdfdf;
-  color: var(--text-color);
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/*
+ * Sizing
+ */
+.uk-icon.uk-icon-small {
+  width: 20px;
+  height: 20px;
+}
+
+.uk-icon.uk-icon-medium {
+  width: 36px;
+  height: 36px;
+}
+
+.uk-icon.uk-icon-large {
+  width: 60px;
+  height: 60px;
+}
+
+.uk-icon.uk-icon-button.uk-icon-small {
+  width: 36px;
+  height: 36px;
+}
+
+.uk-icon.uk-icon-button.uk-icon-small svg {
+  width: 20px;
+  height: 20px;
+}
+
+.uk-icon.uk-icon-button.uk-icon-medium {
+  width: 60px;
+  height: 60px;
+}
+
+.uk-icon.uk-icon-button.uk-icon-medium svg {
+  width: 36px;
+  height: 36px;
+}
+
+.uk-icon.uk-icon-button.uk-icon-large {
+  width: 108px;
+  height: 108px;
+}
+
+.uk-icon.uk-icon-button.uk-icon-large svg {
+  width: 60px;
+  height: 60px;
+}
+
+/* ========================================================================
+   Component: Spinner
+ ========================================================================== */
+/*
+ * Adopts `uk-icon`
+ */
+/* SVG
+ ========================================================================== */
+.uk-spinner > * {
+  animation: uk-spinner-rotate 1.4s linear infinite;
+}
+
+@keyframes uk-spinner-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}
+
+/*
+ * Circle
+ */
+.uk-spinner > * > * {
+  stroke-dasharray: 88px;
+  stroke-dashoffset: 0;
+  transform-origin: center;
+  animation: uk-spinner-dash 1.4s ease-in-out infinite;
+  stroke-width: 1;
+  stroke-linecap: round;
+}
+
+.uk-spinner > svg, .uk-spinner > svg > circle {
+  fill: none;
+  stroke-width: 0.333333px;
+}
+
+.ht-bicolor .uk-spinner > svg, .ht-bicolor .uk-spinner > svg > circle
+.ht-bicolor.uk-spinner > svg, .ht-bicolor.uk-spinner > svg > circle {
+  stroke: #3090ff;
+}
+
+.ht-tricolor .uk-spinner > svg, .ht-tricolor .uk-spinner > svg > circle
+.ht-tricolor.uk-spinner > svg, .ht-tricolor.uk-spinner > svg > circle {
+  stroke: #ffef00;
+}
+
+.ht-toolbar .uk-spinner > svg, .ht-toolbar .uk-spinner > svg > circle
+.ht-toolbar.uk-spinner > svg, .ht-toolbar.uk-spinner > svg > circle {
+  stroke: #f2f2f2;
+}
+
+.ht-danger .uk-spinner > svg, .ht-danger .uk-spinner > svg > circle
+.ht-danger.uk-spinner > svg, .ht-danger.uk-spinner > svg > circle {
+  stroke: #362626;
+}
+
+.ht-base .uk-spinner > svg, .ht-base .uk-spinner > svg > circle
+.ht-base.uk-spinner > svg, .ht-base.uk-spinner > svg > circle {
+  stroke: #3090ff;
+}
+
+@keyframes uk-spinner-dash {
+  0% {
+    stroke-dashoffset: 88px;
+  }
+  50% {
+    stroke-dashoffset: 22px;
+    transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 88px;
+    transform: rotate(450deg);
+  }
 }
 /*# sourceMappingURL=ht-uikit-icon.css.map */

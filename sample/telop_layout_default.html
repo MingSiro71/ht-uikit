@@ -1,0 +1,127 @@
+<!-- Telop:
+  layout:
+    (default): Located just as a block element
+    float: Supposed to be located under navbar
+           and displayed at the top of the parent element with z-index 100
+  view:
+    (default): Display with flat square
+    floating: With shadow
+    signboard: Like signboard with border
+  type:
+    info
+    warn
+    error 
+-->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta property="og:title" content="HT-UIKit | Telop">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.ht-uikit.com/telop.html">
+  <meta property="og:image" content="https://www.ht-uikit.com/image/telop_ogp.png">
+  <meta property="og:site_name" content="HT-UIKit">
+  <meta property="og:description" content="Customized UIKit by Hentech">
+
+  <link rel="stylesheet" href="../compiled/ht-uikit.css">
+
+  <title>HT-UIKit | Telop</title>
+</head>
+<body>
+  <header class="ht-navbar-container">
+    <nav>
+      <div class="ht-navbar-left ht-navbar-logo">
+        <a href="/">
+          <img src="../asset/image/niwatori.png" alt="cook doodle doo!" style="height: 36px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+            <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+            <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+          </svg>
+          <text>HT-UIkit<text>
+        </a>
+      </div>
+      <div class="ht-navbar-center ht-optionfor-notebook"><p>Text on the center</p></div>
+      <div class="ht-navbar-right">
+        <ul class="ht-navbar-navigation ht-optionfor-mobile-landscape">
+          <li class="uk-active"><a href="#">Active</a></li>
+          <li class=""><a href="#">Item</a></li>
+          <li class=""><a href="#">Item</a></li>
+          <li class=""><a href="#">Item</a></li>
+        </ul>
+        <button class="uk-button">Button</button>
+      </div>
+    </nav>
+  </header>
+  <section>
+    <div class="ht-telop-container">
+      <div class="ht-telop-info">This is information</div>
+      <div class="ht-telop-warn">This is warning</div>
+      <div class="ht-telop-error">This is error</div>
+      <div class="ht-telop-info">This is information<br>2 line</div>
+    </div>
+    <p><a href="telop_layout_default.html">Default</a></p>
+    <p><a href="telop_layout_default_sticky.html">Default sticky</a></p>
+    <p><a href="telop_layout_top.html">Top</a></p>
+    <p><a href="telop_layout_top_sticky.html">Top sticky</a></p>
+    <p><a href="telop_layout_bottom.html">Bottom</a></p>
+    <p><a href="telop_layout_bottom_sticky.html">Bottom sticky</a></p>
+    <p><a href="telop_floating.html">Floating</a></p>
+    <p><a href="telop_signboard.html">Signboard</a></p>
+    <p>Sentence...</p><p>Sentence...</p><p>Sentence...</p><p>Sentence...</p>
+    <p>Sentence...</p><p>Sentence...</p><p>Sentence...</p><p>Sentence...</p>
+    <p>Sentence...</p><p>Sentence...</p><p>Sentence...</p><p>Sentence...</p>
+    <p>Sentence...</p><p>Sentence...</p><p>Sentence...</p><p>Sentence...</p>
+    <p>Sentence...</p><p>Sentence...</p><p>Sentence...</p><p>Sentence...</p>
+  </section>
+  <!-- Test controll -->
+  <ul style="position: fixed;top: 0;right: 0;display: flex;flex-direction: row;justify-content: flex-end;z-index: 9000;">
+    <li><button onclick="addInfo()">Add Info</button></li>
+    <li><button onclick="addWarn()">Add Warn</button></li>
+    <li><button onclick="addError()">Add Error</button></li>
+    <li><button onclick="deleteFirst()">Delete First</button></li>
+    <li><button onclick="deleteSecond()">Delete Second</button></li>
+    <li><button onclick="deleteLast()">Delete Last</button></li>
+  </ul>
+  <script>
+    const addInfo = (e) => {
+      const targets = document.getElementsByClassName("ht-telop-container");
+      Array.from(targets).map((el)=>{
+        el.insertAdjacentHTML("beforeend",'<div class="ht-telop-info">This is information</div>');
+      });
+    }
+    const addWarn = (e) => {
+      const targets = document.getElementsByClassName("ht-telop-container");
+      Array.from(targets).map((el)=>{
+        el.insertAdjacentHTML("beforeend",'<div class="ht-telop-warn">This is information</div>');
+      });
+    }
+    const addError = (e) => {
+      const targets = document.getElementsByClassName("ht-telop-container");
+      Array.from(targets).map((el)=>{
+        el.insertAdjacentHTML("beforeend",'<div class="ht-telop-error">This is information</div>');
+      });
+    }
+    const deleteFirst = (e) => {
+      const targets = document.getElementsByClassName("ht-telop-container");
+      Array.from(targets).map((el)=>{
+        el.children[0].remove();
+      });
+    }
+    const deleteSecond = (e) => {
+      const targets = document.getElementsByClassName("ht-telop-container");
+      Array.from(targets).map((el)=>{
+        el.children[1].remove();
+      });
+    }
+    const deleteLast = (e) => {
+      const targets = document.getElementsByClassName("ht-telop-container");
+      Array.from(targets).map((el)=>{
+        el.children[el.children.length -1].remove();
+      });
+    }
+  </script>
+</body>
+</html>

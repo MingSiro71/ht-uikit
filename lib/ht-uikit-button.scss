@@ -6,6 +6,18 @@
 @import "config/_colors.scss";
 @import "config/_layout.scss";
 
+$button-height-default: 38px;
+$button-height-large: 53px;
+$button-height-small: 28px;
+
+$button-icon-default: 20px;
+$button-icon-large: 20px;
+$button-icon-small: 18px;
+
+$button-padding-default: 30px;
+$button-padding-large: 40px;
+$button-padding-small: 15px;
+
 /* ========================================================================
    Component: Button
  ========================================================================== */
@@ -21,26 +33,25 @@
  * 8. Align text if button has a width
  * 9. Required for `a`.
  */
-.uk-button {
+.uk-button, button, input[type="button"] {
   /* 1 */
   margin: 0;
   /* 2 */
-  border: none;
+  // border: none;
   /* 3 */
   overflow: visible;
   /* 4 */
   font: inherit;
-  color: inherit;
   /* 5 */
   text-transform: none;
   /* 6 */
   display: inline-block;
   box-sizing: border-box;
-  padding: 0 30px;
+
   vertical-align: middle;
   font-size: 0.875rem;
   /* 7 */
-  line-height: 38px;
+
   /* 8 */
   text-align: center;
   /* 9 */
@@ -48,17 +59,175 @@
   text-transform: uppercase;
   transition: 0.1s ease-in-out;
   transition-property: color, background-color, border-color;
-  .ht-uk-button-oneliner{
-    line-height: 0.875rem;
-    white-space: nowrap;
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+  position: relative;
+
+  /* Sizing */
+  &:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) {
+    padding: 0 #{$button-padding-default};
+    line-height: $button-height-default;
+    > * {
+      margin-inline-start: -$button-icon-default;
+      &:first-child {
+        padding-inline-start: $button-icon-default;
+      }
+      &:not(:last-child) {
+        padding-inline-end: calc(#{$button-icon-default} + 4px);
+      }
+      & + .uk-icon {
+        position:absolute;
+        height: $button-icon-default;
+        width: $button-icon-default;
+        top: calc((#{$button-height-default} - #{$button-icon-default})/2);
+        bottom: calc((#{$button-height-default} - #{$button-icon-default})/2);
+        right: $button-padding-default;
+      }
+    }
+  }
+  &.uk-button-large {
+    padding: 0 #{$button-padding-large};
+    line-height: $button-height-large;
+    > * {
+      margin-inline-start: -$button-icon-large;
+      &:first-child {
+        padding-inline-start: $button-icon-large;
+      }
+      &:not(:last-child) {
+        padding-inline-end: calc(#{$button-icon-large} + 4px);
+      }
+      & + .uk-icon {
+        position:absolute;
+        height: $button-icon-large;
+        width: $button-icon-large;
+        top: calc((#{$button-height-large} - #{$button-icon-large})/2);
+        bottom: calc((#{$button-height-large} - #{$button-icon-large})/2);
+        right: $button-padding-large;
+      }
+    }
+  }
+  &.uk-button-small {
+    padding: 0 #{$button-padding-small};
+    line-height: $button-height-small;
+    > * {
+      margin-inline-start: -$button-icon-small;
+      &:first-child {
+        padding-inline-start: $button-icon-small;
+      }
+      &:not(:last-child) {
+        padding-inline-end: calc(#{$button-icon-small} + 4px);
+      }
+      & + .uk-icon {
+        position:absolute;
+        height: $button-icon-small;
+        width: $button-icon-small;
+        top: calc((#{$button-height-small} - #{$button-icon-small})/2);
+        bottom: calc((#{$button-height-small} - #{$button-icon-small})/2);
+        right: $button-padding-small;
+      }
+    }
   }
 }
-.uk-button:not(:disabled) {
-  cursor: pointer;
+/*
+ * default color inherit each of base theme
+ */
+a.uk-button {
+  &:active,&:hover,&:focus {
+    color: map-get($base-color, heading);
+  }
 }
-.uk-button *::selection{
-  background: transparent;
+.uk-button, button, input[type="button"] {
+  &:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
+    border: solid 1px map-get($base-color, dent);
+    color: map-get($base-color, heading);
+    background-color: inherit;
+    &:active,&:hover,&:focus {
+      border-color: darken(map-get($base-color, dent), 30%);
+    }
+  }
 }
+.ht-bicolor {
+  a.uk-button,&a.uk-button {
+    color: map-get($bicolor-color, heading);
+  }
+  .uk-button, button, input[type="button"],
+  &.uk-button, &button, &input[type="button"] {
+    &:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
+      border: solid 1px map-get($bicolor-color, dent);
+      color: map-get($bicolor-color, heading);
+      background-color: inherit;
+      &:active,&:hover,&:focus {
+        border-color: darken(map-get($bicolor-color, dent), 30%);
+      }
+    }
+  }
+}
+.ht-tricolor {
+  a.uk-button,&a.uk-button {
+    color: map-get($tricolor-color, heading);
+  }
+  .uk-button, button, input[type="button"],
+  &.uk-button, &button, &input[type="button"] {
+    &:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
+      border: solid 1px map-get($tricolor-color, dent);
+      color: map-get($tricolor-color, heading);
+      background-color: inherit;
+      &:active,&:hover,&:focus {
+        border-color: darken(map-get($tricolor-color, dent), 30%);
+      }
+    }
+  }
+}
+.ht-toolbar {
+  a.uk-button,&a.uk-button {
+    color: map-get($toolbar-color, heading);
+  }
+  .uk-button, button, input[type="button"],
+  &.uk-button, &button, &input[type="button"] {
+    &:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
+      border: solid 1px map-get($toolbar-color, dent);
+      color: map-get($toolbar-color, heading);
+      background-color: inherit;
+      &:active,&:hover,&:focus {
+        border-color: darken(map-get($toolbar-color, dent), 30%);
+      }
+    }
+  }
+}
+.ht-danger {
+  a.uk-button,&a.uk-button {
+    color: map-get($danger-color, heading);
+  }
+  .uk-button, button, input[type="button"],
+  &.uk-button, &button, &input[type="button"] {
+    &:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
+      border: solid 1px map-get($danger-color, dent);
+      color: map-get($danger-color, heading);
+      background-color: inherit;
+      &:active,&:hover,&:focus {
+        border-color: darken(map-get($danger-color, dent), 30%);
+      }
+    }
+  }
+}
+.ht-base {
+  a.uk-button,&a.uk-button {
+    color: map-get($base-color, heading);
+  }
+  .uk-button, button, input[type="button"],
+  &.uk-button, &button, &input[type="button"] {
+    &:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
+      border: solid 1px map-get($base-color, dent);
+      color: map-get($base-color, heading);
+      background-color: inherit;
+      &:active,&:hover,&:focus {
+        border-color: darken(map-get($base-color, dent), 30%);
+      }
+    }
+  }
+}
+
 /*
  * Remove the inner border and padding in Firefox.
  */
@@ -75,24 +244,11 @@
 .uk-button:focus {
   outline: none;
 }
-/* OnClick + Active */
-/* Style modifiers
+/* Colors
  ========================================================================== */
-/*
- * Default
- */
-.uk-button-default {
-  background-color: transparent;
-  color: inherit;
-  border: 1px solid rgba(127,127,127,0.3);
-  &:hover, &:focus{
-    background-color: rgba(255,255,255,0.2);
-    border-color: rgba(127,127,127,0.5);
-  }
-  &:active, .uk-active{
-    background-color: rgba(255,255,255,0.4);
-    border-color: rgba(127,127,127,0.6);
-  }
+.uk-button-primary,.uk-button-secondary,
+.uk-button-accent,.uk-button-danger {
+  border: none;
 }
 /*
  * Primary
@@ -100,15 +256,11 @@
 .uk-button-primary {
   background-color: map-get($primary-color, basis);
   color: map-get($primary-color, text);
-  border: 1px solid transparent;
-  &:hover, &:focus{
-    background-color: map-get($primary-color, reflection);
+  &:hover,&:focus{
+    background-color: map-get($primary-color, ontouch);
   }
-  &:active, .uk-active{
-    background-color: map-get($primary-color, reflection);
-  }
-  rect, path, polylie, line{
-    stroke: map-get($primary-color, text);
+  &:active {
+    background-color: map-get($primary-color, active);
   }
 }
 /*
@@ -117,32 +269,24 @@
 .uk-button-secondary {
   background-color: map-get($secondary-color, basis);
   color: map-get($secondary-color, text);
-  border: 1px solid transparent;
-  &:hover, &:focus{
-    background-color: map-get($secondary-color, reflection);
+  &:hover,&:focus{
+    background-color: map-get($secondary-color, ontouch);
   }
-  &:active, .uk-active{
-    background-color: map-get($secondary-color, reflection);
-  }
-  rect, path, polylie, line{
-    stroke: map-get($secondary-color, text);
+  &:active {
+    background-color: map-get($secondary-color, active);
   }
 }
 /*
- * Warning
+ * Accent
  */
-.uk-button-warning {
-  background-color: map-get($warning-color, basis);
-  color: map-get($warning-color, text);
-  border: 1px solid transparent;
-  &:hover, &:focus{
-    background-color: map-get($warning-color, reflection);
+.uk-button-accent {
+  background-color: map-get($accent-color, basis);
+  color: map-get($accent-color, text);
+  &:hover,&:focus{
+    background-color: map-get($accent-color, ontouch);
   }
-  &:active, .uk-active{
-    background-color: map-get($warning-color, reflection);
-  }
-  rect, path, polylie, line{
-    stroke: map-get($warning-color, text);
+  &:active {
+    background-color: map-get($accent-color, active);
   }
 }
 /*
@@ -151,12 +295,11 @@
 .uk-button-danger {
   background-color: map-get($danger-color, basis);
   color: map-get($danger-color, text);
-  border: 1px solid transparent;
-  &:hover, &:focus{
-    background-color: map-get($danger-color, reflection);
+  &:hover,&:focus{
+    background-color: map-get($danger-color, ontouch);
   }
-  &:active, .uk-active{
-    background-color: map-get($danger-color, reflection);
+  &:active {
+    background-color: map-get($danger-color, active);
   }
 }
 /*

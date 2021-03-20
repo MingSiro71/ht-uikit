@@ -1,0 +1,25 @@
+/* HT-Loading scss 1.0.0 */
+/* Copyright (c) 2021 Hentech under MIT Lisence */
+
+@import "config/_font.scss";
+@import "config/_colors.scss";
+@import "config/_layout.scss";
+
+/* ========================================================================
+   Component: Option
+ ========================================================================== */
+@media #{map-get($bp-max, mobile-portlate)} {
+  .ht-optionfor-mobile-landscape {
+    display: none !important;
+  }
+}
+@media #{map-get($bp-max, mobile-landscape)} {
+  .ht-optionfor-notebook {
+    display: none !important;
+  }
+}
+@media #{map-get($bp-max, notebook)} {
+  .ht-optionfor-workstation {
+    display: none !important;
+  }
+}

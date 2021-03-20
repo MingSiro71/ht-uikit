@@ -8,95 +8,160 @@
 /* ========================================================================
    Component: Telop
  ========================================================================== */
-
- /* hentech alert control */
-// main setback
-main.ht-main{
-  margin: 0;
-  padding-top: map-get($window-layout, main-setback);
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
-  height: calc(100vh - #{map-get($window-layout, main-setback)} - #{map-get($window-layout, header-height)});
-  overflow-x: hidden;
-  overflow-y: scroll;
-}
-.ht-info-field{
-  position: absolute;
-  top: map-get($window-layout, header-height);
+$space-workstation: 25px;
+$space-notebook: 25px;
+$space-mobile-landscape: 15px;
+$space-mobile-portlate: 5px;
+.ht-telop-container {
   width: 100%;
-  z-index: 5;
-  li.ht-info-tab{
-    position: relative;
-    margin: 0;
-    padding: 0;
-    padding-left: 0.5rem;
-    width: 100%;
+  .ht-telop-info,.ht-telop-warn,.ht-telop-error {
+    width: calc(100% - (#{$space-workstation} * 2));
+    line-height: 1.25rem;
+    padding-block-start: 1rem;
+    padding-block-end: 1rem;
+    padding-inline-start: 25px;
+    padding-inline-end: 25px;
   }
-  li.ht-info-tab-info{
-    background-color: map-get($accent-color, base);
-    color: map-get($accent-color, text);
-    a, .uk-link{
-      color: map-get($accent-color, text-link);  
-    }
-    a:hover, .uk-link:hover,
-    a:active, .uk-link:active{
-      color: map-get($accent-color, text-light);  
-    }
-    h1, h2, h3, h4, h5, h6{
-      a, .uk-link{
-        color: inherit;  
-      }
-      a:hover, .uk-link:hover,
-      a:active, .uk-link:active{
-        color: map-get($accent-color, heading-light);  
-      }
-    }
+  .ht-telop-info {
+    background-color: map-get($infomation-color, basis);
+    color: map-get($infomation-color, text);
   }
-  li.ht-info-tab-warning{
-    background-color: map-get($warning-color, base);
+  .ht-telop-warn {
+    background-color: map-get($warning-color, basis);
     color: map-get($warning-color, text);
-    a, .uk-link{
-      color: map-get($warning-color, text-link);  
-    }
-    a:hover, .uk-link:hover,
-    a:active, .uk-link:active{
-      color: map-get($warning-color, text-light);  
-    }
-    h1, h2, h3, h4, h5, h6{
-      a, .uk-link{
-        color: inherit;  
-      }
-      a:hover, .uk-link:hover,
-      a:active, .uk-link:active{
-        color: map-get($warning-color, heading-light);  
+  }
+  .ht-telop-error {
+    background-color: map-get($error-color, basis);
+    color: map-get($error-color, text);
+  }
+  &.ht-telop-container-top,
+  &.ht-telop-container-bottom {
+    z-index: 100;
+    position: fixed;
+    .ht-telop-info {
+      &:active,&:hover,&:focus {
+        background-color: map-get($infomation-color, ontouch);
       }
     }
-    &:before{
-      content: "! : "      
+    .ht-telop-warn {
+      &:active,&:hover,&:focus {
+        background-color: map-get($warning-color, ontouch);
+      }
+    }
+    .ht-telop-error {
+      &:active,&:hover,&:focus {
+        background-color: map-get($error-color, ontouch);
+      }
+    } 
+  }
+}
+.ht-telop-container-top {
+  top: 0px;
+}
+.ht-telop-container-bottom {
+  bottom: 0px;
+}
+.ht-navbar-container.ht-navbar-container-sticky + .ht-telop-container-top,
+.ht-navbar-container.ht-navbar-container-sticky + * .ht-telop-container-top {
+  top: map-get($nav-height, workstation);
+}
+@media #{map-get($bp-max, mobile-portlate)} {
+  .ht-navbar-container.ht-navbar-container-sticky + .ht-telop-container-top,
+  .ht-navbar-container.ht-navbar-container-sticky + * .ht-telop-container-top {
+    top: map-get($nav-height, mobile-portlate);
+  }
+}
+@media #{map-get($bp-bound, mobile-landscape)} {
+  .ht-navbar-container.ht-navbar-container-sticky + .ht-telop-container-top,
+  .ht-navbar-container.ht-navbar-container-sticky + * .ht-telop-container-top {
+    top: map-get($nav-height, mobile-landscape);
+  }
+}
+@media #{map-get($bp-bound, notebook)} {
+  .ht-navbar-container.ht-navbar-container-sticky + .ht-telop-container-top,
+  .ht-navbar-container.ht-navbar-container-sticky + * .ht-telop-container-top {
+    top: map-get($nav-height, notebook);
+  }
+}
+.ht-telop-view-floating {
+  .ht-telop-info,.ht-telop-warn,.ht-telop-error {
+    box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.5);
+  }
+}
+.ht-telop-view-signboard {
+  .ht-telop-info,.ht-telop-warn,.ht-telop-error {
+    position: relative;
+    &:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: calc(100% - 6px);
+      width: calc(100% - 6px);
+      background-color: transparent;
+      border-style: solid;
+      border-width: 1px;
     }
   }
-  li.ht-info-tab-danger{
-    background-color: map-get($danger-color, base);
-    color: map-get($danger-color, text);
-    a, .uk-link{
-      color: map-get($danger-color, text-link);  
+  .ht-telop-info:after {
+    border-color: map-get($infomation-color, dent);
+  }
+  .ht-telop-warn:after {
+    border-color: map-get($warning-color, dent);
+  }
+  .ht-telop-error:after {
+    border-color: map-get($error-color, dent);
+  }
+}
+@media #{map-get($bp-max, mobile-portlate)} {
+  .ht-telop-container {
+    .ht-telop-info, .ht-telop-warn, .ht-telop-error {
+      width: calc(100% - (#{$space-mobile-portlate} * 2));
     }
-    a:hover, .uk-link:hover,
-    a:active, .uk-link:active{
-      color: map-get($danger-color, text-light);  
+  }
+  .ht-telop-container:not(.ht-telop-view-signboard) {
+    .ht-telop-info, .ht-telop-warn, .ht-telop-error {
+      padding-inline-start: 5px;
+      padding-inline-end: 5px;
     }
-    h1, h2, h3, h4, h5, h6{
-      a, .uk-link{
-        color: inherit;  
-      }
-      a:hover, .uk-link:hover,
-      a:active, .uk-link:active{
-        color: map-get($danger-color, heading-light);  
-      }
+  }
+  .ht-telop-container.ht-telop-view-signboard {
+    .ht-telop-info, .ht-telop-warn, .ht-telop-error {
+      padding-inline-start: 2px;
+      padding-inline-end: 2px;
     }
-    &:before{
-      content: "! : "      
+  }
+}
+@media #{map-get($bp-bound, mobile-landscape)} {
+  .ht-telop-container {
+    .ht-telop-info, .ht-telop-warn, .ht-telop-error {
+      width: calc(100% - (#{$space-mobile-landscape} * 2));
+    }
+  }
+  .ht-telop-container:not(.ht-telop-view-signboard) {
+    .ht-telop-info, .ht-telop-warn, .ht-telop-error {
+      padding-inline-start: 15px;
+      padding-inline-end: 15px;
+    }
+  }
+  .ht-telop-container.ht-telop-view-signboard {
+    .ht-telop-info, .ht-telop-warn, .ht-telop-error {
+      padding-inline-start: 12px;
+      padding-inline-end: 12px;
+    }
+  }
+}
+@media #{map-get($bp-bound, notebook)} {
+  .ht-telop-container {
+    .ht-telop-info, .ht-telop-warn, .ht-telop-error {
+      width: calc(100% - (#{$space-notebook} * 2));
+    }
+  }
+  .ht-telop-container.ht-telop-view-signboard {
+    .ht-telop-info, .ht-telop-warn, .ht-telop-error {
+      padding-inline-start: 22px;
+      padding-inline-end:22px;
     }
   }
 }

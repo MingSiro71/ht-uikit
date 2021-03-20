@@ -4,17 +4,46 @@
 /* 
  * _colors.scss: Defines colors for areas and objects
  *
-    *base: Base color and standard text colors
-    *bicolor: The second base color
-    *tricolor: The third base color
-    *danger: Areas which user should not touch in usual case use this colors
-    *primary: Colors for object which user should watch at first
-    *secondary: Colors for object which is important next to primary
-    *accent: Accent color for object which is no relation for user flow
-    *toolbar: Colers for user interface which can be find that not the parts of page, but utility object
-    *information: Colors for infomation message or telop
-    *warning: Colors for warning message or telop
-    *error: Colors for error message or telop
+  Themes:
+    Areas:
+      *base: Base color and standard text colors
+      *bicolor: The second base color
+      *tricolor: The third base color
+      *toolbar: Colers for user interface which can be find that not the parts of page, but utility object
+      *danger: Areas which user should not touch in usual case use this colors
+    Objects:
+      *primary: Colors for object which user should watch at first
+      *secondary: Colors for object which is important next to primary
+      *accent: Accent color for object which is no relation for user flow
+    Nocices:
+      *information: Colors for infomation message or telop
+      *warning: Colors for warning message or telop
+      *error: Colors for error message or telop
+
+  Colors for each theme:
+    Areas:
+      basis: Used for background color
+      dent: Impless there is a dent which is used for hr or border
+      text: Text color
+      text-muted: Text color which is muted, also used link hover
+      text-active: Text in active element
+      heading: Used for heading, which is stronger than text color
+      link: Impress that text is link
+      link-ontouch: Used for link on touch or on cursor
+
+      Only toolbar and danger:
+        ontouch: User touches or cursor is on
+        active: Impress the element is active seemes to be pushed
+    Objects:
+      basis: Used for object's background color
+      ontouch: User touches or cursor is on, seems to be reflecting ray
+      active: Impress the element is active, seems pushed
+      text: Text color
+    Nocices:
+      basis: Used for object's background color
+      ontouch: User touches or cursor is on
+      dent: Used when view type is signboard
+      text: Text color
  */
 /* 
  * base
@@ -26,8 +55,11 @@
  * tricolor
  */
 /* 
- * danger
+ * toolbar
  */
+/* 
+  * danger
+  */
 /* 
  * primary
  */
@@ -38,17 +70,33 @@
  * accent
  */
 /* 
- * toolbar
- */
-/* 
- * infomation
- */
+  * infomation
+  */
 /* 
  * warning
  */
 /* 
  * error
  */
+/* 
+ * _layout.scss: Defines window breakpoint and indent size 
+ *
+  Stream-width:
+    Width Definitions for Stream Component
+    It is recomended that keep main-min smaller than 375
+    enough not to hide content in small mobile
+  Breakpoint
+    Devices are called here
+      - mobile: mobile phone such as smartphone
+        mobile-portlate
+        mobile-landscape
+      - notebook: Laptop and tablet computer
+                  Using tablet in landscape layout, is included in workstation 
+      - workstation: Computers larger than notebook such as desktop computer
+  Others
+    nav-height: Height of navigation bar
+ */
+/* Do not touch! Auto configuration */
 /* ========================================================================
    Component: Modal
  ========================================================================== */
@@ -90,7 +138,7 @@
 }
 
 /* Tablet landscape and bigger */
-@media (min-width: 768px) {
+@media (min-width: null) {
   .uk-modal {
     padding-left: 40px;
     padding-right: 40px;

@@ -3,17 +3,46 @@
 /* 
  * _colors.scss: Defines colors for areas and objects
  *
-    *base: Base color and standard text colors
-    *bicolor: The second base color
-    *tricolor: The third base color
-    *danger: Areas which user should not touch in usual case use this colors
-    *primary: Colors for object which user should watch at first
-    *secondary: Colors for object which is important next to primary
-    *accent: Accent color for object which is no relation for user flow
-    *toolbar: Colers for user interface which can be find that not the parts of page, but utility object
-    *information: Colors for infomation message or telop
-    *warning: Colors for warning message or telop
-    *error: Colors for error message or telop
+  Themes:
+    Areas:
+      *base: Base color and standard text colors
+      *bicolor: The second base color
+      *tricolor: The third base color
+      *toolbar: Colers for user interface which can be find that not the parts of page, but utility object
+      *danger: Areas which user should not touch in usual case use this colors
+    Objects:
+      *primary: Colors for object which user should watch at first
+      *secondary: Colors for object which is important next to primary
+      *accent: Accent color for object which is no relation for user flow
+    Nocices:
+      *information: Colors for infomation message or telop
+      *warning: Colors for warning message or telop
+      *error: Colors for error message or telop
+
+  Colors for each theme:
+    Areas:
+      basis: Used for background color
+      dent: Impless there is a dent which is used for hr or border
+      text: Text color
+      text-muted: Text color which is muted, also used link hover
+      text-active: Text in active element
+      heading: Used for heading, which is stronger than text color
+      link: Impress that text is link
+      link-ontouch: Used for link on touch or on cursor
+
+      Only toolbar and danger:
+        ontouch: User touches or cursor is on
+        active: Impress the element is active seemes to be pushed
+    Objects:
+      basis: Used for object's background color
+      ontouch: User touches or cursor is on, seems to be reflecting ray
+      active: Impress the element is active, seems pushed
+      text: Text color
+    Nocices:
+      basis: Used for object's background color
+      ontouch: User touches or cursor is on
+      dent: Used when view type is signboard
+      text: Text color
  */
 /* 
  * base
@@ -25,8 +54,11 @@
  * tricolor
  */
 /* 
- * danger
+ * toolbar
  */
+/* 
+  * danger
+  */
 /* 
  * primary
  */
@@ -37,70 +69,217 @@
  * accent
  */
 /* 
- * toolbar
- */
-/* 
- * infomation
- */
+  * infomation
+  */
 /* 
  * warning
  */
 /* 
  * error
  */
+/* 
+ * _layout.scss: Defines window breakpoint and indent size 
+ *
+  Stream-width:
+    Width Definitions for Stream Component
+    It is recomended that keep main-min smaller than 375
+    enough not to hide content in small mobile
+  Breakpoint
+    Devices are called here
+      - mobile: mobile phone such as smartphone
+        mobile-portlate
+        mobile-landscape
+      - notebook: Laptop and tablet computer
+                  Using tablet in landscape layout, is included in workstation 
+      - workstation: Computers larger than notebook such as desktop computer
+  Others
+    nav-height: Height of navigation bar
+ */
+/* Do not touch! Auto configuration */
 /* ========================================================================
    Component: Navbar
  ========================================================================== */
-/* Header bar */
-header.ht-header {
+/*
+ * 1. Remove margins which is default in uikit for basic block elements.
+ * You can color Navbar from base, bicolor, tricolor or toolbar but not danger. 
+ */
+.ht-navbar-container {
+  height: 80px;
+  width: 100%;
+  align-items: center;
+  background-color: #f0f0e9;
+}
+
+.ht-navbar-container.ht-navbar-container-sticky {
+  position: fixed;
+  top: 0;
+  z-index: 980;
+}
+
+.ht-navbar-container.ht-navbar-container-sticky::before {
+  content: "";
   position: relative;
-  height: 3rem;
+  height: 100%;
   width: 100%;
 }
 
-header.ht-header .ht-header-object-center {
+.ht-navbar-container div {
+  height: 100%;
+}
+
+.ht-navbar-container nav, .ht-navbar-container .ht-navbar {
+  position: relative;
+  display: flex;
+  height: 100%;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.ht-navbar-container nav .ht-navbar-left, .ht-navbar-container nav .ht-navbar-right, .ht-navbar-container nav .ht-navbar-center, .ht-navbar-container .ht-navbar .ht-navbar-left, .ht-navbar-container .ht-navbar .ht-navbar-right, .ht-navbar-container .ht-navbar .ht-navbar-center {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.ht-navbar-container nav .ht-navbar-left, .ht-navbar-container .ht-navbar .ht-navbar-left {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.ht-navbar-container nav .ht-navbar-right, .ht-navbar-container .ht-navbar .ht-navbar-right {
+  margin-left: auto;
+  margin-right: -15px;
+}
+
+.ht-navbar-container nav .ht-navbar-center, .ht-navbar-container .ht-navbar .ht-navbar-center {
   position: absolute;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  line-height: 3rem;
+  transform: translateX(-50%);
 }
 
-header.ht-header .ht-header-object-left {
-  position: absolute;
-  left: 8px;
-  top: 50%;
-  transform: translateY(-50%);
+.ht-navbar-container nav ul.ht-navbar-navigation, .ht-navbar-container .ht-navbar ul.ht-navbar-navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+  list-style: none;
 }
 
-header.ht-header .ht-header-object-right {
-  position: absolute;
-  right: 8px;
-  top: 50%;
-  transform: translateY(-50%);
+.ht-navbar-container nav ul.ht-navbar-navigation li, .ht-navbar-container .ht-navbar ul.ht-navbar-navigation li {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
-header.ht-header .ht-header-logo {
-  font-size: 1.2rem;
-  font-weight: bold;
+.ht-navbar-container nav ul.ht-navbar-navigation.ht-navbar-navigation-separation li, .ht-navbar-container .ht-navbar ul.ht-navbar-navigation.ht-navbar-navigation-separation li {
+  border-left: solid 3px #bcbc9d;
+  border-right: solid 3px #bcbc9d;
+  margin-left: -1.5px;
+  margin-right: -1.5px;
 }
 
-header.ht-header:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 3px;
-  background-color: rgba(0, 0, 0, 0.1);
+.ht-navbar-left p, .ht-navbar-left div, .ht-navbar-left ul, .ht-navbar-left button, .ht-navbar-left .ht-navbar-logo, .ht-navbar-right p, .ht-navbar-right div, .ht-navbar-right ul, .ht-navbar-right button, .ht-navbar-right .ht-navbar-logo, .ht-navbar-center p, .ht-navbar-center div, .ht-navbar-center ul, .ht-navbar-center button, .ht-navbar-center .ht-navbar-logo {
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
-header.ht-header.ht-header-seamless:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 3px;
-  background-color: rgba(255, 255, 255, 0);
+/* 1 */
+nav p, .ht-navbar p {
+  margin: 0;
+}
+
+.ht-navbar-container.ht-navbar-container-sticky + * {
+  margin-top: 80px;
+}
+
+.ht-bicolor .ht-navbar-container, .ht-bicolor.ht-navbar-container {
+  background-color: #d1deff;
+}
+
+.ht-bicolor .ht-navbar-container .ht-navbar-navigation-separation li, .ht-bicolor.ht-navbar-container .ht-navbar-navigation-separation li {
+  border-color: #5283ff;
+}
+
+.ht-tricolor .ht-navbar-container, .ht-tricolor.ht-navbar-container {
+  background-color: #ff6c4f;
+}
+
+.ht-tricolor .ht-navbar-container .ht-navbar-navigation-separation li, .ht-tricolor.ht-navbar-container .ht-navbar-navigation-separation li {
+  border-color: #cf2200;
+}
+
+.ht-toolbar .ht-navbar-container, .ht-toolbar.ht-navbar-container {
+  background-color: #444742;
+}
+
+.ht-toolbar .ht-navbar-container .ht-navbar-navigation-separation li, .ht-toolbar.ht-navbar-container .ht-navbar-navigation-separation li {
+  border-color: #050505;
+}
+
+.ht-base .ht-navbar-container, .ht-base.ht-navbar-container {
+  background-color: #f0f0e9;
+}
+
+.ht-base .ht-navbar-container .ht-navbar-navigation-separation li, .ht-base.ht-navbar-container .ht-navbar-navigation-separation li {
+  border-color: #bcbc9d;
+}
+
+.ht-navbar-logo a, .ht-navbar-logo .uk-link {
+  color: #3c3d36;
+}
+
+.ht-navbar-logo a:active, .ht-navbar-logo a:hover, .ht-navbar-logo .uk-link:active, .ht-navbar-logo .uk-link:hover {
+  text-decoration: none;
+}
+
+.ht-navbar-logo.ht-bicolor a, .ht-navbar-logo.ht-bicolor .uk-link, .ht-bicolor .ht-navbar-logo a, .ht-bicolor .ht-navbar-logo .uk-link {
+  color: #313745;
+}
+
+.ht-navbar-logo.ht-tricolor a, .ht-navbar-logo.ht-tricolor .uk-link, .ht-tricolor .ht-navbar-logo a, .ht-tricolor .ht-navbar-logo .uk-link {
+  color: #ffffff;
+}
+
+.ht-navbar-logo.ht-toolbar a, .ht-navbar-logo.ht-toolbar .uk-link, .ht-toolbar .ht-navbar-logo a, .ht-toolbar .ht-navbar-logo .uk-link {
+  color: #f2f2f2;
+}
+
+@media screen and (max-width: 480px) {
+  .ht-navbar-container {
+    height: 60px;
+  }
+  .ht-navbar-container.ht-navbar-container-sticky + * {
+    margin-top: 60px;
+  }
+  .ht-navbar-container nav, .ht-navbar-container .ht-navbar {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media screen and (min-width: calc(480px + 1px)) and (max-width: 896px) {
+  .ht-navbar-container {
+    height: 80px;
+  }
+  .ht-navbar-container.ht-navbar-container-sticky + * {
+    margin-top: 80px;
+  }
+  .ht-navbar-container nav, .ht-navbar-container .ht-navbar {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media screen and (min-width: calc(896px + 1px)) and (max-width: 1024px) {
+  .ht-navbar-container {
+    height: 80px;
+  }
+  .ht-navbar-container.ht-navbar-container-sticky + * {
+    margin-top: 80px;
+  }
 }
 
 /* ========================================================================

@@ -25,17 +25,46 @@
 /* 
  * _colors.scss: Defines colors for areas and objects
  *
-    *base: Base color and standard text colors
-    *bicolor: The second base color
-    *tricolor: The third base color
-    *danger: Areas which user should not touch in usual case use this colors
-    *primary: Colors for object which user should watch at first
-    *secondary: Colors for object which is important next to primary
-    *accent: Accent color for object which is no relation for user flow
-    *toolbar: Colers for user interface which can be find that not the parts of page, but utility object
-    *information: Colors for infomation message or telop
-    *warning: Colors for warning message or telop
-    *error: Colors for error message or telop
+  Themes:
+    Areas:
+      *base: Base color and standard text colors
+      *bicolor: The second base color
+      *tricolor: The third base color
+      *toolbar: Colers for user interface which can be find that not the parts of page, but utility object
+      *danger: Areas which user should not touch in usual case use this colors
+    Objects:
+      *primary: Colors for object which user should watch at first
+      *secondary: Colors for object which is important next to primary
+      *accent: Accent color for object which is no relation for user flow
+    Nocices:
+      *information: Colors for infomation message or telop
+      *warning: Colors for warning message or telop
+      *error: Colors for error message or telop
+
+  Colors for each theme:
+    Areas:
+      basis: Used for background color
+      dent: Impless there is a dent which is used for hr or border
+      text: Text color
+      text-muted: Text color which is muted, also used link hover
+      text-active: Text in active element
+      heading: Used for heading, which is stronger than text color
+      link: Impress that text is link
+      link-ontouch: Used for link on touch or on cursor
+
+      Only toolbar and danger:
+        ontouch: User touches or cursor is on
+        active: Impress the element is active seemes to be pushed
+    Objects:
+      basis: Used for object's background color
+      ontouch: User touches or cursor is on, seems to be reflecting ray
+      active: Impress the element is active, seems pushed
+      text: Text color
+    Nocices:
+      basis: Used for object's background color
+      ontouch: User touches or cursor is on
+      dent: Used when view type is signboard
+      text: Text color
  */
 /* 
  * base
@@ -47,8 +76,11 @@
  * tricolor
  */
 /* 
- * danger
+ * toolbar
  */
+/* 
+  * danger
+  */
 /* 
  * primary
  */
@@ -59,27 +91,40 @@
  * accent
  */
 /* 
- * toolbar
- */
-/* 
- * infomation
- */
+  * infomation
+  */
 /* 
  * warning
  */
 /* 
  * error
  */
+/* 
+ * _layout.scss: Defines window breakpoint and indent size 
+ *
+  Stream-width:
+    Width Definitions for Stream Component
+    It is recomended that keep main-min smaller than 375
+    enough not to hide content in small mobile
+  Breakpoint
+    Devices are called here
+      - mobile: mobile phone such as smartphone
+        mobile-portlate
+        mobile-landscape
+      - notebook: Laptop and tablet computer
+                  Using tablet in landscape layout, is included in workstation 
+      - workstation: Computers larger than notebook such as desktop computer
+  Others
+    nav-height: Height of navigation bar
+ */
+/* Do not touch! Auto configuration */
 /* Over view
  * Sanitation
  * Base
  * Theme
- * Link: assign to "a" and ".ht-link", for each themes
- *   *base
- *   *bicolor
- *   *tricolor
- *   *danger
- *   *toolbar
+ * Heading: for each area theme 
+ * Horizon: for each area theme
+ * Link: for each area theme
  * Spinner
  * Progress
  */
@@ -91,6 +136,7 @@
  *    Not using `font` property because a leading hyphen (e.g. -apple-system) causes the font to break in IE11 and Edge
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  * 3. Style
+ * 4. Adjust height to body
  */
 html {
   /* 1 */
@@ -103,6 +149,8 @@ html {
   /* 3 */
   background: #f0f0e9;
   color: #3c3d36;
+  /* 4 */
+  height: 100%;
 }
 
 body {
@@ -113,31 +161,6 @@ text * {
   vertical-align: text-bottom;
 }
 
-.ht-base {
-  background: #f0f0e9;
-  color: #3c3d36;
-}
-
-.ht-bicolor {
-  background: #d1deff;
-  color: #313745;
-}
-
-.ht-tricolor {
-  background: #ff6c4f;
-  color: #ffffff;
-}
-
-.ht-toolbar {
-  background: #444742;
-  color: #f2f2f2;
-}
-
-.ht-danger {
-  background: #ff4529;
-  color: #444742;
-}
-
 /* Links
  ========================================================================== */
 /*
@@ -146,53 +169,17 @@ text * {
 a, .uk-link {
   text-decoration: none;
   cursor: pointer;
-  color: #64665a;
+  color: #3090ff;
 }
 
-a:active, a:hover, .uk-link:active, .uk-link:hover {
+a:active, a:hover, a:focus, .uk-link:active, .uk-link:hover, .uk-link:focus {
   outline: none;
-  color: #7f8172;
   text-decoration: underline;
+  color: #0075fc;
 }
 
-.ht-base a, .ht-base .uk-link {
-  color: #64665a;
-}
-
-.ht-base a:active, .ht-base a:hover, .ht-base .uk-link:active, .ht-base .uk-link:hover {
-  color: #7f8172;
-}
-
-.ht-bicolor a, .ht-bicolor .uk-link {
-  color: #515b72;
-}
-
-.ht-bicolor a:active, .ht-bicolor a:hover, .ht-bicolor .uk-link:active, .ht-bicolor .uk-link:hover {
-  color: #667290;
-}
-
-.ht-tricolor a, .ht-tricolor .uk-link {
-  color: white;
-}
-
-.ht-tricolor a:active, .ht-tricolor a:hover, .ht-tricolor .uk-link:active, .ht-tricolor .uk-link:hover {
-  color: white;
-}
-
-.ht-toolbar a, .ht-toolbar .uk-link {
-  color: white;
-}
-
-.ht-toolbar a:active, .ht-toolbar a:hover, .ht-toolbar .uk-link:active, .ht-toolbar .uk-link:hover {
-  color: white;
-}
-
-.ht-danger a, .ht-danger .uk-link {
-  color: #6a6f67;
-}
-
-.ht-danger a:active, .ht-danger a:hover, .ht-danger .uk-link:active, .ht-danger .uk-link:hover {
-  color: #838980;
+a:visited, .uk-link:visited {
+  color: #3090ff;
 }
 
 /* Text-level semantics
@@ -260,6 +247,7 @@ canvas, img, video {
 @supports (display: block) {
   svg {
     max-width: 100%;
+    max-height: 100%;
     height: auto;
     box-sizing: border-box;
   }
@@ -322,9 +310,10 @@ figure {
 
 /* Lists
  ========================================================================== */
-ul,
-ol {
-  /* padding-left: 30px; */
+ul, ol {
+  list-style: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
   padding-left: 0;
 }
 
@@ -345,7 +334,7 @@ dt {
 }
 
 dd {
-  margin-left: 0;
+  margin-left: 4rem;
 }
 
 /* Horizontal rules
@@ -363,28 +352,12 @@ hr {
   /* 3 */
   margin: 0 0 20px 0;
   border: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid #bcbc9d;
 }
 
 /* Add margin if adjacent element */
 * + hr {
   margin-top: 20px;
-}
-
-.ht-bicolor hr {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.ht-tricolor hr {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.ht-toolbar hr {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.ht-danger hr {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 /* Address
@@ -413,7 +386,7 @@ blockquote footer {
   color: inherit;
 }
 
-blockquote footer ::before {
+blockquote footer::before {
   content: "— ";
 }
 
@@ -429,7 +402,7 @@ blockquote footer ::before {
  */
 pre {
   font: 0.875rem / 1.5 Consolas, monaco, monospace;
-  color: var(--text-color);
+  color: #333;
   tab-size: 4;
   /* 1 */
   overflow: auto;
@@ -479,326 +452,492 @@ template {
 /* ========================================================================
    Component: Theme
  ========================================================================== */
-/* primary
- ========================================================================== */
-.ht-theme-primary {
-  background: #30c297;
-  color: #fcfcf9;
+.ht-base {
+  background-color: #f0f0e9;
+  color: #3c3d36;
+  border-color: #bcbc9d;
 }
 
-.ht-theme-primary path, .ht-theme-primary polyline, .ht-theme-primary line, .ht-theme-primary path {
-  stroke: #fcfcf9;
-  fill: #fcfcf9;
+.ht-bicolor {
+  background-color: #d1deff;
+  color: #313745;
 }
 
-/* secondary
- ========================================================================== */
-.ht-theme-secondary {
-  background: #30c297;
-  color: #fcfcf9;
+.ht-tricolor {
+  background-color: #ff6c4f;
+  color: #ffffff;
 }
 
-.ht-theme-secondary path, .ht-theme-secondary polyline, .ht-theme-secondary line, .ht-theme-secondary path {
-  stroke: #fcfcf9;
-  fill: #fcfcf9;
-}
-
-/* accent
- ========================================================================== */
-.ht-theme-accent {
-  background: #ffc526;
-}
-
-/* object
- ========================================================================== */
-.ht-theme-object {
-  background: #444742;
+.ht-toolbar {
+  background-color: #444742;
   color: #f2f2f2;
 }
 
-.ht-theme-object h1, .ht-theme-object h2, .ht-theme-object h3, .ht-theme-object h4, .ht-theme-object h5, .ht-theme-object h6 {
-  color: #f5efef;
+.ht-danger {
+  background-color: #ff3a33;
+  color: #e9e9e9;
 }
 
-.ht-theme-object path, .ht-theme-object polyline, .ht-theme-object line, .ht-theme-object path {
-  stroke: #f2f2f2;
-  fill: #f2f2f2;
-}
-
-.ht-theme-object a, .ht-theme-object uk-link {
-  color: white;
-}
-
-.ht-theme-object a path, .ht-theme-object a polyline, .ht-theme-object a line, .ht-theme-object a path, .ht-theme-object uk-link path, .ht-theme-object uk-link polyline, .ht-theme-object uk-link line, .ht-theme-object uk-link path {
-  stroke: white;
-  fill: white;
-}
-
-.ht-theme-object a:hover, .ht-theme-object uk-link:hover {
-  color: white;
-}
-
-.ht-theme-object a:hover path, .ht-theme-object a:hover polyline, .ht-theme-object a:hover line, .ht-theme-object a:hover path, .ht-theme-object uk-link:hover path, .ht-theme-object uk-link:hover polyline, .ht-theme-object uk-link:hover line, .ht-theme-object uk-link:hover path {
-  stroke: white;
-  fill: white;
-}
-
-/* warning
+/* ========================================================================
+   Component: Heading
  ========================================================================== */
-.ht-theme-warning {
-  background: #444742;
-  color: #f2f2f2;
+h1 {
+  font-size: 2rem;
 }
 
-.ht-theme-warning path, .ht-theme-warning polyline, .ht-theme-warning line, .ht-theme-warning path {
-  stroke: #f2f2f2;
-  fill: #f2f2f2;
+h2 {
+  font-size: 1.5rem;
 }
 
-.ht-theme-warning a:hover, .ht-theme-warning uk-link:hover {
-  color: white;
+h3 {
+  font-size: 1.25rem;
 }
 
-.ht-theme-warning a:hover path, .ht-theme-warning a:hover polyline, .ht-theme-warning a:hover line, .ht-theme-warning a:hover path, .ht-theme-warning uk-link:hover path, .ht-theme-warning uk-link:hover polyline, .ht-theme-warning uk-link:hover line, .ht-theme-warning uk-link:hover path {
-  stroke: white;
-  fill: white;
+h4 {
+  font-size: 1rem;
 }
 
-/* danger
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #080805;
+}
+
+h1.ht-heading-border, h2.ht-heading-border, h3.ht-heading-border, h4.ht-heading-border, h5.ht-heading-border, h6.ht-heading-border {
+  border-bottom: solid 1px #bcbc9d;
+}
+
+h1.ht-heading-no-spacing, h2.ht-heading-no-spacing, h3.ht-heading-no-spacing, h4.ht-heading-no-spacing, h5.ht-heading-no-spacing, h6.ht-heading-no-spacing {
+  margin-block-end: 0px;
+}
+
+h1.ht-base, .ht-base h1, h2.ht-base, .ht-base h2, h3.ht-base, .ht-base h3, h4.ht-base, .ht-base h4, h5.ht-base, .ht-base h5, h6.ht-base, .ht-base h6 {
+  color: #080805;
+  border-color: #bcbc9d;
+}
+
+h1.ht-bicolor, .ht-bicolor h1, h2.ht-bicolor, .ht-bicolor h2, h3.ht-bicolor, .ht-bicolor h3, h4.ht-bicolor, .ht-bicolor h4, h5.ht-bicolor, .ht-bicolor h5, h6.ht-bicolor, .ht-bicolor h6 {
+  color: #05070b;
+  border-color: #5283ff;
+}
+
+h1.ht-tricolor, .ht-tricolor h1, h2.ht-tricolor, .ht-tricolor h2, h3.ht-tricolor, .ht-tricolor h3, h4.ht-tricolor, .ht-tricolor h4, h5.ht-tricolor, .ht-tricolor h5, h6.ht-tricolor, .ht-tricolor h6 {
+  color: #ffffff;
+  border-color: #cf2200;
+}
+
+h1.ht-toolbar, .ht-toolbar h1, h2.ht-toolbar, .ht-toolbar h2, h3.ht-toolbar, .ht-toolbar h3, h4.ht-toolbar, .ht-toolbar h4, h5.ht-toolbar, .ht-toolbar h5, h6.ht-toolbar, .ht-toolbar h6 {
+  color: #ccb2b2;
+  border-color: #050505;
+}
+
+h1.ht-danger, .ht-danger h1, h2.ht-danger, .ht-danger h2, h3.ht-danger, .ht-danger h3, h4.ht-danger, .ht-danger h4, h5.ht-danger, .ht-danger h5, h6.ht-danger, .ht-danger h6 {
+  color: #e9e9e9;
+  border-color: #b30600;
+}
+
+/* ========================================================================
+   Component: Horizon
  ========================================================================== */
-.ht-theme-danger {
-  background: #ff4529;
-  color: #444742;
+hr {
+  border-color: #bcbc9d;
 }
 
-.ht-theme-danger h1, .ht-theme-danger h2, .ht-theme-danger h3, .ht-theme-danger h4, .ht-theme-danger h5, .ht-theme-danger h6 {
-  color: #415534;
+hr.ht-base, .ht-base hr {
+  border-color: #bcbc9d;
 }
 
-.ht-theme-danger path, .ht-theme-danger polyline, .ht-theme-danger line, .ht-theme-danger path {
-  stroke: #444742;
-  fill: #444742;
+hr.ht-bicolor, .ht-bicolor hr {
+  border-color: #5283ff;
 }
 
-.ht-theme-danger a, .ht-theme-danger uk-link {
-  color: #6a6f67;
+hr.ht-tricolor, .ht-tricolor hr {
+  border-color: #cf2200;
 }
 
-.ht-theme-danger a path, .ht-theme-danger a polyline, .ht-theme-danger a line, .ht-theme-danger a path, .ht-theme-danger uk-link path, .ht-theme-danger uk-link polyline, .ht-theme-danger uk-link line, .ht-theme-danger uk-link path {
-  stroke: #6a6f67;
-  fill: #6a6f67;
+hr.ht-toolbar, .ht-toolbar hr {
+  border-color: #050505;
 }
 
-.ht-theme-danger a:hover, .ht-theme-danger uk-link:hover {
-  color: #838980;
-}
-
-.ht-theme-danger a:hover path, .ht-theme-danger a:hover polyline, .ht-theme-danger a:hover line, .ht-theme-danger a:hover path, .ht-theme-danger uk-link:hover path, .ht-theme-danger uk-link:hover polyline, .ht-theme-danger uk-link:hover line, .ht-theme-danger uk-link:hover path {
-  stroke: #838980;
-  fill: #838980;
+hr.ht-danger, .ht-danger hr {
+  border-color: #b30600;
 }
 
 /* ========================================================================
    Component: Link
  ========================================================================== */
+/* (Default)
+ ========================================================================== */
+a.ht-base, .ht-base a, .uk-link.ht-base, .ht-base .uk-link {
+  color: #3090ff;
+}
+
+a.ht-base:active, a.ht-base:hover, a.ht-base:focus, .ht-base a:active, .ht-base a:hover, .ht-base a:focus, .uk-link.ht-base:active, .uk-link.ht-base:hover, .uk-link.ht-base:focus, .ht-base .uk-link:active, .ht-base .uk-link:hover, .ht-base .uk-link:focus {
+  color: #0075fc;
+}
+
+a.ht-bicolor, .ht-bicolor a, .uk-link.ht-bicolor, .ht-bicolor .uk-link {
+  color: #3090ff;
+}
+
+a.ht-bicolor:active, a.ht-bicolor:hover, a.ht-bicolor:focus, .ht-bicolor a:active, .ht-bicolor a:hover, .ht-bicolor a:focus, .uk-link.ht-bicolor:active, .uk-link.ht-bicolor:hover, .uk-link.ht-bicolor:focus, .ht-bicolor .uk-link:active, .ht-bicolor .uk-link:hover, .ht-bicolor .uk-link:focus {
+  color: #0075fc;
+}
+
+a.ht-tricolor, .ht-tricolor a, .uk-link.ht-tricolor, .ht-tricolor .uk-link {
+  color: #ffef00;
+}
+
+a.ht-tricolor:active, a.ht-tricolor:hover, a.ht-tricolor:focus, .ht-tricolor a:active, .ht-tricolor a:hover, .ht-tricolor a:focus, .uk-link.ht-tricolor:active, .uk-link.ht-tricolor:hover, .uk-link.ht-tricolor:focus, .ht-tricolor .uk-link:active, .ht-tricolor .uk-link:hover, .ht-tricolor .uk-link:focus {
+  color: #ccbf00;
+}
+
+a.ht-toolbar, .ht-toolbar a, .uk-link.ht-toolbar, .ht-toolbar .uk-link {
+  color: #f2f2f2;
+}
+
+a.ht-toolbar:active, a.ht-toolbar:hover, a.ht-toolbar:focus, .ht-toolbar a:active, .ht-toolbar a:hover, .ht-toolbar a:focus, .uk-link.ht-toolbar:active, .uk-link.ht-toolbar:hover, .uk-link.ht-toolbar:focus, .ht-toolbar .uk-link:active, .ht-toolbar .uk-link:hover, .ht-toolbar .uk-link:focus {
+  color: #e0d1d1;
+}
+
+a.ht-danger, .ht-danger a, .uk-link.ht-danger, .ht-danger .uk-link {
+  color: #362626;
+}
+
+a.ht-danger:active, a.ht-danger:hover, a.ht-danger:focus, .ht-danger a:active, .ht-danger a:hover, .ht-danger a:focus, .uk-link.ht-danger:active, .uk-link.ht-danger:hover, .uk-link.ht-danger:focus, .ht-danger .uk-link:active, .ht-danger .uk-link:hover, .ht-danger .uk-link:focus {
+  color: #1c0d0d;
+}
+
 /* Muted
  ========================================================================== */
-a.uk-link-muted,
+a.uk-link-muted, .uk-link.uk-link-muted,
 .uk-link-muted a {
-  color: #7f8172;
+  color: #64665a;
 }
 
-a.uk-link-muted:hover,
-.uk-link-muted a:hover {
+a.uk-link-muted:active, a.uk-link-muted:hover, a.uk-link-muted:focus, .uk-link.uk-link-muted:active, .uk-link.uk-link-muted:hover, .uk-link.uk-link-muted:focus,
+.uk-link-muted a:active,
+.uk-link-muted a:hover,
+.uk-link-muted a:focus {
   color: #3c3d36;
 }
 
-.ht-base a.uk-link-muted,
-.ht-base .uk-link-muted a {
-  color: #7f8172;
+a.uk-link-muted.ht-base, .ht-base a.uk-link-muted, .uk-link.uk-link-muted.ht-base, .ht-base .uk-link.uk-link-muted,
+.uk-link-muted a.ht-base, .ht-base
+.uk-link-muted a {
+  color: #64665a;
 }
 
-.ht-base a.uk-link-muted:hover,
-.ht-base .uk-link-muted a:hover {
+a.uk-link-muted.ht-base:active, a.uk-link-muted.ht-base:hover, a.uk-link-muted.ht-base:focus, .ht-base a.uk-link-muted:active, .ht-base a.uk-link-muted:hover, .ht-base a.uk-link-muted:focus, .uk-link.uk-link-muted.ht-base:active, .uk-link.uk-link-muted.ht-base:hover, .uk-link.uk-link-muted.ht-base:focus, .ht-base .uk-link.uk-link-muted:active, .ht-base .uk-link.uk-link-muted:hover, .ht-base .uk-link.uk-link-muted:focus,
+.uk-link-muted a.ht-base:active,
+.uk-link-muted a.ht-base:hover,
+.uk-link-muted a.ht-base:focus, .ht-base
+.uk-link-muted a:active, .ht-base
+.uk-link-muted a:hover, .ht-base
+.uk-link-muted a:focus {
   color: #3c3d36;
 }
 
-.ht-bicolor a.uk-link-muted,
-.ht-bicolor .uk-link-muted a {
-  color: #667290;
+a.uk-link-muted.ht-bicolor, .ht-bicolor a.uk-link-muted, .uk-link.uk-link-muted.ht-bicolor, .ht-bicolor .uk-link.uk-link-muted,
+.uk-link-muted a.ht-bicolor, .ht-bicolor
+.uk-link-muted a {
+  color: #515b72;
 }
 
-.ht-bicolor a.uk-link-muted:hover,
-.ht-bicolor .uk-link-muted a:hover {
+a.uk-link-muted.ht-bicolor:active, a.uk-link-muted.ht-bicolor:hover, a.uk-link-muted.ht-bicolor:focus, .ht-bicolor a.uk-link-muted:active, .ht-bicolor a.uk-link-muted:hover, .ht-bicolor a.uk-link-muted:focus, .uk-link.uk-link-muted.ht-bicolor:active, .uk-link.uk-link-muted.ht-bicolor:hover, .uk-link.uk-link-muted.ht-bicolor:focus, .ht-bicolor .uk-link.uk-link-muted:active, .ht-bicolor .uk-link.uk-link-muted:hover, .ht-bicolor .uk-link.uk-link-muted:focus,
+.uk-link-muted a.ht-bicolor:active,
+.uk-link-muted a.ht-bicolor:hover,
+.uk-link-muted a.ht-bicolor:focus, .ht-bicolor
+.uk-link-muted a:active, .ht-bicolor
+.uk-link-muted a:hover, .ht-bicolor
+.uk-link-muted a:focus {
   color: #313745;
 }
 
-.ht-tricolor a.uk-link-muted,
-.ht-tricolor .uk-link-muted a {
+a.uk-link-muted.ht-tricolor, .ht-tricolor a.uk-link-muted, .uk-link.uk-link-muted.ht-tricolor, .ht-tricolor .uk-link.uk-link-muted,
+.uk-link-muted a.ht-tricolor, .ht-tricolor
+.uk-link-muted a {
   color: white;
 }
 
-.ht-tricolor a.uk-link-muted:hover,
-.ht-tricolor .uk-link-muted a:hover {
+a.uk-link-muted.ht-tricolor:active, a.uk-link-muted.ht-tricolor:hover, a.uk-link-muted.ht-tricolor:focus, .ht-tricolor a.uk-link-muted:active, .ht-tricolor a.uk-link-muted:hover, .ht-tricolor a.uk-link-muted:focus, .uk-link.uk-link-muted.ht-tricolor:active, .uk-link.uk-link-muted.ht-tricolor:hover, .uk-link.uk-link-muted.ht-tricolor:focus, .ht-tricolor .uk-link.uk-link-muted:active, .ht-tricolor .uk-link.uk-link-muted:hover, .ht-tricolor .uk-link.uk-link-muted:focus,
+.uk-link-muted a.ht-tricolor:active,
+.uk-link-muted a.ht-tricolor:hover,
+.uk-link-muted a.ht-tricolor:focus, .ht-tricolor
+.uk-link-muted a:active, .ht-tricolor
+.uk-link-muted a:hover, .ht-tricolor
+.uk-link-muted a:focus {
   color: #ffffff;
 }
 
-.ht-danger a.uk-link-muted,
-.ht-danger .uk-link-muted a {
-  color: #838980;
-}
-
-.ht-danger a.uk-link-muted:hover,
-.ht-danger .uk-link-muted a:hover {
-  color: #444742;
-}
-
-.ht-toolbar a.uk-link-muted,
-.ht-toolbar .uk-link-muted a {
+a.uk-link-muted.ht-toolbar, .ht-toolbar a.uk-link-muted, .uk-link.uk-link-muted.ht-toolbar, .ht-toolbar .uk-link.uk-link-muted,
+.uk-link-muted a.ht-toolbar, .ht-toolbar
+.uk-link-muted a {
   color: white;
 }
 
-.ht-toolbar a.uk-link-muted:hover,
-.ht-toolbar .uk-link-muted a:hover {
+a.uk-link-muted.ht-toolbar:active, a.uk-link-muted.ht-toolbar:hover, a.uk-link-muted.ht-toolbar:focus, .ht-toolbar a.uk-link-muted:active, .ht-toolbar a.uk-link-muted:hover, .ht-toolbar a.uk-link-muted:focus, .uk-link.uk-link-muted.ht-toolbar:active, .uk-link.uk-link-muted.ht-toolbar:hover, .uk-link.uk-link-muted.ht-toolbar:focus, .ht-toolbar .uk-link.uk-link-muted:active, .ht-toolbar .uk-link.uk-link-muted:hover, .ht-toolbar .uk-link.uk-link-muted:focus,
+.uk-link-muted a.ht-toolbar:active,
+.uk-link-muted a.ht-toolbar:hover,
+.uk-link-muted a.ht-toolbar:focus, .ht-toolbar
+.uk-link-muted a:active, .ht-toolbar
+.uk-link-muted a:hover, .ht-toolbar
+.uk-link-muted a:focus {
   color: #f2f2f2;
+}
+
+a.uk-link-muted.ht-danger, .ht-danger a.uk-link-muted, .uk-link.uk-link-muted.ht-danger, .ht-danger .uk-link.uk-link-muted,
+.uk-link-muted a.ht-danger, .ht-danger
+.uk-link-muted a {
+  color: white;
+}
+
+a.uk-link-muted.ht-danger:active, a.uk-link-muted.ht-danger:hover, a.uk-link-muted.ht-danger:focus, .ht-danger a.uk-link-muted:active, .ht-danger a.uk-link-muted:hover, .ht-danger a.uk-link-muted:focus, .uk-link.uk-link-muted.ht-danger:active, .uk-link.uk-link-muted.ht-danger:hover, .uk-link.uk-link-muted.ht-danger:focus, .ht-danger .uk-link.uk-link-muted:active, .ht-danger .uk-link.uk-link-muted:hover, .ht-danger .uk-link.uk-link-muted:focus,
+.uk-link-muted a.ht-danger:active,
+.uk-link-muted a.ht-danger:hover,
+.uk-link-muted a.ht-danger:focus, .ht-danger
+.uk-link-muted a:active, .ht-danger
+.uk-link-muted a:hover, .ht-danger
+.uk-link-muted a:focus {
+  color: #e9e9e9;
 }
 
 /* Text
  ========================================================================== */
-a.uk-link-text,
+a.uk-link-text, .uk-link.uk-link-text,
 .uk-link-text a {
+  color: #3c3d36;
+}
+
+a.uk-link-text:active, a.uk-link-text:hover, a.uk-link-text:focus, .uk-link.uk-link-text:active, .uk-link.uk-link-text:hover, .uk-link.uk-link-text:focus,
+.uk-link-text a:active,
+.uk-link-text a:hover,
+.uk-link-text a:focus {
   color: #64665a;
 }
 
-a.uk-link-text:hover,
-.uk-link-text a:hover {
-  color: #7f8172;
+a.uk-link-text.ht-base, .ht-base a.uk-link-text, .uk-link.uk-link-text.ht-base, .ht-base .uk-link.uk-link-text,
+.uk-link-text a.ht-base, .ht-base
+.uk-link-text a {
+  color: #3c3d36;
 }
 
-.ht-base a.uk-link-text,
-.ht-base .uk-link-text a {
+a.uk-link-text.ht-base:active, a.uk-link-text.ht-base:hover, a.uk-link-text.ht-base:focus, .ht-base a.uk-link-text:active, .ht-base a.uk-link-text:hover, .ht-base a.uk-link-text:focus, .uk-link.uk-link-text.ht-base:active, .uk-link.uk-link-text.ht-base:hover, .uk-link.uk-link-text.ht-base:focus, .ht-base .uk-link.uk-link-text:active, .ht-base .uk-link.uk-link-text:hover, .ht-base .uk-link.uk-link-text:focus,
+.uk-link-text a.ht-base:active,
+.uk-link-text a.ht-base:hover,
+.uk-link-text a.ht-base:focus, .ht-base
+.uk-link-text a:active, .ht-base
+.uk-link-text a:hover, .ht-base
+.uk-link-text a:focus {
   color: #64665a;
 }
 
-.ht-base a.uk-link-text:hover,
-.ht-base .uk-link-text a:hover {
-  color: #7f8172;
+a.uk-link-text.ht-bicolor, .ht-bicolor a.uk-link-text, .uk-link.uk-link-text.ht-bicolor, .ht-bicolor .uk-link.uk-link-text,
+.uk-link-text a.ht-bicolor, .ht-bicolor
+.uk-link-text a {
+  color: #313745;
 }
 
-.ht-bicolor a.uk-link-text,
-.ht-bicolor .uk-link-text a {
+a.uk-link-text.ht-bicolor:active, a.uk-link-text.ht-bicolor:hover, a.uk-link-text.ht-bicolor:focus, .ht-bicolor a.uk-link-text:active, .ht-bicolor a.uk-link-text:hover, .ht-bicolor a.uk-link-text:focus, .uk-link.uk-link-text.ht-bicolor:active, .uk-link.uk-link-text.ht-bicolor:hover, .uk-link.uk-link-text.ht-bicolor:focus, .ht-bicolor .uk-link.uk-link-text:active, .ht-bicolor .uk-link.uk-link-text:hover, .ht-bicolor .uk-link.uk-link-text:focus,
+.uk-link-text a.ht-bicolor:active,
+.uk-link-text a.ht-bicolor:hover,
+.uk-link-text a.ht-bicolor:focus, .ht-bicolor
+.uk-link-text a:active, .ht-bicolor
+.uk-link-text a:hover, .ht-bicolor
+.uk-link-text a:focus {
   color: #515b72;
 }
 
-.ht-bicolor a.uk-link-text:hover,
-.ht-bicolor .uk-link-text a:hover {
-  color: #667290;
+a.uk-link-text.ht-tricolor, .ht-tricolor a.uk-link-text, .uk-link.uk-link-text.ht-tricolor, .ht-tricolor .uk-link.uk-link-text,
+.uk-link-text a.ht-tricolor, .ht-tricolor
+.uk-link-text a {
+  color: #ffffff;
 }
 
-.ht-tricolor a.uk-link-text,
-.ht-tricolor .uk-link-text a {
+a.uk-link-text.ht-tricolor:active, a.uk-link-text.ht-tricolor:hover, a.uk-link-text.ht-tricolor:focus, .ht-tricolor a.uk-link-text:active, .ht-tricolor a.uk-link-text:hover, .ht-tricolor a.uk-link-text:focus, .uk-link.uk-link-text.ht-tricolor:active, .uk-link.uk-link-text.ht-tricolor:hover, .uk-link.uk-link-text.ht-tricolor:focus, .ht-tricolor .uk-link.uk-link-text:active, .ht-tricolor .uk-link.uk-link-text:hover, .ht-tricolor .uk-link.uk-link-text:focus,
+.uk-link-text a.ht-tricolor:active,
+.uk-link-text a.ht-tricolor:hover,
+.uk-link-text a.ht-tricolor:focus, .ht-tricolor
+.uk-link-text a:active, .ht-tricolor
+.uk-link-text a:hover, .ht-tricolor
+.uk-link-text a:focus {
   color: white;
 }
 
-.ht-tricolor a.uk-link-text:hover,
-.ht-tricolor .uk-link-text a:hover {
+a.uk-link-text.ht-toolbar, .ht-toolbar a.uk-link-text, .uk-link.uk-link-text.ht-toolbar, .ht-toolbar .uk-link.uk-link-text,
+.uk-link-text a.ht-toolbar, .ht-toolbar
+.uk-link-text a {
+  color: #f2f2f2;
+}
+
+a.uk-link-text.ht-toolbar:active, a.uk-link-text.ht-toolbar:hover, a.uk-link-text.ht-toolbar:focus, .ht-toolbar a.uk-link-text:active, .ht-toolbar a.uk-link-text:hover, .ht-toolbar a.uk-link-text:focus, .uk-link.uk-link-text.ht-toolbar:active, .uk-link.uk-link-text.ht-toolbar:hover, .uk-link.uk-link-text.ht-toolbar:focus, .ht-toolbar .uk-link.uk-link-text:active, .ht-toolbar .uk-link.uk-link-text:hover, .ht-toolbar .uk-link.uk-link-text:focus,
+.uk-link-text a.ht-toolbar:active,
+.uk-link-text a.ht-toolbar:hover,
+.uk-link-text a.ht-toolbar:focus, .ht-toolbar
+.uk-link-text a:active, .ht-toolbar
+.uk-link-text a:hover, .ht-toolbar
+.uk-link-text a:focus {
   color: white;
 }
 
-.ht-danger a.uk-link-text,
-.ht-danger .uk-link-text a {
-  color: #6a6f67;
+a.uk-link-text.ht-danger, .ht-danger a.uk-link-text, .uk-link.uk-link-text.ht-danger, .ht-danger .uk-link.uk-link-text,
+.uk-link-text a.ht-danger, .ht-danger
+.uk-link-text a {
+  color: #e9e9e9;
 }
 
-.ht-danger a.uk-link-text:hover,
-.ht-danger .uk-link-text a:hover {
-  color: #838980;
-}
-
-.ht-toolbar a.uk-link-text,
-.ht-toolbar .uk-link-text a {
-  color: white;
-}
-
-.ht-toolbar a.uk-link-text:hover,
-.ht-toolbar .uk-link-text a:hover {
+a.uk-link-text.ht-danger:active, a.uk-link-text.ht-danger:hover, a.uk-link-text.ht-danger:focus, .ht-danger a.uk-link-text:active, .ht-danger a.uk-link-text:hover, .ht-danger a.uk-link-text:focus, .uk-link.uk-link-text.ht-danger:active, .uk-link.uk-link-text.ht-danger:hover, .uk-link.uk-link-text.ht-danger:focus, .ht-danger .uk-link.uk-link-text:active, .ht-danger .uk-link.uk-link-text:hover, .ht-danger .uk-link.uk-link-text:focus,
+.uk-link-text a.ht-danger:active,
+.uk-link-text a.ht-danger:hover,
+.uk-link-text a.ht-danger:focus, .ht-danger
+.uk-link-text a:active, .ht-danger
+.uk-link-text a:hover, .ht-danger
+.uk-link-text a:focus {
   color: white;
 }
 
 /* Heading
  ========================================================================== */
-a.uk-link-heading,
+a.uk-link-heading, .uk-link.uk-link-heading,
 .uk-link-heading a {
-  color: inherit;
+  color: #080805;
 }
 
-a.uk-link-heading:hover,
+a.uk-link-heading:active, a.uk-link-heading:hover, a.uk-link-heading:focus, .uk-link.uk-link-heading:active, .uk-link.uk-link-heading:hover, .uk-link.uk-link-heading:focus,
+.uk-link-heading a:active,
 .uk-link-heading a:hover,
-.uk-link-toggle:hover .uk-link-heading,
-.uk-link-toggle:focus .uk-link-heading {
-  color: #90995a;
+.uk-link-heading a:focus {
+  color: #0075fc;
+}
+
+a.uk-link-heading.ht-base, .ht-base a.uk-link-heading, .uk-link.uk-link-heading.ht-base, .ht-base .uk-link.uk-link-heading,
+.uk-link-heading a.ht-base, .ht-base
+.uk-link-heading a {
+  color: #080805;
+}
+
+a.uk-link-heading.ht-base:active, a.uk-link-heading.ht-base:hover, a.uk-link-heading.ht-base:focus, .ht-base a.uk-link-heading:active, .ht-base a.uk-link-heading:hover, .ht-base a.uk-link-heading:focus, .uk-link.uk-link-heading.ht-base:active, .uk-link.uk-link-heading.ht-base:hover, .uk-link.uk-link-heading.ht-base:focus, .ht-base .uk-link.uk-link-heading:active, .ht-base .uk-link.uk-link-heading:hover, .ht-base .uk-link.uk-link-heading:focus,
+.uk-link-heading a.ht-base:active,
+.uk-link-heading a.ht-base:hover,
+.uk-link-heading a.ht-base:focus, .ht-base
+.uk-link-heading a:active, .ht-base
+.uk-link-heading a:hover, .ht-base
+.uk-link-heading a:focus {
+  color: #0075fc;
+}
+
+a.uk-link-heading.ht-bicolor, .ht-bicolor a.uk-link-heading, .uk-link.uk-link-heading.ht-bicolor, .ht-bicolor .uk-link.uk-link-heading,
+.uk-link-heading a.ht-bicolor, .ht-bicolor
+.uk-link-heading a {
+  color: #05070b;
+}
+
+a.uk-link-heading.ht-bicolor:active, a.uk-link-heading.ht-bicolor:hover, a.uk-link-heading.ht-bicolor:focus, .ht-bicolor a.uk-link-heading:active, .ht-bicolor a.uk-link-heading:hover, .ht-bicolor a.uk-link-heading:focus, .uk-link.uk-link-heading.ht-bicolor:active, .uk-link.uk-link-heading.ht-bicolor:hover, .uk-link.uk-link-heading.ht-bicolor:focus, .ht-bicolor .uk-link.uk-link-heading:active, .ht-bicolor .uk-link.uk-link-heading:hover, .ht-bicolor .uk-link.uk-link-heading:focus,
+.uk-link-heading a.ht-bicolor:active,
+.uk-link-heading a.ht-bicolor:hover,
+.uk-link-heading a.ht-bicolor:focus, .ht-bicolor
+.uk-link-heading a:active, .ht-bicolor
+.uk-link-heading a:hover, .ht-bicolor
+.uk-link-heading a:focus {
+  color: #0075fc;
+}
+
+a.uk-link-heading.ht-tricolor, .ht-tricolor a.uk-link-heading, .uk-link.uk-link-heading.ht-tricolor, .ht-tricolor .uk-link.uk-link-heading,
+.uk-link-heading a.ht-tricolor, .ht-tricolor
+.uk-link-heading a {
+  color: #ffffff;
+}
+
+a.uk-link-heading.ht-tricolor:active, a.uk-link-heading.ht-tricolor:hover, a.uk-link-heading.ht-tricolor:focus, .ht-tricolor a.uk-link-heading:active, .ht-tricolor a.uk-link-heading:hover, .ht-tricolor a.uk-link-heading:focus, .uk-link.uk-link-heading.ht-tricolor:active, .uk-link.uk-link-heading.ht-tricolor:hover, .uk-link.uk-link-heading.ht-tricolor:focus, .ht-tricolor .uk-link.uk-link-heading:active, .ht-tricolor .uk-link.uk-link-heading:hover, .ht-tricolor .uk-link.uk-link-heading:focus,
+.uk-link-heading a.ht-tricolor:active,
+.uk-link-heading a.ht-tricolor:hover,
+.uk-link-heading a.ht-tricolor:focus, .ht-tricolor
+.uk-link-heading a:active, .ht-tricolor
+.uk-link-heading a:hover, .ht-tricolor
+.uk-link-heading a:focus {
+  color: #ccbf00;
+}
+
+a.uk-link-heading.ht-toolbar, .ht-toolbar a.uk-link-heading, .uk-link.uk-link-heading.ht-toolbar, .ht-toolbar .uk-link.uk-link-heading,
+.uk-link-heading a.ht-toolbar, .ht-toolbar
+.uk-link-heading a {
+  color: #ccb2b2;
+}
+
+a.uk-link-heading.ht-toolbar:active, a.uk-link-heading.ht-toolbar:hover, a.uk-link-heading.ht-toolbar:focus, .ht-toolbar a.uk-link-heading:active, .ht-toolbar a.uk-link-heading:hover, .ht-toolbar a.uk-link-heading:focus, .uk-link.uk-link-heading.ht-toolbar:active, .uk-link.uk-link-heading.ht-toolbar:hover, .uk-link.uk-link-heading.ht-toolbar:focus, .ht-toolbar .uk-link.uk-link-heading:active, .ht-toolbar .uk-link.uk-link-heading:hover, .ht-toolbar .uk-link.uk-link-heading:focus,
+.uk-link-heading a.ht-toolbar:active,
+.uk-link-heading a.ht-toolbar:hover,
+.uk-link-heading a.ht-toolbar:focus, .ht-toolbar
+.uk-link-heading a:active, .ht-toolbar
+.uk-link-heading a:hover, .ht-toolbar
+.uk-link-heading a:focus {
+  color: #e0d1d1;
+}
+
+a.uk-link-heading.ht-danger, .ht-danger a.uk-link-heading, .uk-link.uk-link-heading.ht-danger, .ht-danger .uk-link.uk-link-heading,
+.uk-link-heading a.ht-danger, .ht-danger
+.uk-link-heading a {
+  color: #e9e9e9;
+}
+
+a.uk-link-heading.ht-danger:active, a.uk-link-heading.ht-danger:hover, a.uk-link-heading.ht-danger:focus, .ht-danger a.uk-link-heading:active, .ht-danger a.uk-link-heading:hover, .ht-danger a.uk-link-heading:focus, .uk-link.uk-link-heading.ht-danger:active, .uk-link.uk-link-heading.ht-danger:hover, .uk-link.uk-link-heading.ht-danger:focus, .ht-danger .uk-link.uk-link-heading:active, .ht-danger .uk-link.uk-link-heading:hover, .ht-danger .uk-link.uk-link-heading:focus,
+.uk-link-heading a.ht-danger:active,
+.uk-link-heading a.ht-danger:hover,
+.uk-link-heading a.ht-danger:focus, .ht-danger
+.uk-link-heading a:active, .ht-danger
+.uk-link-heading a:hover, .ht-danger
+.uk-link-heading a:focus {
+  color: #1c0d0d;
+}
+
+/* Silent
+ ========================================================================== */
+a.uk-link-silent, .uk-link.uk-link-silent,
+.uk-link-silent a {
+  color: #3c3d36;
+}
+
+a.uk-link-silent:active, a.uk-link-silent:hover, a.uk-link-silent:focus, .uk-link.uk-link-silent:active, .uk-link.uk-link-silent:hover, .uk-link.uk-link-silent:focus,
+.uk-link-silent a:active,
+.uk-link-silent a:hover,
+.uk-link-silent a:focus {
   text-decoration: none;
 }
 
-.ht-theme-object a.uk-link-heading:hover,
-.ht-theme-object .uk-link-heading a:hover,
-.ht-theme-object .uk-link-toggle:hover .uk-link-heading,
-.ht-theme-object .uk-link-toggle:focus .uk-link-heading {
-  color: white;
+a.uk-link-silent.ht-base, .ht-base a.uk-link-silent, .uk-link.uk-link-silent.ht-base, .ht-base .uk-link.uk-link-silent,
+.uk-link-silent a.ht-base, .ht-base
+.uk-link-silent a {
+  color: #3c3d36;
 }
 
-.ht-theme-danger a.uk-link-heading:hover,
-.ht-theme-danger .uk-link-heading a:hover,
-.ht-theme-danger .uk-link-toggle:hover .uk-link-heading,
-.ht-theme-danger .uk-link-toggle:focus .uk-link-heading {
-  color: #7ea167;
+a.uk-link-silent.ht-bicolor, .ht-bicolor a.uk-link-silent, .uk-link.uk-link-silent.ht-bicolor, .ht-bicolor .uk-link.uk-link-silent,
+.uk-link-silent a.ht-bicolor, .ht-bicolor
+.uk-link-silent a {
+  color: #313745;
 }
 
-/* ========================================================================
-   Component: Spinner
- ========================================================================== */
-/*
- * Adopts `uk-icon`
- */
-/* SVG
- ========================================================================== */
-.uk-spinner > * {
-  animation: uk-spinner-rotate 1.4s linear infinite;
+a.uk-link-silent.ht-tricolor, .ht-tricolor a.uk-link-silent, .uk-link.uk-link-silent.ht-tricolor, .ht-tricolor .uk-link.uk-link-silent,
+.uk-link-silent a.ht-tricolor, .ht-tricolor
+.uk-link-silent a {
+  color: #ffffff;
 }
 
-@keyframes uk-spinner-rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(270deg);
-  }
+a.uk-link-silent.ht-toolbar, .ht-toolbar a.uk-link-silent, .uk-link.uk-link-silent.ht-toolbar, .ht-toolbar .uk-link.uk-link-silent,
+.uk-link-silent a.ht-toolbar, .ht-toolbar
+.uk-link-silent a {
+  color: #f2f2f2;
 }
 
-/*
- * Circle
- */
-.uk-spinner > * > * {
-  stroke-dasharray: 88px;
-  stroke-dashoffset: 0;
-  transform-origin: center;
-  animation: uk-spinner-dash 1.4s ease-in-out infinite;
-  stroke-width: 1;
-  stroke-linecap: round;
-}
-
-@keyframes uk-spinner-dash {
-  0% {
-    stroke-dashoffset: 88px;
-  }
-  50% {
-    stroke-dashoffset: 22px;
-    transform: rotate(135deg);
-  }
-  100% {
-    stroke-dashoffset: 88px;
-    transform: rotate(450deg);
-  }
+a.uk-link-silent.ht-danger, .ht-danger a.uk-link-silent, .uk-link.uk-link-silent.ht-danger, .ht-danger .uk-link.uk-link-silent,
+.uk-link-silent a.ht-danger, .ht-danger
+.uk-link-silent a {
+  color: #e9e9e9;
 }
 
 /* ========================================================================
@@ -827,7 +966,27 @@ a.uk-link-heading:hover,
   bottom: 0;
   left: 20px;
   right: 0;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid #bcbc9d;
+}
+
+.ht-base.uk-tab::before, .ht-base .uk-tab::before {
+  border-bottom: 1px solid #bcbc9d;
+}
+
+.ht-bicolor.uk-tab::before, .ht-bicolor .uk-tab::before {
+  border-bottom: 1px solid #5283ff;
+}
+
+.ht-tricolor.uk-tab::before, .ht-tricolor .uk-tab::before {
+  border-bottom: 1px solid #cf2200;
+}
+
+.ht-toolbar.uk-tab::before, .ht-toolbar .uk-tab::before {
+  border-bottom: 1px solid #050505;
+}
+
+.ht-danger.uk-tab::before, .ht-danger .uk-tab::before {
+  border-bottom: 1px solid #b30600;
 }
 
 /*
@@ -857,29 +1016,87 @@ a.uk-link-heading:hover,
   text-align: center;
   /* 2 */
   padding: 5px 10px;
-  color: var(--sub-text-color);
+  color: #64665a;
   border-bottom: 1px solid transparent;
   font-size: 0.875rem;
   text-transform: uppercase;
   transition: color 0.1s ease-in-out;
 }
 
-/* Hover + Focus */
-.uk-tab > * > a:hover,
-.uk-tab > * > a:focus {
-  color: var(--text-color);
+.uk-tab > * > a:hover, .uk-tab > * > a:focus {
   text-decoration: none;
+  color: #3c3d36;
 }
 
-/* Active */
-.uk-tab > .uk-active > a {
-  color: #333;
-  border-color: var(--text-color);
+.uk-tab > * > a:active {
+  color: #16170f;
+  border-color: #0075fc;
 }
 
-/* Disabled */
-.uk-tab > .uk-disabled > a {
-  color: var(--sub-text-color);
+.uk-tab > .uk-active > a,
+.ht-base.uk-tab > .uk-active > a,
+.ht-base .uk-tab > .uk-active > a {
+  color: #16170f;
+  border-color: #0075fc;
+}
+
+.ht-bicolor.uk-tab > .uk-active > a,
+.ht-bicolor .uk-tab > .uk-active > a {
+  color: #0e121b;
+  border-color: #0075fc;
+}
+
+.ht-tricolor.uk-tab > .uk-active > a,
+.ht-tricolor .uk-tab > .uk-active > a {
+  color: #ded3d3;
+  border-color: #ccbf00;
+}
+
+.ht-toolbar.uk-tab > .uk-active > a,
+.ht-toolbar .uk-tab > .uk-active > a {
+  color: #d3c4c4;
+  border-color: #e0d1d1;
+}
+
+.ht-danger.uk-tab > .uk-active > a,
+.ht-danger .uk-tab > .uk-active > a {
+  color: #ccbaba;
+  border-color: #1c0d0d;
+}
+
+.uk-tab > .uk-disabled > a,
+.ht-base.uk-tab > .uk-disabled > a,
+.ht-base .uk-tab > .uk-disabled > a {
+  color: #64665a;
+  pointer-events: none;
+}
+
+.ht-bicolor.uk-tab > .uk-disabled > a,
+.ht-bicolor .uk-tab > .uk-disabled > a {
+  color: #515b72;
+}
+
+.ht-tricolor.uk-tab > .uk-disabled > a,
+.ht-tricolor .uk-tab > .uk-disabled > a {
+  color: white;
+}
+
+.ht-toolbar.uk-tab > .uk-disabled > a,
+.ht-toolbar .uk-tab > .uk-disabled > a {
+  color: white;
+}
+
+.ht-danger.uk-tab > .uk-disabled > a,
+.ht-danger .uk-tab > .uk-disabled > a {
+  color: white;
+}
+
+.uk-tab.uk-tab-locate-center {
+  justify-content: center;
+}
+
+.uk-tab.uk-tab-locate-right {
+  justify-content: flex-end;
 }
 
 /* Position modifier
@@ -895,57 +1112,6 @@ a.uk-link-heading:hover,
 .uk-tab-bottom > * > a {
   border-top: 1px solid transparent;
   border-bottom: none;
-}
-
-/*
- * Left + Right
- * 1. Reset Gutter
- */
-.uk-tab-left,
-.uk-tab-right {
-  flex-direction: column;
-  /* 1 */
-  margin-left: 0;
-}
-
-/* 1 */
-.uk-tab-left > *,
-.uk-tab-right > * {
-  padding-left: 0;
-}
-
-.uk-tab-left::before {
-  top: 0;
-  bottom: 0;
-  left: auto;
-  right: 0;
-  border-left: 1px solid #e5e5e5;
-  border-bottom: none;
-}
-
-.uk-tab-right::before {
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: auto;
-  border-left: 1px solid #e5e5e5;
-  border-bottom: none;
-}
-
-.uk-tab-left > * > a {
-  text-align: left;
-  border-right: 1px solid transparent;
-  border-bottom: none;
-}
-
-.uk-tab-right > * > a {
-  text-align: left;
-  border-left: 1px solid transparent;
-  border-bottom: none;
-}
-
-.uk-tab .uk-dropdown {
-  margin-left: 30px;
 }
 
 /* ========================================================================
@@ -1011,12 +1177,12 @@ a.uk-link-heading:hover,
  * 1. Remove right border in IE11 and Edge
  */
 .uk-progress::-webkit-progress-value {
-  background-color: var(--text-color);
+  background-color: blue;
   transition: width 0.6s ease;
 }
 
 .uk-progress::-moz-progress-bar {
-  background-color: var(--text-color);
+  background-color: blue;
 }
 
 .uk-progress::-ms-fill {

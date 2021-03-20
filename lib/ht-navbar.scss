@@ -8,53 +8,177 @@
 /* ========================================================================
    Component: Navbar
  ========================================================================== */
+/*
+ * 1. Remove margins which is default in uikit for basic block elements.
+ * You can color Navbar from base, bicolor, tricolor or toolbar but not danger. 
+ */
+.ht-navbar-container {
+  height: map-get($nav-height, workstation);
+  width: 100%;
+  align-items: center;
+  background-color: map-get($base-color, basis);
+  &.ht-navbar-container-sticky {
+    position: fixed;
+    top:0;
+    z-index: 980;
+    &::before {
+      content: "";
+      position: relative;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  div {
+    height: 100%;
+  }
+  nav,.ht-navbar{
+    position: relative;
+    display: flex;
+    height: 100%;
+    padding-left: 40px;
+    padding-right: 40px;
+    .ht-navbar-left,.ht-navbar-right,.ht-navbar-center {
+      height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;      
+    }
+    .ht-navbar-left {
+      margin-left: -15px;
+      margin-right: -15px;
+    }
+    .ht-navbar-right {
+      margin-left: auto;
+      margin-right: -15px;
+    }
+    .ht-navbar-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    ul.ht-navbar-navigation {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      margin-left: -0.5rem;
+      margin-right: -0.5rem;
+      list-style: none;
+      li {        
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+      }
+      &.ht-navbar-navigation-separation {
+        li {
+          border-left: solid 3px map-get($base-color, dent);
+          border-right: solid 3px map-get($base-color, dent);
+          margin-left: -1.5px;
+          margin-right: -1.5px;          
+        }
+      }
+      // &.ht-navbar-navigation-line {
+      
+      // }
+    }
+  }
+}
+.ht-navbar-left,.ht-navbar-right,.ht-navbar-center {
+  p,div,ul,button,.ht-navbar-logo { 
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+/* 1 */
+nav,.ht-navbar {
+  p {
+    margin: 0;
+  }
+}
+.ht-navbar-container.ht-navbar-container-sticky + * {
+  margin-top: map-get($nav-height, workstation);
+}
+.ht-bicolor .ht-navbar-container, .ht-bicolor.ht-navbar-container {
+  background-color: map-get($bicolor-color, basis);
+  .ht-navbar-navigation-separation li {
+    border-color: map-get($bicolor-color, dent);
+  }
+}
+.ht-tricolor .ht-navbar-container, .ht-tricolor.ht-navbar-container {
+  background-color: map-get($tricolor-color, basis);
+  .ht-navbar-navigation-separation li {
+    border-color: map-get($tricolor-color, dent);
+  }
+}
+.ht-toolbar .ht-navbar-container, .ht-toolbar.ht-navbar-container {
+  background-color: map-get($toolbar-color, basis);
+  .ht-navbar-navigation-separation li {
+    border-color: map-get($toolbar-color, dent);
+  }
+}
+.ht-base .ht-navbar-container, .ht-base.ht-navbar-container {
+  background-color: map-get($base-color, basis);
+  .ht-navbar-navigation-separation li {
+    border-color: map-get($base-color, dent);
+  }
+}
 
- /* Header bar */
-header.ht-header{
-  position: relative;
-  height: map-get($window-layout, header-height);
-  width: 100%;
-  .ht-header-object-center{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    line-height: map-get($window-layout, header-height);    
-  }
-  .ht-header-object-left{
-    position: absolute;
-    left: map-get($window-layout, outer-margin);
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  .ht-header-object-right{
-    position: absolute;
-    right: map-get($window-layout, outer-margin);
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  .ht-header-logo{
-    font-size: 1.2rem;
-    font-weight: bold;
-  }
-}
-header.ht-header:after{
-  content: "";
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 3px;
-  background-color: map-get($base-color, fogging);
-}
-header.ht-header.ht-header-seamless:after{
-  content: "";
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 3px;
-  background-color: rgba(255,255,255,0);
-}
 
+.ht-navbar-logo {
+  a,.uk-link {
+    color: map-get($base-color, text);
+    &:active,&:hover {
+      text-decoration: none;
+    }
+  }
+  &.ht-bicolor,.ht-bicolor & {
+    a,.uk-link {
+      color: map-get($bicolor-color, text);
+    }    
+  }
+  &.ht-tricolor,.ht-tricolor & {
+    a,.uk-link {
+      color: map-get($tricolor-color, text);
+    }
+  }
+  &.ht-toolbar,.ht-toolbar & {
+    a,.uk-link {
+      color: map-get($toolbar-color, text);
+    }    
+  }
+}
+@media #{map-get($bp-max, mobile-portlate)} {
+  .ht-navbar-container {
+    height: map-get($nav-height, mobile-portlate);
+    &.ht-navbar-container-sticky + * {
+      margin-top: map-get($nav-height, mobile-portlate);
+    }
+    nav,.ht-navbar {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+}
+@media #{map-get($bp-bound, mobile-landscape)} {
+  .ht-navbar-container {
+    height: map-get($nav-height, mobile-landscape);
+    &.ht-navbar-container-sticky + * {
+      margin-top: map-get($nav-height, mobile-landscape);
+    }
+    nav,.ht-navbar {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  }
+}
+@media #{map-get($bp-bound, notebook)} {
+  .ht-navbar-container {
+    height: map-get($nav-height, notebook);
+    &.ht-navbar-container-sticky + * {
+      margin-top: map-get($nav-height, notebook);
+    }
+  }
+}
 /* ========================================================================
    Component: Buffer
  ========================================================================== */

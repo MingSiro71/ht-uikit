@@ -1,0 +1,251 @@
+/* HT-Telop scss 1.0.0 */
+/* Copyright (c) 2021 Hentech under MIT Lisence */
+/* 
+ * _colors.scss: Defines colors for areas and objects
+ *
+  Themes:
+    Areas:
+      *base: Base color and standard text colors
+      *bicolor: The second base color
+      *tricolor: The third base color
+      *toolbar: Colers for user interface which can be find that not the parts of page, but utility object
+      *danger: Areas which user should not touch in usual case use this colors
+    Objects:
+      *primary: Colors for object which user should watch at first
+      *secondary: Colors for object which is important next to primary
+      *accent: Accent color for object which is no relation for user flow
+    Nocices:
+      *information: Colors for infomation message or telop
+      *warning: Colors for warning message or telop
+      *error: Colors for error message or telop
+
+  Colors for each theme:
+    Areas:
+      basis: Used for background color
+      dent: Impless there is a dent which is used for hr or border
+      text: Text color
+      text-muted: Text color which is muted, also used link hover
+      text-active: Text in active element
+      heading: Used for heading, which is stronger than text color
+      link: Impress that text is link
+      link-ontouch: Used for link on touch or on cursor
+
+      Only toolbar and danger:
+        ontouch: User touches or cursor is on
+        active: Impress the element is active seemes to be pushed
+    Objects:
+      basis: Used for object's background color
+      ontouch: User touches or cursor is on, seems to be reflecting ray
+      active: Impress the element is active, seems pushed
+      text: Text color
+    Nocices:
+      basis: Used for object's background color
+      ontouch: User touches or cursor is on
+      dent: Used when view type is signboard
+      text: Text color
+ */
+/* 
+ * base
+ */
+/* 
+ * bicolor
+ */
+/* 
+ * tricolor
+ */
+/* 
+ * toolbar
+ */
+/* 
+  * danger
+  */
+/* 
+ * primary
+ */
+/* 
+ * secondary
+ */
+/* 
+ * accent
+ */
+/* 
+  * infomation
+  */
+/* 
+ * warning
+ */
+/* 
+ * error
+ */
+/* 
+ * _layout.scss: Defines window breakpoint and indent size 
+ *
+  Stream-width:
+    Width Definitions for Stream Component
+    It is recomended that keep main-min smaller than 375
+    enough not to hide content in small mobile
+  Breakpoint
+    Devices are called here
+      - mobile: mobile phone such as smartphone
+        mobile-portlate
+        mobile-landscape
+      - notebook: Laptop and tablet computer
+                  Using tablet in landscape layout, is included in workstation 
+      - workstation: Computers larger than notebook such as desktop computer
+  Others
+    nav-height: Height of navigation bar
+ */
+/* Do not touch! Auto configuration */
+/* ========================================================================
+   Component: Telop
+ ========================================================================== */
+.ht-telop-container {
+  width: 100%;
+}
+
+.ht-telop-container .ht-telop-info, .ht-telop-container .ht-telop-warn, .ht-telop-container .ht-telop-error {
+  width: calc(100% - (25px * 2));
+  line-height: 1.25rem;
+  padding-block-start: 1rem;
+  padding-block-end: 1rem;
+  padding-inline-start: 25px;
+  padding-inline-end: 25px;
+}
+
+.ht-telop-container .ht-telop-info {
+  background-color: #1e87f0;
+  color: #f9fcfc;
+}
+
+.ht-telop-container .ht-telop-warn {
+  background-color: #ffa632;
+  color: #201d0e;
+}
+
+.ht-telop-container .ht-telop-error {
+  background-color: #eb431a;
+  color: #291414;
+}
+
+.ht-telop-container.ht-telop-container-top, .ht-telop-container.ht-telop-container-bottom {
+  z-index: 100;
+  position: fixed;
+}
+
+.ht-telop-container.ht-telop-container-top .ht-telop-info:active, .ht-telop-container.ht-telop-container-top .ht-telop-info:hover, .ht-telop-container.ht-telop-container-top .ht-telop-info:focus, .ht-telop-container.ht-telop-container-bottom .ht-telop-info:active, .ht-telop-container.ht-telop-container-bottom .ht-telop-info:hover, .ht-telop-container.ht-telop-container-bottom .ht-telop-info:focus {
+  background-color: #0e6ecd;
+}
+
+.ht-telop-container.ht-telop-container-top .ht-telop-warn:active, .ht-telop-container.ht-telop-container-top .ht-telop-warn:hover, .ht-telop-container.ht-telop-container-top .ht-telop-warn:focus, .ht-telop-container.ht-telop-container-bottom .ht-telop-warn:active, .ht-telop-container.ht-telop-container-bottom .ht-telop-warn:hover, .ht-telop-container.ht-telop-container-bottom .ht-telop-warn:focus {
+  background-color: #fe9000;
+}
+
+.ht-telop-container.ht-telop-container-top .ht-telop-error:active, .ht-telop-container.ht-telop-container-top .ht-telop-error:hover, .ht-telop-container.ht-telop-container-top .ht-telop-error:focus, .ht-telop-container.ht-telop-container-bottom .ht-telop-error:active, .ht-telop-container.ht-telop-container-bottom .ht-telop-error:hover, .ht-telop-container.ht-telop-container-bottom .ht-telop-error:focus {
+  background-color: #c13311;
+}
+
+.ht-telop-container-top {
+  top: 0px;
+}
+
+.ht-telop-container-bottom {
+  bottom: 0px;
+}
+
+.ht-navbar-container.ht-navbar-container-sticky + .ht-telop-container-top,
+.ht-navbar-container.ht-navbar-container-sticky + * .ht-telop-container-top {
+  top: 80px;
+}
+
+@media screen and (max-width: 480px) {
+  .ht-navbar-container.ht-navbar-container-sticky + .ht-telop-container-top,
+  .ht-navbar-container.ht-navbar-container-sticky + * .ht-telop-container-top {
+    top: 60px;
+  }
+}
+
+@media screen and (min-width: calc(480px + 1px)) and (max-width: 896px) {
+  .ht-navbar-container.ht-navbar-container-sticky + .ht-telop-container-top,
+  .ht-navbar-container.ht-navbar-container-sticky + * .ht-telop-container-top {
+    top: 80px;
+  }
+}
+
+@media screen and (min-width: calc(896px + 1px)) and (max-width: 1024px) {
+  .ht-navbar-container.ht-navbar-container-sticky + .ht-telop-container-top,
+  .ht-navbar-container.ht-navbar-container-sticky + * .ht-telop-container-top {
+    top: 80px;
+  }
+}
+
+.ht-telop-view-floating .ht-telop-info, .ht-telop-view-floating .ht-telop-warn, .ht-telop-view-floating .ht-telop-error {
+  box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.ht-telop-view-signboard .ht-telop-info, .ht-telop-view-signboard .ht-telop-warn, .ht-telop-view-signboard .ht-telop-error {
+  position: relative;
+}
+
+.ht-telop-view-signboard .ht-telop-info:after, .ht-telop-view-signboard .ht-telop-warn:after, .ht-telop-view-signboard .ht-telop-error:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: calc(100% - 6px);
+  width: calc(100% - 6px);
+  background-color: transparent;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.ht-telop-view-signboard .ht-telop-info:after {
+  border-color: #094786;
+}
+
+.ht-telop-view-signboard .ht-telop-warn:after {
+  border-color: #b26400;
+}
+
+.ht-telop-view-signboard .ht-telop-error:after {
+  border-color: #7b210b;
+}
+
+@media screen and (max-width: 480px) {
+  .ht-telop-container .ht-telop-info, .ht-telop-container .ht-telop-warn, .ht-telop-container .ht-telop-error {
+    width: calc(100% - (5px * 2));
+  }
+  .ht-telop-container:not(.ht-telop-view-signboard) .ht-telop-info, .ht-telop-container:not(.ht-telop-view-signboard) .ht-telop-warn, .ht-telop-container:not(.ht-telop-view-signboard) .ht-telop-error {
+    padding-inline-start: 5px;
+    padding-inline-end: 5px;
+  }
+  .ht-telop-container.ht-telop-view-signboard .ht-telop-info, .ht-telop-container.ht-telop-view-signboard .ht-telop-warn, .ht-telop-container.ht-telop-view-signboard .ht-telop-error {
+    padding-inline-start: 2px;
+    padding-inline-end: 2px;
+  }
+}
+
+@media screen and (min-width: calc(480px + 1px)) and (max-width: 896px) {
+  .ht-telop-container .ht-telop-info, .ht-telop-container .ht-telop-warn, .ht-telop-container .ht-telop-error {
+    width: calc(100% - (15px * 2));
+  }
+  .ht-telop-container:not(.ht-telop-view-signboard) .ht-telop-info, .ht-telop-container:not(.ht-telop-view-signboard) .ht-telop-warn, .ht-telop-container:not(.ht-telop-view-signboard) .ht-telop-error {
+    padding-inline-start: 15px;
+    padding-inline-end: 15px;
+  }
+  .ht-telop-container.ht-telop-view-signboard .ht-telop-info, .ht-telop-container.ht-telop-view-signboard .ht-telop-warn, .ht-telop-container.ht-telop-view-signboard .ht-telop-error {
+    padding-inline-start: 12px;
+    padding-inline-end: 12px;
+  }
+}
+
+@media screen and (min-width: calc(896px + 1px)) and (max-width: 1024px) {
+  .ht-telop-container .ht-telop-info, .ht-telop-container .ht-telop-warn, .ht-telop-container .ht-telop-error {
+    width: calc(100% - (25px * 2));
+  }
+  .ht-telop-container.ht-telop-view-signboard .ht-telop-info, .ht-telop-container.ht-telop-view-signboard .ht-telop-warn, .ht-telop-container.ht-telop-view-signboard .ht-telop-error {
+    padding-inline-start: 22px;
+    padding-inline-end: 22px;
+  }
+}
+/*# sourceMappingURL=ht-telop.css.map */

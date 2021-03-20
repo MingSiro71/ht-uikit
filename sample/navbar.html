@@ -1,0 +1,244 @@
+<!-- Navbar:
+  container
+    (default): Scroll out when scrolled
+    sticky: Stick to the top of the window
+
+  content location
+    left: Locate to left with margin from left
+    right: Locate to right with margin from right
+    center: Locate to center in usual and keep margin from "left" and "right" though viewport become narrow
+
+  navigation
+    (default): just arrange with some padding
+    sepalation: Draw lines between each of elements
+
+    highlight: Highlight element on focus
+    line: Underline element on focus
+-->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta property="og:title" content="HT-UIKit | Navbar">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.ht-uikit.com/navbar.html">
+  <meta property="og:image" content="https://www.ht-uikit.com/image/navbar_ogp.png">
+  <meta property="og:site_name" content="HT-UIKit">
+  <meta property="og:description" content="Customized UIKit by Hentech">
+
+  <link rel="stylesheet" href="../compiled/ht-uikit.css">
+
+  <title>HT-UIKit | Navbar</title>
+</head>
+<body>
+  <div style="height:120px;overflow-y:scroll">
+    <header class="ht-navbar-container ht-navbar-container-sticky">
+      <!-- navibar can be bound by block element or not -->
+      <div style="max-width: 1080px; margin:auto">
+        <nav>
+          <div class="ht-navbar-left ht-navbar-logo">
+            <a href="/">
+              <img src="../asset/image/niwatori.png" alt="cook doodle doo!" style="height: 36px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+                <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+                <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+              </svg>
+              <text>HT-UIkit<text>
+            </a>
+          </div>
+          <div class="ht-navbar-center ht-optionfor-notebook"><p>Text on the center</p></div>
+          <div class="ht-navbar-right">
+            <ul class="ht-navbar-navigation ht-optionfor-mobile-landscape">
+              <li class="uk-active"><a href="#">Active</a></li>
+              <li class=""><a href="#">Item</a></li>
+              <li class=""><a href="#">Item</a></li>
+              <li class=""><a href="#">Item</a></li>
+            </ul>
+            <button class="uk-button">Button</button>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <section>
+      <p>Header with inner bound</p><p>Sentence...</p><p>Sentence...</p><p>Sentence...</p><p>Sentence...</p>
+    </section>
+  </div>
+  <div style="height:120px;overflow-y:scroll">
+    <header class="ht-navbar-container ht-navbar-container-sticky" style="top: 120px">
+      <nav>
+        <div class="ht-navbar-left ht-navbar-logo">
+          <a href="/">
+            <img src="../asset/image/niwatori.png" alt="cook doodle doo!" style="height: 36px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+            <text>HT-UIkit<text>
+          </a>
+        </div>
+        <div class="ht-navbar-center ht-optionfor-notebook"><p>Text on the center</p></div>
+        <div class="ht-navbar-right ht-optionfor-mobile-landscape">
+          <ul class="ht-navbar-navigation">
+            <li class="uk-active"><a href="#">Active</a></li>
+            <li class=""><a href="#">Item</a></li>
+            <li class=""><a href="#">Item</a></li>
+            <li class=""><a href="#">Item</a></li>
+          </ul>
+          <button class="uk-button">Button</button>
+        </div>
+      </nav>
+    </header>
+    <section>
+      <p>Header without inner bound</p><p>Sentence...</p><p>Sentence...</p><p>Sentence...</p><p>Sentence...</p>
+    </section>
+  </div>
+  <div style="height:120px;overflow-y:scroll">
+    <header class="ht-navbar-container ht-navbar-container-sticky" style="top: 240px">
+      <nav>
+        <div class="ht-navbar-left ht-navbar-logo">
+          <a href="/">
+            <img src="../asset/image/niwatori.png" alt="cook doodle doo!" style="height: 36px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+            <text>HT-UIkit<text>
+          </a>
+        </div>
+        <div class="ht-navbar-center ht-optionfor-notebook"><p>Text on the center</p></div>
+        <div class="ht-navbar-right">
+          <ul class="ht-navbar-navigation ht-optionfor-mobile-landscape">
+            <li class="uk-active"><a href="#">Active</a></li>
+            <li class=""><a href="#">Item</a></li>
+            <li class=""><a href="#">Item</a></li>
+            <li class=""><a href="#">Item</a></li>
+          </ul>
+          <button class="uk-button">Button</button>
+        </div>
+      </nav>
+    </header>
+    <section>
+      <p>Sepalation & Highlight & line</p><p>Sentence...</p><p>Sentence...</p><p>Sentence...</p><p>Sentence...</p>
+    </section>
+  </div>
+  <div style="height:120px;overflow-y:scroll">
+    <header class="ht-navbar-container ht-navbar-container-sticky ht-bicolor" style="top: 360px">
+      <nav>
+        <div class="ht-navbar-left ht-navbar-logo">
+          <a href="/">
+            <img src="../asset/image/niwatori.png" alt="cook doodle doo!" style="height: 36px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+            <text>HT-UIkit<text>
+          </a>
+        </div>
+        <div class="ht-navbar-center ht-optionfor-notebook"><p>Text on the center</p></div>
+        <div class="ht-navbar-right">
+          <ul class="ht-navbar-navigation ht-optionfor-mobile-landscape">
+            <li class="uk-active"><a href="#">Active</a></li>
+            <li class=""><a href="#">Item</a></li>
+            <li class=""><a href="#">Item</a></li>
+            <li class=""><a href="#">Item</a></li>
+          </ul>
+          <button class="uk-button">Button</button>
+        </div>
+      </nav>
+    </header>
+    <section>
+      <p>Bicolor</p><p>Sentence...</p><p>Sentence...</p><p>Sentence...</p><p>Sentence...</p>
+    </section>
+  </div>
+  <div style="height:120px;overflow-y:scroll">
+    <header class="ht-navbar-container ht-navbar-container-sticky ht-tricolor" style="top: 480px">
+      <nav>
+        <div class="ht-navbar-left ht-navbar-logo">
+          <a href="/">
+            <img src="../asset/image/niwatori.png" alt="cook doodle doo!" style="height: 36px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+            <text>HT-UIkit<text>
+          </a>
+        </div>
+        <div class="ht-navbar-center ht-optionfor-notebook"><p>Text on the center</p></div>
+        <div class="ht-navbar-right">
+          <ul class="ht-navbar-navigation ht-optionfor-mobile-landscape">
+            <li class="uk-active"><a href="#">Active</a></li>
+            <li class=""><a href="#">Item</a></li>
+            <li class=""><a href="#">Item</a></li>
+            <li class=""><a href="#">Item</a></li>
+          </ul>
+          <button class="uk-button">Button</button>
+        </div>
+      </nav>
+    </header>
+    <section>
+      <p>Tricolor</p><p>Sentence...</p><p>Sentence...</p><p>Sentence...</p><p>Sentence...</p>
+    </section>
+  </div>
+  <div style="height:120px;overflow-y:scroll">
+    <header class="ht-navbar-container ht-navbar-container-sticky ht-toolbar" style="top: 600px">
+      <nav>
+        <div class="ht-navbar-left ht-navbar-logo">
+          <a href="/">
+            <img src="../asset/image/niwatori.png" alt="cook doodle doo!" style="height: 36px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+            <text>HT-UIkit<text>
+          </a>
+        </div>
+        <div class="ht-navbar-center ht-optionfor-notebook"><p>Text on the center</p></div>
+        <div class="ht-navbar-right">
+          <ul class="ht-navbar-navigation ht-optionfor-mobile-landscape">
+            <li class="uk-active"><a href="#">Active</a></li>
+            <li class=""><a href="#">Item</a></li>
+            <li class=""><a href="#">Item</a></li>
+            <li class=""><a href="#">Item</a></li>
+          </ul>
+          <button class="uk-button">Button</button>
+        </div>
+      </nav>
+    </header>
+    <section>
+      <p>Toolbar</p><p>Sentence...</p><p>Sentence...</p><p>Sentence...</p><p>Sentence...</p>
+    </section>
+  </div>
+  <div style="height:120px;overflow-y:scroll">
+    <header class="ht-navbar-container" style="top:720px">
+      <nav>
+        <div class="ht-navbar-left ht-navbar-logo">
+          <a href="/">
+            <img src="../asset/image/niwatori.png" alt="cook doodle doo!" style="height: 36px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+            <text>HT-UIkit<text>
+          </a>
+        </div>
+        <div class="ht-navbar-center ht-optionfor-notebook"><p>Text on the center</p></div>
+        <div class="ht-navbar-right">
+          <ul class="ht-navbar-navigation ht-optionfor-mobile-landscape">
+            <li class="uk-active"><a href="#">Active</a></li>
+            <li class=""><a href="#">Item</a></li>
+            <li class=""><a href="#">Item</a></li>
+            <li class=""><a href="#">Item</a></li>
+          </ul>
+          <button class="uk-button">Button</button>
+        </div>
+      </nav>
+    </header>
+    <section>
+      <p>No sticky</p><p>Sentence...</p><p>Sentence...</p><p>Sentence...</p><p>Sentence...</p>
+    </section>
+  </div>
+</body>
+</html>

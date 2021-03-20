@@ -4,17 +4,46 @@
 /* 
  * _colors.scss: Defines colors for areas and objects
  *
-    *base: Base color and standard text colors
-    *bicolor: The second base color
-    *tricolor: The third base color
-    *danger: Areas which user should not touch in usual case use this colors
-    *primary: Colors for object which user should watch at first
-    *secondary: Colors for object which is important next to primary
-    *accent: Accent color for object which is no relation for user flow
-    *toolbar: Colers for user interface which can be find that not the parts of page, but utility object
-    *information: Colors for infomation message or telop
-    *warning: Colors for warning message or telop
-    *error: Colors for error message or telop
+  Themes:
+    Areas:
+      *base: Base color and standard text colors
+      *bicolor: The second base color
+      *tricolor: The third base color
+      *toolbar: Colers for user interface which can be find that not the parts of page, but utility object
+      *danger: Areas which user should not touch in usual case use this colors
+    Objects:
+      *primary: Colors for object which user should watch at first
+      *secondary: Colors for object which is important next to primary
+      *accent: Accent color for object which is no relation for user flow
+    Nocices:
+      *information: Colors for infomation message or telop
+      *warning: Colors for warning message or telop
+      *error: Colors for error message or telop
+
+  Colors for each theme:
+    Areas:
+      basis: Used for background color
+      dent: Impless there is a dent which is used for hr or border
+      text: Text color
+      text-muted: Text color which is muted, also used link hover
+      text-active: Text in active element
+      heading: Used for heading, which is stronger than text color
+      link: Impress that text is link
+      link-ontouch: Used for link on touch or on cursor
+
+      Only toolbar and danger:
+        ontouch: User touches or cursor is on
+        active: Impress the element is active seemes to be pushed
+    Objects:
+      basis: Used for object's background color
+      ontouch: User touches or cursor is on, seems to be reflecting ray
+      active: Impress the element is active, seems pushed
+      text: Text color
+    Nocices:
+      basis: Used for object's background color
+      ontouch: User touches or cursor is on
+      dent: Used when view type is signboard
+      text: Text color
  */
 /* 
  * base
@@ -26,8 +55,11 @@
  * tricolor
  */
 /* 
- * danger
+ * toolbar
  */
+/* 
+  * danger
+  */
 /* 
  * primary
  */
@@ -38,17 +70,33 @@
  * accent
  */
 /* 
- * toolbar
- */
-/* 
- * infomation
- */
+  * infomation
+  */
 /* 
  * warning
  */
 /* 
  * error
  */
+/* 
+ * _layout.scss: Defines window breakpoint and indent size 
+ *
+  Stream-width:
+    Width Definitions for Stream Component
+    It is recomended that keep main-min smaller than 375
+    enough not to hide content in small mobile
+  Breakpoint
+    Devices are called here
+      - mobile: mobile phone such as smartphone
+        mobile-portlate
+        mobile-landscape
+      - notebook: Laptop and tablet computer
+                  Using tablet in landscape layout, is included in workstation 
+      - workstation: Computers larger than notebook such as desktop computer
+  Others
+    nav-height: Height of navigation bar
+ */
+/* Do not touch! Auto configuration */
 /* ========================================================================
    Component: Button
  ========================================================================== */
@@ -64,26 +112,22 @@
  * 8. Align text if button has a width
  * 9. Required for `a`.
  */
-.uk-button {
+.uk-button, button, input[type="button"] {
   /* 1 */
   margin: 0;
   /* 2 */
-  border: none;
   /* 3 */
   overflow: visible;
   /* 4 */
   font: inherit;
-  color: inherit;
   /* 5 */
   text-transform: none;
   /* 6 */
   display: inline-block;
   box-sizing: border-box;
-  padding: 0 30px;
   vertical-align: middle;
   font-size: 0.875rem;
   /* 7 */
-  line-height: 38px;
   /* 8 */
   text-align: center;
   /* 9 */
@@ -91,19 +135,177 @@
   text-transform: uppercase;
   transition: 0.1s ease-in-out;
   transition-property: color, background-color, border-color;
+  position: relative;
+  /* Sizing */
 }
 
-.uk-button .ht-uk-button-oneliner {
-  line-height: 0.875rem;
-  white-space: nowrap;
-}
-
-.uk-button:not(:disabled) {
+.uk-button:not(:disabled), button:not(:disabled), input[type="button"]:not(:disabled) {
   cursor: pointer;
 }
 
-.uk-button *::selection {
-  background: transparent;
+.uk-button:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button), button:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button), input[type="button"]:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) {
+  padding: 0 30px;
+  line-height: 38px;
+}
+
+.uk-button:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > *, button:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > *, input[type="button"]:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > * {
+  margin-inline-start: -20px;
+}
+
+.uk-button:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > *:first-child, button:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > *:first-child, input[type="button"]:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > *:first-child {
+  padding-inline-start: 20px;
+}
+
+.uk-button:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > *:not(:last-child), button:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > *:not(:last-child), input[type="button"]:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > *:not(:last-child) {
+  padding-inline-end: calc(20px + 4px);
+}
+
+.uk-button:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > * + .uk-icon, button:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > * + .uk-icon, input[type="button"]:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > * + .uk-icon {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  top: calc((38px - 20px)/2);
+  bottom: calc((38px - 20px)/2);
+  right: 30px;
+}
+
+.uk-button.uk-button-large, button.uk-button-large, input[type="button"].uk-button-large {
+  padding: 0 40px;
+  line-height: 53px;
+}
+
+.uk-button.uk-button-large > *, button.uk-button-large > *, input[type="button"].uk-button-large > * {
+  margin-inline-start: -20px;
+}
+
+.uk-button.uk-button-large > *:first-child, button.uk-button-large > *:first-child, input[type="button"].uk-button-large > *:first-child {
+  padding-inline-start: 20px;
+}
+
+.uk-button.uk-button-large > *:not(:last-child), button.uk-button-large > *:not(:last-child), input[type="button"].uk-button-large > *:not(:last-child) {
+  padding-inline-end: calc(20px + 4px);
+}
+
+.uk-button.uk-button-large > * + .uk-icon, button.uk-button-large > * + .uk-icon, input[type="button"].uk-button-large > * + .uk-icon {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  top: calc((53px - 20px)/2);
+  bottom: calc((53px - 20px)/2);
+  right: 40px;
+}
+
+.uk-button.uk-button-small, button.uk-button-small, input[type="button"].uk-button-small {
+  padding: 0 15px;
+  line-height: 28px;
+}
+
+.uk-button.uk-button-small > *, button.uk-button-small > *, input[type="button"].uk-button-small > * {
+  margin-inline-start: -18px;
+}
+
+.uk-button.uk-button-small > *:first-child, button.uk-button-small > *:first-child, input[type="button"].uk-button-small > *:first-child {
+  padding-inline-start: 18px;
+}
+
+.uk-button.uk-button-small > *:not(:last-child), button.uk-button-small > *:not(:last-child), input[type="button"].uk-button-small > *:not(:last-child) {
+  padding-inline-end: calc(18px + 4px);
+}
+
+.uk-button.uk-button-small > * + .uk-icon, button.uk-button-small > * + .uk-icon, input[type="button"].uk-button-small > * + .uk-icon {
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  top: calc((28px - 18px)/2);
+  bottom: calc((28px - 18px)/2);
+  right: 15px;
+}
+
+/*
+ * default color inherit each of base theme
+ */
+a.uk-button:active, a.uk-button:hover, a.uk-button:focus {
+  color: #080805;
+}
+
+.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
+  border: solid 1px #bcbc9d;
+  color: #080805;
+  background-color: inherit;
+}
+
+.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus {
+  border-color: #72724e;
+}
+
+.ht-bicolor a.uk-button, .ht-bicolora.uk-button {
+  color: #05070b;
+}
+
+.ht-bicolor .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-bicolor button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-bicolor input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-bicolor.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-bicolorbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-bicolorinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
+  border: solid 1px #5283ff;
+  color: #05070b;
+  background-color: inherit;
+}
+
+.ht-bicolor .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-bicolor .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-bicolor .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-bicolor button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-bicolor button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-bicolor button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-bicolor input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-bicolor input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-bicolor input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-bicolor.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-bicolor.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-bicolor.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-bicolorbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-bicolorbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-bicolorbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-bicolorinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-bicolorinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-bicolorinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus {
+  border-color: #0034b8;
+}
+
+.ht-tricolor a.uk-button, .ht-tricolora.uk-button {
+  color: #ffffff;
+}
+
+.ht-tricolor .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-tricolor button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-tricolor input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-tricolor.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-tricolorbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-tricolorinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
+  border: solid 1px #cf2200;
+  color: #ffffff;
+  background-color: inherit;
+}
+
+.ht-tricolor .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-tricolor .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-tricolor .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-tricolor button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-tricolor button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-tricolor button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-tricolor input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-tricolor input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-tricolor input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-tricolor.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-tricolor.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-tricolor.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-tricolorbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-tricolorbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-tricolorbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-tricolorinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-tricolorinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-tricolorinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus {
+  border-color: #360900;
+}
+
+.ht-toolbar a.uk-button, .ht-toolbara.uk-button {
+  color: #ccb2b2;
+}
+
+.ht-toolbar .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-toolbar button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-toolbar input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-toolbar.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-toolbarbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-toolbarinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
+  border: solid 1px #050505;
+  color: #ccb2b2;
+  background-color: inherit;
+}
+
+.ht-toolbar .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-toolbar .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-toolbar .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-toolbar button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-toolbar button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-toolbar button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-toolbar input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-toolbar input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-toolbar input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-toolbar.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-toolbar.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-toolbar.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-toolbarbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-toolbarbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-toolbarbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-toolbarinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-toolbarinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-toolbarinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus {
+  border-color: black;
+}
+
+.ht-danger a.uk-button, .ht-dangera.uk-button {
+  color: #e9e9e9;
+}
+
+.ht-danger .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-danger button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-danger input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-danger.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-dangerbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-dangerinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
+  border: solid 1px #b30600;
+  color: #e9e9e9;
+  background-color: inherit;
+}
+
+.ht-danger .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-danger .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-danger .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-danger button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-danger button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-danger button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-danger input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-danger input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-danger input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-danger.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-danger.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-danger.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-dangerbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-dangerbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-dangerbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-dangerinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-dangerinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-dangerinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus {
+  border-color: #1a0100;
+}
+
+.ht-base a.uk-button, .ht-basea.uk-button {
+  color: #080805;
+}
+
+.ht-base .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-base button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-base input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-base.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-basebutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-baseinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
+  border: solid 1px #bcbc9d;
+  color: #080805;
+  background-color: inherit;
+}
+
+.ht-base .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-base .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-base .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-base button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-base button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-base button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-base input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-base input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-base input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-base.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-base.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-base.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-basebutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-basebutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-basebutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-baseinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-baseinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-baseinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus {
+  border-color: #72724e;
 }
 
 /*
@@ -125,82 +327,75 @@
   outline: none;
 }
 
-/* OnClick + Active */
-/* Style modifiers
+/* Colors
  ========================================================================== */
-/*
- * Default
- */
-.uk-button-default {
-  background-color: transparent;
-  color: inherit;
-  border: 1px solid rgba(127, 127, 127, 0.3);
-}
-
-.uk-button-default:hover, .uk-button-default:focus {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-color: rgba(127, 127, 127, 0.5);
-}
-
-.uk-button-default:active, .uk-button-default .uk-active {
-  background-color: rgba(255, 255, 255, 0.4);
-  border-color: rgba(127, 127, 127, 0.6);
+.uk-button-primary, .uk-button-secondary,
+.uk-button-accent, .uk-button-danger {
+  border: none;
 }
 
 /*
  * Primary
  */
 .uk-button-primary {
-  background-color: #30c297;
-  color: #fcfcf9;
-  border: 1px solid transparent;
+  background-color: #1e87f0;
+  color: #f9fcfc;
 }
 
-.uk-button-primary rect, .uk-button-primary path, .uk-button-primary polylie, .uk-button-primary line {
-  stroke: #fcfcf9;
+.uk-button-primary:hover, .uk-button-primary:focus {
+  background-color: #0e73d7;
+}
+
+.uk-button-primary:active {
+  background-color: #0c61b5;
 }
 
 /*
  * Secondary
  */
 .uk-button-secondary {
-  background-color: #30c297;
-  color: #fcfcf9;
-  border: 1px solid transparent;
+  background-color: #151515;
+  color: #fcfcfc;
 }
 
-.uk-button-secondary rect, .uk-button-secondary path, .uk-button-secondary polylie, .uk-button-secondary line {
-  stroke: #fcfcf9;
+.uk-button-secondary:hover, .uk-button-secondary:focus {
+  background-color: #010101;
+}
+
+.uk-button-secondary:active {
+  background-color: black;
 }
 
 /*
- * Warning
+ * Accent
  */
-.uk-button-warning {
-  background-color: #444742;
-  color: #f2f2f2;
-  border: 1px solid transparent;
+.uk-button-accent {
+  background-color: #ffc526;
+  color: #38402b;
 }
 
-.uk-button-warning rect, .uk-button-warning path, .uk-button-warning polylie, .uk-button-warning line {
-  stroke: #f2f2f2;
+.uk-button-accent:hover, .uk-button-accent:focus {
+  background-color: #fcb900;
+}
+
+.uk-button-accent:active {
+  background-color: #d99f00;
 }
 
 /*
  * Danger
  */
 .uk-button-danger {
-  background-color: #ff4529;
-  color: #444742;
-  border: 1px solid transparent;
+  background-color: #ff3a33;
+  color: #e9e9e9;
 }
 
 .uk-button-danger:hover, .uk-button-danger:focus {
-  background-color: #ffcac2;
+  background-color: #ff130a;
 }
 
-.uk-button-danger:active, .uk-button-danger .uk-active {
-  background-color: #ffcac2;
+.uk-button-danger:active {
+  background-color: #e60800;
 }
 
 /*

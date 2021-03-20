@@ -3,17 +3,46 @@
 /* 
  * _colors.scss: Defines colors for areas and objects
  *
-    *base: Base color and standard text colors
-    *bicolor: The second base color
-    *tricolor: The third base color
-    *danger: Areas which user should not touch in usual case use this colors
-    *primary: Colors for object which user should watch at first
-    *secondary: Colors for object which is important next to primary
-    *accent: Accent color for object which is no relation for user flow
-    *toolbar: Colers for user interface which can be find that not the parts of page, but utility object
-    *information: Colors for infomation message or telop
-    *warning: Colors for warning message or telop
-    *error: Colors for error message or telop
+  Themes:
+    Areas:
+      *base: Base color and standard text colors
+      *bicolor: The second base color
+      *tricolor: The third base color
+      *toolbar: Colers for user interface which can be find that not the parts of page, but utility object
+      *danger: Areas which user should not touch in usual case use this colors
+    Objects:
+      *primary: Colors for object which user should watch at first
+      *secondary: Colors for object which is important next to primary
+      *accent: Accent color for object which is no relation for user flow
+    Nocices:
+      *information: Colors for infomation message or telop
+      *warning: Colors for warning message or telop
+      *error: Colors for error message or telop
+
+  Colors for each theme:
+    Areas:
+      basis: Used for background color
+      dent: Impless there is a dent which is used for hr or border
+      text: Text color
+      text-muted: Text color which is muted, also used link hover
+      text-active: Text in active element
+      heading: Used for heading, which is stronger than text color
+      link: Impress that text is link
+      link-ontouch: Used for link on touch or on cursor
+
+      Only toolbar and danger:
+        ontouch: User touches or cursor is on
+        active: Impress the element is active seemes to be pushed
+    Objects:
+      basis: Used for object's background color
+      ontouch: User touches or cursor is on, seems to be reflecting ray
+      active: Impress the element is active, seems pushed
+      text: Text color
+    Nocices:
+      basis: Used for object's background color
+      ontouch: User touches or cursor is on
+      dent: Used when view type is signboard
+      text: Text color
  */
 /* 
  * base
@@ -25,8 +54,11 @@
  * tricolor
  */
 /* 
- * danger
+ * toolbar
  */
+/* 
+  * danger
+  */
 /* 
  * primary
  */
@@ -37,34 +69,75 @@
  * accent
  */
 /* 
- * toolbar
- */
-/* 
- * infomation
- */
+  * infomation
+  */
 /* 
  * warning
  */
 /* 
  * error
  */
-.overlay-cover {
+/* 
+ * _layout.scss: Defines window breakpoint and indent size 
+ *
+  Stream-width:
+    Width Definitions for Stream Component
+    It is recomended that keep main-min smaller than 375
+    enough not to hide content in small mobile
+  Breakpoint
+    Devices are called here
+      - mobile: mobile phone such as smartphone
+        mobile-portlate
+        mobile-landscape
+      - notebook: Laptop and tablet computer
+                  Using tablet in landscape layout, is included in workstation 
+      - workstation: Computers larger than notebook such as desktop computer
+  Others
+    nav-height: Height of navigation bar
+ */
+/* Do not touch! Auto configuration */
+/* ========================================================================
+   Component: Loading
+ ========================================================================== */
+/*
+ * 1. Color of balls
+ * 2. Color of the ball which has defferent color than others
+ */
+.ht-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
   height: 100vh;
-  position: relative;
-  z-index: 5;
+  width: 100vw;
+  z-index: 970;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
-.loading-object {
+.ht-overlay > div, .ht-overlay > .ht-overlay-field {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.ht-loading {
   position: absolute;
-  left: 50%;
   top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   width: 100px;
   height: 100px;
-  background-color: #fff;
+  border-radius: 1000px;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 3px 3px 5px 0px #777;
 }
 
-.ball {
+.ht-loading div, .ht-loading .ht-loading-ball-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.ht-loading div .ht-loading-ball, .ht-loading .ht-loading-ball-wrapper .ht-loading-ball {
   width: 50%;
   height: 20px;
   position: absolute;
@@ -73,77 +146,75 @@
   left: 0;
 }
 
-.ball::before {
+.ht-loading div .ht-loading-ball::before, .ht-loading .ht-loading-ball-wrapper .ht-loading-ball::before {
   content: '';
   display: block;
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: #333;
   position: absolute;
   left: 0;
   top: 50%;
   transform: translateY(-50%);
 }
 
-.ball-1::before {
+.ht-loading div .ht-loading-ball-1::before, .ht-loading .ht-loading-ball-wrapper .ht-loading-ball-1::before {
   animation: loading-object 1s linear 0s infinite;
 }
 
-.ball-2 {
+.ht-loading div .ht-loading-ball-2, .ht-loading .ht-loading-ball-wrapper .ht-loading-ball-2 {
   transform: rotate(45deg);
 }
 
-.ball-2::before {
+.ht-loading div .ht-loading-ball-2::before, .ht-loading .ht-loading-ball-wrapper .ht-loading-ball-2::before {
   animation: loading-object 1s linear -0.125s infinite;
 }
 
-.ball-3 {
+.ht-loading div .ht-loading-ball-3, .ht-loading .ht-loading-ball-wrapper .ht-loading-ball-3 {
   transform: rotate(90deg);
 }
 
-.ball-3::before {
+.ht-loading div .ht-loading-ball-3::before, .ht-loading .ht-loading-ball-wrapper .ht-loading-ball-3::before {
   animation: loading-object 1s linear -0.25s infinite;
 }
 
-.ball-4 {
+.ht-loading div .ht-loading-ball-4, .ht-loading .ht-loading-ball-wrapper .ht-loading-ball-4 {
   transform: rotate(135deg);
 }
 
-.ball-4::before {
+.ht-loading div .ht-loading-ball-4::before, .ht-loading .ht-loading-ball-wrapper .ht-loading-ball-4::before {
   animation: loading-object 1s linear -0.375s infinite;
-  background-color: #393;
 }
 
-.ball-5 {
+.ht-loading div .ht-loading-ball-5, .ht-loading .ht-loading-ball-wrapper .ht-loading-ball-5 {
   transform: rotate(180deg);
 }
 
-.ball-5::before {
+.ht-loading div .ht-loading-ball-5::before, .ht-loading .ht-loading-ball-wrapper .ht-loading-ball-5::before {
   animation: loading-object 1s linear -0.5s infinite;
 }
 
-.ball-6 {
+.ht-loading div .ht-loading-ball-6, .ht-loading .ht-loading-ball-wrapper .ht-loading-ball-6 {
   transform: rotate(225deg);
 }
 
-.ball-6::before {
+.ht-loading div .ht-loading-ball-6::before, .ht-loading .ht-loading-ball-wrapper .ht-loading-ball-6::before {
   animation: loading-object 1s linear -0.625s infinite;
 }
 
-.ball-7 {
+.ht-loading div .ht-loading-ball-7, .ht-loading .ht-loading-ball-wrapper .ht-loading-ball-7 {
   transform: rotate(270deg);
 }
 
-.ball-7::before {
+.ht-loading div .ht-loading-ball-7::before, .ht-loading .ht-loading-ball-wrapper .ht-loading-ball-7::before {
   animation: loading-object 1s linear -0.75s infinite;
 }
 
-.ball-8 {
+.ht-loading div .ht-loading-ball-8, .ht-loading .ht-loading-ball-wrapper .ht-loading-ball-8 {
   transform: rotate(315deg);
 }
 
-.ball-8::before {
+.ht-loading div .ht-loading-ball-8::before, .ht-loading .ht-loading-ball-wrapper .ht-loading-ball-8::before {
   animation: loading-object 1s linear -0.875s infinite;
 }
 
@@ -159,5 +230,17 @@
     opacity: .2;
     margin-left: 7px;
   }
+}
+
+/* 1 */
+.ht-loading div .ht-loading-ball::before,
+.ht-loading .ht-loading-ball-wrapper .ht-loading-ball::before {
+  background-color: #333;
+}
+
+/* 2 */
+.ht-loading div .ht-loading-ball-4::before,
+.ht-loading .ht-loading-ball-wrapper .ht-loading-ball-4::before {
+  background-color: #3090ff;
 }
 /*# sourceMappingURL=ht-loading.css.map */

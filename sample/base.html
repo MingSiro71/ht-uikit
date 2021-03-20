@@ -1,3 +1,50 @@
+<!-- Theme:
+  (default) / base
+  bicolor
+  tricolor
+  toolbar
+  danger
+  : Defines mainly color patterns of inner objects
+    they can over write another of them
+-->
+<!-- Basic block elements:
+  p,ul,ol,dl,pre,address,fieldset,figure
+  : Each of them takes mergin defined in layout.scss
+
+  ul,ol: Include li
+  dl: Include dt and dd
+  pre: Includes preformatted text, can be include code tag
+    default: Light colored area
+    dark: Dark colored area
+  fieldset: Includes input form which can be wrapped by some block or inline element
+  figure: Discripts elements is figure and can include figcaption
+  ul and ol nests into another of them
+-->
+<!-- Heading:
+  h1 to h6: Font size is defined in font.scss
+  (default): Takes margin the same as Basic block elements
+  border: Takes holizon below
+  no-space: Takes no margin after heading
+-->
+<!-- Link:
+  Adopted to a or .uk-link
+  (default): Using link color, and its darken color during focused 
+  muted: Using weak color in usual 
+  text: Using default text color in usual, and weak color during focused
+  heading: Using default text color in usual, and darken link color during focused
+  silent: Only cursol is differ to default text
+-->
+<!-- Others:
+  abbr: abbreviation
+  blockquote: Quote area includes footer
+  hr: holizon
+-->
+<!-- Tab:
+  (default): Tabs are arranged on the left, and selection marker is on the bottom
+  bottom: Locate selection marker on the top
+  locate-center: Tabs are arranged in the center
+  locate-left: Tabs are arranged on the left
+--> 
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -17,112 +64,693 @@
   <title>HT-UIKit | Base</title>
 </head>
 <body>
-  <!-- navbar:
-    (default): Scroll out when scrolled
-    sticky: Stick to the top of the window
-
-    left: Locate to left with margin from left
-    right: Locate to right with margin from right
-    center: Locate to center in usual and keep margin from "left" and "right" though viewport become narrow
-  -->
-  <header class="ht-vavbar-container ht-vavbar-container-sticky">
-    <!-- navibar can be bound by block element or not -->
-    <div style="max-width: 1080px">
-      <nav>
-        <div class="ht-vavbar-left ht-vavbar-logo">
-          <a href="/">
-            <img src="" alt="">
-            <svg></svg>
-            <text>LOGO<text>
-          </a>
-        </div>
-        <div class="ht-vavbar-center"></div>
-        <div class="ht-vavbar-right"></div>
-      </nav>
-    </div>
+  <header class="ht-navbar-container ht-navbar-container-sticky">
+    <nav>
+      <div class="ht-navbar-left ht-navbar-logo">
+        <a href="/">
+          <img src="../asset/image/niwatori.png" alt="cook doodle doo!" style="height: 36px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+            <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+            <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+          </svg>
+          <text>HT-UIkit<text>
+        </a>
+      </div>
+      <div class="ht-navbar-center ht-optionfor-notebook"><p>Text on the center</p></div>
+      <div class="ht-navbar-right">
+        <ul class="ht-navbar-navigation ht-optionfor-mobile-landscape">
+          <li class="uk-active"><a href="#">Active</a></li>
+          <li class=""><a href="#">Item</a></li>
+          <li class=""><a href="#">Item</a></li>
+          <li class=""><a href="#">Item</a></li>
+        </ul>
+        <button class="uk-button">Button</button>
+      </div>
+    </nav>
   </header>
-
-  <!-- theme:
-    (default) / base
-    bicolor
-    tricolor
-    toolbar
-    danger
-    : Defines mainly color patterns of inner objects
-      they can over write another of them
-  -->
-  <!-- Basic block elements:
-    p,ul,ol,dl,pre,address,fieldset,figure
-    : Each of them takes mergin defined in layout.scss
-
-    ul,ol: Include li
-    dl: Include dt and dd
-    pre: Includes preformatted text, can be include code tag
-    fieldset: Includes input form which can be wrapped by some block or inline element
-    figure: Discripts elements is figure and can include figcaption
-    ul and ol nests into another of them
-  -->
-  <!-- Heading:
-    h1 to h6: Font size is defined in font.scss
-    (default): Takes margin the same as Basic block elements
-    border: Takes holizon below
-    no-space: Takes no margin after heading
-  -->
-  <!-- Link:
-    Adopted to a or .uk-link
-    (default): 
-    muted:
-    text:
-    heading: 
-    silent: 
-  -->
+  <main style="max-width: 1080px; margin:auto">
   <section>
+    <!-- Basic block elements -->
     <p>First block element with &lt;p&gt; tag</p>
-    <p>Block element with &lt;p&gt; tag</p>
-
-    <a href="">Link with a tag</a><br>
-    <span class="uk-link">Link with uk-link</span><br>
-    <abbr title="abbreviation">ABBR</abbr><br>
+    <p>Block element with &lt;p&gt; tag<br></p>
+    <ul>
+      <li>Element 1 in &lt;ul&gt;</li>
+      <li>
+        <ol>
+          <li>Element 1 in &lt;ul&gt; > &lt;ol&gt;</li>
+          <li>
+            <ul>
+              <li>Element 1 in &lt;ul&gt; > &lt;ol&gt; > &lt;ul&gt;</li>
+              <li>Element 2 in &lt;ul&gt; > &lt;ol&gt; > &lt;ul&gt;</li>
+            </ul>
+          </li>
+          <li>Element 3 in &lt;ul&gt; > &lt;ol&gt;</li>
+        </ol>
+      </li>
+      <li>Element 3 in &lt;ul&gt;</li>
+    </ul>
+    <ol>
+      <li>Element 1 in &lt;ol&gt;</li>
+      <li>
+        <ul>
+          <li>Element 1 in &lt;ol&gt; > &lt;ul&gt;</li>
+          <li>
+            <ol>
+              <li>Element 1 in &lt;ol&gt; > &lt;ul&gt; > &lt;ol&gt;</li>
+              <li>Element 2 in &lt;ol&gt; > &lt;ul&gt; > &lt;ol&gt;</li>
+            </ol>
+          </li>
+          <li>Element 3 in &lt;ol&gt; > &lt;ul&gt;</li>
+        </ul>
+      </li>
+      <li>Element 3 in &lt;ol&gt;</li>
+    </ol>
+    <dl>
+      <dt>Element 1 title in &lt;dl&gt;</dt><dd>Element 1 data in &lt;dl&gt;</dd>
+      <dt>Element 2 title in &lt;dl&gt;</dt><dd>Element 2 data in &lt;dl&gt;</dd>
+      <dt>Element 3 title in &lt;dl&gt;</dt><dd>Element 3 data in &lt;dl&gt;</dd>
+    </dl>
     <pre>
-Preformed Text
-&lt;strong&gt;ニホンカワウソ&lt;/strong&gt;
+Preformatted Text
 *ﾟﾟ･*+。
 　　 ｜　　　ﾟ*｡
 　　｡∩∧∧　　*
 　 + (･ω･`) *+ﾟ
-　 *｡ヽ　　つ*ﾟ*
-　　ﾞ･+｡*･ﾟ⊃　+ﾟ
-　　 ☆ ∪　 ｡*ﾟ
-　　　ﾞ･+｡*･ﾟ
-      <code>
-&lt;code&gt;ニホンカワウソ&lt;/code&gt;
-      </code>
+<code>&lt;code&gt;Code += "code"; # コード&lt;/code&gt;</code>
+<kbd>&lt;kbd&gt;Input from keyboard キーボード入力&lt;/kbd&gt;</kbd>
     </pre>
-    <code>
-      &lt;code&gt;ニホンカワウソ&lt;/code&gt;
-    </code>
-    <samp>
-      &lt;samp&gt;<kbd>&lt;kbd&gt;ニホンカワウソ&lt;/kbd&gt;</kbd>&lt;/samp&gt;
-    </samp>
-    <hr>
+    <pre class="ht-preformatted-dark">
+ダークカラー
+<code>&lt;code&gt;Code += "code"; # コード&lt;/code&gt;</code>
+<kbd>&lt;kbd&gt;Input from keyboard キーボード入力&lt;/kbd&gt;</kbd>
+    </pre>
     <address>My address 1-1-1</address>
-    <blockquote>
-      引用文
-      <footer>in youbun</footer>
-    </blockquote>
-    <span class="uk-icon">
-
-
-    </span>
+    <fieldset>
+      <h3>A Field</h3>
+      <p><input type="text"></p>
+      <p><input type="date"></p>
+    </fieldset>
+    <figure>
+      <img src="" alt="figure sample image">
+      <svg height="180" width="500"><polyline points="0,40 40,40 40,80 80,80 80,120 120,120 120,160" /></svg>
+      <figcaption>Caption for figure</figcaption>
+    </figure>
+    <!-- Heading -->
+    <h1>Heading level 1</h1><p>Paragraph under h1</p>
+    <h1>Heading level 1</h1><text>Text under h1</text>
+    <h1 class="ht-heading-border">Heading level 1 with border</h1><p>Paragraph under h1</p>
+    <h1 class="ht-heading-border">Heading level 1 with border</h1><text>Text under h1</text>
+    <h1 class="ht-heading-no-spacing">Heading level 1 with no spacing</h1><p>Paragraph under h1</p>
+    <h1 class="ht-heading-no-spacing">Heading level 1 with no spacing</h1><text>Text under h1</text>
+    <h2>Heading level 2</h2><p>Paragraph under h2</p>
+    <h3>Heading level 3</h3><p>Paragraph under h3</p>
+    <h4>Heading level 4</h4><p>Paragraph under h4</p>
+    <h5>Heading level 5</h5><p>Paragraph under h5</p>
+    <h6>Heading level 6</h6><p>Paragraph under h6</p>
+    <!-- Link -->
+    <a href="#">Link: with &lt;a&gt; default</a><br>
+    <span class="uk-link" href="#">Link: with .uk-link default</span><br>
+    <span class="uk-link uk-link-muted" href="#">Link: uk-link-muted</span><br>
+    <span class="uk-link uk-link-text" href="#">Link: uk-link-text</span><br>
+    <span class="uk-link uk-link-heading" href="#">Link: uk-link-heading</span><br>
+    <span class="uk-link uk-link-silent" href="#">Link: uk-link-silent</span><br>
+    <!-- Others -->
+    <abbr title="abbreviation">ABBR</abbr><br>
+    <blockquote>This is quatation これは引用文<footer>in youbun</footer></blockquote>
+    <hr>
+    <!-- Tab -->
+    <ul class="uk-tab">
+      <li class="uk-active"><a href="#">Left</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class="uk-disabled"><a>Disabled</a></li>
+    </ul>
+    <section>
+      <p>Discription text</p>
+    </section>
+    <ul class="uk-tab uk-tab-bottom">
+      <li class="uk-active"><a href="#">Left</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class="uk-disabled"><a>Disabled</a></li>
+    </ul>
+    <section>
+      <p>Discription text</p>
+    </section>
+    <p>Centering with uk-tab-locate-center</p>
+    <ul class="uk-tab uk-tab-locate-center">
+      <li class="uk-active"><a href="#">Left</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class="uk-disabled"><a>Disabled</a></li>
+    </ul>
+    <section>
+    <p>Discription text</p>
+    </section>
+    <p>Locate on the right with uk-tab-locate-right</p>
+    <ul class="uk-tab uk-tab-locate-right">
+      <li class="uk-active"><a href="#">Left</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class="uk-disabled"><a>Disabled</a></li>
+    </ul>
+    <section>
+      <p>Discription text</p>
+    </section>
+    <!-- Progress -->
+    <progress class="uk-progress" value="50" max="100"></progress>
   </section>
+  <!-- Overrite theme -->
   <section class="ht-bicolor">
     <div class="ht-base" style="display: inline-block; margin: 4px; width: 80%">
-      <p>Overwrite base on bicolor</p> 
+      <p>Overwrite base on bicolor</p>
     </div>
   </section>
-  <section class="ht-bicolor">a</section>
-  <section class="ht-tricolor ht-break">a</section>
-  <section class="ht-toolbar ht-break">a</section>
-  <section class="ht-danger">a</section>
+  <!-- Themes -->
+  <section class="ht-bicolor">
+    <!-- Basic block elements -->
+    <p>First block element with &lt;p&gt; tag</p>
+    <p>Block element with &lt;p&gt; tag<br></p>
+    <ul>
+      <li>Element 1 in &lt;ul&gt;</li>
+      <li>
+        <ol>
+          <li>Element 1 in &lt;ul&gt; > &lt;ol&gt;</li>
+          <li>
+            <ul>
+              <li>Element 1 in &lt;ul&gt; > &lt;ol&gt; > &lt;ul&gt;</li>
+              <li>Element 2 in &lt;ul&gt; > &lt;ol&gt; > &lt;ul&gt;</li>
+            </ul>
+          </li>
+          <li>Element 3 in &lt;ul&gt; > &lt;ol&gt;</li>
+        </ol>
+      </li>
+      <li>Element 3 in &lt;ul&gt;</li>
+    </ul>
+    <ol>
+      <li>Element 1 in &lt;ol&gt;</li>
+      <li>
+        <ul>
+          <li>Element 1 in &lt;ol&gt; > &lt;ul&gt;</li>
+          <li>
+            <ol>
+              <li>Element 1 in &lt;ol&gt; > &lt;ul&gt; > &lt;ol&gt;</li>
+              <li>Element 2 in &lt;ol&gt; > &lt;ul&gt; > &lt;ol&gt;</li>
+            </ol>
+          </li>
+          <li>Element 3 in &lt;ol&gt; > &lt;ul&gt;</li>
+        </ul>
+      </li>
+      <li>Element 3 in &lt;ol&gt;</li>
+    </ol>
+    <dl>
+      <dt>Element 1 title in &lt;dl&gt;</dt><dd>Element 1 data in &lt;dl&gt;</dd>
+      <dt>Element 2 title in &lt;dl&gt;</dt><dd>Element 2 data in &lt;dl&gt;</dd>
+      <dt>Element 3 title in &lt;dl&gt;</dt><dd>Element 3 data in &lt;dl&gt;</dd>
+    </dl>
+    <pre>
+Preformatted Text
+*ﾟﾟ･*+。
+　　 ｜　　　ﾟ*｡
+　　｡∩∧∧　　*
+　 + (･ω･`) *+ﾟ
+<code>&lt;code&gt;Code += "code"; # コード&lt;/code&gt;</code>
+<kbd>&lt;kbd&gt;Input from keyboard キーボード入力&lt;/kbd&gt;</kbd>
+    </pre>
+    <pre class="ht-preformatted-dark">
+ダークカラー
+<code>&lt;code&gt;Code += "code"; # コード&lt;/code&gt;</code>
+<kbd>&lt;kbd&gt;Input from keyboard キーボード入力&lt;/kbd&gt;</kbd>
+    </pre>
+    <address>My address 1-1-1</address>
+    <fieldset>
+      <h3>A Field</h3>
+      <p><input type="text"></p>
+      <p><input type="date"></p>
+    </fieldset>
+    <figure>
+      <img src="" alt="figure sample image">
+      <svg height="180" width="500"><polyline points="0,40 40,40 40,80 80,80 80,120 120,120 120,160" /></svg>
+      <figcaption>Caption for figure</figcaption>
+    </figure>
+    <!-- Heading -->
+    <h1>Heading level 1</h1><p>Paragraph under h1</p>
+    <h1>Heading level 1</h1><text>Text under h1</text>
+    <h1 class="ht-heading-border">Heading level 1 with border</h1><p>Paragraph under h1</p>
+    <h1 class="ht-heading-border">Heading level 1 with border</h1><text>Text under h1</text>
+    <h1 class="ht-heading-no-spacing">Heading level 1 with no spacing</h1><p>Paragraph under h1</p>
+    <h1 class="ht-heading-no-spacing">Heading level 1 with no spacing</h1><text>Text under h1</text>
+    <h2>Heading level 2</h2><p>Paragraph under h2</p>
+    <h3>Heading level 3</h3><p>Paragraph under h3</p>
+    <h4>Heading level 4</h4><p>Paragraph under h4</p>
+    <h5>Heading level 5</h5><p>Paragraph under h5</p>
+    <h6>Heading level 6</h6><p>Paragraph under h6</p>
+    <!-- Link -->
+    <a href="#">Link: with &lt;a&gt; default</a><br>
+    <span class="uk-link" href="#">Link: with .uk-link default</span><br>
+    <span class="uk-link uk-link-muted" href="#">Link: uk-link-muted</span><br>
+    <span class="uk-link uk-link-text" href="#">Link: uk-link-text</span><br>
+    <span class="uk-link uk-link-heading" href="#">Link: uk-link-heading</span><br>
+    <span class="uk-link uk-link-silent" href="#">Link: uk-link-silent</span><br>
+    <!-- Others -->
+    <abbr title="abbreviation">ABBR</abbr><br>
+    <blockquote>This is quatation これは引用文<footer>in youbun</footer></blockquote>
+    <hr>
+    <!-- Tab -->
+    <ul class="uk-tab">
+      <li class="uk-active"><a href="#">Left</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class="uk-disabled"><a>Disabled</a></li>
+    </ul>
+    <section>
+      <p>Discription text</p>
+    </section>
+    <ul class="uk-tab uk-tab-bottom">
+      <li class="uk-active"><a href="#">Left</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class="uk-disabled"><a>Disabled</a></li>
+    </ul>
+    <section>
+      <p>Discription text</p>
+    </section>
+    <p>Centering with uk-tab-locate-center</p>
+    <ul class="uk-tab uk-tab-locate-center">
+      <li class="uk-active"><a href="#">Left</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class="uk-disabled"><a>Disabled</a></li>
+    </ul>
+    <section>
+    <p>Discription text</p>
+    </section>
+    <p>Locate on the right with uk-tab-locate-right</p>
+    <ul class="uk-tab uk-tab-locate-right">
+      <li class="uk-active"><a href="#">Left</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class="uk-disabled"><a>Disabled</a></li>
+    </ul>
+    <section>
+      <p>Discription text</p>
+    </section>
+    <!-- Progress -->
+    <progress class="uk-progress" value="50" max="100"></progress>
+  </section>
+  <section class="ht-tricolor ht-break">
+    <!-- Basic block elements -->
+    <p>First block element with &lt;p&gt; tag</p>
+    <p>Block element with &lt;p&gt; tag<br></p>
+    <ul>
+      <li>Element 1 in &lt;ul&gt;</li>
+      <li>
+        <ol>
+          <li>Element 1 in &lt;ul&gt; > &lt;ol&gt;</li>
+          <li>
+            <ul>
+              <li>Element 1 in &lt;ul&gt; > &lt;ol&gt; > &lt;ul&gt;</li>
+              <li>Element 2 in &lt;ul&gt; > &lt;ol&gt; > &lt;ul&gt;</li>
+            </ul>
+          </li>
+          <li>Element 3 in &lt;ul&gt; > &lt;ol&gt;</li>
+        </ol>
+      </li>
+      <li>Element 3 in &lt;ul&gt;</li>
+    </ul>
+    <ol>
+      <li>Element 1 in &lt;ol&gt;</li>
+      <li>
+        <ul>
+          <li>Element 1 in &lt;ol&gt; > &lt;ul&gt;</li>
+          <li>
+            <ol>
+              <li>Element 1 in &lt;ol&gt; > &lt;ul&gt; > &lt;ol&gt;</li>
+              <li>Element 2 in &lt;ol&gt; > &lt;ul&gt; > &lt;ol&gt;</li>
+            </ol>
+          </li>
+          <li>Element 3 in &lt;ol&gt; > &lt;ul&gt;</li>
+        </ul>
+      </li>
+      <li>Element 3 in &lt;ol&gt;</li>
+    </ol>
+    <dl>
+      <dt>Element 1 title in &lt;dl&gt;</dt><dd>Element 1 data in &lt;dl&gt;</dd>
+      <dt>Element 2 title in &lt;dl&gt;</dt><dd>Element 2 data in &lt;dl&gt;</dd>
+      <dt>Element 3 title in &lt;dl&gt;</dt><dd>Element 3 data in &lt;dl&gt;</dd>
+    </dl>
+    <pre>
+Preformatted Text
+*ﾟﾟ･*+。
+　　 ｜　　　ﾟ*｡
+　　｡∩∧∧　　*
+　 + (･ω･`) *+ﾟ
+<code>&lt;code&gt;Code += "code"; # コード&lt;/code&gt;</code>
+<kbd>&lt;kbd&gt;Input from keyboard キーボード入力&lt;/kbd&gt;</kbd>
+    </pre>
+    <pre class="ht-preformatted-dark">
+ダークカラー
+<code>&lt;code&gt;Code += "code"; # コード&lt;/code&gt;</code>
+<kbd>&lt;kbd&gt;Input from keyboard キーボード入力&lt;/kbd&gt;</kbd>
+    </pre>
+    <address>My address 1-1-1</address>
+    <fieldset>
+      <h3>A Field</h3>
+      <p><input type="text"></p>
+      <p><input type="date"></p>
+    </fieldset>
+    <figure>
+      <img src="" alt="figure sample image">
+      <svg height="180" width="500"><polyline points="0,40 40,40 40,80 80,80 80,120 120,120 120,160" /></svg>
+      <figcaption>Caption for figure</figcaption>
+    </figure>
+    <!-- Heading -->
+    <h1>Heading level 1</h1><p>Paragraph under h1</p>
+    <h1>Heading level 1</h1><text>Text under h1</text>
+    <h1 class="ht-heading-border">Heading level 1 with border</h1><p>Paragraph under h1</p>
+    <h1 class="ht-heading-border">Heading level 1 with border</h1><text>Text under h1</text>
+    <h1 class="ht-heading-no-spacing">Heading level 1 with no spacing</h1><p>Paragraph under h1</p>
+    <h1 class="ht-heading-no-spacing">Heading level 1 with no spacing</h1><text>Text under h1</text>
+    <h2>Heading level 2</h2><p>Paragraph under h2</p>
+    <h3>Heading level 3</h3><p>Paragraph under h3</p>
+    <h4>Heading level 4</h4><p>Paragraph under h4</p>
+    <h5>Heading level 5</h5><p>Paragraph under h5</p>
+    <h6>Heading level 6</h6><p>Paragraph under h6</p>
+    <!-- Link -->
+    <a href="#">Link: with &lt;a&gt; default</a><br>
+    <span class="uk-link" href="#">Link: with .uk-link default</span><br>
+    <span class="uk-link uk-link-muted" href="#">Link: uk-link-muted</span><br>
+    <span class="uk-link uk-link-text" href="#">Link: uk-link-text</span><br>
+    <span class="uk-link uk-link-heading" href="#">Link: uk-link-heading</span><br>
+    <span class="uk-link uk-link-silent" href="#">Link: uk-link-silent</span><br>
+    <!-- Others -->
+    <abbr title="abbreviation">ABBR</abbr><br>
+    <blockquote>This is quatation これは引用文<footer>in youbun</footer></blockquote>
+    <hr>
+    <!-- Tab -->
+    <ul class="uk-tab">
+      <li class="uk-active"><a href="#">Left</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class="uk-disabled"><a>Disabled</a></li>
+    </ul>
+    <section>
+      <p>Discription text</p>
+    </section>
+    <ul class="uk-tab uk-tab-bottom">
+      <li class="uk-active"><a href="#">Left</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class="uk-disabled"><a>Disabled</a></li>
+    </ul>
+    <section>
+      <p>Discription text</p>
+    </section>
+    <p>Centering with uk-tab-locate-center</p>
+    <ul class="uk-tab uk-tab-locate-center">
+      <li class="uk-active"><a href="#">Left</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class="uk-disabled"><a>Disabled</a></li>
+    </ul>
+    <section>
+    <p>Discription text</p>
+    </section>
+    <p>Locate on the right with uk-tab-locate-right</p>
+    <ul class="uk-tab uk-tab-locate-right">
+      <li class="uk-active"><a href="#">Left</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class="uk-disabled"><a>Disabled</a></li>
+    </ul>
+    <section>
+      <p>Discription text</p>
+    </section>
+    <!-- Progress -->
+    <progress class="uk-progress" value="50" max="100"></progress>
+  </section>
+  <section class="ht-toolbar ht-break">
+    <!-- Basic block elements -->
+    <p>First block element with &lt;p&gt; tag</p>
+    <p>Block element with &lt;p&gt; tag<br></p>
+    <ul>
+      <li>Element 1 in &lt;ul&gt;</li>
+      <li>
+        <ol>
+          <li>Element 1 in &lt;ul&gt; > &lt;ol&gt;</li>
+          <li>
+            <ul>
+              <li>Element 1 in &lt;ul&gt; > &lt;ol&gt; > &lt;ul&gt;</li>
+              <li>Element 2 in &lt;ul&gt; > &lt;ol&gt; > &lt;ul&gt;</li>
+            </ul>
+          </li>
+          <li>Element 3 in &lt;ul&gt; > &lt;ol&gt;</li>
+        </ol>
+      </li>
+      <li>Element 3 in &lt;ul&gt;</li>
+    </ul>
+    <ol>
+      <li>Element 1 in &lt;ol&gt;</li>
+      <li>
+        <ul>
+          <li>Element 1 in &lt;ol&gt; > &lt;ul&gt;</li>
+          <li>
+            <ol>
+              <li>Element 1 in &lt;ol&gt; > &lt;ul&gt; > &lt;ol&gt;</li>
+              <li>Element 2 in &lt;ol&gt; > &lt;ul&gt; > &lt;ol&gt;</li>
+            </ol>
+          </li>
+          <li>Element 3 in &lt;ol&gt; > &lt;ul&gt;</li>
+        </ul>
+      </li>
+      <li>Element 3 in &lt;ol&gt;</li>
+    </ol>
+    <dl>
+      <dt>Element 1 title in &lt;dl&gt;</dt><dd>Element 1 data in &lt;dl&gt;</dd>
+      <dt>Element 2 title in &lt;dl&gt;</dt><dd>Element 2 data in &lt;dl&gt;</dd>
+      <dt>Element 3 title in &lt;dl&gt;</dt><dd>Element 3 data in &lt;dl&gt;</dd>
+    </dl>
+    <pre>
+Preformatted Text
+*ﾟﾟ･*+。
+　　 ｜　　　ﾟ*｡
+　　｡∩∧∧　　*
+　 + (･ω･`) *+ﾟ
+<code>&lt;code&gt;Code += "code"; # コード&lt;/code&gt;</code>
+<kbd>&lt;kbd&gt;Input from keyboard キーボード入力&lt;/kbd&gt;</kbd>
+    </pre>
+    <pre class="ht-preformatted-dark">
+ダークカラー
+<code>&lt;code&gt;Code += "code"; # コード&lt;/code&gt;</code>
+<kbd>&lt;kbd&gt;Input from keyboard キーボード入力&lt;/kbd&gt;</kbd>
+    </pre>
+    <address>My address 1-1-1</address>
+    <fieldset>
+      <h3>A Field</h3>
+      <p><input type="text"></p>
+      <p><input type="date"></p>
+    </fieldset>
+    <figure>
+      <img src="" alt="figure sample image">
+      <svg height="180" width="500"><polyline points="0,40 40,40 40,80 80,80 80,120 120,120 120,160" /></svg>
+      <figcaption>Caption for figure</figcaption>
+    </figure>
+    <!-- Heading -->
+    <h1>Heading level 1</h1><p>Paragraph under h1</p>
+    <h1>Heading level 1</h1><text>Text under h1</text>
+    <h1 class="ht-heading-border">Heading level 1 with border</h1><p>Paragraph under h1</p>
+    <h1 class="ht-heading-border">Heading level 1 with border</h1><text>Text under h1</text>
+    <h1 class="ht-heading-no-spacing">Heading level 1 with no spacing</h1><p>Paragraph under h1</p>
+    <h1 class="ht-heading-no-spacing">Heading level 1 with no spacing</h1><text>Text under h1</text>
+    <h2>Heading level 2</h2><p>Paragraph under h2</p>
+    <h3>Heading level 3</h3><p>Paragraph under h3</p>
+    <h4>Heading level 4</h4><p>Paragraph under h4</p>
+    <h5>Heading level 5</h5><p>Paragraph under h5</p>
+    <h6>Heading level 6</h6><p>Paragraph under h6</p>
+    <!-- Link -->
+    <a href="#">Link: with &lt;a&gt; default</a><br>
+    <span class="uk-link" href="#">Link: with .uk-link default</span><br>
+    <span class="uk-link uk-link-muted" href="#">Link: uk-link-muted</span><br>
+    <span class="uk-link uk-link-text" href="#">Link: uk-link-text</span><br>
+    <span class="uk-link uk-link-heading" href="#">Link: uk-link-heading</span><br>
+    <span class="uk-link uk-link-silent" href="#">Link: uk-link-silent</span><br>
+    <!-- Others -->
+    <abbr title="abbreviation">ABBR</abbr><br>
+    <blockquote>This is quatation これは引用文<footer>in youbun</footer></blockquote>
+    <hr>
+    <!-- Tab -->
+    <ul class="uk-tab">
+      <li class="uk-active"><a href="#">Left</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class="uk-disabled"><a>Disabled</a></li>
+    </ul>
+    <section>
+      <p>Discription text</p>
+    </section>
+    <ul class="uk-tab uk-tab-bottom">
+      <li class="uk-active"><a href="#">Left</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class="uk-disabled"><a>Disabled</a></li>
+    </ul>
+    <section>
+      <p>Discription text</p>
+    </section>
+    <p>Centering with uk-tab-locate-center</p>
+    <ul class="uk-tab uk-tab-locate-center">
+      <li class="uk-active"><a href="#">Left</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class="uk-disabled"><a>Disabled</a></li>
+    </ul>
+    <section>
+    <p>Discription text</p>
+    </section>
+    <p>Locate on the right with uk-tab-locate-right</p>
+    <ul class="uk-tab uk-tab-locate-right">
+      <li class="uk-active"><a href="#">Left</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class="uk-disabled"><a>Disabled</a></li>
+    </ul>
+    <section>
+      <p>Discription text</p>
+    </section>
+    <!-- Progress -->
+    <progress class="uk-progress" value="50" max="100"></progress>
+  </section>
+  <section class="ht-danger">
+    <!-- Basic block elements -->
+    <p>First block element with &lt;p&gt; tag</p>
+    <p>Block element with &lt;p&gt; tag<br></p>
+    <ul>
+      <li>Element 1 in &lt;ul&gt;</li>
+      <li>
+        <ol>
+          <li>Element 1 in &lt;ul&gt; > &lt;ol&gt;</li>
+          <li>
+            <ul>
+              <li>Element 1 in &lt;ul&gt; > &lt;ol&gt; > &lt;ul&gt;</li>
+              <li>Element 2 in &lt;ul&gt; > &lt;ol&gt; > &lt;ul&gt;</li>
+            </ul>
+          </li>
+          <li>Element 3 in &lt;ul&gt; > &lt;ol&gt;</li>
+        </ol>
+      </li>
+      <li>Element 3 in &lt;ul&gt;</li>
+    </ul>
+    <ol>
+      <li>Element 1 in &lt;ol&gt;</li>
+      <li>
+        <ul>
+          <li>Element 1 in &lt;ol&gt; > &lt;ul&gt;</li>
+          <li>
+            <ol>
+              <li>Element 1 in &lt;ol&gt; > &lt;ul&gt; > &lt;ol&gt;</li>
+              <li>Element 2 in &lt;ol&gt; > &lt;ul&gt; > &lt;ol&gt;</li>
+            </ol>
+          </li>
+          <li>Element 3 in &lt;ol&gt; > &lt;ul&gt;</li>
+        </ul>
+      </li>
+      <li>Element 3 in &lt;ol&gt;</li>
+    </ol>
+    <dl>
+      <dt>Element 1 title in &lt;dl&gt;</dt><dd>Element 1 data in &lt;dl&gt;</dd>
+      <dt>Element 2 title in &lt;dl&gt;</dt><dd>Element 2 data in &lt;dl&gt;</dd>
+      <dt>Element 3 title in &lt;dl&gt;</dt><dd>Element 3 data in &lt;dl&gt;</dd>
+    </dl>
+    <pre>
+Preformatted Text
+*ﾟﾟ･*+。
+　　 ｜　　　ﾟ*｡
+　　｡∩∧∧　　*
+　 + (･ω･`) *+ﾟ
+<code>&lt;code&gt;Code += "code"; # コード&lt;/code&gt;</code>
+<kbd>&lt;kbd&gt;Input from keyboard キーボード入力&lt;/kbd&gt;</kbd>
+    </pre>
+    <pre class="ht-preformatted-dark">
+ダークカラー
+<code>&lt;code&gt;Code += "code"; # コード&lt;/code&gt;</code>
+<kbd>&lt;kbd&gt;Input from keyboard キーボード入力&lt;/kbd&gt;</kbd>
+    </pre>
+    <address>My address 1-1-1</address>
+    <fieldset>
+      <h3>A Field</h3>
+      <p><input type="text"></p>
+      <p><input type="date"></p>
+    </fieldset>
+    <figure>
+      <img src="" alt="figure sample image">
+      <svg height="180" width="500"><polyline points="0,40 40,40 40,80 80,80 80,120 120,120 120,160" /></svg>
+      <figcaption>Caption for figure</figcaption>
+    </figure>
+    <!-- Heading -->
+    <h1>Heading level 1</h1><p>Paragraph under h1</p>
+    <h1>Heading level 1</h1><text>Text under h1</text>
+    <h1 class="ht-heading-border">Heading level 1 with border</h1><p>Paragraph under h1</p>
+    <h1 class="ht-heading-border">Heading level 1 with border</h1><text>Text under h1</text>
+    <h1 class="ht-heading-no-spacing">Heading level 1 with no spacing</h1><p>Paragraph under h1</p>
+    <h1 class="ht-heading-no-spacing">Heading level 1 with no spacing</h1><text>Text under h1</text>
+    <h2>Heading level 2</h2><p>Paragraph under h2</p>
+    <h3>Heading level 3</h3><p>Paragraph under h3</p>
+    <h4>Heading level 4</h4><p>Paragraph under h4</p>
+    <h5>Heading level 5</h5><p>Paragraph under h5</p>
+    <h6>Heading level 6</h6><p>Paragraph under h6</p>
+    <!-- Link -->
+    <a href="#">Link: with &lt;a&gt; default</a><br>
+    <span class="uk-link" href="#">Link: with .uk-link default</span><br>
+    <span class="uk-link uk-link-muted" href="#">Link: uk-link-muted</span><br>
+    <span class="uk-link uk-link-text" href="#">Link: uk-link-text</span><br>
+    <span class="uk-link uk-link-heading" href="#">Link: uk-link-heading</span><br>
+    <span class="uk-link uk-link-silent" href="#">Link: uk-link-silent</span><br>
+    <!-- Others -->
+    <abbr title="abbreviation">ABBR</abbr><br>
+    <blockquote>This is quatation これは引用文<footer>in youbun</footer></blockquote>
+    <hr>
+    <!-- Tab -->
+    <ul class="uk-tab">
+      <li class="uk-active"><a href="#">Left</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class="uk-disabled"><a>Disabled</a></li>
+    </ul>
+    <section>
+      <p>Discription text</p>
+    </section>
+    <ul class="uk-tab uk-tab-bottom">
+      <li class="uk-active"><a href="#">Left</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class="uk-disabled"><a>Disabled</a></li>
+    </ul>
+    <section>
+      <p>Discription text</p>
+    </section>
+    <p>Centering with uk-tab-locate-center</p>
+    <ul class="uk-tab uk-tab-locate-center">
+      <li class="uk-active"><a href="#">Left</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class="uk-disabled"><a>Disabled</a></li>
+    </ul>
+    <section>
+    <p>Discription text</p>
+    </section>
+    <p>Locate on the right with uk-tab-locate-right</p>
+    <ul class="uk-tab uk-tab-locate-right">
+      <li class="uk-active"><a href="#">Left</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class=""><a href="#">Item</a></li>
+      <li class="uk-disabled"><a>Disabled</a></li>
+    </ul>
+    <section>
+      <p>Discription text</p>
+    </section>
+    <!-- Progress -->
+    <progress class="uk-progress" value="50" max="100"></progress>
+  </section>
+  </main>
 </body>
 </html>

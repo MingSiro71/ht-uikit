@@ -5,19 +5,224 @@
 /* ========================================================================
    Component: Stream
  ========================================================================== */
+/* 
+  Stream cannot layout correctly with .ht-navbar-container without sticky option
+  Show Warning
+ */
+.ht-navbar-container:not(.ht-navbar-container-sticky) + .ht-stream-container::before {
+  content: "Use sticky navbar! See ht-stream.scss and stream.html in sample.";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  background-color: coral;
+  color: white;
+  font-size:  48px;
+  z-index: 9000;
+}
 .ht-stream-container {
+  position: relative;
   display: flex;
-
-  .ht-stream-mainstream {
+  flex-wrap: nowrap;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  > .ht-stream-mainstream {
+    position: relative;
     min-width: map-get($stream-width, main-min);
+    max-width: map-get($stream-width, main-max);
+    flex-grow: 1;
+    flex-shrink: 1;
+    margin-left:0px;
   }
-  .ht-stream-substream-narrow {
-    width: map-get($stream-width, narrow);
+  > .ht-stream-substream {
+    position: absolute;
+    left: 0;
+    height: auto;
+    width: map-get($stream-width, sub);
+    flex-grow: 0;
+    flex-shrink: 0;
   }
-  .ht-stream-substream-medium {
-    width: map-get($stream-width, medium);
+  > *:not(.ht-stream-mainstream):not(.ht-stream-substream)::before {
+    content: "Only stream element can be located just inside of stream container. See ht-stream.scss and stream.html in sample.";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    background-color: coral;
+    color: white;
+    font-size:  48px;
+    z-index: 9000;
   }
-  .ht-stream-substream-broad {
-    width: map-get($stream-width, broad);
+}
+.ht-navbar-container.ht-navbar-container-sticky + .ht-stream-container {
+  margin-top: 0px;
+  padding-top: map-get($nav-height, workstation);
+  > .ht-stream-substream {
+    position: fixed;
+    overflow-y: auto;
+    top: map-get($nav-height, workstation);
+    height: calc(100% - #{map-get($nav-height, workstation)});
+  }
+}
+@media #{map-get($bp-max, mobile-portlate)} {
+  .ht-navbar-container.ht-navbar-container-sticky + .ht-stream-container {
+    padding-top: map-get($nav-height, mobile-portlate);
+  }
+  .ht-navbar-container + .ht-stream-container {
+    height: calc(100vh - #{map-get($nav-height, mobile-portlate)});
+  }
+  .ht-stream-substream {
+    top: map-get($nav-height, mobile-portlate);
+    height: calc(100% - #{map-get($nav-height, mobile-portlate)});
+  }
+}
+@media #{map-get($bp-bound, mobile-landscape)} {
+  .ht-navbar-container.ht-navbar-container-sticky + .ht-stream-container {
+    padding-top: map-get($nav-height, mobile-landscape);
+  }
+  .ht-navbar-container + .ht-stream-container {
+    height: calc(100vh - #{map-get($nav-height, mobile-landscape)});
+  }
+  .ht-stream-substream {
+    top: map-get($nav-height, mobile-landscape);
+    height: calc(100% - #{map-get($nav-height, mobile-landscape)});
+  }
+}
+@media #{map-get($bp-bound, notebook)} {
+  .ht-navbar-container.ht-navbar-container-sticky + .ht-stream-container {
+    padding-top: map-get($nav-height, notebook);
+  }
+  .ht-navbar-container + .ht-stream-container {
+    height: calc(100vh - #{map-get($nav-height, notebook)});
+  }
+  .ht-stream-substream {
+    top: map-get($nav-height, mobile-portlate);
+    height: calc(100% - #{map-get($nav-height, notebook)});
+  }
+}
+
+@media #{map-get($bp-max, mobile-portlate)} {
+  .ht-stream-substream:not(.ht-optionfor-mobile-landscape):not(.ht-optionfor-notebook):not(.ht-optionfor-workstation) {
+    &~ .ht-stream-mainstream {
+      margin-left: map-get($stream-width, sub);
+    }
+    &~ .ht-stream-substream {
+      left: map-get($stream-width, sub);
+    }
+    &~ .ht-stream-substream:not(.ht-optionfor-mobile-landscape):not(.ht-optionfor-notebook):not(.ht-optionfor-workstation) {
+      &~ .ht-stream-mainstream {
+        margin-left: calc(#{map-get($stream-width, sub)} * 2);
+      }
+      &~ .ht-stream-substream {
+        left: calc(#{map-get($stream-width, sub)} * 2);
+      }
+      &~ .ht-stream-substream:not(.ht-optionfor-mobile-landscape):not(.ht-optionfor-notebook):not(.ht-optionfor-workstation) {
+        &~ .ht-stream-mainstream {
+          margin-left: calc(#{map-get($stream-width, sub)} * 3);
+        }
+        &~ .ht-stream-substream {
+          left: calc(#{map-get($stream-width, sub)} * 3);
+        }
+        &~ .ht-stream-substream:not(.ht-optionfor-mobile-landscape):not(.ht-optionfor-notebook):not(.ht-optionfor-workstation) {
+          &~ .ht-stream-mainstream {
+            margin-left: calc(#{map-get($stream-width, sub)} * 4);
+          }
+        }
+      }
+    }
+  }
+}
+@media #{map-get($bp-bound, mobile-landscape)} {
+  .ht-stream-substream:not(.ht-optionfor-notebook):not(.ht-optionfor-workstation) {
+    &~ .ht-stream-mainstream {
+      margin-left: map-get($stream-width, sub);
+    }
+    &~ .ht-stream-substream {
+      left: map-get($stream-width, sub);
+    }
+    &~ .ht-stream-substream:not(.ht-optionfor-notebook):not(.ht-optionfor-workstation) {
+      &~ .ht-stream-mainstream {
+        margin-left: calc(#{map-get($stream-width, sub)} * 2);
+      }
+      &~ .ht-stream-substream {
+        left: calc(#{map-get($stream-width, sub)} * 2);
+      }
+      &~ .ht-stream-substream:not(.ht-optionfor-notebook):not(.ht-optionfor-workstation) {
+        &~ .ht-stream-mainstream {
+          margin-left: calc(#{map-get($stream-width, sub)} * 3);
+        }
+        &~ .ht-stream-substream {
+          left: calc(#{map-get($stream-width, sub)} * 3);
+        }
+        &~ .ht-stream-substream:not(.ht-optionfor-notebook):not(.ht-optionfor-workstation) {
+          &~ .ht-stream-mainstream {
+            margin-left: calc(#{map-get($stream-width, sub)} * 4);
+          }
+        }
+      }
+    }
+  }
+}
+@media #{map-get($bp-bound, notebook)} {
+  .ht-stream-substream:not(.ht-optionfor-workstation) {
+    &~ .ht-stream-mainstream {
+      margin-left: map-get($stream-width, sub);
+    }
+    &~ .ht-stream-substream {
+      left: map-get($stream-width, sub);
+    }
+    &~ .ht-stream-substream:not(.ht-optionfor-workstation) {
+      &~ .ht-stream-mainstream {
+        margin-left: calc(#{map-get($stream-width, sub)} * 2);
+      }
+      &~ .ht-stream-substream {
+        left: calc(#{map-get($stream-width, sub)} * 2);
+      }
+      &~ .ht-stream-substream:not(.ht-optionfor-workstation) {
+        &~ .ht-stream-mainstream {
+          margin-left: calc(#{map-get($stream-width, sub)} * 3);
+        }
+        &~ .ht-stream-substream {
+          left: calc(#{map-get($stream-width, sub)} * 3);
+        }
+        &~ .ht-stream-substream:not(.ht-optionfor-workstation) {
+          &~ .ht-stream-mainstream {
+            margin-left: calc(#{map-get($stream-width, sub)} * 4);
+          }
+        }
+      }
+    }
+  }
+}
+@media #{map-get($bp-min, workstation)} {
+  .ht-stream-substream {
+    &~ .ht-stream-mainstream {
+      margin-left: map-get($stream-width, sub);
+    }
+    &~ .ht-stream-substream {
+      left: map-get($stream-width, sub);
+    }
+    &~ .ht-stream-substream {
+      &~ .ht-stream-mainstream {
+        margin-left: calc(#{map-get($stream-width, sub)} * 2);
+      }
+      &~ .ht-stream-substream {
+        left: calc(#{map-get($stream-width, sub)} * 2);
+      }
+      &~ .ht-stream-substream {
+        &~ .ht-stream-mainstream {
+          margin-left: calc(#{map-get($stream-width, sub)} * 3);
+        }
+        &~ .ht-stream-substream {
+          left: calc(#{map-get($stream-width, sub)} * 3);
+        }
+        &~ .ht-stream-substream {
+          &~ .ht-stream-mainstream {
+            margin-left: calc(#{map-get($stream-width, sub)} * 4);
+          }
+        }
+      }
+    }
   }
 }

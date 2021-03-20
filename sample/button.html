@@ -1,0 +1,521 @@
+<!-- Button:
+  Color:
+    (default): Colors of icons with uk-icon is forced to text color
+    primary: Using primary color
+    secondary: Using secondary color
+    danger: Using danger color
+    accent: Using accent color
+  Sizing:
+    default: height 38px, icon 20px
+    large: height 53px, icon 20px
+    small: height 28px, icon 16px
+
+  You can locate button by...
+    - a.uk-button
+    - *.uk-button
+    - button
+    - input[type=button]
+    In all of these patterns, ht-uikit generate button with the same appearance
+
+  Button is able to include:
+    text: raw text or <text>
+    icon: inline element with uk-icon
+
+    You can code without tag if there is just text like:
+      <a class="uk-button">Button</a>
+    If you want to locate text with icon, wrap text by some inline tag like:
+      <a class="uk-button"><text>Button<text><div class="uk-icon">...</div></a>
+
+    Ingredients are aligned on the middle
+
+  [Note]
+    Button is inline-block, which makes space from newline in code
+    There is  difference between:
+      <a class=".uk-button">Button</a><a class=".uk-button">Button</a>
+    and
+      <a class=".uk-button">Button</a>
+      <a class=".uk-button">Button</a>
+
+    You need not use uk-button-danger in ht-danger
+    Default in ht-danger is danger colord button  
+-->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta property="og:title" content="HT-UIKit | Button">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.ht-uikit.com/button.html">
+  <meta property="og:image" content="https://www.ht-uikit.com/image/button_ogp.png">
+  <meta property="og:site_name" content="HT-UIKit">
+  <meta property="og:description" content="Customized UIKit by Hentech">
+
+  <link rel="stylesheet" href="../compiled/ht-uikit.css">
+
+  <title>HT-UIKit | Button</title>
+</head>
+<body>
+  <header class="ht-navbar-container ht-navbar-container-sticky">
+    <nav>
+      <div class="ht-navbar-left ht-navbar-logo">
+        <a href="/">
+          <img src="../asset/image/niwatori.png" alt="cook doodle doo!" style="height: 36px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+            <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+            <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+          </svg>
+          <text>HT-UIkit<text>
+        </a>
+      </div>
+      <div class="ht-navbar-center ht-optionfor-notebook"><p>Text on the center</p></div>
+      <div class="ht-navbar-right">
+        <ul class="ht-navbar-navigation ht-optionfor-mobile-landscape">
+          <li class="uk-active"><a href="#">Active</a></li>
+          <li class=""><a href="#">Item</a></li>
+          <li class=""><a href="#">Item</a></li>
+          <li class=""><a href="#">Item</a></li>
+        </ul>
+        <button class="uk-button">Button</button>
+      </div>
+    </nav>
+  </header>
+  <!-- Set main content next to navbar! Do not locate other object! -->
+  <section>
+    <p>Button with &lt;a&gt;</p>
+    <a class="uk-button">Button</a>
+    <a class="uk-button">Button</a>
+    <p>Button with &lt;div&gt;</p>
+    <div class="uk-button">Button</div>
+    <div class="uk-button">Button</div>
+    <p>Button with &lt;span&gt;</p>
+    <span class="uk-button">Button</span>
+    <span class="uk-button">Button</span>
+    <p>Button with &lt;li&gt;</p>
+    <ul>
+      <li class="uk-button">Button</li>
+      <li class="uk-button">Button</li>
+    </ul>
+    <p>Button with &lt;button&gt;</p>
+    <button>Button</button>
+    <button>Button</button>
+    <p>Button with &lt;input&gt; type="button"</p>
+    <input type="button" value="button"></input>
+    <input type="button" value="button"></input>
+    <p>2 rows Button </p>
+    <div class="uk-button">Button<br>Button</div>
+    <div class="uk-button">Button</div>
+    <p>Large button</p>
+    <div class="uk-button uk-button-large">Button</div>
+    <div class="uk-button uk-button-large">Button</div>
+    <p>Small button</p>
+    <div class="uk-button uk-button-small">Button</div>
+    <div class="uk-button uk-button-small">Button</div>
+    <p>With text and icon</p>
+    <div class="uk-button">
+      <text>Button</text>
+      <text>Button</text>
+      <div class="uk-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+          <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+          <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+        </svg>
+      </div>
+    </div>
+    <div class="uk-button"><text>Button</text><text>Button</text></div>
+    <p>With text and icon large</p>
+    <div class="uk-button uk-button-large">
+      <text>Button</text>
+      <text>Button</text>
+      <div class="uk-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+          <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+          <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+        </svg>
+      </div>
+    </div>
+    <div class="uk-button"><text>Button</text><text>Button</text></div>
+    <p>With text and icon small</p>
+    <div class="uk-button uk-button-small">
+      <text>Button</text>
+      <text>Button</text>
+      <div class="uk-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+          <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+          <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+        </svg>
+      </div>
+    </div>
+    <div class="uk-button"><text>Button</text><text>Button</text></div>
+    <p>Primary color</p>
+    <div class="uk-button uk-button-primary">Button</div>
+    <div class="uk-button uk-button-primary">
+      <text>Button</text>
+      <div class="uk-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+          <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+          <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+        </svg>
+      </div></div>
+    <p>Secondary color</p>
+    <div class="uk-button uk-button-secondary">Button</div>
+    <div class="uk-button uk-button-secondary">
+      <text>Button</text>
+      <div class="uk-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+          <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+          <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+        </svg>
+      </div>
+    </div>
+    <p>Accent color</p>
+    <div class="uk-button uk-button-accent">Button</div>
+    <div class="uk-button uk-button-accent">
+      <text>Button</text>
+      <div class="uk-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+          <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+          <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+        </svg>
+      </div>
+    </div>
+    <p>Danger color</p>
+    <div class="uk-button uk-button-danger">Button</div>
+    <div class="uk-button uk-button-danger">
+      <text>Button</text>
+      <div class="uk-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+          <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+          <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+  <section class="ht-bicolor">
+    <p>Override theme by base</p>
+    <div class="ht-base" style="margin: 4px;">
+      <section>
+        <p>Button with &lt;a&gt;</p>
+        <a class="uk-button">Button</a>
+        <a class="uk-button">Button</a>
+        <p>Button with &lt;div&gt;</p>
+        <div class="uk-button">Button</div>
+        <div class="uk-button">Button</div>
+        <p>With text and icon</p>
+        <div class="uk-button">
+          <text>Button</text>
+          <text>Button</text>
+          <div class="uk-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="uk-button"><text>Button</text><text>Button</text></div>
+        <p>Primary color</p>
+        <div class="uk-button uk-button-primary">Button</div>
+        <div class="uk-button uk-button-primary">
+          <text>Button</text>
+          <div class="uk-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </div></div>
+        <p>Secondary color</p>
+        <div class="uk-button uk-button-secondary">Button</div>
+        <div class="uk-button uk-button-secondary">
+          <text>Button</text>
+          <div class="uk-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </div>
+        </div>
+        <p>Accent color</p>
+        <div class="uk-button uk-button-accent">Button</div>
+        <div class="uk-button uk-button-accent">
+          <text>Button</text>
+          <div class="uk-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </div>
+        </div>
+        <p>Danger color</p>
+        <div class="uk-button uk-button-danger">Button</div>
+        <div class="uk-button uk-button-danger">
+          <text>Button</text>
+          <div class="uk-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+  <section class="ht-bicolor">
+    <p>Bicolor</p>
+    <p>Button with &lt;a&gt;</p>
+    <a class="uk-button">Button</a>
+    <a class="uk-button">Button</a>
+    <p>Button with &lt;div&gt;</p>
+    <div class="uk-button">Button</div>
+    <div class="uk-button">Button</div>
+    <p>With text and icon</p>
+    <div class="uk-button">
+      <text>Button</text>
+      <text>Button</text>
+      <div class="uk-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+          <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+          <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+        </svg>
+      </div>
+    </div>
+    <div class="uk-button"><text>Button</text><text>Button</text></div>
+    <p>Primary color</p>
+    <div class="uk-button uk-button-primary">Button</div>
+    <div class="uk-button uk-button-primary">
+      <text>Button</text>
+      <div class="uk-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+          <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+          <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+        </svg>
+      </div></div>
+    <p>Secondary color</p>
+    <div class="uk-button uk-button-secondary">Button</div>
+    <div class="uk-button uk-button-secondary">
+      <text>Button</text>
+      <div class="uk-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+          <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+          <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+        </svg>
+      </div>
+    </div>
+    <p>Accent color</p>
+    <div class="uk-button uk-button-accent">Button</div>
+    <div class="uk-button uk-button-accent">
+      <text>Button</text>
+      <div class="uk-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+          <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+          <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+        </svg>
+      </div>
+    </div>
+    <p>Danger color</p>
+    <div class="uk-button uk-button-danger">Button</div>
+    <div class="uk-button uk-button-danger">
+      <text>Button</text>
+      <div class="uk-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+          <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+          <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+  <section class="ht-tricolor">
+    <p>Tricolor</p>
+    <p>Button with &lt;a&gt;</p>
+    <a class="uk-button">Button</a>
+    <a class="uk-button">Button</a>
+    <p>Button with &lt;div&gt;</p>
+    <div class="uk-button">Button</div>
+    <div class="uk-button">Button</div>
+    <p>With text and icon</p>
+    <div class="uk-button">
+      <text>Button</text>
+      <text>Button</text>
+      <div class="uk-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+          <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+          <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+        </svg>
+      </div>
+    </div>
+    <div class="uk-button"><text>Button</text><text>Button</text></div>
+    <p>Primary color</p>
+    <div class="uk-button uk-button-primary">Button</div>
+    <div class="uk-button uk-button-primary">
+      <text>Button</text>
+      <div class="uk-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+          <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+          <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+        </svg>
+      </div></div>
+    <p>Secondary color</p>
+    <div class="uk-button uk-button-secondary">Button</div>
+    <div class="uk-button uk-button-secondary">
+      <text>Button</text>
+      <div class="uk-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+          <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+          <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+        </svg>
+      </div>
+    </div>
+    <p>Accent color</p>
+    <div class="uk-button uk-button-accent">Button</div>
+    <div class="uk-button uk-button-accent">
+      <text>Button</text>
+      <div class="uk-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+          <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+          <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+        </svg>
+      </div>
+    </div>
+    <p>Danger color</p>
+    <div class="uk-button uk-button-danger">Button</div>
+    <div class="uk-button uk-button-danger">
+      <text>Button</text>
+      <div class="uk-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+          <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+          <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+  <section class="ht-toolbar">
+    <p>Toolbar</p>
+    <p>Button with &lt;a&gt;</p>
+    <a class="uk-button">Button</a>
+    <a class="uk-button">Button</a>
+    <p>Button with &lt;div&gt;</p>
+    <div class="uk-button">Button</div>
+    <div class="uk-button">Button</div>
+    <p>With text and icon</p>
+    <div class="uk-button">
+      <text>Button</text>
+      <text>Button</text>
+      <div class="uk-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+          <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+          <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+        </svg>
+      </div>
+    </div>
+    <div class="uk-button"><text>Button</text><text>Button</text></div>
+    <p>Primary color</p>
+    <div class="uk-button uk-button-primary">Button</div>
+    <div class="uk-button uk-button-primary">
+      <text>Button</text>
+      <div class="uk-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+          <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+          <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+        </svg>
+      </div></div>
+    <p>Secondary color</p>
+    <div class="uk-button uk-button-secondary">Button</div>
+    <div class="uk-button uk-button-secondary">
+      <text>Button</text>
+      <div class="uk-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+          <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+          <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+        </svg>
+      </div>
+    </div>
+    <p>Accent color</p>
+    <div class="uk-button uk-button-accent">Button</div>
+    <div class="uk-button uk-button-accent">
+      <text>Button</text>
+      <div class="uk-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+          <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+          <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+        </svg>
+      </div>
+    </div>
+    <p>Danger color</p>
+    <div class="uk-button uk-button-danger">Button</div>
+    <div class="uk-button uk-button-danger">
+      <text>Button</text>
+      <div class="uk-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+          <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+          <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+  <section class="ht-danger">
+    <p>Danger</p>
+    <p>Button with &lt;a&gt;</p>
+    <a class="uk-button">Button</a>
+    <a class="uk-button">Button</a>
+    <p>Button with &lt;div&gt;</p>
+    <div class="uk-button">Button</div>
+    <div class="uk-button">Button</div>
+    <p>With text and icon</p>
+    <div class="uk-button">
+      <text>Button</text>
+      <text>Button</text>
+      <div class="uk-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+          <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+          <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+        </svg>
+      </div>
+    </div>
+    <div class="uk-button"><text>Button</text><text>Button</text></div>
+    <p>Primary color</p>
+    <div class="uk-button uk-button-primary">Button</div>
+    <div class="uk-button uk-button-primary">
+      <text>Button</text>
+      <div class="uk-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+          <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+          <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+        </svg>
+      </div></div>
+    <p>Secondary color</p>
+    <div class="uk-button uk-button-secondary">Button</div>
+    <div class="uk-button uk-button-secondary">
+      <text>Button</text>
+      <div class="uk-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+          <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+          <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+        </svg>
+      </div>
+    </div>
+    <p>Accent color</p>
+    <div class="uk-button uk-button-accent">Button</div>
+    <div class="uk-button uk-button-accent">
+      <text>Button</text>
+      <div class="uk-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+          <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+          <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+        </svg>
+      </div>
+    </div>
+    <p>Danger color</p>
+    <div class="uk-button uk-button-danger">Button</div>
+    <div class="uk-button uk-button-danger">
+      <text>Button</text>
+      <div class="uk-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+          <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+          <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

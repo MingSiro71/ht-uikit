@@ -1,187 +1,202 @@
 /* 
  * _colors.scss: Defines colors for areas and objects
  *
-    *base: Base color and standard text colors
-    *bicolor: The second base color
-    *tricolor: The third base color
-    *danger: Areas which user should not touch in usual case use this colors
-    *primary: Colors for object which user should watch at first
-    *secondary: Colors for object which is important next to primary
-    *accent: Accent color for object which is no relation for user flow
-    *toolbar: Colers for user interface which can be find that not the parts of page, but utility object
-    *information: Colors for infomation message or telop
-    *warning: Colors for warning message or telop
-    *error: Colors for error message or telop
+  Themes:
+    Areas:
+      *base: Base color and standard text colors
+      *bicolor: The second base color
+      *tricolor: The third base color
+      *toolbar: Colers for user interface which can be find that not the parts of page, but utility object
+      *danger: Areas which user should not touch in usual case use this colors
+    Objects:
+      *primary: Colors for object which user should watch at first
+      *secondary: Colors for object which is important next to primary
+      *accent: Accent color for object which is no relation for user flow
+    Nocices:
+      *information: Colors for infomation message or telop
+      *warning: Colors for warning message or telop
+      *error: Colors for error message or telop
+
+  Colors for each theme:
+    Areas:
+      basis: Used for background color
+      dent: Impless there is a dent which is used for hr or border
+      text: Text color
+      text-muted: Text color which is muted, also used link hover
+      text-active: Text in active element
+      heading: Used for heading, which is stronger than text color
+      link: Impress that text is link
+      link-ontouch: Used for link on touch or on cursor
+
+      Only toolbar and danger:
+        ontouch: User touches or cursor is on
+        active: Impress the element is active seemes to be pushed
+    Objects:
+      basis: Used for object's background color
+      ontouch: User touches or cursor is on, seems to be reflecting ray
+      active: Impress the element is active, seems pushed
+      text: Text color
+    Nocices:
+      basis: Used for object's background color
+      ontouch: User touches or cursor is on
+      dent: Used when view type is signboard
+      text: Text color
  */
 
 /* 
  * base
  */
+
 $base-background: #f0f0e9;
 $base-text: #3c3d36;
+$base-link: #3090ff;
 $base-color: (
-    basis: $base-background,
-    reflection: lighten($base-background, 30%),
-    highlight: lighten($base-background, 15%),
-    shaded: darken($base-background, 10%),
-    shadow: darken($base-background, 25%),
-    text: $base-text,
-    text-link: lighten($base-text, 15%),
-    text-light: lighten($base-text, 25%),
-    heading: saturate($base-text, 20%),
-    heading-light: lighten(saturate($base-text, 20%), 25%),
-    fogging: rgba(0,0,0,0.1),
+  basis: $base-background,
+  dent: darken($base-background, 25%),
+  text: $base-text,
+  text-muted: lighten($base-text, 15%),
+  text-active: saturate(darken($base-text, 15%), 15%),
+  heading: saturate(darken($base-text, 20%), 20%),
+  link: $base-link,
+  link-ontouch: saturate(darken($base-link, 10%), 20%),
 );
+
 /* 
  * bicolor
  */
+
 $bicolor-background: #d1deff;
 $bicolor-text: #313745;
+$bicolor-link: #3090ff;
 $bicolor-color: (
-    basis: $bicolor-background,
-    reflection: lighten($bicolor-background, 30%),
-    highlight: lighten($bicolor-background, 15%),
-    shaded: darken($bicolor-background, 10%),
-    shadow: darken($bicolor-background, 25%),
-    text: $bicolor-text,
-    text-link: lighten($bicolor-text, 15%),
-    text-light: lighten($bicolor-text, 25%),
-    heading: saturate($bicolor-text, 20%),
-    heading-light: lighten(saturate($bicolor-text, 20%), 25%),
-    fogging: rgba(0,0,0,0.1),
+  basis: $bicolor-background,
+  dent: darken($bicolor-background, 25%),
+  text: $bicolor-text,
+  text-muted: lighten($bicolor-text, 15%),
+  text-active: saturate(darken($bicolor-text, 15%), 15%),
+  heading: saturate(darken($bicolor-text, 20%), 20%),
+  link: $bicolor-link,
+  link-ontouch: saturate(darken($bicolor-link, 10%), 20%),
 );
 /* 
  * tricolor
  */
 $tricolor-background: #ff6c4f;
 $tricolor-text: #ffffff;
+$tricolor-link: #ffef00;
 $tricolor-color: (
-    basis: $tricolor-background,
-    reflection: lighten($tricolor-background, 30%),
-    highlight: lighten($tricolor-background, 15%),
-    shaded: darken($tricolor-background, 10%),
-    shadow: darken($tricolor-background, 25%),
-    text: $tricolor-text,
-    text-link: lighten($tricolor-text, 15%),
-    text-light: lighten($tricolor-text, 25%),
-    heading: saturate($tricolor-text, 20%),
-    heading-light: lighten(saturate($tricolor-text, 20%), 25%),
-    fogging: rgba(0,0,0,0.1),
-);
-/* 
- * danger
- */
-$danger-background: #ff4529;
-$danger-text: #444742;
-$danger-color: (
-    basis: $danger-background,
-    reflection: lighten($danger-background, 30%),
-    highlight: lighten($danger-background, 15%),
-    shaded: darken($danger-background, 10%),
-    shadow: darken($danger-background, 25%),
-    text: $danger-text,
-    text-link: lighten($danger-text, 15%),
-    text-light: lighten($danger-text, 25%),
-    heading: saturate($danger-text, 20%),
-    heading-light: lighten(saturate($danger-text, 20%), 25%),
-    fogging: rgba(0,0,0,0.1),
-);
-/* 
- * primary
- */
-$primary-background: #30c297;
-$primary-text: #fcfcf9;
-$primary-color: (
-    basis: $primary-background,
-    highlight: lighten($primary-background, 30%),
-    selected: lighten($primary-background, 15%),
-    active: saturate($primary-background, 10%),
-    pushed: darken($tricolor-background, 10%),
-    text: $primary-text,
-    text-highlight: lighten($primary-text, 30%),
-    text-lighten: lighten($primary-text, 15%),
-    text-shaded: darken($primary-text, 10%),
-);
-/* 
- * secondary
- */
-$secondary-background: #30c297;
-$secondary-text: #fcfcf9;
-$secondary-color: (
-    basis: $secondary-background,
-    highlight: lighten($secondary-background, 30%),
-    selected: lighten($secondary-background, 15%),
-    active: saturate($secondary-background, 10%),
-    pushed: darken($tricolor-background, 10%),
-    text: $secondary-text,
-    text-highlight: lighten($secondary-text, 30%),
-    text-lighten: lighten($secondary-text, 15%),
-    text-shaded: darken($secondary-text, 10%),
-);
-/* 
- * accent
- */
-$accent-background: #ffc526;
-$accent-innertext: #38402b;
-$accent-color: (
-    basis: $accent-background,
-    highlight: lighten($accent-background, 30%),
-    selected: lighten($accent-background, 15%),
-    active: saturate($accent-background, 10%),
-    pushed: darken($accent-background, 10%),
-    innertext: $accent-innertext,
-    innertext-highlight: lighten($accent-innertext, 30%),
-    innertext-lighten: lighten($accent-innertext, 15%),
-    innertext-shaded: darken($accent-innertext, 10%),
+  basis: $tricolor-background,
+  dent: darken($tricolor-background, 25%),
+  text: $tricolor-text,
+  text-muted: lighten($tricolor-text, 15%),
+  text-active: saturate(darken($tricolor-text, 15%), 15%),
+  // heading: saturate(darken($tricolor-text, 20%), 20%),
+  heading: $tricolor-text,
+  link: $tricolor-link,
+  link-ontouch: saturate(darken($tricolor-link, 10%), 20%),
 );
 /* 
  * toolbar
  */
 $toolbar-background: #444742;
 $toolbar-text: #f2f2f2;
+$toolbar-link: #f2f2f2;
 $toolbar-color: (
-    basis: $toolbar-background,
-    reflection: lighten($toolbar-background, 30%),
-    highlight: lighten($toolbar-background, 15%),
-    shaded: darken($toolbar-background, 10%),
-    shadow: darken($toolbar-background, 25%),
-    text: $toolbar-text,
-    text-link: lighten($toolbar-text, 15%),
-    text-light: lighten($toolbar-text, 25%),
-    heading: saturate($toolbar-text, 20%),
-    heading-light: lighten(saturate($toolbar-text, 20%), 25%),
-    fogging: rgba(0,0,0,0.1),
+  basis: $toolbar-background,
+  dent: darken($toolbar-background, 25%),
+  ontouch: lighten($toolbar-background, 5%),
+  active: darken($toolbar-background, 5%),
+  text: $toolbar-text,
+  text-muted: lighten($toolbar-text, 15%),
+  text-active: saturate(darken($toolbar-text, 15%), 15%),
+  heading: saturate(darken($toolbar-text, 20%), 20%),
+  link: $toolbar-link,
+  link-ontouch: saturate(darken($toolbar-link, 10%), 20%),
+);
+ /* 
+  * danger
+  */
+ $danger-background: #ff3a33;
+ $danger-text: #e9e9e9;
+ $danger-link: #362626;
+ $danger-color: (
+  basis: $danger-background,
+  dent: darken($danger-background, 25%),
+  text: $danger-text,
+  text-muted: lighten($danger-text, 15%),
+  text-active: saturate(darken($danger-text, 15%), 15%),
+  // heading: saturate(darken($danger-text, 20%), 20%),
+  heading: $danger-text,
+  link: $danger-link,
+  link-ontouch: saturate(darken($danger-link, 10%), 20%),
+  /* danger theme as object */
+  ontouch: darken($danger-background, 8%),
+  active: darken($danger-background, 15%),  
+ );
+/* 
+ * primary
+ */
+$primary-background: #1e87f0;
+$primary-text: #f9fcfc;
+$primary-color: (
+  basis: $primary-background,
+  ontouch: darken($primary-background, 8%),
+  active: darken($primary-background, 15%),
+  text: $primary-text,
 );
 /* 
- * infomation
+ * secondary
  */
-$information-background: #444742;
-$information-text: #f2f2f2;
+$secondary-background: #151515;
+$secondary-text: #fcfcfc;
+$secondary-color: (
+  basis: $secondary-background,
+  ontouch: darken($secondary-background, 8%),
+  active: darken($secondary-background, 15%),
+  text: $secondary-text,
+);
+/* 
+ * accent
+ */
+$accent-background: #ffc526;
+$accent-text: #38402b;
+$accent-color: (
+  basis: $accent-background,
+  ontouch: darken($accent-background, 8%),
+  active: darken($accent-background, 15%),
+  text: $accent-text,
+);
+ /* 
+  * infomation
+  */
+$information-background: #1e87f0;
+$information-text: #f9fcfc;
 $infomation-color: (
-    basis: $information-background,
-    highlight: lighten($information-background, 15%),
-    text: $information-text,
-    text-light: lighten($information-text, 25%),
+  basis: $information-background,
+  ontouch: darken($information-background, 10%),
+  dent: darken($information-background, 25%),
+  text: $information-text,
 );
 /* 
  * warning
  */
-$warning-background: #444742;
-$warning-text: #f2f2f2;
+$warning-background: #ffa632;
+$warning-text: #201d0e;
 $warning-color: (
-    basis: $warning-background,
-    highlight: lighten($warning-background, 15%),
-    text: $warning-text,
-    text-light: lighten($warning-text, 25%),
+  basis: $warning-background,
+  ontouch: darken($warning-background, 10%),
+  dent: darken($warning-background, 25%),
+  text: $warning-text,
 );
 /* 
  * error
  */
-$error-background: #444742;
-$error-text: #f2f2f2;
+$error-background: #eb431a;
+$error-text: #291414;
 $error-color: (
-    basis: $error-background,
-    highlight: lighten($error-background, 15%),
-    text: $error-text,
-    text-light: lighten($error-text, 25%),
+  basis: $error-background,
+  ontouch: darken($error-background, 10%),
+  dent: darken($error-background, 25%),
+  text: $error-text,
 );
+ 

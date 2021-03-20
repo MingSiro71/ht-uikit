@@ -31,12 +31,9 @@
  * Sanitation
  * Base
  * Theme
- * Link: assign to "a" and ".ht-link", for each themes
- *   *base
- *   *bicolor
- *   *tricolor
- *   *danger
- *   *toolbar
+ * Heading: for each area theme 
+ * Horizon: for each area theme
+ * Link: for each area theme
  * Spinner
  * Progress
  */
@@ -49,6 +46,7 @@
  *    Not using `font` property because a leading hyphen (e.g. -apple-system) causes the font to break in IE11 and Edge
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  * 3. Style
+ * 4. Adjust height to body
  */
 html {
   /* 1 */
@@ -61,31 +59,13 @@ html {
   /* 3 */
   background: map-get($base-color, basis);
   color: map-get($base-color, text);
+  /* 4 */
+  height: 100%;
 }
 // Remove the margin in all browsers.
 body { margin: 0; }
 // Unify text align to bottom
 text * { vertical-align: text-bottom; }
-.ht-base {
-  background: map-get($base-color, basis);
-  color: map-get($base-color, text);
-}
-.ht-bicolor {
-  background: map-get($bicolor-color, basis);
-  color: map-get($bicolor-color, text);
-}
-.ht-tricolor {
-  background: map-get($tricolor-color, basis);
-  color: map-get($tricolor-color, text);
-}
-.ht-toolbar {
-  background: map-get($toolbar-color, basis);
-  color: map-get($toolbar-color, text);
-}
-.ht-danger {
-  background: map-get($danger-color, basis);
-  color: map-get($danger-color, text);
-}
 /* Links
  ========================================================================== */
 /*
@@ -94,51 +74,14 @@ text * { vertical-align: text-bottom; }
 a,.uk-link{
   text-decoration: none;
   cursor: pointer;
-  color: map-get($base-color, text-link);
-  &:active,&:hover{
+  color: map-get($base-color, link);
+  &:active,&:hover,&:focus {
     outline: none;
-    color: map-get($base-color, text-light);
     text-decoration: underline;
+    color: map-get($base-color, link-ontouch);
   }
-}
-.ht-base {
-  a,.uk-link{
-    color: map-get($base-color, text-link);
-    &:active,&:hover{
-      color: map-get($base-color, text-light);
-    }
-  }
-}
-.ht-bicolor {
-  a,.uk-link{
-    color: map-get($bicolor-color, text-link);
-      &:active,&:hover{
-      color: map-get($bicolor-color, text-light);
-    }
-  }
-}
-.ht-tricolor {
-  a,.uk-link{
-    color: map-get($tricolor-color, text-link);
-    &:active,&:hover{
-      color: map-get($tricolor-color, text-light);
-    }
-  }
-}
-.ht-toolbar {
-  a,.uk-link{
-    color: map-get($toolbar-color, text-link);
-    &:active,&:hover{
-      color: map-get($toolbar-color, text-light);
-    }
-  }
-}
-.ht-danger {
-  a,.uk-link{
-    color: map-get($danger-color, text-link);
-    &:active,&:hover{
-      color: map-get($danger-color, text-light);
-    }
+  &:visited {
+    color: map-get($base-color, link);
   }
 }
 /* Text-level semantics
@@ -203,6 +146,7 @@ canvas,img,video {
 @supports (display: block) {
   svg {
     max-width: 100%;
+    max-height: 100%;
     height: auto;
     box-sizing: border-box;
   }
@@ -259,9 +203,10 @@ figure {
 }
 /* Lists
  ========================================================================== */
-ul,
-ol {
-  /* padding-left: 30px; */
+ul,ol {
+  list-style: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
   padding-left: 0;
 }
 /*
@@ -279,7 +224,7 @@ dt {
   font-weight: bold;
 }
 dd {
-  margin-left: 0;
+  margin-left: 4rem;
 }
 /* Horizontal rules
  ========================================================================== */
@@ -296,23 +241,11 @@ hr {
   /* 3 */
   margin: 0 0 20px 0;
   border: 0;
-  border-top: 1px solid map-get($base-color, "fogging");
+  border-top: 1px solid map-get($base-color, dent);
 }
 /* Add margin if adjacent element */
 * + hr {
   margin-top: 20px;
-}
-.ht-bicolor hr {
-  border-top: 1px solid map-get($bicolor-color, "fogging");
-}
-.ht-tricolor hr {
-  border-top: 1px solid map-get($tricolor-color, "fogging");
-}
-.ht-toolbar hr {
-  border-top: 1px solid map-get($toolbar-color, "fogging");
-}
-.ht-danger hr {
-  border-top: 1px solid map-get($danger-color, "fogging");
 }
 /* Address
  ========================================================================== */
@@ -335,7 +268,7 @@ blockquote {
     font-size: 0.875rem;
     line-height: 1.5;
     color: inherit;
-    ::before {
+    &::before {
       content: "— ";
     }
   }
@@ -351,7 +284,7 @@ blockquote {
  */
 pre {
   font: 0.875rem / 1.5 Consolas, monaco, monospace;
-  color: var(--text-color);
+  color: #333;
   -moz-tab-size: 4;
   tab-size: 4;
   /* 1 */
@@ -396,395 +329,275 @@ template {
 /* ========================================================================
    Component: Theme
  ========================================================================== */
-/* primary
- ========================================================================== */
-.ht-theme-primary {
-  background: map-get($primary-color, basis);
-  color: map-get($primary-color, text);  
-  h1,h2,h3,h4,h5,h6 {
-    color: map-get($primary-color, heading);
-  }
-  path, polyline, line, path {
-    stroke: map-get($primary-color, text);
-    fill: map-get($primary-color, text);
-  }
-  a, uk-link {
-    color: map-get($primary-color, text-link);
-    path, polyline, line, path {
-      stroke: map-get($primary-color, text-link);
-      fill: map-get($primary-color, text-link);
-    }
-    &:hover{
-      color: map-get($primary-color, text-light);
-      path, polyline, line, path {
-        stroke: map-get($primary-color, text-light);
-        fill: map-get($primary-color, text-light);
-      }
-    }
-  }
+.ht-base {
+  background-color: map-get($base-color, basis);
+  color: map-get($base-color, text);
+  border-color: map-get($base-color, dent);
 }
-/* secondary
- ========================================================================== */
-.ht-theme-secondary {
-  background: map-get($secondary-color, basis);
-  color: map-get($secondary-color, text);  
-  h1,h2,h3,h4,h5,h6 {
-    color: map-get($secondary-color, heading);
-  }
-  path, polyline, line, path {
-    stroke: map-get($secondary-color, text);
-    fill: map-get($secondary-color, text);
-  }
-  a, uk-link {
-    color: map-get($secondary-color, text-link);
-    path, polyline, line, path {
-      stroke: map-get($secondary-color, text-link);
-      fill: map-get($secondary-color, text-link);
-    }
-    &:hover{
-      color: map-get($secondary-color, text-light);
-      path, polyline, line, path {
-        stroke: map-get($secondary-color, text-light);
-        fill: map-get($secondary-color, text-light);
-      }
-    }
-  }
+.ht-bicolor {
+  background-color: map-get($bicolor-color, basis);
+  color: map-get($bicolor-color, text);
 }
-/* accent
- ========================================================================== */
-.ht-theme-accent {
-  background: map-get($accent-color, basis);
-  color: map-get($accent-color, text);  
-  h1,h2,h3,h4,h5,h6 {
-    color: map-get($accent-color, heading);
-  }
-  path, polyline, line, path {
-    stroke: map-get($accent-color, text);
-    fill: map-get($accent-color, text);
-  }
-  a, uk-link {
-    color: map-get($accent-color, text-link);
-    path, polyline, line, path {
-      stroke: map-get($accent-color, text-link);
-      fill: map-get($accent-color, text-link);
-    }
-    &:hover{
-      color: map-get($accent-color, text-light);
-      path, polyline, line, path {
-        stroke: map-get($accent-color, text-light);
-        fill: map-get($accent-color, text-light);
-      }
-    }
-  }
+.ht-tricolor {
+  background-color: map-get($tricolor-color, basis);
+  color: map-get($tricolor-color, text);
 }
-/* object
+.ht-toolbar {
+  background-color: map-get($toolbar-color, basis);
+  color: map-get($toolbar-color, text);
+}
+.ht-danger {
+  background-color: map-get($danger-color, basis);
+  color: map-get($danger-color, text);
+}
+/* ========================================================================
+   Component: Heading
  ========================================================================== */
-.ht-theme-object {
-  background: map-get($toolbar-color, basis);
-  color: map-get($toolbar-color, text);  
-  h1,h2,h3,h4,h5,h6 {
+h1 {
+  font-size: map-get($font-size-heading, h1);
+}
+h2 {
+  font-size: map-get($font-size-heading, h2);
+}
+h3 {
+  font-size: map-get($font-size-heading, h3);
+}
+h4 {
+  font-size: map-get($font-size-heading, h4);
+}
+h5 {
+  font-size: map-get($font-size-heading, h5);
+}
+h6 {
+  font-size: map-get($font-size-heading, h6);
+}
+h1,h2,h3,h4,h5,h6 {
+  &.ht-heading-border {
+    border-bottom: solid 1px map-get($base-color, dent);
+  }
+  &.ht-heading-no-spacing {
+    margin-block-end: 0px;
+  }
+  color: map-get($base-color, heading);
+  &.ht-base,.ht-base & {
+    color: map-get($base-color, heading);
+    border-color: map-get($base-color, dent);
+  }
+  &.ht-bicolor,.ht-bicolor & {
+    color: map-get($bicolor-color, heading);
+    border-color: map-get($bicolor-color, dent);
+  }
+  &.ht-tricolor,.ht-tricolor & {
+    color: map-get($tricolor-color, heading);
+    border-color: map-get($tricolor-color, dent);
+  }
+  &.ht-toolbar,.ht-toolbar & {
     color: map-get($toolbar-color, heading);
+    border-color: map-get($toolbar-color, dent);
   }
-  path, polyline, line, path {
-    stroke: map-get($toolbar-color, text);
-    fill: map-get($toolbar-color, text);
-  }
-  a, uk-link {
-    color: map-get($toolbar-color, text-link);
-    path, polyline, line, path {
-      stroke: map-get($toolbar-color, text-link);
-      fill: map-get($toolbar-color, text-link);
-    }
-    &:hover{
-      color: map-get($toolbar-color, text-light);
-      path, polyline, line, path {
-        stroke: map-get($toolbar-color, text-light);
-        fill: map-get($toolbar-color, text-light);
-      }
-    }
-  }
-}
-/* warning
- ========================================================================== */
-.ht-theme-warning {
-  background: map-get($warning-color, basis);
-  color: map-get($warning-color, text);  
-  h1,h2,h3,h4,h5,h6 {
-    color: map-get($warning-color, heading);
-  }
-  path, polyline, line, path {
-    stroke: map-get($warning-color, text);
-    fill: map-get($warning-color, text);
-  }
-  a, uk-link {
-    color: map-get($warning-color, text-link);
-    path, polyline, line, path {
-      stroke: map-get($warning-color, text-link);
-      fill: map-get($warning-color, text-link);
-    }
-    &:hover{
-      color: map-get($warning-color, text-light);
-      path, polyline, line, path {
-        stroke: map-get($warning-color, text-light);
-        fill: map-get($warning-color, text-light);
-      }
-    }
-  }
-}
-/* danger
- ========================================================================== */
-.ht-theme-danger {
-  background: map-get($danger-color, basis);
-  color: map-get($danger-color, text);  
-  h1,h2,h3,h4,h5,h6 {
+  &.ht-danger,.ht-danger & {
     color: map-get($danger-color, heading);
+    border-color: map-get($danger-color, dent);
   }
-  path, polyline, line, path {
-    stroke: map-get($danger-color, text);
-    fill: map-get($danger-color, text);
+
+}
+/* ========================================================================
+   Component: Horizon
+ ========================================================================== */
+hr {
+  border-color: map-get($base-color, dent);
+  &.ht-base,.ht-base & {
+    border-color: map-get($base-color, dent);
   }
-  a, uk-link {
-    color: map-get($danger-color, text-link);
-    path, polyline, line, path {
-      stroke: map-get($danger-color, text-link);
-      fill: map-get($danger-color, text-link);
-    }
-    &:hover{
-      color: map-get($danger-color, text-light);
-      path, polyline, line, path {
-        stroke: map-get($danger-color, text-light);
-        fill: map-get($danger-color, text-light);
-      }
-    }
+  &.ht-bicolor,.ht-bicolor & {
+    border-color: map-get($bicolor-color, dent);
+  }
+  &.ht-tricolor,.ht-tricolor & {
+    border-color: map-get($tricolor-color, dent);
+  }
+  &.ht-toolbar,.ht-toolbar & {
+    border-color: map-get($toolbar-color, dent);
+  }
+  &.ht-danger,.ht-danger & {
+    border-color: map-get($danger-color, dent);
   }
 }
 /* ========================================================================
    Component: Link
  ========================================================================== */
-/* Muted
+ /* (Default)
  ========================================================================== */
-a.uk-link-muted,
-.uk-link-muted a {
-  color: map-get($base-color, text-light);
-}
-a.uk-link-muted:hover,
-.uk-link-muted a:hover{
-  color: map-get($base-color, text);
-}
-.ht-base {
-  a.uk-link-muted,
-  .uk-link-muted a {
-    color: map-get($base-color, text-light);
+a,.uk-link {
+  &.ht-base, .ht-base & {
+    color: map-get($base-color, link);
+    &:active,&:hover,&:focus {
+      color: map-get($base-color, link-ontouch);
+    }
   }
-  a.uk-link-muted:hover,
-  .uk-link-muted a:hover{
+  &.ht-bicolor, .ht-bicolor & {
+    color: map-get($bicolor-color, link);
+    &:active,&:hover,&:focus {
+      color: map-get($bicolor-color, link-ontouch);
+    }
+  }
+  &.ht-tricolor, .ht-tricolor & {
+    color: map-get($tricolor-color, link);
+    &:active,&:hover,&:focus {
+      color: map-get($tricolor-color, link-ontouch);
+    }
+  }
+  &.ht-toolbar, .ht-toolbar & {
+    color: map-get($toolbar-color, link);
+    &:active,&:hover,&:focus {
+      color: map-get($toolbar-color, link-ontouch);
+    }
+  }
+  &.ht-danger, .ht-danger & {
+    color: map-get($danger-color, link);
+    &:active,&:hover,&:focus {
+      color: map-get($danger-color, link-ontouch);
+    }
+  }
+}
+ /* Muted
+ ========================================================================== */
+a.uk-link-muted,.uk-link.uk-link-muted,
+.uk-link-muted a {
+  color: map-get($base-color, text-muted);
+  &:active,&:hover,&:focus {
     color: map-get($base-color, text);
   }
-}
-.ht-bicolor {
-  a.uk-link-muted,
-  .uk-link-muted a {
-    color: map-get($bicolor-color, text-light);
+  &.ht-base, .ht-base & {
+    color: map-get($base-color, text-muted);
+    &:active,&:hover,&:focus {
+      color: map-get($base-color, text);
+    }
   }
-  a.uk-link-muted:hover,
-  .uk-link-muted a:hover{
-    color: map-get($bicolor-color, text);
+  &.ht-bicolor, .ht-bicolor & {
+    color: map-get($bicolor-color, text-muted);
+    &:active,&:hover,&:focus {
+      color: map-get($bicolor-color, text);
+    }
   }
-}
-.ht-tricolor {
-  a.uk-link-muted,
-  .uk-link-muted a {
-    color: map-get($tricolor-color, text-light);
+  &.ht-tricolor, .ht-tricolor & {
+    color: map-get($tricolor-color, text-muted);
+    &:active,&:hover,&:focus {
+      color: map-get($tricolor-color, text);
+    }
   }
-  a.uk-link-muted:hover,
-  .uk-link-muted a:hover{
-    color: map-get($tricolor-color, text);
+  &.ht-toolbar, .ht-toolbar & {
+    color: map-get($toolbar-color, text-muted);
+    &:active,&:hover,&:focus {
+      color: map-get($toolbar-color, text);
+    }
   }
-}
-.ht-danger {
-  a.uk-link-muted,
-  .uk-link-muted a {
-    color: map-get($danger-color, text-light);
-  }
-  a.uk-link-muted:hover,
-  .uk-link-muted a:hover{
-    color: map-get($danger-color, text);
-  }
-}
-.ht-toolbar {
-  a.uk-link-muted,
-  .uk-link-muted a {
-    color: map-get($toolbar-color, text-light);
-  }
-  a.uk-link-muted:hover,
-  .uk-link-muted a:hover{
-    color: map-get($toolbar-color, text);
+  &.ht-danger, .ht-danger & {
+    color: map-get($danger-color, text-muted);
+    &:active,&:hover,&:focus {
+      color: map-get($danger-color, text);
+    }
   }
 }
 /* Text
  ========================================================================== */
-a.uk-link-text,
+a.uk-link-text,.uk-link.uk-link-text,
 .uk-link-text a {
-  color: map-get($base-color, text-link);
-}
-a.uk-link-text:hover,
-.uk-link-text a:hover{
-  color: map-get($base-color, text-light);
-}
-.ht-base {
-  a.uk-link-text,
-  .uk-link-text a {
-    color: map-get($base-color, text-link);
+  color: map-get($base-color, text);
+  &:active,&:hover,&:focus {
+    color: map-get($base-color, text-muted);
   }
-  a.uk-link-text:hover,
-  .uk-link-text a:hover{
-    color: map-get($base-color, text-light);
+  &.ht-base, .ht-base & {
+    color: map-get($base-color, text);
+    &:active,&:hover,&:focus {
+      color: map-get($base-color, text-muted);
+    }
   }
-}
-.ht-bicolor {
-  a.uk-link-text,
-  .uk-link-text a {
-    color: map-get($bicolor-color, text-link);
+  &.ht-bicolor, .ht-bicolor & {
+    color: map-get($bicolor-color, text);
+    &:active,&:hover,&:focus {
+      color: map-get($bicolor-color, text-muted);
+    }
   }
-  a.uk-link-text:hover,
-  .uk-link-text a:hover{
-    color: map-get($bicolor-color, text-light);
+  &.ht-tricolor, .ht-tricolor & {
+    color: map-get($tricolor-color, text);
+    &:active,&:hover,&:focus {
+      color: map-get($tricolor-color, text-muted);
+    }
   }
-}
-.ht-tricolor {
-  a.uk-link-text,
-  .uk-link-text a {
-    color: map-get($tricolor-color, text-link);
+  &.ht-toolbar, .ht-toolbar & {
+    color: map-get($toolbar-color, text);
+    &:active,&:hover,&:focus {
+      color: map-get($toolbar-color, text-muted);
+    }
   }
-  a.uk-link-text:hover,
-  .uk-link-text a:hover{
-    color: map-get($tricolor-color, text-light);
-  }
-}
-.ht-danger {
-  a.uk-link-text,
-  .uk-link-text a {
-    color: map-get($danger-color, text-link);
-  }
-  a.uk-link-text:hover,
-  .uk-link-text a:hover{
-    color: map-get($danger-color, text-light);
-  }
-}
-.ht-toolbar {
-  a.uk-link-text,
-  .uk-link-text a {
-    color: map-get($toolbar-color, text-link);
-  }
-  a.uk-link-text:hover,
-  .uk-link-text a:hover{
-    color: map-get($toolbar-color, text-light);
+  &.ht-danger, .ht-danger & {
+    color: map-get($danger-color, text);
+    &:active,&:hover,&:focus {
+      color: map-get($danger-color, text-muted);
+    }
   }
 }
 /* Heading
  ========================================================================== */
-a.uk-link-heading,
+a.uk-link-heading,.uk-link.uk-link-heading,
 .uk-link-heading a {
-  color: inherit;
-}
-a.uk-link-heading:hover,
-.uk-link-heading a:hover,
-.uk-link-toggle:hover .uk-link-heading,
-.uk-link-toggle:focus .uk-link-heading {
-  color: map-get($base-color, heading-light);
-  text-decoration: none;
-}
-.ht-theme-primary {
-  a.uk-link-heading:hover,
-  .uk-link-heading a:hover,
-  .uk-link-toggle:hover .uk-link-heading,
-  .uk-link-toggle:focus .uk-link-heading {
-    color: map-get($primary-color, heading-light);
+  color: map-get($base-color, heading);
+  &:active,&:hover,&:focus {
+    color: map-get($base-color, link-ontouch);
+  }
+  &.ht-base, .ht-base & {
+    color: map-get($base-color, heading);
+    &:active,&:hover,&:focus {
+      color: map-get($base-color, link-ontouch);
+    }
+  }
+  &.ht-bicolor, .ht-bicolor & {
+    color: map-get($bicolor-color, heading);
+    &:active,&:hover,&:focus {
+      color: map-get($bicolor-color, link-ontouch);
+    }
+  }
+  &.ht-tricolor, .ht-tricolor & {
+    color: map-get($tricolor-color, heading);
+    &:active,&:hover,&:focus {
+      color: map-get($tricolor-color, link-ontouch);
+    }
+  }
+  &.ht-toolbar, .ht-toolbar & {
+    color: map-get($toolbar-color, heading);
+    &:active,&:hover,&:focus {
+      color: map-get($toolbar-color, link-ontouch);
+    }
+  }
+  &.ht-danger, .ht-danger & {
+    color: map-get($danger-color, heading);
+    &:active,&:hover,&:focus {
+      color: map-get($danger-color, link-ontouch);
+    }
   }
 }
-.ht-theme-secondary {
-  a.uk-link-heading:hover,
-  .uk-link-heading a:hover,
-  .uk-link-toggle:hover .uk-link-heading,
-  .uk-link-toggle:focus .uk-link-heading {
-    color: map-get($secondary-color, heading-light);
-  }
-}
-.ht-theme-accent {
-  a.uk-link-heading:hover,
-  .uk-link-heading a:hover,
-  .uk-link-toggle:hover .uk-link-heading,
-  .uk-link-toggle:focus .uk-link-heading {
-    color: map-get($accent-color, heading-light);
-  }
-}
-.ht-theme-object {
-  a.uk-link-heading:hover,
-  .uk-link-heading a:hover,
-  .uk-link-toggle:hover .uk-link-heading,
-  .uk-link-toggle:focus .uk-link-heading {
-    color: map-get($toolbar-color, heading-light);
-  }
-}
-
-.ht-theme-warning {
-  a.uk-link-heading:hover,
-  .uk-link-heading a:hover,
-  .uk-link-toggle:hover .uk-link-heading,
-  .uk-link-toggle:focus .uk-link-heading {
-    color: map-get($warning-color, heading-light);
-  }
-}
-.ht-theme-danger {
-  a.uk-link-heading:hover,
-  .uk-link-heading a:hover,
-  .uk-link-toggle:hover .uk-link-heading,
-  .uk-link-toggle:focus .uk-link-heading {
-    color: map-get($danger-color, heading-light);
-  }
-}
-
-/* ========================================================================
-   Component: Spinner
+/* Silent
  ========================================================================== */
-/*
- * Adopts `uk-icon`
- */
-/* SVG
- ========================================================================== */
-.uk-spinner > * {
-  animation: uk-spinner-rotate 1.4s linear infinite;
-}
-@keyframes uk-spinner-rotate {
-  0% {
-    transform: rotate(0deg);
+a.uk-link-silent,.uk-link.uk-link-silent,
+.uk-link-silent a {
+  color: map-get($base-color, text);
+  &:active,&:hover,&:focus {
+    text-decoration: none;
   }
-  100% {
-    transform: rotate(270deg);
+  &.ht-base, .ht-base & {
+    color: map-get($base-color, text);
   }
-}
-/*
- * Circle
- */
-.uk-spinner > * > * {
-  stroke-dasharray: 88px;
-  stroke-dashoffset: 0;
-  transform-origin: center;
-  animation: uk-spinner-dash 1.4s ease-in-out infinite;
-  stroke-width: 1;
-  stroke-linecap: round;
-}
-@keyframes uk-spinner-dash {
-  0% {
-    stroke-dashoffset: 88px;
+  &.ht-bicolor, .ht-bicolor & {
+    color: map-get($bicolor-color, text);
   }
-  50% {
-    stroke-dashoffset: 22px;
-    transform: rotate(135deg);
+  &.ht-tricolor, .ht-tricolor & {
+    color: map-get($tricolor-color, text);
   }
-  100% {
-    stroke-dashoffset: 88px;
-    transform: rotate(450deg);
+  &.ht-toolbar, .ht-toolbar & {
+    color: map-get($toolbar-color, text);
+  }
+  &.ht-danger, .ht-danger & {
+    color: map-get($danger-color, text);
   }
 }
 /* ========================================================================
@@ -812,7 +625,22 @@ a.uk-link-heading:hover,
   bottom: 0;
   left: 20px;
   right: 0;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid map-get($base-color, dent);
+}
+.ht-base.uk-tab::before, .ht-base .uk-tab::before {
+  border-bottom: 1px solid map-get($base-color, dent);
+}
+.ht-bicolor.uk-tab::before, .ht-bicolor .uk-tab::before {
+  border-bottom: 1px solid map-get($bicolor-color, dent);
+}
+.ht-tricolor.uk-tab::before, .ht-tricolor .uk-tab::before {
+  border-bottom: 1px solid map-get($tricolor-color, dent);
+}
+.ht-toolbar.uk-tab::before, .ht-toolbar .uk-tab::before {
+  border-bottom: 1px solid map-get($toolbar-color, dent);
+}
+.ht-danger.uk-tab::before, .ht-danger .uk-tab::before {
+  border-bottom: 1px solid map-get($danger-color, dent);
 }
 /*
  * 1. Space is allocated solely based on content dimensions: 0 0 auto
@@ -840,26 +668,73 @@ a.uk-link-heading:hover,
   text-align: center;
   /* 2 */
   padding: 5px 10px;
-  color: var(--sub-text-color);
+  color: map-get($base-color, text-muted);
   border-bottom: 1px solid transparent;
   font-size: 0.875rem;
   text-transform: uppercase;
   transition: color 0.1s ease-in-out;
+  &:hover,&:focus {
+    text-decoration: none;
+    color: map-get($base-color, text);
+  }
+  &:active {
+    color: map-get($base-color, text-active);
+    border-color: map-get($base-color, link-ontouch);
+  }
 }
-/* Hover + Focus */
-.uk-tab > * > a:hover,
-.uk-tab > * > a:focus {
-  color: var(--text-color);
-  text-decoration: none;
+.uk-tab > .uk-active > a,
+.ht-base.uk-tab > .uk-active > a,
+.ht-base .uk-tab > .uk-active > a {
+  color: map-get($base-color, text-active);
+  border-color: map-get($base-color, link-ontouch);
 }
-/* Active */
-.uk-tab > .uk-active > a {
-  color: #333;
-  border-color: var(--text-color);
+.ht-bicolor.uk-tab > .uk-active > a,
+.ht-bicolor .uk-tab > .uk-active > a {
+  color: map-get($bicolor-color, text-active);
+  border-color: map-get($bicolor-color, link-ontouch);
 }
-/* Disabled */
-.uk-tab > .uk-disabled > a {
-  color: var(--sub-text-color);
+.ht-tricolor.uk-tab > .uk-active > a,
+.ht-tricolor .uk-tab > .uk-active > a {
+  color: map-get($tricolor-color, text-active);
+  border-color: map-get($tricolor-color, link-ontouch);
+}
+.ht-toolbar.uk-tab > .uk-active > a,
+.ht-toolbar .uk-tab > .uk-active > a {
+  color: map-get($toolbar-color, text-active);
+  border-color: map-get($toolbar-color, link-ontouch);
+}
+.ht-danger.uk-tab > .uk-active > a,
+.ht-danger .uk-tab > .uk-active > a {
+  color: map-get($danger-color, text-active);
+  border-color: map-get($danger-color, link-ontouch);
+}
+.uk-tab > .uk-disabled > a,
+.ht-base.uk-tab > .uk-disabled > a,
+.ht-base .uk-tab > .uk-disabled > a {
+  color: map-get($base-color, text-muted);
+  pointer-events: none;
+}
+.ht-bicolor.uk-tab > .uk-disabled > a,
+.ht-bicolor .uk-tab > .uk-disabled > a {
+  color: map-get($bicolor-color, text-muted);
+}
+.ht-tricolor.uk-tab > .uk-disabled > a,
+.ht-tricolor .uk-tab > .uk-disabled > a {
+  color: map-get($tricolor-color, text-muted);
+}
+.ht-toolbar.uk-tab > .uk-disabled > a,
+.ht-toolbar .uk-tab > .uk-disabled > a {
+  color: map-get($toolbar-color, text-muted);
+}
+.ht-danger.uk-tab > .uk-disabled > a,
+.ht-danger .uk-tab > .uk-disabled > a {
+  color: map-get($danger-color, text-muted);
+}
+.uk-tab.uk-tab-locate-center {
+  justify-content: center;
+}
+.uk-tab.uk-tab-locate-right {
+  justify-content: flex-end;
 }
 /* Position modifier
  ========================================================================== */
@@ -874,51 +749,6 @@ a.uk-link-heading:hover,
   border-top: 1px solid transparent;
   border-bottom: none;
 }
-/*
- * Left + Right
- * 1. Reset Gutter
- */
-.uk-tab-left,
-.uk-tab-right {
-  flex-direction: column;
-  /* 1 */
-  margin-left: 0;
-}
-/* 1 */
-.uk-tab-left > *,
-.uk-tab-right > * {
-  padding-left: 0;
-}
-.uk-tab-left::before {
-  top: 0;
-  bottom: 0;
-  left: auto;
-  right: 0;
-  border-left: 1px solid #e5e5e5;
-  border-bottom: none;
-}
-.uk-tab-right::before {
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: auto;
-  border-left: 1px solid #e5e5e5;
-  border-bottom: none;
-}
-.uk-tab-left > * > a {
-  text-align: left;
-  border-right: 1px solid transparent;
-  border-bottom: none;
-}
-.uk-tab-right > * > a {
-  text-align: left;
-  border-left: 1px solid transparent;
-  border-bottom: none;
-}
-.uk-tab .uk-dropdown {
-  margin-left: 30px;
-}
-
 /* ========================================================================
    Component: Progress
  ========================================================================== */
@@ -977,11 +807,12 @@ a.uk-link-heading:hover,
  * 1. Remove right border in IE11 and Edge
  */
 .uk-progress::-webkit-progress-value {
-  background-color: var(--text-color);
+  // background-color: var(--text-color);
+  background-color: blue;
   transition: width 0.6s ease;
 }
 .uk-progress::-moz-progress-bar {
-  background-color: var(--text-color);
+  background-color: blue;
 }
 .uk-progress::-ms-fill {
   background-color: var(--text-color);

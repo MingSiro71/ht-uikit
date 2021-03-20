@@ -1,3 +1,18 @@
+<!-- Stream:
+  Make multi stream layout
+  Stream behave different manners between if you locate on root which is
+  the same level to navbar, and you locate in block element
+  
+  Stream has strong restriction to html structure:
+    - .ht-stream-container should not have a child except .ht-stream-mainstream and .ht-stream-substream just under itself
+    And When you use stream on root of page
+    - .ht-stream-container should be next to .ht-navbar-container.ht-navbar-container-sticky 
+
+  Stream is designed to use in conbination with Option
+  You should hide streams under any break point, use .ht-option-xxx
+  because Stream uses Option to calculate position
+  Do not hide other way like that you attach "display: none;" directly
+-->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -5,10 +20,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta property="og:title" content="HT-UIKit | Base">
+  <meta property="og:title" content="HT-UIKit | Stream">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.ht-uikit.com/base.html">
-  <meta property="og:image" content="https://www.ht-uikit.com/image/base_ogp.png">
+  <meta property="og:url" content="https://www.ht-uikit.com/stream.html">
+  <meta property="og:image" content="https://www.ht-uikit.com/image/stream_ogp.png">
   <meta property="og:site_name" content="HT-UIKit">
   <meta property="og:description" content="Customized UIKit by Hentech">
 
@@ -17,37 +32,101 @@
   <title>HT-UIKit | Stream</title>
 </head>
 <body>
-  <header class="ht-vavbar-container ht-vavbar-container-sticky">
-    <!-- navibar can be bound by block element or not -->
-    <div style="max-width: 1080px">
-      <nav>
-        <div class="ht-vavbar-left ht-vavbar-logo">
-          <a href="/">
-            <img src="" alt="">
-            <svg></svg>
-            <text>LOGO<text>
-          </a>
-        </div>
-        <div class="ht-vavbar-right"></div>
-      </nav>
-    </div>
+  <header class="ht-navbar-container ht-navbar-container-sticky">
+    <nav>
+      <div class="ht-navbar-left ht-navbar-logo">
+        <a href="/">
+          <img src="../asset/image/niwatori.png" alt="cook doodle doo!" style="height: 36px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+            <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+            <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+          </svg>
+          <text>HT-UIkit<text>
+        </a>
+      </div>
+      <div class="ht-navbar-center ht-optionfor-notebook"><p>Text on the center</p></div>
+      <div class="ht-navbar-right">
+        <ul class="ht-navbar-navigation ht-optionfor-mobile-landscape">
+          <li class="uk-active"><a href="#">Active</a></li>
+          <li class=""><a href="#">Item</a></li>
+          <li class=""><a href="#">Item</a></li>
+          <li class=""><a href="#">Item</a></li>
+        </ul>
+        <button class="uk-button">Button</button>
+      </div>
+    </nav>
   </header>
-  <main class="ht-stream-container">
-    <div class="ht-stream-substream-narrow ht-stream-substream-prior ht-toolbar">
-      <h1>Toolbar menu</h1>
-      <h2>Width: narrow</h2>
+  <div class="ht-stream-container" style="width: 1200px">
+    <div class="ht-stream-substream ht-toolbar ht-optionfor-notebook">
+      <section>
+        <h1>Toolbar menu</h1>
+        <h2>Width: broad</h2>
+        <p>content</p><p>content</p><p>content</p><p>content</p>
+        <p>content</p><p>content</p><p>content</p><p>content</p>
+        <p>content</p><p>content</p><p>content</p><p>content</p>
+        <p>content</p><p>content</p><p>content</p><p>content</p>
+        <p>content</p><p>content</p><p>content</p><p>content</p>
+        <p>content</p><p>content</p><p>content</p><p>content</p>
+      </section>
+    </div>
+    <div class="ht-stream-substream ht-toolbar ht-optionfor-workstation">
+      <section>
+        <h1>Toolbar menu</h1>
+        <h2>Width: broad</h2>
+        <p>content</p><p>content</p><p>content</p><p>content</p>
+        <p>content</p><p>content</p><p>content</p><p>content</p>
+        <p>content</p><p>content</p><p>content</p><p>content</p>
+        <p>content</p><p>content</p><p>content</p><p>content</p>
+        <p>content</p><p>content</p><p>content</p><p>content</p>
+        <p>content</p><p>content</p><p>content</p><p>content</p>
+      </section>
+    </div>
+    <div class="ht-stream-substream ht-toolbar ht-optionfor-workstation">
+      <section>
+        <h1>Toolbar menu</h1>
+        <h2>Width: broad</h2>
+        <p>content</p><p>content</p><p>content</p><p>content</p>
+        <p>content</p><p>content</p><p>content</p><p>content</p>
+        <p>content</p><p>content</p><p>content</p><p>content</p>
+      </section>
     </div>
     <div class="ht-stream-mainstream ht-base">
-      <h1>Main contents</h1>
+      <section>
+        <h1>Main contents</h1>
+        <p>content</p><p>content</p><p>content</p><p>content</p>
+        <p>content</p><p>content</p><p>content</p><p>content</p>
+        <p>content</p><p>content</p><p>content</p><p>content</p>
+        <p>content</p><p>content</p><p>content</p><p>content</p>
+        <p>content</p><p>content</p><p>content</p><p>content</p>
+        <p>content</p><p>content</p><p>content</p><p>content</p>
+        <p>Stream in block</p>
+        <div class="ht-stream-container">
+          <div class="ht-stream-substream ht-toolbar ht-optionfor-mobile-portlate">
+            <section>
+              <h1>Toolbar menu</h1>
+              <h2>Width: broad</h2>
+              <p>content</p><p>content</p><p>content</p><p>content</p>
+              <p>content</p><p>content</p><p>content</p><p>content</p>
+              <p>content</p><p>content</p><p>content</p><p>content</p>
+              <p>content</p><p>content</p><p>content</p><p>content</p>
+              <p>content</p><p>content</p><p>content</p><p>content</p>
+              <p>content</p><p>content</p><p>content</p><p>content</p>
+            </section>
+          </div>
+          <div class="ht-stream-mainstream ht-base">
+            <section>
+              <h1>Main contents</h1>
+              <p>content</p><p>content</p><p>content</p><p>content</p>
+              <p>content</p><p>content</p><p>content</p><p>content</p>
+              <p>content</p><p>content</p><p>content</p><p>content</p>
+              <p>content</p><p>content</p><p>content</p><p>content</p>
+              <p>content</p><p>content</p><p>content</p><p>content</p>
+              <p>content</p><p>content</p><p>content</p><p>content</p>
+            </section>
+          </div>
+        </div>
+      </section>
     </div>
-    <div class="ht-stream-substream-medium ht-base">
-      <h1>Assistant</h1>
-      <h2>Width: medium</h2>
-    </div>
-    <div class="ht-stream-substream-broad ht-base">
-      <h1>Assistant</h1>
-      <h2>Width: broad</h2>
-    </div>
-  </main>
+  </div>
 </body>
 </html>
