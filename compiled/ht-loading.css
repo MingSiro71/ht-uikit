@@ -43,6 +43,13 @@
       ontouch: User touches or cursor is on
       dent: Used when view type is signboard
       text: Text color
+
+  Form:
+    input: Background color for input areas but it is recomended not to change from white
+    dent: Impless there is a dent which is used for border
+    disabled: Background color disabled input area
+    text: Text color in input area
+    text-muted: Used for placeholder in input area
  */
 /* 
  * base
@@ -69,13 +76,16 @@
  * accent
  */
 /* 
-  * infomation
-  */
+ * infomation
+ */
 /* 
  * warning
  */
 /* 
  * error
+ */
+/* 
+ * form
  */
 /* 
  * _layout.scss: Defines window breakpoint and indent size 
@@ -109,7 +119,7 @@
   left: 0;
   height: 100vh;
   width: 100vw;
-  z-index: 970;
+  z-index: 990;
   background-color: rgba(0, 0, 0, 0.4);
 }
 
@@ -117,6 +127,10 @@
   position: relative;
   height: 100%;
   width: 100%;
+}
+
+.ht-overlay:not(.ht-overlay-active) {
+  display: none;
 }
 
 .ht-loading {

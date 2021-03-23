@@ -57,10 +57,11 @@
   </header>
   <!-- Set main content next to navbar! Do not locate other object! -->
   <section>
-    Main contents
+    <button onclick="displayLoading()">load</button>
+    <p>Display loading object 2 seconds</p>
   </section>
   <!-- Loading -->
-  <div class="ht-overlay">
+  <div id="overlay" class="ht-overlay">
     <div class="ht-overlay-field">
       <div class="ht-loading">
         <div class="ht-loading-ball-wrapper">
@@ -76,5 +77,14 @@
       </div>    
     </div>      
   </div>
+  <script>
+    const removeLoading = (e) => {
+      document.getElementById("overlay").classList.remove("ht-overlay-active");
+    }
+    const displayLoading = (e) => {
+      document.getElementById("overlay").classList.add("ht-overlay-active");
+      window.setTimeout(removeLoading, 2000);
+    }
+  </script>
 </body>
 </html>

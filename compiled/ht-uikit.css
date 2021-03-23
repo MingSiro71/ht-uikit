@@ -65,6 +65,13 @@
       ontouch: User touches or cursor is on
       dent: Used when view type is signboard
       text: Text color
+
+  Form:
+    input: Background color for input areas but it is recomended not to change from white
+    dent: Impless there is a dent which is used for border
+    disabled: Background color disabled input area
+    text: Text color in input area
+    text-muted: Used for placeholder in input area
  */
 /* 
  * base
@@ -91,13 +98,16 @@
  * accent
  */
 /* 
-  * infomation
-  */
+ * infomation
+ */
 /* 
  * warning
  */
 /* 
  * error
+ */
+/* 
+ * form
  */
 /* 
  * _layout.scss: Defines window breakpoint and indent size 
@@ -470,7 +480,7 @@ template {
 
 .ht-toolbar {
   background-color: #444742;
-  color: #f2f2f2;
+  color: #ccc2c2;
 }
 
 .ht-danger {
@@ -528,17 +538,17 @@ h1.ht-bicolor, .ht-bicolor h1, h2.ht-bicolor, .ht-bicolor h2, h3.ht-bicolor, .ht
 }
 
 h1.ht-tricolor, .ht-tricolor h1, h2.ht-tricolor, .ht-tricolor h2, h3.ht-tricolor, .ht-tricolor h3, h4.ht-tricolor, .ht-tricolor h4, h5.ht-tricolor, .ht-tricolor h5, h6.ht-tricolor, .ht-tricolor h6 {
-  color: #ffffff;
+  color: white;
   border-color: #cf2200;
 }
 
 h1.ht-toolbar, .ht-toolbar h1, h2.ht-toolbar, .ht-toolbar h2, h3.ht-toolbar, .ht-toolbar h3, h4.ht-toolbar, .ht-toolbar h4, h5.ht-toolbar, .ht-toolbar h5, h6.ht-toolbar, .ht-toolbar h6 {
-  color: #ccb2b2;
+  color: #fbf9f9;
   border-color: #050505;
 }
 
 h1.ht-danger, .ht-danger h1, h2.ht-danger, .ht-danger h2, h3.ht-danger, .ht-danger h3, h4.ht-danger, .ht-danger h4, h5.ht-danger, .ht-danger h5, h6.ht-danger, .ht-danger h6 {
-  color: #e9e9e9;
+  color: white;
   border-color: #b30600;
 }
 
@@ -663,7 +673,7 @@ a.uk-link-muted.ht-bicolor:active, a.uk-link-muted.ht-bicolor:hover, a.uk-link-m
 a.uk-link-muted.ht-tricolor, .ht-tricolor a.uk-link-muted, .uk-link.uk-link-muted.ht-tricolor, .ht-tricolor .uk-link.uk-link-muted,
 .uk-link-muted a.ht-tricolor, .ht-tricolor
 .uk-link-muted a {
-  color: white;
+  color: #d9d9d9;
 }
 
 a.uk-link-muted.ht-tricolor:active, a.uk-link-muted.ht-tricolor:hover, a.uk-link-muted.ht-tricolor:focus, .ht-tricolor a.uk-link-muted:active, .ht-tricolor a.uk-link-muted:hover, .ht-tricolor a.uk-link-muted:focus, .uk-link.uk-link-muted.ht-tricolor:active, .uk-link.uk-link-muted.ht-tricolor:hover, .uk-link.uk-link-muted.ht-tricolor:focus, .ht-tricolor .uk-link.uk-link-muted:active, .ht-tricolor .uk-link.uk-link-muted:hover, .ht-tricolor .uk-link.uk-link-muted:focus,
@@ -679,7 +689,7 @@ a.uk-link-muted.ht-tricolor:active, a.uk-link-muted.ht-tricolor:hover, a.uk-link
 a.uk-link-muted.ht-toolbar, .ht-toolbar a.uk-link-muted, .uk-link.uk-link-muted.ht-toolbar, .ht-toolbar .uk-link.uk-link-muted,
 .uk-link-muted a.ht-toolbar, .ht-toolbar
 .uk-link-muted a {
-  color: white;
+  color: #a99898;
 }
 
 a.uk-link-muted.ht-toolbar:active, a.uk-link-muted.ht-toolbar:hover, a.uk-link-muted.ht-toolbar:focus, .ht-toolbar a.uk-link-muted:active, .ht-toolbar a.uk-link-muted:hover, .ht-toolbar a.uk-link-muted:focus, .uk-link.uk-link-muted.ht-toolbar:active, .uk-link.uk-link-muted.ht-toolbar:hover, .uk-link.uk-link-muted.ht-toolbar:focus, .ht-toolbar .uk-link.uk-link-muted:active, .ht-toolbar .uk-link.uk-link-muted:hover, .ht-toolbar .uk-link.uk-link-muted:focus,
@@ -689,13 +699,13 @@ a.uk-link-muted.ht-toolbar:active, a.uk-link-muted.ht-toolbar:hover, a.uk-link-m
 .uk-link-muted a:active, .ht-toolbar
 .uk-link-muted a:hover, .ht-toolbar
 .uk-link-muted a:focus {
-  color: #f2f2f2;
+  color: #ccc2c2;
 }
 
 a.uk-link-muted.ht-danger, .ht-danger a.uk-link-muted, .uk-link.uk-link-muted.ht-danger, .ht-danger .uk-link.uk-link-muted,
 .uk-link-muted a.ht-danger, .ht-danger
 .uk-link-muted a {
-  color: white;
+  color: #c3c3c3;
 }
 
 a.uk-link-muted.ht-danger:active, a.uk-link-muted.ht-danger:hover, a.uk-link-muted.ht-danger:focus, .ht-danger a.uk-link-muted:active, .ht-danger a.uk-link-muted:hover, .ht-danger a.uk-link-muted:focus, .uk-link.uk-link-muted.ht-danger:active, .uk-link.uk-link-muted.ht-danger:hover, .uk-link.uk-link-muted.ht-danger:focus, .ht-danger .uk-link.uk-link-muted:active, .ht-danger .uk-link.uk-link-muted:hover, .ht-danger .uk-link.uk-link-muted:focus,
@@ -767,13 +777,13 @@ a.uk-link-text.ht-tricolor:active, a.uk-link-text.ht-tricolor:hover, a.uk-link-t
 .uk-link-text a:active, .ht-tricolor
 .uk-link-text a:hover, .ht-tricolor
 .uk-link-text a:focus {
-  color: white;
+  color: #d9d9d9;
 }
 
 a.uk-link-text.ht-toolbar, .ht-toolbar a.uk-link-text, .uk-link.uk-link-text.ht-toolbar, .ht-toolbar .uk-link.uk-link-text,
 .uk-link-text a.ht-toolbar, .ht-toolbar
 .uk-link-text a {
-  color: #f2f2f2;
+  color: #ccc2c2;
 }
 
 a.uk-link-text.ht-toolbar:active, a.uk-link-text.ht-toolbar:hover, a.uk-link-text.ht-toolbar:focus, .ht-toolbar a.uk-link-text:active, .ht-toolbar a.uk-link-text:hover, .ht-toolbar a.uk-link-text:focus, .uk-link.uk-link-text.ht-toolbar:active, .uk-link.uk-link-text.ht-toolbar:hover, .uk-link.uk-link-text.ht-toolbar:focus, .ht-toolbar .uk-link.uk-link-text:active, .ht-toolbar .uk-link.uk-link-text:hover, .ht-toolbar .uk-link.uk-link-text:focus,
@@ -783,7 +793,7 @@ a.uk-link-text.ht-toolbar:active, a.uk-link-text.ht-toolbar:hover, a.uk-link-tex
 .uk-link-text a:active, .ht-toolbar
 .uk-link-text a:hover, .ht-toolbar
 .uk-link-text a:focus {
-  color: white;
+  color: #a99898;
 }
 
 a.uk-link-text.ht-danger, .ht-danger a.uk-link-text, .uk-link.uk-link-text.ht-danger, .ht-danger .uk-link.uk-link-text,
@@ -799,7 +809,7 @@ a.uk-link-text.ht-danger:active, a.uk-link-text.ht-danger:hover, a.uk-link-text.
 .uk-link-text a:active, .ht-danger
 .uk-link-text a:hover, .ht-danger
 .uk-link-text a:focus {
-  color: white;
+  color: #c3c3c3;
 }
 
 /* Heading
@@ -851,7 +861,7 @@ a.uk-link-heading.ht-bicolor:active, a.uk-link-heading.ht-bicolor:hover, a.uk-li
 a.uk-link-heading.ht-tricolor, .ht-tricolor a.uk-link-heading, .uk-link.uk-link-heading.ht-tricolor, .ht-tricolor .uk-link.uk-link-heading,
 .uk-link-heading a.ht-tricolor, .ht-tricolor
 .uk-link-heading a {
-  color: #ffffff;
+  color: white;
 }
 
 a.uk-link-heading.ht-tricolor:active, a.uk-link-heading.ht-tricolor:hover, a.uk-link-heading.ht-tricolor:focus, .ht-tricolor a.uk-link-heading:active, .ht-tricolor a.uk-link-heading:hover, .ht-tricolor a.uk-link-heading:focus, .uk-link.uk-link-heading.ht-tricolor:active, .uk-link.uk-link-heading.ht-tricolor:hover, .uk-link.uk-link-heading.ht-tricolor:focus, .ht-tricolor .uk-link.uk-link-heading:active, .ht-tricolor .uk-link.uk-link-heading:hover, .ht-tricolor .uk-link.uk-link-heading:focus,
@@ -867,7 +877,7 @@ a.uk-link-heading.ht-tricolor:active, a.uk-link-heading.ht-tricolor:hover, a.uk-
 a.uk-link-heading.ht-toolbar, .ht-toolbar a.uk-link-heading, .uk-link.uk-link-heading.ht-toolbar, .ht-toolbar .uk-link.uk-link-heading,
 .uk-link-heading a.ht-toolbar, .ht-toolbar
 .uk-link-heading a {
-  color: #ccb2b2;
+  color: #fbf9f9;
 }
 
 a.uk-link-heading.ht-toolbar:active, a.uk-link-heading.ht-toolbar:hover, a.uk-link-heading.ht-toolbar:focus, .ht-toolbar a.uk-link-heading:active, .ht-toolbar a.uk-link-heading:hover, .ht-toolbar a.uk-link-heading:focus, .uk-link.uk-link-heading.ht-toolbar:active, .uk-link.uk-link-heading.ht-toolbar:hover, .uk-link.uk-link-heading.ht-toolbar:focus, .ht-toolbar .uk-link.uk-link-heading:active, .ht-toolbar .uk-link.uk-link-heading:hover, .ht-toolbar .uk-link.uk-link-heading:focus,
@@ -883,7 +893,7 @@ a.uk-link-heading.ht-toolbar:active, a.uk-link-heading.ht-toolbar:hover, a.uk-li
 a.uk-link-heading.ht-danger, .ht-danger a.uk-link-heading, .uk-link.uk-link-heading.ht-danger, .ht-danger .uk-link.uk-link-heading,
 .uk-link-heading a.ht-danger, .ht-danger
 .uk-link-heading a {
-  color: #e9e9e9;
+  color: white;
 }
 
 a.uk-link-heading.ht-danger:active, a.uk-link-heading.ht-danger:hover, a.uk-link-heading.ht-danger:focus, .ht-danger a.uk-link-heading:active, .ht-danger a.uk-link-heading:hover, .ht-danger a.uk-link-heading:focus, .uk-link.uk-link-heading.ht-danger:active, .uk-link.uk-link-heading.ht-danger:hover, .uk-link.uk-link-heading.ht-danger:focus, .ht-danger .uk-link.uk-link-heading:active, .ht-danger .uk-link.uk-link-heading:hover, .ht-danger .uk-link.uk-link-heading:focus,
@@ -931,7 +941,7 @@ a.uk-link-silent.ht-tricolor, .ht-tricolor a.uk-link-silent, .uk-link.uk-link-si
 a.uk-link-silent.ht-toolbar, .ht-toolbar a.uk-link-silent, .uk-link.uk-link-silent.ht-toolbar, .ht-toolbar .uk-link.uk-link-silent,
 .uk-link-silent a.ht-toolbar, .ht-toolbar
 .uk-link-silent a {
-  color: #f2f2f2;
+  color: #ccc2c2;
 }
 
 a.uk-link-silent.ht-danger, .ht-danger a.uk-link-silent, .uk-link.uk-link-silent.ht-danger, .ht-danger .uk-link.uk-link-silent,
@@ -1033,9 +1043,67 @@ a.uk-link-silent.ht-danger, .ht-danger a.uk-link-silent, .uk-link.uk-link-silent
   border-color: #0075fc;
 }
 
-.uk-tab > .uk-active > a,
-.ht-base.uk-tab > .uk-active > a,
-.ht-base .uk-tab > .uk-active > a {
+.ht-bicolor.uk-tab > * > a:hover, .ht-bicolor.uk-tab > * > a:focus,
+.ht-bicolor .uk-tab > * > a:hover,
+.ht-bicolor .uk-tab > * > a:focus {
+  color: #313745;
+}
+
+.ht-bicolor.uk-tab > * > a:active,
+.ht-bicolor .uk-tab > * > a:active {
+  color: #0e121b;
+  border-color: #0075fc;
+}
+
+.ht-tricolor.uk-tab > * > a:hover, .ht-tricolor.uk-tab > * > a:focus,
+.ht-tricolor .uk-tab > * > a:hover,
+.ht-tricolor .uk-tab > * > a:focus {
+  color: #ffffff;
+}
+
+.ht-tricolor.uk-tab > * > a:active,
+.ht-tricolor .uk-tab > * > a:active {
+  color: white;
+  border-color: #ccbf00;
+}
+
+.ht-toolbar.uk-tab > * > a:hover, .ht-toolbar.uk-tab > * > a:focus,
+.ht-toolbar .uk-tab > * > a:hover,
+.ht-toolbar .uk-tab > * > a:focus {
+  color: #ccc2c2;
+}
+
+.ht-toolbar.uk-tab > * > a:active,
+.ht-toolbar .uk-tab > * > a:active {
+  color: #f1e9e9;
+  border-color: #e0d1d1;
+}
+
+.ht-danger.uk-tab > * > a:hover, .ht-danger.uk-tab > * > a:focus,
+.ht-danger .uk-tab > * > a:hover,
+.ht-danger .uk-tab > * > a:focus {
+  color: #e9e9e9;
+}
+
+.ht-danger.uk-tab > * > a:active,
+.ht-danger .uk-tab > * > a:active {
+  color: white;
+  border-color: #1c0d0d;
+}
+
+.ht-base.uk-tab > * > a:hover, .ht-base.uk-tab > * > a:focus,
+.ht-base .uk-tab > * > a:hover,
+.ht-base .uk-tab > * > a:focus {
+  color: #3c3d36;
+}
+
+.ht-base.uk-tab > * > a:active,
+.ht-base .uk-tab > * > a:active {
+  color: #16170f;
+  border-color: #0075fc;
+}
+
+.uk-tab > .uk-active > a {
   color: #16170f;
   border-color: #0075fc;
 }
@@ -1048,25 +1116,29 @@ a.uk-link-silent.ht-danger, .ht-danger a.uk-link-silent, .uk-link.uk-link-silent
 
 .ht-tricolor.uk-tab > .uk-active > a,
 .ht-tricolor .uk-tab > .uk-active > a {
-  color: #ded3d3;
+  color: white;
   border-color: #ccbf00;
 }
 
 .ht-toolbar.uk-tab > .uk-active > a,
 .ht-toolbar .uk-tab > .uk-active > a {
-  color: #d3c4c4;
+  color: #f1e9e9;
   border-color: #e0d1d1;
 }
 
 .ht-danger.uk-tab > .uk-active > a,
 .ht-danger .uk-tab > .uk-active > a {
-  color: #ccbaba;
+  color: white;
   border-color: #1c0d0d;
 }
 
-.uk-tab > .uk-disabled > a,
-.ht-base.uk-tab > .uk-disabled > a,
-.ht-base .uk-tab > .uk-disabled > a {
+.ht-base.uk-tab > .uk-active > a,
+.ht-base .uk-tab > .uk-active > a {
+  color: #16170f;
+  border-color: #0075fc;
+}
+
+.uk-tab > .uk-disabled > a {
   color: #64665a;
   pointer-events: none;
 }
@@ -1078,17 +1150,23 @@ a.uk-link-silent.ht-danger, .ht-danger a.uk-link-silent, .uk-link.uk-link-silent
 
 .ht-tricolor.uk-tab > .uk-disabled > a,
 .ht-tricolor .uk-tab > .uk-disabled > a {
-  color: white;
+  color: #d9d9d9;
 }
 
 .ht-toolbar.uk-tab > .uk-disabled > a,
 .ht-toolbar .uk-tab > .uk-disabled > a {
-  color: white;
+  color: #a99898;
 }
 
 .ht-danger.uk-tab > .uk-disabled > a,
 .ht-danger .uk-tab > .uk-disabled > a {
-  color: white;
+  color: #c3c3c3;
+}
+
+.ht-base.uk-tab > .uk-disabled > a,
+.ht-base .uk-tab > .uk-disabled > a {
+  color: #64665a;
+  pointer-events: none;
 }
 
 .uk-tab.uk-tab-locate-center {
@@ -1238,6 +1316,13 @@ a.uk-link-silent.ht-danger, .ht-danger a.uk-link-silent, .uk-link.uk-link-silent
       ontouch: User touches or cursor is on
       dent: Used when view type is signboard
       text: Text color
+
+  Form:
+    input: Background color for input areas but it is recomended not to change from white
+    dent: Impless there is a dent which is used for border
+    disabled: Background color disabled input area
+    text: Text color in input area
+    text-muted: Used for placeholder in input area
  */
 /* 
  * base
@@ -1264,13 +1349,16 @@ a.uk-link-silent.ht-danger, .ht-danger a.uk-link-silent, .uk-link.uk-link-silent
  * accent
  */
 /* 
-  * infomation
-  */
+ * infomation
+ */
 /* 
  * warning
  */
 /* 
  * error
+ */
+/* 
+ * form
  */
 /* 
  * _layout.scss: Defines window breakpoint and indent size 
@@ -1296,123 +1384,46 @@ a.uk-link-silent.ht-danger, .ht-danger a.uk-link-silent, .uk-link.uk-link-silent
  ========================================================================== */
 /*
  * 1. Remove margins in Chrome, Safari and Opera.
- * 2. Remove borders for `button`.
- * 3. Address `overflow` set to `hidden` in IE.
- * 4. Correct `font` properties and `color` not being inherited for `button`.
- * 5. Remove the inheritance of text transform in Edge, Firefox, and IE.
- * 6. Style
- * 7. `line-height` is used to create a height because it also centers the text vertically for `a` elements.
- *    Better would be to use height and flexbox to center the text vertically but flexbox doesn't work in Firefox on `button` elements.
- * 8. Align text if button has a width
- * 9. Required for `a`.
+ * 2. Address `overflow` set to `hidden` in IE.
+ * 3. Correct `font` properties and `color` not being inherited for `button`.
+ * 4. Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 5. Remove the inner border and padding in Firefox.
+ * 6. Remove outline when the element is focused.
  */
-.uk-button, button, input[type="button"] {
+.uk-button, button, input[type="button"], input[type="submit"], input[type="file"] {
   /* 1 */
   margin: 0;
   /* 2 */
-  /* 3 */
   overflow: visible;
-  /* 4 */
+  /* 3 */
   font: inherit;
-  /* 5 */
+  /* 4 */
   text-transform: none;
+  /* 5 */
   /* 6 */
+  outline: none;
+  position: relative;
   display: inline-block;
   box-sizing: border-box;
   vertical-align: middle;
   font-size: 0.875rem;
-  /* 7 */
-  /* 8 */
   text-align: center;
-  /* 9 */
   text-decoration: none;
-  text-transform: uppercase;
   transition: 0.1s ease-in-out;
   transition-property: color, background-color, border-color;
-  position: relative;
-  /* Sizing */
 }
 
-.uk-button:not(:disabled), button:not(:disabled), input[type="button"]:not(:disabled) {
+.uk-button::-moz-focus-inner, button::-moz-focus-inner, input[type="button"]::-moz-focus-inner, input[type="submit"]::-moz-focus-inner, input[type="file"]::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.uk-button:not(:disabled), button:not(:disabled), input[type="button"]:not(:disabled), input[type="submit"]:not(:disabled), input[type="file"]:not(:disabled) {
   cursor: pointer;
 }
 
-.uk-button:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button), button:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button), input[type="button"]:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) {
-  padding: 0 30px;
-  line-height: 38px;
-}
-
-.uk-button:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > *, button:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > *, input[type="button"]:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > * {
-  margin-inline-start: -20px;
-}
-
-.uk-button:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > *:first-child, button:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > *:first-child, input[type="button"]:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > *:first-child {
-  padding-inline-start: 20px;
-}
-
-.uk-button:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > *:not(:last-child), button:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > *:not(:last-child), input[type="button"]:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > *:not(:last-child) {
-  padding-inline-end: calc(20px + 4px);
-}
-
-.uk-button:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > * + .uk-icon, button:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > * + .uk-icon, input[type="button"]:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > * + .uk-icon {
-  position: absolute;
-  height: 20px;
-  width: 20px;
-  top: calc((38px - 20px)/2);
-  bottom: calc((38px - 20px)/2);
-  right: 30px;
-}
-
-.uk-button.uk-button-large, button.uk-button-large, input[type="button"].uk-button-large {
-  padding: 0 40px;
-  line-height: 53px;
-}
-
-.uk-button.uk-button-large > *, button.uk-button-large > *, input[type="button"].uk-button-large > * {
-  margin-inline-start: -20px;
-}
-
-.uk-button.uk-button-large > *:first-child, button.uk-button-large > *:first-child, input[type="button"].uk-button-large > *:first-child {
-  padding-inline-start: 20px;
-}
-
-.uk-button.uk-button-large > *:not(:last-child), button.uk-button-large > *:not(:last-child), input[type="button"].uk-button-large > *:not(:last-child) {
-  padding-inline-end: calc(20px + 4px);
-}
-
-.uk-button.uk-button-large > * + .uk-icon, button.uk-button-large > * + .uk-icon, input[type="button"].uk-button-large > * + .uk-icon {
-  position: absolute;
-  height: 20px;
-  width: 20px;
-  top: calc((53px - 20px)/2);
-  bottom: calc((53px - 20px)/2);
-  right: 40px;
-}
-
-.uk-button.uk-button-small, button.uk-button-small, input[type="button"].uk-button-small {
-  padding: 0 15px;
-  line-height: 28px;
-}
-
-.uk-button.uk-button-small > *, button.uk-button-small > *, input[type="button"].uk-button-small > * {
-  margin-inline-start: -18px;
-}
-
-.uk-button.uk-button-small > *:first-child, button.uk-button-small > *:first-child, input[type="button"].uk-button-small > *:first-child {
-  padding-inline-start: 18px;
-}
-
-.uk-button.uk-button-small > *:not(:last-child), button.uk-button-small > *:not(:last-child), input[type="button"].uk-button-small > *:not(:last-child) {
-  padding-inline-end: calc(18px + 4px);
-}
-
-.uk-button.uk-button-small > * + .uk-icon, button.uk-button-small > * + .uk-icon, input[type="button"].uk-button-small > * + .uk-icon {
-  position: absolute;
-  height: 18px;
-  width: 18px;
-  top: calc((28px - 18px)/2);
-  bottom: calc((28px - 18px)/2);
-  right: 15px;
+.uk-button:active, .uk-button:hover, .uk-button:focus, button:active, button:hover, button:focus, input[type="button"]:active, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:active, input[type="submit"]:hover, input[type="submit"]:focus, input[type="file"]:active, input[type="file"]:hover, input[type="file"]:focus {
+  text-decoration: none;
 }
 
 /*
@@ -1422,13 +1433,13 @@ a.uk-button:active, a.uk-button:hover, a.uk-button:focus {
   color: #080805;
 }
 
-.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
+.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), input[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
   border: solid 1px #bcbc9d;
   color: #080805;
   background-color: inherit;
 }
 
-.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus {
+.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, input[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, input[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, input[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus {
   border-color: #72724e;
 }
 
@@ -1436,55 +1447,55 @@ a.uk-button:active, a.uk-button:hover, a.uk-button:focus {
   color: #05070b;
 }
 
-.ht-bicolor .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-bicolor button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-bicolor input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-bicolor.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-bicolorbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-bicolorinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
+.ht-bicolor .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-bicolor button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-bicolor input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-bicolor input[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-bicolor.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-bicolorbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-bicolorinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-bicolorinput[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
   border: solid 1px #5283ff;
   color: #05070b;
   background-color: inherit;
 }
 
-.ht-bicolor .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-bicolor .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-bicolor .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-bicolor button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-bicolor button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-bicolor button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-bicolor input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-bicolor input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-bicolor input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-bicolor.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-bicolor.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-bicolor.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-bicolorbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-bicolorbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-bicolorbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-bicolorinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-bicolorinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-bicolorinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus {
+.ht-bicolor .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-bicolor .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-bicolor .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-bicolor button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-bicolor button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-bicolor button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-bicolor input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-bicolor input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-bicolor input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-bicolor input[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-bicolor input[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-bicolor input[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-bicolor.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-bicolor.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-bicolor.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-bicolorbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-bicolorbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-bicolorbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-bicolorinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-bicolorinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-bicolorinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-bicolorinput[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-bicolorinput[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-bicolorinput[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus {
   border-color: #0034b8;
 }
 
 .ht-tricolor a.uk-button, .ht-tricolora.uk-button {
-  color: #ffffff;
+  color: white;
 }
 
-.ht-tricolor .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-tricolor button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-tricolor input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-tricolor.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-tricolorbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-tricolorinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
+.ht-tricolor .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-tricolor button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-tricolor input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-tricolor input[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-tricolor.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-tricolorbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-tricolorinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-tricolorinput[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
   border: solid 1px #cf2200;
-  color: #ffffff;
+  color: white;
   background-color: inherit;
 }
 
-.ht-tricolor .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-tricolor .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-tricolor .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-tricolor button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-tricolor button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-tricolor button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-tricolor input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-tricolor input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-tricolor input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-tricolor.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-tricolor.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-tricolor.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-tricolorbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-tricolorbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-tricolorbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-tricolorinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-tricolorinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-tricolorinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus {
+.ht-tricolor .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-tricolor .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-tricolor .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-tricolor button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-tricolor button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-tricolor button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-tricolor input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-tricolor input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-tricolor input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-tricolor input[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-tricolor input[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-tricolor input[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-tricolor.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-tricolor.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-tricolor.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-tricolorbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-tricolorbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-tricolorbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-tricolorinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-tricolorinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-tricolorinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-tricolorinput[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-tricolorinput[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-tricolorinput[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus {
   border-color: #360900;
 }
 
 .ht-toolbar a.uk-button, .ht-toolbara.uk-button {
-  color: #ccb2b2;
+  color: #fbf9f9;
 }
 
-.ht-toolbar .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-toolbar button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-toolbar input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-toolbar.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-toolbarbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-toolbarinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
+.ht-toolbar .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-toolbar button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-toolbar input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-toolbar input[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-toolbar.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-toolbarbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-toolbarinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-toolbarinput[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
   border: solid 1px #050505;
-  color: #ccb2b2;
+  color: #fbf9f9;
   background-color: inherit;
 }
 
-.ht-toolbar .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-toolbar .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-toolbar .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-toolbar button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-toolbar button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-toolbar button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-toolbar input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-toolbar input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-toolbar input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-toolbar.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-toolbar.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-toolbar.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-toolbarbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-toolbarbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-toolbarbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-toolbarinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-toolbarinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-toolbarinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus {
+.ht-toolbar .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-toolbar .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-toolbar .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-toolbar button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-toolbar button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-toolbar button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-toolbar input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-toolbar input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-toolbar input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-toolbar input[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-toolbar input[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-toolbar input[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-toolbar.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-toolbar.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-toolbar.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-toolbarbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-toolbarbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-toolbarbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-toolbarinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-toolbarinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-toolbarinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-toolbarinput[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-toolbarinput[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-toolbarinput[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus {
   border-color: black;
 }
 
 .ht-danger a.uk-button, .ht-dangera.uk-button {
-  color: #e9e9e9;
+  color: white;
 }
 
-.ht-danger .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-danger button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-danger input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-danger.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-dangerbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-dangerinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
+.ht-danger .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-danger button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-danger input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-danger input[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-danger.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-dangerbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-dangerinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-dangerinput[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
   border: solid 1px #b30600;
-  color: #e9e9e9;
+  color: white;
   background-color: inherit;
 }
 
-.ht-danger .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-danger .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-danger .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-danger button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-danger button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-danger button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-danger input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-danger input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-danger input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-danger.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-danger.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-danger.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-dangerbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-dangerbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-dangerbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-dangerinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-dangerinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-dangerinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus {
+.ht-danger .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-danger .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-danger .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-danger button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-danger button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-danger button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-danger input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-danger input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-danger input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-danger input[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-danger input[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-danger input[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-danger.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-danger.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-danger.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-dangerbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-dangerbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-dangerbutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-dangerinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-dangerinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-dangerinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-dangerinput[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-dangerinput[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-dangerinput[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus {
   border-color: #1a0100;
 }
 
@@ -1492,33 +1503,98 @@ a.uk-button:active, a.uk-button:hover, a.uk-button:focus {
   color: #080805;
 }
 
-.ht-base .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-base button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-base input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-base.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-basebutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-baseinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
+.ht-base .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-base button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-base input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), input[type="submit"]
+.ht-base.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-basebutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-baseinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .ht-baseinput[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
   border: solid 1px #bcbc9d;
   color: #080805;
   background-color: inherit;
 }
 
-.ht-base .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-base .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-base .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-base button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-base button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-base button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-base input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-base input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-base input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-base.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-base.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-base.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-basebutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-basebutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-basebutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-baseinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-baseinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-baseinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus {
+.ht-base .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-base .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-base .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-base button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-base button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-base button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-base input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-base input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-base input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, input[type="submit"]
+.ht-base.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, input[type="submit"]
+.ht-base.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, input[type="submit"]
+.ht-base.uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-basebutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-basebutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-basebutton:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-baseinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-baseinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-baseinput[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .ht-baseinput[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .ht-baseinput[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .ht-baseinput[type="submit"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus {
   border-color: #72724e;
 }
 
-/*
- * Remove the inner border and padding in Firefox.
- */
-.uk-button::-moz-focus-inner {
-  border: 0;
-  padding: 0;
+/* Sizing
+ ========================================================================== */
+.uk-button:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button), button:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button), input[type="button"]:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button), input[type="submit"]:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) {
+  padding: 0 30px;
+  line-height: 38px;
 }
 
-/* Hover */
-.uk-button:hover {
-  /* 9 */
-  text-decoration: none;
+.uk-button:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > *, button:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > *, input[type="button"]:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > *, input[type="submit"]:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > * {
+  margin-inline-start: -20px;
 }
 
-/* Focus */
-.uk-button:focus {
-  outline: none;
+.uk-button:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > *:first-child, button:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > *:first-child, input[type="button"]:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > *:first-child, input[type="submit"]:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > *:first-child {
+  padding-inline-start: 20px;
+}
+
+.uk-button:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > *:not(:last-child), button:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > *:not(:last-child), input[type="button"]:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > *:not(:last-child), input[type="submit"]:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > *:not(:last-child) {
+  padding-inline-end: calc(20px + 4px);
+}
+
+.uk-button:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > * + .uk-icon, button:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > * + .uk-icon, input[type="button"]:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > * + .uk-icon, input[type="submit"]:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) > * + .uk-icon {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  top: calc((38px - 20px)/2);
+  bottom: calc((38px - 20px)/2);
+  right: 30px;
+}
+
+.uk-button.uk-button-large, button.uk-button-large, input[type="button"].uk-button-large, input[type="submit"].uk-button-large {
+  padding: 0 40px;
+  line-height: 53px;
+}
+
+.uk-button.uk-button-large > *, button.uk-button-large > *, input[type="button"].uk-button-large > *, input[type="submit"].uk-button-large > * {
+  margin-inline-start: -20px;
+}
+
+.uk-button.uk-button-large > *:first-child, button.uk-button-large > *:first-child, input[type="button"].uk-button-large > *:first-child, input[type="submit"].uk-button-large > *:first-child {
+  padding-inline-start: 20px;
+}
+
+.uk-button.uk-button-large > *:not(:last-child), button.uk-button-large > *:not(:last-child), input[type="button"].uk-button-large > *:not(:last-child), input[type="submit"].uk-button-large > *:not(:last-child) {
+  padding-inline-end: calc(20px + 4px);
+}
+
+.uk-button.uk-button-large > * + .uk-icon, button.uk-button-large > * + .uk-icon, input[type="button"].uk-button-large > * + .uk-icon, input[type="submit"].uk-button-large > * + .uk-icon {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  top: calc((53px - 20px)/2);
+  bottom: calc((53px - 20px)/2);
+  right: 40px;
+}
+
+.uk-button.uk-button-small, button.uk-button-small, input[type="button"].uk-button-small, input[type="submit"].uk-button-small {
+  padding: 0 15px;
+  line-height: 28px;
+}
+
+.uk-button.uk-button-small > *, button.uk-button-small > *, input[type="button"].uk-button-small > *, input[type="submit"].uk-button-small > * {
+  margin-inline-start: -18px;
+}
+
+.uk-button.uk-button-small > *:first-child, button.uk-button-small > *:first-child, input[type="button"].uk-button-small > *:first-child, input[type="submit"].uk-button-small > *:first-child {
+  padding-inline-start: 18px;
+}
+
+.uk-button.uk-button-small > *:not(:last-child), button.uk-button-small > *:not(:last-child), input[type="button"].uk-button-small > *:not(:last-child), input[type="submit"].uk-button-small > *:not(:last-child) {
+  padding-inline-end: calc(18px + 4px);
+}
+
+.uk-button.uk-button-small > * + .uk-icon, button.uk-button-small > * + .uk-icon, input[type="button"].uk-button-small > * + .uk-icon, input[type="submit"].uk-button-small > * + .uk-icon {
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  top: calc((28px - 18px)/2);
+  bottom: calc((28px - 18px)/2);
+  right: 15px;
 }
 
 /* Colors
@@ -1710,21 +1786,21 @@ a.uk-button:active, a.uk-button:hover, a.uk-button:focus {
 }
 
 /* Group
-     ========================================================================== */
+ ========================================================================== */
 /*
-     * Collapse border
-     */
+ * Collapse border
+ */
 .uk-button-group > .uk-button:nth-child(n+2),
 .uk-button-group > div:nth-child(n+2) .uk-button {
   margin-left: -1px;
 }
 
 /*
-     * Create position context to superimpose the successor elements border
-     * Known issue: If you use an `a` element as button and an icon inside,
-     * the active state will not work if you click the icon inside the button
-     * Workaround: Just use a `button` or `input` element as button
-     */
+ * Create position context to superimpose the successor elements border
+ * Known issue: If you use an `a` element as button and an icon inside,
+ * the active state will not work if you click the icon inside the button
+ * Workaround: Just use a `button` or `input` element as button
+ */
 .uk-button-group .uk-button:hover,
 .uk-button-group .uk-button:focus,
 .uk-button-group .uk-button:active,
@@ -1779,6 +1855,13 @@ a.uk-button:active, a.uk-button:hover, a.uk-button:focus {
       ontouch: User touches or cursor is on
       dent: Used when view type is signboard
       text: Text color
+
+  Form:
+    input: Background color for input areas but it is recomended not to change from white
+    dent: Impless there is a dent which is used for border
+    disabled: Background color disabled input area
+    text: Text color in input area
+    text-muted: Used for placeholder in input area
  */
 /* 
  * base
@@ -1805,13 +1888,16 @@ a.uk-button:active, a.uk-button:hover, a.uk-button:focus {
  * accent
  */
 /* 
-  * infomation
-  */
+ * infomation
+ */
 /* 
  * warning
  */
 /* 
  * error
+ */
+/* 
+ * form
  */
 /* 
  * _layout.scss: Defines window breakpoint and indent size 
@@ -1838,33 +1924,57 @@ a.uk-button:active, a.uk-button:hover, a.uk-button:focus {
 .uk-card {
   position: relative;
   box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   transition: box-shadow 0.1s ease-in-out;
 }
 
-/* Sections
+/* Contents padding
  ========================================================================== */
-.uk-card-body {
+.uk-card:not(.uk-card-padding-small) .uk-card-body {
   padding: 30px 30px;
 }
 
-.uk-card-header {
+.uk-card:not(.uk-card-padding-small) .uk-card-header {
   padding: 15px 30px;
 }
 
-.uk-card-footer {
+.uk-card:not(.uk-card-padding-small) .uk-card-footer {
   padding: 15px 30px;
 }
 
-/* Desktop and bigger */
-@media (min-width: null) {
-  .uk-card-body {
+.uk-card.uk-card-padding-small .uk-card-body {
+  padding: 20px 20px;
+}
+
+.uk-card.uk-card-padding-small .uk-card-header {
+  padding: 13px 20px;
+}
+
+.uk-card.uk-card-padding-small .uk-card-footer {
+  padding: 13px 20px;
+}
+
+@media screen and (min-width: calc(1024px + 1px)) {
+  .uk-card:not(.uk-card-padding-small):not(.uk-card-padding-large) .uk-card-body {
     padding: 40px 40px;
   }
-  .uk-card-header {
+  .uk-card:not(.uk-card-padding-small):not(.uk-card-padding-large) .uk-card-header {
     padding: 20px 40px;
   }
-  .uk-card-footer {
+  .uk-card:not(.uk-card-padding-small):not(.uk-card-padding-large) .uk-card-footer {
     padding: 20px 40px;
+  }
+  .uk-card.uk-card-padding-large .uk-card-body {
+    padding: 70px 70px;
+  }
+  .uk-card.uk-card-padding-large .uk-card-header {
+    padding: 35px 70px;
+  }
+  .uk-card.uk-card-padding-large .uk-card-footer {
+    padding: 35px 70px;
   }
 }
 
@@ -1898,10 +2008,12 @@ a.uk-button:active, a.uk-button:hover, a.uk-button:focus {
 
 /* Media
  ========================================================================== */
-/*
- * Reserved alignment modifier to style the media element, e.g. with `border-radius`
- * Implemented by the theme
- */
+.uk-card-media-top, .uk-card-media-bottom {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
 /* Title
  ========================================================================== */
 .uk-card-title {
@@ -1916,6 +2028,38 @@ a.uk-button:active, a.uk-button:hover, a.uk-button:focus {
   top: 30px;
   right: 30px;
   z-index: 1;
+  padding: 0 10px;
+  line-height: 1.5rem;
+  font-size: 0.875rem;
+  background-color: #bcbc9d;
+  color: inherit;
+}
+
+.ht-bicolor .uk-card-badge {
+  background-color: #5283ff;
+}
+
+.ht-tricolor .uk-card-badge {
+  background-color: #cf2200;
+}
+
+.ht-toolbar .uk-card-badge {
+  background-color: #050505;
+}
+
+.ht-danger .uk-card-badge {
+  background-color: #b30600;
+}
+
+.ht-base .uk-card-badge {
+  background-color: #bcbc9d;
+}
+
+.uk-card-primary .uk-card-badge,
+.uk-card-secondary .uk-card-badge,
+.uk-card-accent .uk-card-badge {
+  background-color: inherit;
+  border: solid 1px currentColor;
 }
 
 /*
@@ -1925,57 +2069,41 @@ a.uk-button:active, a.uk-button:hover, a.uk-button:focus {
   margin-top: 0;
 }
 
-/* Hover modifier
- ========================================================================== */
-.uk-card-hover:not(.uk-card-default):not(.uk-card-primary):not(.uk-card-secondary):hover {
-  background: #fff;
-  box-shadow: 0 14px 25px rgba(0, 0, 0, 0.16);
-}
-
 /* Style modifiers
  ========================================================================== */
 /*
  * Default
  * Note: Header and Footer are only implemented for the default style
  */
-.uk-card-default {
-  background: #fff;
-  color: var(--text-color);
+.uk-card:not(.uk-card-primary):not(.uk-card-secondary):not(.uk-card-accent) {
+  background-color: inherit;
+  color: inherit;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
-.uk-card-default .uk-card-title {
-  color: #333;
-}
-
-.uk-card-default.uk-card-hover:hover {
-  background-color: #fff;
+.uk-card:not(.uk-card-primary):not(.uk-card-secondary):not(.uk-card-accent).uk-card-hover:hover {
   box-shadow: 0 14px 25px rgba(0, 0, 0, 0.16);
-}
-
-.uk-card-default .uk-card-header {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.uk-card-default .uk-card-footer {
-  border-top: 1px solid #e5e5e5;
 }
 
 /*
  * Primary
  */
 .uk-card-primary {
-  background: var(--text-color);
-  color: #fff;
+  background: #1e87f0;
+  color: #f9fcfc;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
-.uk-card-primary .uk-card-title {
-  color: #fff;
+.uk-card-primary h1, .uk-card-primary h2, .uk-card-primary h3, .uk-card-primary h4, .uk-card-primary h5, .uk-card-primary h6 {
+  color: inherit;
+}
+
+.uk-card-primary a, .uk-card-primary .uk-link {
+  color: inherit;
+  text-decoration: underline;
 }
 
 .uk-card-primary.uk-card-hover:hover {
-  background-color: var(--text-color);
   box-shadow: 0 14px 25px rgba(0, 0, 0, 0.16);
 }
 
@@ -1983,17 +2111,43 @@ a.uk-button:active, a.uk-button:hover, a.uk-button:focus {
  * Secondary
  */
 .uk-card-secondary {
-  background: #222;
-  color: #fff;
+  background: #151515;
+  color: #fcfcfc;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
-.uk-card-secondary .uk-card-title {
-  color: #fff;
+.uk-card-secondary h1, .uk-card-secondary h2, .uk-card-secondary h3, .uk-card-secondary h4, .uk-card-secondary h5, .uk-card-secondary h6 {
+  color: inherit;
+}
+
+.uk-card-secondary a, .uk-card-secondary .uk-link {
+  color: inherit;
+  text-decoration: underline;
 }
 
 .uk-card-secondary.uk-card-hover:hover {
-  background-color: #222;
+  box-shadow: 0 14px 25px rgba(0, 0, 0, 0.16);
+}
+
+/*
+ * Accent
+ */
+.uk-card-accent {
+  background: #ffc526;
+  color: #38402b;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.uk-card-accent h1, .uk-card-accent h2, .uk-card-accent h3, .uk-card-accent h4, .uk-card-accent h5, .uk-card-accent h6 {
+  color: inherit;
+}
+
+.uk-card-accent a, .uk-card-accent .uk-link {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.uk-card-accent.uk-card-hover:hover {
   box-shadow: 0 14px 25px rgba(0, 0, 0, 0.16);
 }
 
@@ -2032,101 +2186,6 @@ a.uk-button:active, a.uk-button:hover, a.uk-button:focus {
   }
 }
 
-/*
- * Default
- */
-.ht-uk-header {
-  width: 100vw;
-}
-
-.uk-card-body > .uk-nav-default {
-  margin-left: -30px;
-  margin-right: -30px;
-}
-
-.uk-card-body > .uk-nav-default:only-child {
-  margin-top: -15px;
-  margin-bottom: -15px;
-}
-
-.uk-card-body .uk-nav-default > li > a,
-.uk-card-body .uk-nav-default .uk-nav-header,
-.uk-card-body .uk-nav-default .uk-nav-divider {
-  padding-left: 30px;
-  padding-right: 30px;
-}
-
-.uk-card-body .uk-nav-default .uk-nav-sub {
-  padding-left: 45px;
-}
-
-/* Desktop and bigger */
-@media (min-width: null) {
-  .uk-card-body > .uk-nav-default {
-    margin-left: -40px;
-    margin-right: -40px;
-  }
-  .uk-card-body > .uk-nav-default:only-child {
-    margin-top: -25px;
-    margin-bottom: -25px;
-  }
-  .uk-card-body .uk-nav-default > li > a,
-  .uk-card-body .uk-nav-default .uk-nav-header,
-  .uk-card-body .uk-nav-default .uk-nav-divider {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-  .uk-card-body .uk-nav-default .uk-nav-sub {
-    padding-left: 55px;
-  }
-}
-
-/*
-     * Small
-     */
-.uk-card-small > .uk-nav-default {
-  margin-left: -20px;
-  margin-right: -20px;
-}
-
-.uk-card-small > .uk-nav-default:only-child {
-  margin-top: -5px;
-  margin-bottom: -5px;
-}
-
-.uk-card-small .uk-nav-default > li > a,
-.uk-card-small .uk-nav-default .uk-nav-header,
-.uk-card-small .uk-nav-default .uk-nav-divider {
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.uk-card-small .uk-nav-default .uk-nav-sub {
-  padding-left: 35px;
-}
-
-/*
-     * Large
-     */
-/* Desktop and bigger */
-@media (min-width: null) {
-  .uk-card-large > .uk-nav-default {
-    margin: 0;
-  }
-  .uk-card-large > .uk-nav-default:only-child {
-    margin: 0;
-  }
-  .uk-card-large .uk-nav-default > li > a,
-  .uk-card-large .uk-nav-default .uk-nav-header,
-  .uk-card-large .uk-nav-default .uk-nav-divider {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  .uk-card-large .uk-nav-default .uk-nav-sub {
-    padding-left: 15px;
-  }
-}
-
 /* HT-UIkit scss 1.0.0 */
 /* Base: UIkit 3.1.7 | http://www.getuikit.com */
 /* Edit: Hentech */
@@ -2173,6 +2232,13 @@ a.uk-button:active, a.uk-button:hover, a.uk-button:focus {
       ontouch: User touches or cursor is on
       dent: Used when view type is signboard
       text: Text color
+
+  Form:
+    input: Background color for input areas but it is recomended not to change from white
+    dent: Impless there is a dent which is used for border
+    disabled: Background color disabled input area
+    text: Text color in input area
+    text-muted: Used for placeholder in input area
  */
 /* 
  * base
@@ -2199,8 +2265,8 @@ a.uk-button:active, a.uk-button:hover, a.uk-button:focus {
  * accent
  */
 /* 
-  * infomation
-  */
+ * infomation
+ */
 /* 
  * warning
  */
@@ -2208,729 +2274,7 @@ a.uk-button:active, a.uk-button:hover, a.uk-button:focus {
  * error
  */
 /* 
- * _layout.scss: Defines window breakpoint and indent size 
- *
-  Stream-width:
-    Width Definitions for Stream Component
-    It is recomended that keep main-min smaller than 375
-    enough not to hide content in small mobile
-  Breakpoint
-    Devices are called here
-      - mobile: mobile phone such as smartphone
-        mobile-portlate
-        mobile-landscape
-      - notebook: Laptop and tablet computer
-                  Using tablet in landscape layout, is included in workstation 
-      - workstation: Computers larger than notebook such as desktop computer
-  Others
-    nav-height: Height of navigation bar
- */
-/* Do not touch! Auto configuration */
-/* ========================================================================
-   Component: Form
- ========================================================================== */
-/*
- * 1. Define consistent box sizing.
- *    Default is `content-box` with following exceptions set to `border-box`
- *    `select`, `input[type="checkbox"]` and `input[type="radio"]`
- *    `input[type="search"]` in Chrome, Safari and Opera
- *    `input[type="color"]` in Firefox
- * 2. Address margins set differently in Firefox/IE and Chrome/Safari/Opera.
- * 3. Remove `border-radius` in iOS.
- * 4. Change font properties to `inherit` in all browsers.
- */
-.uk-input,
-.uk-select,
-.uk-textarea,
-.uk-radio,
-.uk-checkbox {
-  /* 1 */
-  box-sizing: border-box;
-  /* 2 */
-  margin: 0;
-  /* 3 */
-  border-radius: 0;
-  /* 4 */
-  font: inherit;
-}
-
-/*
- * Show the overflow in Edge.
- */
-.uk-input {
-  overflow: visible;
-}
-
-/*
- * Remove the inheritance of text transform in Firefox.
- */
-.uk-select {
-  text-transform: none;
-}
-
-/*
- * 1. Change font properties to `inherit` in all browsers
- * 2. Don't inherit the `font-weight` and use `bold` instead.
- * NOTE: Both declarations don't work in Chrome, Safari and Opera.
- */
-.uk-select optgroup {
-  /* 1 */
-  font: inherit;
-  /* 2 */
-  font-weight: bold;
-}
-
-/*
- * Remove the default vertical scrollbar in IE 10+.
- */
-.uk-textarea {
-  overflow: auto;
-}
-
-/*
- * Remove the inner padding and cancel buttons in Chrome on OS X and Safari on OS X.
- */
-.uk-input[type="search"]::-webkit-search-cancel-button,
-.uk-input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-/*
- * Correct the cursor style of increment and decrement buttons in Chrome.
- */
-.uk-input[type="number"]::-webkit-inner-spin-button,
-.uk-input[type="number"]::-webkit-outer-spin-button {
-  height: auto;
-}
-
-/*
- * Removes placeholder transparency in Firefox.
- */
-.uk-input::-moz-placeholder,
-.uk-textarea::-moz-placeholder {
-  opacity: 1;
-}
-
-/*
- * Improves consistency of cursor style for clickable elements
- */
-.uk-radio:not(:disabled),
-.uk-checkbox:not(:disabled) {
-  cursor: pointer;
-}
-
-/*
- * Define consistent border, margin, and padding.
- */
-.uk-fieldset {
-  border: none;
-  margin: 0;
-  padding: 0;
-}
-
-/* Input, select and textarea
- * Allowed: `text`, `password`, `datetime`, `datetime-local`, `date`,  `month`,
-            `time`, `week`, `number`, `email`, `url`, `search`, `tel`, `color`
- * Disallowed: `range`, `radio`, `checkbox`, `file`, `submit`, `reset` and `image`
- ========================================================================== */
-/*
- * Remove default style in iOS.
- */
-.uk-input,
-.uk-textarea {
-  -webkit-appearance: none;
-}
-
-/*
- * 1. Prevent content overflow if a fixed width is used
- * 2. Take the full width
- * 3. Reset default
- * 4. Style
- */
-.uk-input,
-.uk-select,
-.uk-textarea {
-  /* 1 */
-  max-width: 100%;
-  /* 2 */
-  width: 100%;
-  /* 3 */
-  border: 0 none;
-  /* 4 */
-  padding: 0 10px;
-  background: #fff;
-  color: var(--text-color);
-  border: 1px solid #e5e5e5;
-  transition: 0.2s ease-in-out;
-  transition-property: color, background-color, border;
-}
-
-/*
- * Single-line
- * 1. Allow any element to look like an `input` or `select` element
- * 2. Make sure line-height is not larger than height
- *    Also needed to center the text vertically
- */
-.uk-input,
-.uk-select:not([multiple]):not([size]) {
-  height: 40px;
-  vertical-align: middle;
-  /* 1 */
-  display: inline-block;
-}
-
-/* 2 */
-.uk-input:not(input),
-.uk-select:not(select) {
-  line-height: 38px;
-}
-
-/*
- * Multi-line
- */
-.uk-select[multiple],
-.uk-select[size],
-.uk-textarea {
-  padding-top: 4px;
-  padding-bottom: 4px;
-  vertical-align: top;
-}
-
-/* Focus */
-.uk-input:focus,
-.uk-select:focus,
-.uk-textarea:focus {
-  outline: none;
-  background-color: #fff;
-  color: var(--text-color);
-  border-color: var(--text-color);
-}
-
-/* Disabled */
-.uk-input:disabled,
-.uk-select:disabled,
-.uk-textarea:disabled {
-  background-color: #f8f8f8;
-  color: var(--sub-text-color);
-  border-color: #e5e5e5;
-}
-
-/*
- * Placeholder
- */
-
-.uk-input::placeholder {
-  color: var(--sub-text-color);
-}
-
-.uk-textarea::placeholder {
-  color: var(--sub-text-color);
-}
-
-/* Style modifier (`uk-input`, `uk-select` and `uk-textarea`)
- ========================================================================== */
-/*
- * Small
- */
-.uk-form-small {
-  font-size: 0.875rem;
-}
-
-.uk-form-small:not(textarea):not([multiple]):not([size]) {
-  height: 30px;
-  padding-left: 8px;
-  padding-right: 8px;
-}
-
-.uk-form-small:not(select):not(input):not(textarea) {
-  line-height: 28px;
-}
-
-/*
- * Large
- */
-.uk-form-large {
-  font-size: 1.25rem;
-}
-
-.uk-form-large:not(textarea):not([multiple]):not([size]) {
-  height: 55px;
-  padding-left: 12px;
-  padding-right: 12px;
-}
-
-.uk-form-large:not(select):not(input):not(textarea) {
-  line-height: 53px;
-}
-
-/* Style modifier (`uk-input`, `uk-select` and `uk-textarea`)
- ========================================================================== */
-/*
- * Error
- */
-.uk-form-danger,
-.uk-form-danger:focus {
-  color: var(--danger-color);
-  border-color: var(--danger-color);
-}
-
-/*
- * Success
- */
-.uk-form-success,
-.uk-form-success:focus {
-  color: #32d296;
-  border-color: #32d296;
-}
-
-/*
- * Blank
- */
-.uk-form-blank {
-  background: none;
-  border-color: transparent;
-}
-
-.uk-form-blank:focus {
-  border-color: #e5e5e5;
-  border-style: dashed;
-}
-
-/* Width modifiers (`uk-input`, `uk-select` and `uk-textarea`)
- ========================================================================== */
-/*
- * Fixed widths
- * Different widths for mini sized `input` and `select` elements
- */
-input.uk-form-width-xsmall {
-  width: 50px;
-}
-
-select.uk-form-width-xsmall {
-  width: 75px;
-}
-
-.uk-form-width-small {
-  width: 130px;
-}
-
-.uk-form-width-medium {
-  width: 200px;
-}
-
-.uk-form-width-large {
-  width: 500px;
-}
-
-/* Select
- ========================================================================== */
-/*
- * 1. Remove default style. Also works in Firefox
- * 2. Style
- * 3. Remove default style in IE 10/11
- * 4. Set `color` for options in the select dropdown, because the inherited `color` might be too light.
- */
-.uk-select:not([multiple]):not([size]) {
-  /* 1 */
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  /* 2 */
-  padding-right: 20px;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2224%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23666%22%20points%3D%2212%201%209%206%2015%206%22%20%2F%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23666%22%20points%3D%2212%2013%209%208%2015%208%22%20%2F%3E%0A%3C%2Fsvg%3E%0A");
-  background-repeat: no-repeat;
-  background-position: 100% 50%;
-}
-
-/* 3 */
-.uk-select:not([multiple]):not([size])::-ms-expand {
-  display: none;
-}
-
-/* 4 */
-.uk-select:not([multiple]):not([size]) option {
-  color: #444;
-}
-
-/*
- * Disabled
- */
-.uk-select:not([multiple]):not([size]):disabled {
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2224%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23999%22%20points%3D%2212%201%209%206%2015%206%22%20%2F%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23999%22%20points%3D%2212%2013%209%208%2015%208%22%20%2F%3E%0A%3C%2Fsvg%3E%0A");
-}
-
-/* Datalist
- ========================================================================== */
-/*
- * 1. Remove default style in Chrome
- */
-.uk-input[list] {
-  padding-right: 20px;
-  background-repeat: no-repeat;
-  background-position: 100% 50%;
-}
-
-.uk-input[list]:hover,
-.uk-input[list]:focus {
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2224%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23666%22%20points%3D%2212%2012%208%206%2016%206%22%20%2F%3E%0A%3C%2Fsvg%3E%0A");
-}
-
-/* 1 */
-.uk-input[list]::-webkit-calendar-picker-indicator {
-  display: none;
-}
-
-/* Radio and checkbox
- * Note: Does not work in IE11
- ========================================================================== */
-/*
- * 1. Style
- * 2. Make box more robust so it clips the child element
- * 3. Vertical alignment
- * 4. Remove default style
- * 5. Fix black background on iOS
- * 6. Center icons
- */
-.uk-radio,
-.uk-checkbox {
-  /* 1 */
-  display: inline-block;
-  height: 16px;
-  width: 16px;
-  /* 2 */
-  overflow: hidden;
-  /* 3 */
-  margin-top: -4px;
-  vertical-align: middle;
-  /* 4 */
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  /* 5 */
-  background-color: transparent;
-  /* 6 */
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  border: 1px solid #cccccc;
-  transition: 0.2s ease-in-out;
-  transition-property: background-color, border;
-}
-
-.uk-radio {
-  border-radius: 50%;
-}
-
-/* Focus */
-.uk-radio:focus,
-.uk-checkbox:focus {
-  outline: none;
-  border-color: var(--text-color);
-}
-
-/*
- * Checked
- */
-.uk-radio:checked,
-.uk-checkbox:checked,
-.uk-checkbox:indeterminate {
-  background-color: var(--text-color);
-  border-color: transparent;
-}
-
-/* Focus */
-.uk-radio:checked:focus,
-.uk-checkbox:checked:focus,
-.uk-checkbox:indeterminate:focus {
-  background-color: #0e6dcd;
-}
-
-/*
- * Icons
- */
-.uk-radio:checked {
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Ccircle%20fill%3D%22%23fff%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%222%22%20%2F%3E%0A%3C%2Fsvg%3E");
-}
-
-.uk-checkbox:checked {
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%22%20height%3D%2211%22%20viewBox%3D%220%200%2014%2011%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23fff%22%20points%3D%2212%201%205%207.5%202%205%201%205.5%205%2010%2013%201.5%22%20%2F%3E%0A%3C%2Fsvg%3E%0A");
-}
-
-.uk-checkbox:indeterminate {
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Crect%20fill%3D%22%23fff%22%20x%3D%223%22%20y%3D%228%22%20width%3D%2210%22%20height%3D%221%22%20%2F%3E%0A%3C%2Fsvg%3E");
-}
-
-/*
- * Disabled
- */
-.uk-radio:disabled,
-.uk-checkbox:disabled {
-  background-color: #f8f8f8;
-  border-color: #e5e5e5;
-}
-
-.uk-radio:disabled:checked {
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Ccircle%20fill%3D%22%23999%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%222%22%20%2F%3E%0A%3C%2Fsvg%3E");
-}
-
-.uk-checkbox:disabled:checked {
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%22%20height%3D%2211%22%20viewBox%3D%220%200%2014%2011%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23999%22%20points%3D%2212%201%205%207.5%202%205%201%205.5%205%2010%2013%201.5%22%20%2F%3E%0A%3C%2Fsvg%3E%0A");
-}
-
-.uk-checkbox:disabled:indeterminate {
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Crect%20fill%3D%22%23999%22%20x%3D%223%22%20y%3D%228%22%20width%3D%2210%22%20height%3D%221%22%20%2F%3E%0A%3C%2Fsvg%3E");
-}
-
-/* Legend
- ========================================================================== */
-/*
- * Legend
- * 1. Behave like block element
- * 2. Correct the color inheritance from `fieldset` elements in IE.
- * 3. Remove padding so people aren't caught out if they zero out fieldsets.
- * 4. Style
- */
-.uk-legend {
-  /* 1 */
-  width: 100%;
-  /* 2 */
-  color: inherit;
-  /* 3 */
-  padding: 0;
-  /* 4 */
-  font-size: 1.5rem;
-  line-height: 1.4;
-}
-
-/* Custom controls
- ========================================================================== */
-/*
- * 1. Container fits its content
- * 2. Create position context
- * 3. Prevent content overflow
- * 4. Behave like most inline-block elements
- */
-.uk-form-custom {
-  /* 1 */
-  display: inline-block;
-  /* 2 */
-  position: relative;
-  /* 3 */
-  max-width: 100%;
-  /* 4 */
-  vertical-align: middle;
-}
-
-/*
- * 1. Position and resize the form control to always cover its container
- * 2. Required for Firefox for positioning to the left
- * 3. Required for Webkit to make `height` work
- * 4. Hide controle and show cursor
- * 5. Needed for the cursor
- * 6. Clip height caused by 5. Needed for Webkit only
- */
-.uk-form-custom select,
-.uk-form-custom input[type="file"] {
-  /* 1 */
-  position: absolute;
-  top: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  /* 2 */
-  left: 0;
-  /* 3 */
-  -webkit-appearance: none;
-  /* 4 */
-  opacity: 0;
-  cursor: pointer;
-}
-
-.uk-form-custom input[type="file"] {
-  /* 5 */
-  font-size: 500px;
-  /* 6 */
-  overflow: hidden;
-}
-
-/* Label
- ========================================================================== */
-.uk-form-label {
-  color: #333;
-  font-size: 0.875rem;
-}
-
-/* Layout
- ========================================================================== */
-/*
- * Stacked
- */
-.uk-form-stacked .uk-form-label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-/*
- * Horizontal
- */
-/* Tablet portrait and smaller */
-@media (max-width: calc( - 1px)) {
-  /* Behave like `uk-form-stacked` */
-  .uk-form-horizontal .uk-form-label {
-    display: block;
-    margin-bottom: 5px;
-  }
-}
-
-/* Tablet landscape and bigger */
-@media (min-width: null) {
-  .uk-form-horizontal .uk-form-label {
-    width: 200px;
-    margin-top: 7px;
-    float: left;
-  }
-  .uk-form-horizontal .uk-form-controls {
-    margin-left: 215px;
-  }
-  /* Better vertical alignment if controls are checkboxes and radio buttons with text */
-  .uk-form-horizontal .uk-form-controls-text {
-    padding-top: 7px;
-  }
-}
-
-/* Icons
- ========================================================================== */
-/*
- * 1. Set position
- * 2. Set width
- * 3. Center icon vertically and horizontally
- * 4. Style
- */
-.uk-form-icon {
-  /* 1 */
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  /* 2 */
-  width: 40px;
-  /* 3 */
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  /* 4 */
-  color: var(--sub-text-color);
-}
-
-/*
- * Required for `a`.
- */
-.uk-form-icon:hover {
-  color: var(--text-color);
-}
-
-/*
- * Make `input` element clickable through icon, e.g. if it's a `span`
- */
-.uk-form-icon:not(a):not(button):not(input) {
-  pointer-events: none;
-}
-
-/*
- * Input padding
- */
-.uk-form-icon:not(.uk-form-icon-flip) ~ .uk-input {
-  padding-left: 40px !important;
-}
-
-/*
- * Position modifier
- */
-.uk-form-icon-flip {
-  right: 0;
-  left: auto;
-}
-
-.uk-form-icon-flip ~ .uk-input {
-  padding-right: 40px !important;
-}
-
-/* HT-UIkit scss 1.0.0 */
-/* Base: UIkit 3.1.7 | http://www.getuikit.com */
-/* Edit: Hentech */
-/* 
- * _colors.scss: Defines colors for areas and objects
- *
-  Themes:
-    Areas:
-      *base: Base color and standard text colors
-      *bicolor: The second base color
-      *tricolor: The third base color
-      *toolbar: Colers for user interface which can be find that not the parts of page, but utility object
-      *danger: Areas which user should not touch in usual case use this colors
-    Objects:
-      *primary: Colors for object which user should watch at first
-      *secondary: Colors for object which is important next to primary
-      *accent: Accent color for object which is no relation for user flow
-    Nocices:
-      *information: Colors for infomation message or telop
-      *warning: Colors for warning message or telop
-      *error: Colors for error message or telop
-
-  Colors for each theme:
-    Areas:
-      basis: Used for background color
-      dent: Impless there is a dent which is used for hr or border
-      text: Text color
-      text-muted: Text color which is muted, also used link hover
-      text-active: Text in active element
-      heading: Used for heading, which is stronger than text color
-      link: Impress that text is link
-      link-ontouch: Used for link on touch or on cursor
-
-      Only toolbar and danger:
-        ontouch: User touches or cursor is on
-        active: Impress the element is active seemes to be pushed
-    Objects:
-      basis: Used for object's background color
-      ontouch: User touches or cursor is on, seems to be reflecting ray
-      active: Impress the element is active, seems pushed
-      text: Text color
-    Nocices:
-      basis: Used for object's background color
-      ontouch: User touches or cursor is on
-      dent: Used when view type is signboard
-      text: Text color
- */
-/* 
- * base
- */
-/* 
- * bicolor
- */
-/* 
- * tricolor
- */
-/* 
- * toolbar
- */
-/* 
-  * danger
-  */
-/* 
- * primary
- */
-/* 
- * secondary
- */
-/* 
- * accent
- */
-/* 
-  * infomation
-  */
-/* 
- * warning
- */
-/* 
- * error
+ * form
  */
 /* 
  * _layout.scss: Defines window breakpoint and indent size 
@@ -3210,7 +2554,7 @@ a.ht-toolbar.uk-link-muted.uk-icon, a.ht-toolbar.uk-link-muted .uk-icon,
 .ht-toolbar.uk-link-muted a.uk-icon, .ht-toolbar.uk-link-muted a .uk-icon,
 .uk-link-muted a.ht-toolbar.uk-icon, .uk-link-muted a.ht-toolbar .uk-icon,
 .uk-link-muted a .ht-toolbar.uk-icon {
-  color: #f2f2f2;
+  color: #ccc2c2;
 }
 
 .ht-toolbar a.uk-link-muted.uk-icon:active, .ht-toolbar a.uk-link-muted.uk-icon:hover, .ht-toolbar a.uk-link-muted.uk-icon:focus, .ht-toolbar a.uk-link-muted .uk-icon:active, .ht-toolbar a.uk-link-muted .uk-icon:hover, .ht-toolbar a.uk-link-muted .uk-icon:focus,
@@ -3229,7 +2573,7 @@ a.ht-toolbar.uk-link-muted.uk-icon:focus, a.ht-toolbar.uk-link-muted .uk-icon:ac
 .uk-link-muted a .ht-toolbar.uk-icon:active,
 .uk-link-muted a .ht-toolbar.uk-icon:hover,
 .uk-link-muted a .ht-toolbar.uk-icon:focus {
-  color: #f2f2f2;
+  color: #ccc2c2;
 }
 
 .ht-danger a.uk-link-muted.uk-icon, .ht-danger a.uk-link-muted .uk-icon,
@@ -3489,6 +2833,13 @@ a.ht-base.uk-link-muted.uk-icon:focus, a.ht-base.uk-link-muted .uk-icon:active, 
       ontouch: User touches or cursor is on
       dent: Used when view type is signboard
       text: Text color
+
+  Form:
+    input: Background color for input areas but it is recomended not to change from white
+    dent: Impless there is a dent which is used for border
+    disabled: Background color disabled input area
+    text: Text color in input area
+    text-muted: Used for placeholder in input area
  */
 /* 
  * base
@@ -3515,13 +2866,16 @@ a.ht-base.uk-link-muted.uk-icon:focus, a.ht-base.uk-link-muted .uk-icon:active, 
  * accent
  */
 /* 
-  * infomation
-  */
+ * infomation
+ */
 /* 
  * warning
  */
 /* 
  * error
+ */
+/* 
+ * form
  */
 /* 
  * _layout.scss: Defines window breakpoint and indent size 
@@ -3553,40 +2907,100 @@ a.ht-base.uk-link-muted.uk-icon:focus, a.ht-base.uk-link-muted .uk-icon:active, 
  * 5. Mask the background page
  * 6. Fade-in transition
  */
-.uk-modal {
-  /* 1 */
-  display: none;
-  /* 2 */
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1010;
-  /* 3 */
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  /* 4 */
-  padding: 15px 15px;
-  /* 5 */
-  background: rgba(0, 0, 0, 0.6);
-  /* 6 */
-  opacity: 0;
-  transition: opacity 0.15s linear;
-}
-
-/* Phone landscape and bigger */
-@media (min-width: 640px) {
-  .uk-modal {
-    padding: 50px 30px;
+@keyframes uk-modal-activate {
+  0% {
+    opacity: 0;
+    top: 0px;
+  }
+  100% {
+    opacity: 1;
+    top: 50px;
   }
 }
 
-/* Tablet landscape and bigger */
-@media (min-width: null) {
+@keyframes uk-modal-center-activate {
+  0% {
+    opacity: 0;
+    top: calc(50% - 50px);
+  }
+  100% {
+    opacity: 1;
+    top: 50%;
+  }
+}
+
+.uk-modal {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1010;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  height: min-content;
+  width: calc(100vw - 100px);
+  max-height: calc(100vh - 100px);
+  max-width: 580px;
+  box-sizing: border-box;
+  padding: 50px 30px;
+  background-color: white;
+}
+
+.uk-modal:not(.uk-modal-active):not(.uk-modal-center) {
+  display: none;
+  opacity: 0;
+  top: 0;
+}
+
+.uk-modal.uk-modal-active:not(.uk-modal-center) {
+  animation: uk-modal-activate 0.15s linear 0s;
+  opacity: 1;
+  top: 50px;
+}
+
+.uk-modal.uk-modal-center:not(.uk-modal-active) {
+  display: none;
+  opacity: 0;
+  top: calc(50% - 50px);
+  transform: translate(-50%, -50%);
+}
+
+.uk-modal.uk-modal-center.uk-modal-active {
+  animation: uk-modal-center-activate 0.15s linear 0s;
+  opacity: 1;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.uk-modal.uk-modal-wide {
+  max-width: 1024px;
+}
+
+.uk-modal.uk-modal-toolbar {
+  background-color: #444742;
+  color: #ccc2c2;
+}
+
+.uk-modal.uk-modal-toolbar * {
+  border-color: #050505;
+}
+
+.uk-modal.uk-modal-toolbar h1, .uk-modal.uk-modal-toolbar h2, .uk-modal.uk-modal-toolbar h3, .uk-modal.uk-modal-toolbar h4, .uk-modal.uk-modal-toolbar h5, .uk-modal.uk-modal-toolbar h6 {
+  color: #fbf9f9;
+}
+
+.uk-modal.uk-modal-toolbar a, .uk-modal.uk-modal-toolbar .uk-link {
+  color: #f2f2f2;
+}
+
+.uk-modal.uk-modal-toolbar a:active, .uk-modal.uk-modal-toolbar a:hover, .uk-modal.uk-modal-toolbar a:focus, .uk-modal.uk-modal-toolbar .uk-link:active, .uk-modal.uk-modal-toolbar .uk-link:hover, .uk-modal.uk-modal-toolbar .uk-link:focus {
+  color: #e0d1d1;
+}
+
+@media screen and (max-width: 480px) {
   .uk-modal {
-    padding-left: 40px;
-    padding-right: 40px;
+    width: calc(100vw - 30px);
+    max-height: calc(100vh - 30px);
+    padding: 30px 15px;
   }
 }
 
@@ -3679,14 +3093,30 @@ a.ht-base.uk-link-muted.uk-icon:focus, a.ht-base.uk-link-muted .uk-icon:active, 
 
 .uk-modal-header {
   padding: 15px 30px;
-  background: #fff;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid #9b9b9b;
 }
 
 .uk-modal-footer {
   padding: 15px 30px;
-  background: #fff;
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid #9b9b9b;
+}
+
+.uk-modal-toolbar .uk-modal-header, .uk-modal-toolbar .uk-modal-footer {
+  border-color: 1px solid #050505;
+}
+
+.uk-modal-toolbar .uk-button, .uk-modal-toolbar button, .uk-modal-toolbar input[type="button"] {
+  color: #fbf9f9;
+}
+
+.uk-modal-toolbar .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .uk-modal-toolbar button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger), .uk-modal-toolbar input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
+  border: solid 1px #050505;
+  color: #fbf9f9;
+  background-color: inherit;
+}
+
+.uk-modal-toolbar .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .uk-modal-toolbar .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .uk-modal-toolbar .uk-button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .uk-modal-toolbar button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .uk-modal-toolbar button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .uk-modal-toolbar button:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus, .uk-modal-toolbar input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):active, .uk-modal-toolbar input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):hover, .uk-modal-toolbar input[type="button"]:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger):focus {
+  border-color: black;
 }
 
 /*
@@ -3722,6 +3152,39 @@ a.ht-base.uk-link-muted.uk-icon:focus, a.ht-base.uk-link-muted .uk-icon:active, 
 .uk-modal-title {
   font-size: 2rem;
   line-height: 1.3;
+  margin-top: 0px;
+}
+
+/* Close
+ ========================================================================== */
+.uk-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 14px;
+  height: 14px;
+}
+
+.uk-modal-close:before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(45deg, transparent 48%, currentColor 48%, currentColor 52%, transparent 52%, transparent);
+  border: none;
+}
+
+.uk-modal-close:after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(-45deg, transparent 48%, currentColor 48%, currentColor 52%, transparent 52%, transparent);
+  border: none;
 }
 
 /* HT-UIkit-advanced-components scss 1.0.0 */
@@ -3790,6 +3253,13 @@ a.ht-base.uk-link-muted.uk-icon:focus, a.ht-base.uk-link-muted .uk-icon:active, 
       ontouch: User touches or cursor is on
       dent: Used when view type is signboard
       text: Text color
+
+  Form:
+    input: Background color for input areas but it is recomended not to change from white
+    dent: Impless there is a dent which is used for border
+    disabled: Background color disabled input area
+    text: Text color in input area
+    text-muted: Used for placeholder in input area
  */
 /* 
  * base
@@ -3816,13 +3286,16 @@ a.ht-base.uk-link-muted.uk-icon:focus, a.ht-base.uk-link-muted .uk-icon:active, 
  * accent
  */
 /* 
-  * infomation
-  */
+ * infomation
+ */
 /* 
  * warning
  */
 /* 
  * error
+ */
+/* 
+ * form
  */
 /* 
  * _layout.scss: Defines window breakpoint and indent size 
@@ -4579,6 +4052,13 @@ a.ht-base.uk-link-muted.uk-icon:focus, a.ht-base.uk-link-muted .uk-icon:active, 
       ontouch: User touches or cursor is on
       dent: Used when view type is signboard
       text: Text color
+
+  Form:
+    input: Background color for input areas but it is recomended not to change from white
+    dent: Impless there is a dent which is used for border
+    disabled: Background color disabled input area
+    text: Text color in input area
+    text-muted: Used for placeholder in input area
  */
 /* 
  * base
@@ -4605,13 +4085,16 @@ a.ht-base.uk-link-muted.uk-icon:focus, a.ht-base.uk-link-muted .uk-icon:active, 
  * accent
  */
 /* 
-  * infomation
-  */
+ * infomation
+ */
 /* 
  * warning
  */
 /* 
  * error
+ */
+/* 
+ * form
  */
 /* 
  * _layout.scss: Defines window breakpoint and indent size 
@@ -4837,6 +4320,1154 @@ a.ht-base.uk-link-muted.uk-icon:focus, a.ht-base.uk-link-muted .uk-icon:active, 
   }
 }
 
+/* HT-Telop scss 1.0.0 */
+/* Copyright (c) 2021 Hentech under MIT Lisence */
+/* 
+ * _colors.scss: Defines colors for areas and objects
+ *
+  Themes:
+    Areas:
+      *base: Base color and standard text colors
+      *bicolor: The second base color
+      *tricolor: The third base color
+      *toolbar: Colers for user interface which can be find that not the parts of page, but utility object
+      *danger: Areas which user should not touch in usual case use this colors
+    Objects:
+      *primary: Colors for object which user should watch at first
+      *secondary: Colors for object which is important next to primary
+      *accent: Accent color for object which is no relation for user flow
+    Nocices:
+      *information: Colors for infomation message or telop
+      *warning: Colors for warning message or telop
+      *error: Colors for error message or telop
+
+  Colors for each theme:
+    Areas:
+      basis: Used for background color
+      dent: Impless there is a dent which is used for hr or border
+      text: Text color
+      text-muted: Text color which is muted, also used link hover
+      text-active: Text in active element
+      heading: Used for heading, which is stronger than text color
+      link: Impress that text is link
+      link-ontouch: Used for link on touch or on cursor
+
+      Only toolbar and danger:
+        ontouch: User touches or cursor is on
+        active: Impress the element is active seemes to be pushed
+    Objects:
+      basis: Used for object's background color
+      ontouch: User touches or cursor is on, seems to be reflecting ray
+      active: Impress the element is active, seems pushed
+      text: Text color
+    Nocices:
+      basis: Used for object's background color
+      ontouch: User touches or cursor is on
+      dent: Used when view type is signboard
+      text: Text color
+
+  Form:
+    input: Background color for input areas but it is recomended not to change from white
+    dent: Impless there is a dent which is used for border
+    disabled: Background color disabled input area
+    text: Text color in input area
+    text-muted: Used for placeholder in input area
+ */
+/* 
+ * base
+ */
+/* 
+ * bicolor
+ */
+/* 
+ * tricolor
+ */
+/* 
+ * toolbar
+ */
+/* 
+  * danger
+  */
+/* 
+ * primary
+ */
+/* 
+ * secondary
+ */
+/* 
+ * accent
+ */
+/* 
+ * infomation
+ */
+/* 
+ * warning
+ */
+/* 
+ * error
+ */
+/* 
+ * form
+ */
+/* 
+ * _layout.scss: Defines window breakpoint and indent size 
+ *
+  Stream-width:
+    Width Definitions for Stream Component
+    It is recomended that keep main-min smaller than 375
+    enough not to hide content in small mobile
+  Breakpoint
+    Devices are called here
+      - mobile: mobile phone such as smartphone
+        mobile-portlate
+        mobile-landscape
+      - notebook: Laptop and tablet computer
+                  Using tablet in landscape layout, is included in workstation 
+      - workstation: Computers larger than notebook such as desktop computer
+  Others
+    nav-height: Height of navigation bar
+ */
+/* Do not touch! Auto configuration */
+/* ========================================================================
+   Component: Form
+ ========================================================================== */
+/*
+ * 1. Remove default style in iOS.
+ * 1. Define consistent box sizing.
+ *    Default is `content-box` with following exceptions set to `border-box`
+ *    `select`, `input[type="checkbox"]` and `input[type="radio"]`
+ *    `input[type="search"]` in Chrome, Safari and Opera
+ *    `input[type="color"]` in Firefox
+ * 2. Address margins set differently in Firefox/IE and Chrome/Safari/Opera.
+ * 3. Remove `border-radius` in iOS.
+ * 4. Change font properties to `inherit` in all browsers.
+ * 1. Prevent content overflow if a fixed width is used
+ * 2. Take the full width
+ * 3. Reset default
+ * 4. Style
+ * 1. Show the overflow in Edge.
+ * 2. Remove the inheritance of text transform in Firefox.
+ * 3. Remove the default vertical scrollbar in IE 10+.
+ */
+.ht-form {
+  display: flex;
+  flex-direction: column;
+  /* 1 */
+  /* 3 */
+}
+
+.ht-form input, .ht-form textarea {
+  -webkit-appearance: none;
+}
+
+.ht-form input, .ht-form select, .ht-form textarea {
+  /* 1 */
+  box-sizing: border-box;
+  /* 2 */
+  margin: 0 0 calc(10px * 2) 0;
+  /* 3 */
+  border-radius: 0;
+  /* 4 */
+  font: inherit;
+  /* 1 */
+  max-width: 100%;
+  /* 2 */
+  /* 3 */
+  /* 4 */
+  padding: 0 10px;
+  background: #ffffff;
+  color: #3c3d36;
+  border: 1px solid #bfbfbf;
+  transition: 0.2s ease-in-out;
+  transition-property: color, background-color, border;
+  /* 5 */
+  overflow: visible;
+}
+
+.ht-form input:not([type=button]):not([type=file]):not([type=submit]):not([type="checkbox"]):not([type="radio"]):not([type=color]), .ht-form select:not([type=button]):not([type=file]):not([type=submit]):not([type="checkbox"]):not([type="radio"]):not([type=color]), .ht-form textarea:not([type=button]):not([type=file]):not([type=submit]):not([type="checkbox"]):not([type="radio"]):not([type=color]) {
+  width: 100%;
+}
+
+.ht-form input[type=button], .ht-form input[type=submit], .ht-form select[type=button], .ht-form select[type=submit], .ht-form textarea[type=button], .ht-form textarea[type=submit] {
+  width: fit-content;
+}
+
+.ht-form input[type=color], .ht-form select[type=color], .ht-form textarea[type=color] {
+  width: 120px;
+  max-width: 120px;
+  flex-grow: 0;
+}
+
+.ht-form input:focus, .ht-form select:focus, .ht-form textarea:focus {
+  outline: none;
+  background-color: #ffffff;
+  color: inherit;
+  border-color: #bfbfbf;
+}
+
+.ht-form input:disabled, .ht-form select:disabled, .ht-form textarea:disabled {
+  background-color: #f8f8f8;
+  color: #64665a;
+  border-color: #bfbfbf;
+}
+
+.ht-form select {
+  /* 2 */
+  text-transform: none;
+  /*
+      * 1. Change font properties to `inherit` in all browsers
+      * 2. Don't inherit the `font-weight` and use `bold` instead.
+      * NOTE: Both declarations don't work in Chrome, Safari and Opera.
+      */
+}
+
+.ht-form select optgroup {
+  /* 1 */
+  font: inherit;
+  /* 2 */
+  font-weight: bold;
+}
+
+.ht-form textarea {
+  overflow: auto;
+}
+
+.ht-form input, .ht-form select {
+  height: calc(38px + 2px);
+  vertical-align: middle;
+}
+
+.ht-form input::placeholder, .ht-form input::-ms-input-placeholder, .ht-form textarea::placeholder, .ht-form textarea::-ms-input-placeholder {
+  background-color: #64665a;
+}
+
+.ht-form > label:first-child, .ht-form > fieldset:first-child, .ht-form > legend:first-child, .ht-form > input:first-child, .ht-form > select:first-child, .ht-form > textarea:first-child {
+  margin-top: calc(10px * 2);
+}
+
+/* Radio and checkbox
+ * Note: Does not work in IE11
+ ========================================================================== */
+/*
+ * 1. Style
+ * 2. Make box more robust so it clips the child element
+ * 3. Vertical alignment
+ * 4. Remove default style
+ * 5. Fix black background on iOS
+ * 6. Center icons
+ */
+.ht-form input[type=radio] {
+  border-radius: 50%;
+}
+
+.ht-form input[type=radio],
+.ht-form input[type=checkbox] {
+  /* 1 */
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  /* 2 */
+  overflow: hidden;
+  /* 3 */
+  vertical-align: middle;
+  /* 4 */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /* 5 */
+  background-color: #ffffff;
+  /* 6 */
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  border: 1px solid #bfbfbf;
+  transition: 0.2s ease-in-out;
+  transition-property: background-color, border;
+  /* 7 */
+  padding: 0;
+  /* 8 */
+  flex-shrink: 0;
+  /* 9 */
+}
+
+.ht-form input[type=radio]:not(:disabled),
+.ht-form input[type=checkbox]:not(:disabled) {
+  cursor: pointer;
+}
+
+.ht-form input[type=radio]:focus,
+.ht-form input[type=checkbox]:focus {
+  outline: none;
+  border-color: #3090ff;
+}
+
+.ht-form input[type=radio]:checked,
+.ht-form input[type=checkbox]:checked {
+  background-color: #3090ff;
+  border-color: transparent;
+}
+
+.ht-form input[type=radio]:checked:focus,
+.ht-form input[type=checkbox]:checked:focus {
+  background-color: #0075fc;
+  border-color: #3090ff;
+}
+
+.ht-form input[type=radio]:disabled,
+.ht-form input[type=checkbox]:disabled {
+  background-color: #f8f8f8;
+  border-color: #bfbfbf;
+}
+
+.ht-form input[type=radio] input[type=checkbox]:indeterminate,
+.ht-form input[type=checkbox] input[type=checkbox]:indeterminate {
+  background-color: #3090ff;
+  border-color: transparent;
+}
+
+.ht-form input[type=radio] input[type=checkbox]:indeterminate:focus,
+.ht-form input[type=checkbox] input[type=checkbox]:indeterminate:focus {
+  background-color: #0075fc;
+  border-color: #3090ff;
+}
+
+.ht-form input[type=radio]:checked {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Ccircle%20fill%3D%22%23fff%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%222%22%20%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.ht-form input[type=checkbox]:checked {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%22%20height%3D%2211%22%20viewBox%3D%220%200%2014%2011%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23fff%22%20points%3D%2212%201%205%207.5%202%205%201%205.5%205%2010%2013%201.5%22%20%2F%3E%0A%3C%2Fsvg%3E%0A");
+}
+
+.ht-form input[type=checkbox]:indeterminate {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Crect%20fill%3D%22%23fff%22%20x%3D%223%22%20y%3D%228%22%20width%3D%2210%22%20height%3D%221%22%20%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.ht-form input[type=radio]:disabled:checked {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Ccircle%20fill%3D%22%23999%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%222%22%20%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.ht-form input[type=checkbox]:disabled:checked {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%22%20height%3D%2211%22%20viewBox%3D%220%200%2014%2011%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23999%22%20points%3D%2212%201%205%207.5%202%205%201%205.5%205%2010%2013%201.5%22%20%2F%3E%0A%3C%2Fsvg%3E%0A");
+}
+
+.ht-form input[type=checkbox]:disabled:indeterminate {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Crect%20fill%3D%22%23999%22%20x%3D%223%22%20y%3D%228%22%20width%3D%2210%22%20height%3D%221%22%20%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.ht-form .ht-form-selection {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0 6px;
+  margin: 0 0 calc(10px * 2) 0;
+  width: 100%;
+  max-width: calc(100% - (2* 6px));
+  line-height: 1.5rem;
+}
+
+.ht-form .ht-form-selection input[type=radio], .ht-form .ht-form-selection input[type=checkbox] {
+  margin: 10px 6px 10px 0;
+}
+
+.ht-form .ht-form-selection input[type=radio]:first-child, .ht-form .ht-form-selection input[type=checkbox]:first-child {
+  margin-top: 0px;
+}
+
+.ht-form .ht-form-selection input[type=radio]:last-child, .ht-form .ht-form-selection input[type=checkbox]:last-child {
+  margin-bottom: 0px;
+}
+
+.ht-form .ht-form-selection label {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  align-items: center;
+}
+
+.ht-form .ht-form-selection label input[type=radio], .ht-form .ht-form-selection label input[type=checkbox] {
+  margin: 0 6px 0 0;
+}
+
+.ht-form .ht-form-selection-horizontal {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 0 calc(10px * 2) 0;
+  padding: 0 6px;
+  align-items: center;
+  line-height: 1.5rem;
+  border: none;
+}
+
+.ht-form .ht-form-selection-horizontal input[type=radio]:not(:last-child), .ht-form .ht-form-selection-horizontal input[type=checkbox]:not(:last-child) {
+  margin-inline-end: 6px;
+}
+
+.ht-form .ht-form-selection-horizontal label {
+  width: fit-content;
+  margin: 0 6px 0 0;
+}
+
+.ht-form .ht-form-selection-horizontal label input[type=radio], .ht-form .ht-form-selection-horizontal label input[type=checkbox] {
+  margin: 0 6px 0 0;
+}
+
+.ht-form .ht-form-selection:first-child, .ht-form .ht-form-selection-horizontal:first-child {
+  margin-top: calc(10px * 2);
+}
+
+.ht-form .ht-form-selection-sidebyside > div, .ht-form .ht-form-selection-sidebyside label {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ht-form .ht-form-selection-sidebyside > div input[type=radio], .ht-form .ht-form-selection-sidebyside > div input[type=checkbox], .ht-form .ht-form-selection-sidebyside label input[type=radio], .ht-form .ht-form-selection-sidebyside label input[type=checkbox] {
+  margin: 0 6px 0 0;
+}
+
+/*
+ * Removes placeholder transparency in Firefox.
+ */
+.uk-input::-moz-placeholder,
+.uk-textarea::-moz-placeholder {
+  opacity: 1;
+}
+
+/*
+ * Define consistent border, margin, and padding.
+ */
+.ht-form fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Sizing
+ ========================================================================== */
+/*
+ * Small
+ */
+.ht-form.ht-form-small {
+  font-size: inherit;
+}
+
+.ht-form.ht-form-small input, .ht-form.ht-form-small select {
+  height: calc(28px + 2px);
+}
+
+.ht-form.ht-form-small input[type=radio],
+.ht-form.ht-form-small input[type=checkbox] {
+  height: 16px;
+  width: 16px;
+}
+
+.ht-form.ht-form-small input[type="button"], .ht-form.ht-form-small input[type="submit"] {
+  line-height: 28px !important;
+}
+
+.ht-form.ht-form-small .ht-form-selection {
+  line-height: 1.5rem;
+}
+
+/*
+ * Large
+ */
+.ht-form.ht-form-large {
+  font-size: 1.5rem;
+}
+
+.ht-form.ht-form-large input, .ht-form.ht-form-large select {
+  height: calc(53px + 2px);
+}
+
+.ht-form.ht-form-large input[type=radio],
+.ht-form.ht-form-large input[type=checkbox] {
+  height: 24px;
+  width: 24px;
+}
+
+.ht-form.ht-form-large input[type="button"], .ht-form.ht-form-large input[type="submit"] {
+  line-height: 53px !important;
+}
+
+.ht-form.ht-form-large .ht-form-selection {
+  line-height: 2.4rem;
+}
+
+/* Range
+ ========================================================================== */
+.ht-form {
+  /* Common style */
+  /* Webkit */
+  /* Mozilla */
+  /* Microsoft */
+}
+
+.ht-form input[type=range] {
+  -webkit-appearance: none;
+  margin: 0 0 calc(10px * 2) 0;
+  padding: 0;
+  width: 100%;
+  height: calc(38px + 2px);
+  cursor: pointer;
+  vertical-align: middle;
+  background-color: transparent;
+  border: none;
+}
+
+.ht-form input[type=range]:focus {
+  outline: none;
+}
+
+.ht-form input[type=range]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  height: 2px;
+  border: none;
+  border-radius: 0px;
+  background: #bfbfbf;
+}
+
+.ht-form input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: calc((38px/2) - 1px);
+  width: calc((38px/2) - 1px);
+  margin-top: calc((-1 * 38px / 4) + 1.5px);
+  border: none;
+  border-radius: 50%;
+  background: #bfbfbf;
+}
+
+.ht-form input[type=range]::-moz-range-track {
+  height: 2px;
+  border: none;
+  border-radius: 0px;
+  background: #bfbfbf;
+}
+
+.ht-form input[type=range]::-moz-range-thumb {
+  height: calc((38px/2) - 1px);
+  width: calc((38px/2) - 1px);
+  margin-top: calc((-1 * 38px / 4) + 1.5px);
+  border: none;
+  border-radius: 50%;
+  background: #bfbfbf;
+}
+
+.ht-form input[type=range]::-ms-track {
+  height: 2px;
+  border: none;
+  border-radius: 0px;
+  background: #bfbfbf;
+}
+
+.ht-form input[type=range]::-ms-fill-lower {
+  background: #bfbfbf;
+}
+
+.ht-form input[type=range]::-ms-fill-upper {
+  background: #bfbfbf;
+}
+
+.ht-form input[type=range]::-ms-thumb {
+  height: calc((38px/2) - 1px);
+  width: calc((38px/2) - 1px);
+  margin-top: calc((-1 * 38px / 4) + 1.5px);
+  border: none;
+  border-radius: 50%;
+  background: #bfbfbf;
+}
+
+.ht-form input[type=range]::-ms-tooltip {
+  display: none;
+}
+
+@supports (-ms-ime-align: auto) {
+  .ht-form input[type=range]::-webkit-slider-thumb {
+    margin-top: 0 !important;
+  }
+}
+
+.ht-form.ht-form-small input[type=range] {
+  height: calc(28px + 2px);
+}
+
+.ht-form.ht-form-small input[type=range]::-webkit-slider-thumb {
+  height: calc((28px/2) - 1px);
+  width: calc((28px/2) - 1px);
+  margin-top: calc((-1 * 28px / 4) + 1.5px);
+}
+
+.ht-form.ht-form-small input[type=range]::-moz-range-thumb {
+  height: calc((28px/2) - 1px);
+  width: calc((28px/2) - 1px);
+  margin-top: calc((-1 * 28px / 4) + 1.5px);
+}
+
+.ht-form.ht-form-small input[type=range]::-ms-thumb {
+  height: calc((28px/2) - 1px);
+  width: calc((28px/2) - 1px);
+  margin-top: calc((-1 * 28px / 4) + 1.5px);
+}
+
+.ht-form.ht-form-large input[type=range] {
+  height: calc(53px + 2px);
+}
+
+.ht-form.ht-form-large input[type=range]::-webkit-slider-thumb {
+  height: calc((53px/2) - 1px);
+  width: calc((53px/2) - 1px);
+  margin-top: calc((-1 * 53px / 4) + 1.5px);
+}
+
+.ht-form.ht-form-large input[type=range]::-moz-range-thumb {
+  height: calc((53px/2) - 1px);
+  width: calc((53px/2) - 1px);
+  margin-top: calc((-1 * 53px / 4) + 1.5px);
+}
+
+.ht-form.ht-form-large input[type=range]::-ms-thumb {
+  height: calc((53px/2) - 1px);
+  width: calc((53px/2) - 1px);
+  margin-top: calc((-1 * 53px / 4) + 1.5px);
+}
+
+/* File
+ ========================================================================== */
+/*
+ * 1. Do not display input itself
+ * 2. Instead of input, shape label as if button entity
+ */
+.ht-form {
+  /* 1 */
+  /* 2 */
+}
+
+.ht-form input[type=file] {
+  display: none;
+}
+
+.ht-form label.ht-form-file {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0 10px;
+  height: calc(38px + 2px);
+  line-height: 38px;
+  max-width: 100%;
+  border: 1px solid #bcbc9d;
+  overflow: visible;
+  border-radius: 0;
+  color: #3c3d36;
+  transition: 0.2s ease-in-out;
+  transition-property: color, background-color, border;
+}
+
+.ht-form .ht-form-selection .ht-form-file,
+.ht-form .ht-form-selection-horizontal .ht-form-file {
+  margin-left: calc(-1 * 6px);
+}
+
+.ht-form.ht-form-small label.ht-form-file {
+  height: calc(28px + 2px);
+  line-height: 28px;
+}
+
+.ht-form.ht-form-large label.ht-form-file {
+  height: calc(53px + 2px);
+  line-height: 53px;
+}
+
+/*
+ * Remove the inner padding and cancel buttons in Chrome on OS X and Safari on OS X.
+ */
+.uk-input[type="search"]::-webkit-search-cancel-button,
+.uk-input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+.uk-input[type="number"]::-webkit-inner-spin-button,
+.uk-input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/* Legend
+ ========================================================================== */
+/*
+ * Legend
+ * 1. Behave like block element
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove padding so people aren't caught out if they zero out fieldsets.
+ * 4. Style
+ */
+.ht-form legend {
+  /* 1 */
+  width: 100%;
+  /* 2 */
+  color: inherit;
+  /* 3 */
+  padding: 0;
+  /* 4 */
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+  margin: 0 0 10px 0;
+}
+
+/* Label
+ ========================================================================== */
+.ht-form label {
+  width: 100%;
+  overflow: hidden;
+}
+
+.ht-form label text {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 10px 0;
+}
+
+.ht-form label + input, .ht-form label + select, .ht-form label + textarea {
+  margin-top: 10px;
+}
+
+.ht-form label > *:first-child:not(text) {
+  margin-top: 10px;
+}
+
+.ht-form .ht-form-selection legend,
+.ht-form .ht-form-selection-horizontal legend {
+  display: inline-block;
+  width: 100%;
+  margin-left: calc(-1 * 6px);
+  font-size: inherit;
+}
+
+/* Layout
+ ========================================================================== */
+/*
+ * Stacked
+ */
+.ht-form-stacked .ht-form-label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/*
+ * Horizontal
+ */
+/* Tablet portrait and smaller */
+@media (max-width: calc( - 1px)) {
+  /* Behave like `ht-form-stacked` */
+  .ht-form-horizontal .ht-form-label {
+    display: block;
+    margin-bottom: 5px;
+  }
+}
+
+/* Tablet landscape and bigger */
+@media (min-width: null) {
+  .ht-form-horizontal .ht-form-label {
+    width: 200px;
+    margin-top: 7px;
+    float: left;
+  }
+  .ht-form-horizontal .ht-form-controls {
+    margin-left: 215px;
+  }
+  /* Better vertical alignment if controls are checkboxes and radio buttons with text */
+  .ht-form-horizontal .ht-form-controls-text {
+    padding-top: 7px;
+  }
+  /* Instruction
+ ========================================================================== */
+}
+
+.ht-form-instruction-required::after {
+  content: " - Required";
+  color: #64665a;
+}
+
+.ht-form-instruction-optional::after {
+  content: " - Optional";
+  color: #64665a;
+}
+
+/* Object
+ ========================================================================== */
+.ht-form-object {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: 16px;
+}
+
+.ht-form-object .ht-form-object-icon {
+  flex-shrink: 0;
+  flex-grow: 0;
+  height: calc(38px - 6px);
+  width: calc(38px - 6px);
+  margin: 0 0 calc(10px * 2) 0;
+  padding: 3px 10px;
+  border-style: solid;
+  border-color: #bfbfbf;
+  background-color: #ffffff;
+}
+
+.ht-form-object .ht-form-object-star {
+  position: relative;
+  flex-shrink: 0;
+  flex-grow: 0;
+  height: 38px;
+  width: 24px;
+  margin: 0 0 calc(10px * 2) 0;
+  border-style: solid;
+  border-color: #bfbfbf;
+  background-color: #ffffff;
+}
+
+.ht-form-object .ht-form-object-star::before {
+  content: "*";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  color: #ff0000;
+  background-color: transparent;
+}
+
+.ht-form-object .ht-form-object-star:first-child:last-child {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 16px;
+  background-color: inherit;
+  border: none;
+}
+
+.ht-form-object textarea + .ht-form-object-star {
+  width: 0;
+}
+
+.ht-form-object textarea + .ht-form-object-star::before {
+  content: "*";
+  position: absolute;
+  width: 24px;
+  height: calc(38px + 2px);
+  top: 0;
+  left: auto;
+  right: 0;
+  transform: translate(0%, 0%);
+  text-align: center;
+  font-size: 1.5rem;
+  color: #ff0000;
+  background-color: transparent;
+}
+
+.ht-form-object .ht-form-file ~ .ht-form-object-star {
+  margin-left: -1px;
+  background-color: #f0f0e9;
+}
+
+.ht-form-object input, .ht-form-object select {
+  flex-shrink: 1;
+  flex-grow: 1;
+}
+
+.ht-form-object .ht-form-object-icon, .ht-form-object .ht-form-object-star, .ht-form-object input, .ht-form-object select {
+  border-width: 1px 0px;
+}
+
+.ht-form-object *:not(textarea) + .ht-form-object-icon:first-child::after, .ht-form-object *:not(textarea) + .ht-form-object-star:first-child::after,
+.ht-form-object input[type=color]:first-child::after, .ht-form-object input[type=date]:first-child::after, .ht-form-object input[type=email]:first-child::after, .ht-form-object input[type=month]:first-child::after,
+.ht-form-object input[type=number]:first-child::after, .ht-form-object input[type=password]:first-child::after, .ht-form-object input[type=tel]:first-child::after, .ht-form-object input[type=text]:first-child::after,
+.ht-form-object input[type=time]:first-child::after, .ht-form-object input[type=url]:first-child::after, .ht-form-object select:first-child::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: calc(38px + 2px);
+  top: 50%;
+  left: 0px;
+  transform: translateY(-50%);
+  background-color: #bfbfbf;
+}
+
+.ht-form-object *:not(textarea) + .ht-form-object-icon:last-child::after, .ht-form-object *:not(textarea) + .ht-form-object-star:last-child::after,
+.ht-form-object input[type=color]:last-child::after, .ht-form-object input[type=date]:last-child::after, .ht-form-object input[type=email]:last-child::after, .ht-form-object input[type=month]:last-child::after,
+.ht-form-object input[type=number]:last-child::after, .ht-form-object input[type=password]:last-child::after, .ht-form-object input[type=tel]:last-child::after, .ht-form-object input[type=text]:last-child::after,
+.ht-form-object input[type=time]:last-child::after, .ht-form-object input[type=url]:last-child::after, .ht-form-object select:last-child::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: calc(38px + 2px);
+  top: 50%;
+  right: 0px;
+  transform: translateY(-50%);
+  background-color: #bfbfbf;
+}
+
+/* Discription
+ ========================================================================== */
+.ht-form .ht-form-discription {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 10px 0;
+}
+
+.ht-form .ht-form-selection .ht-form-discription, .ht-form .ht-form-selection-horizontal .ht-form-discription {
+  margin-left: calc(-1 * 6px);
+}
+
+.ht-form label + .ht-form-discription {
+  margin-top: 10px;
+}
+
+/* Show warning
+ ========================================================================== */
+.ht-form input[type=checkbox].ht-form-warning, .ht-form input[type=date].ht-form-warning, .ht-form input[type=email].ht-form-warning, .ht-form input[type=month].ht-form-warning,
+.ht-form input[type=number].ht-form-warning, .ht-form input[type=password].ht-form-warning, .ht-form input[type=radio].ht-form-warning, .ht-form input[type=tel].ht-form-warning,
+.ht-form input[type=text].ht-form-warning, .ht-form input[type=time].ht-form-warning, .ht-form input[type=url].ht-form-warning,
+.ht-form select.ht-form-warning, .ht-form textarea.ht-form-warning {
+  background-color: #ffcccc;
+}
+
+.ht-form .ht-form-file.ht-form-warning:before {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  border-top: solid 5px #ff6666;
+  border-left: solid 5px #ff6666;
+  border-bottom: solid 5px transparent;
+  border-right: solid 5px transparent;
+  top: 4px;
+  left: 4px;
+}
+
+/*
+ * Adopt theme colors
+ */
+.ht-bicolor.ht-form input[type=radio]:focus,
+.ht-bicolor.ht-form input[type=checkbox]:focus, .ht-bicolor .ht-form input[type=radio]:focus,
+.ht-bicolor .ht-form input[type=checkbox]:focus, .ht-form fieldset.ht-bicolor input[type=radio]:focus,
+.ht-form fieldset.ht-bicolor input[type=checkbox]:focus {
+  border-color: #3090ff;
+}
+
+.ht-bicolor.ht-form input[type=radio]:checked,
+.ht-bicolor.ht-form input[type=checkbox]:checked, .ht-bicolor .ht-form input[type=radio]:checked,
+.ht-bicolor .ht-form input[type=checkbox]:checked, .ht-form fieldset.ht-bicolor input[type=radio]:checked,
+.ht-form fieldset.ht-bicolor input[type=checkbox]:checked {
+  background-color: #3090ff;
+}
+
+.ht-bicolor.ht-form input[type=radio]:checked:focus,
+.ht-bicolor.ht-form input[type=checkbox]:checked:focus, .ht-bicolor .ht-form input[type=radio]:checked:focus,
+.ht-bicolor .ht-form input[type=checkbox]:checked:focus, .ht-form fieldset.ht-bicolor input[type=radio]:checked:focus,
+.ht-form fieldset.ht-bicolor input[type=checkbox]:checked:focus {
+  background-color: #0075fc;
+  border-color: #3090ff;
+}
+
+.ht-bicolor.ht-form input[type=radio] input[type=checkbox]:indeterminate,
+.ht-bicolor.ht-form input[type=checkbox] input[type=checkbox]:indeterminate, .ht-bicolor .ht-form input[type=radio] input[type=checkbox]:indeterminate,
+.ht-bicolor .ht-form input[type=checkbox] input[type=checkbox]:indeterminate, .ht-form fieldset.ht-bicolor input[type=radio] input[type=checkbox]:indeterminate,
+.ht-form fieldset.ht-bicolor input[type=checkbox] input[type=checkbox]:indeterminate {
+  background-color: #3090ff;
+}
+
+.ht-bicolor.ht-form input[type=radio] input[type=checkbox]:indeterminate:focus,
+.ht-bicolor.ht-form input[type=checkbox] input[type=checkbox]:indeterminate:focus, .ht-bicolor .ht-form input[type=radio] input[type=checkbox]:indeterminate:focus,
+.ht-bicolor .ht-form input[type=checkbox] input[type=checkbox]:indeterminate:focus, .ht-form fieldset.ht-bicolor input[type=radio] input[type=checkbox]:indeterminate:focus,
+.ht-form fieldset.ht-bicolor input[type=checkbox] input[type=checkbox]:indeterminate:focus {
+  background-color: #0075fc;
+  border-color: #3090ff;
+}
+
+.ht-bicolor.ht-form label.ht-form-file, .ht-bicolor .ht-form label.ht-form-file, .ht-form fieldset.ht-bicolor label.ht-form-file {
+  border: 1px solid #5283ff;
+  color: #05070b;
+  background: #d1deff;
+}
+
+.ht-tricolor.ht-form input[type=radio]:focus,
+.ht-tricolor.ht-form input[type=checkbox]:focus, .ht-tricolor .ht-form input[type=radio]:focus,
+.ht-tricolor .ht-form input[type=checkbox]:focus, .ht-form fieldset.ht-tricolor input[type=radio]:focus,
+.ht-form fieldset.ht-tricolor input[type=checkbox]:focus {
+  border-color: #ffef00;
+}
+
+.ht-tricolor.ht-form input[type=radio]:checked,
+.ht-tricolor.ht-form input[type=checkbox]:checked, .ht-tricolor .ht-form input[type=radio]:checked,
+.ht-tricolor .ht-form input[type=checkbox]:checked, .ht-form fieldset.ht-tricolor input[type=radio]:checked,
+.ht-form fieldset.ht-tricolor input[type=checkbox]:checked {
+  background-color: #ffef00;
+}
+
+.ht-tricolor.ht-form input[type=radio]:checked:focus,
+.ht-tricolor.ht-form input[type=checkbox]:checked:focus, .ht-tricolor .ht-form input[type=radio]:checked:focus,
+.ht-tricolor .ht-form input[type=checkbox]:checked:focus, .ht-form fieldset.ht-tricolor input[type=radio]:checked:focus,
+.ht-form fieldset.ht-tricolor input[type=checkbox]:checked:focus {
+  background-color: #ccbf00;
+  border-color: #ffef00;
+}
+
+.ht-tricolor.ht-form input[type=radio] input[type=checkbox]:indeterminate,
+.ht-tricolor.ht-form input[type=checkbox] input[type=checkbox]:indeterminate, .ht-tricolor .ht-form input[type=radio] input[type=checkbox]:indeterminate,
+.ht-tricolor .ht-form input[type=checkbox] input[type=checkbox]:indeterminate, .ht-form fieldset.ht-tricolor input[type=radio] input[type=checkbox]:indeterminate,
+.ht-form fieldset.ht-tricolor input[type=checkbox] input[type=checkbox]:indeterminate {
+  background-color: #ffef00;
+}
+
+.ht-tricolor.ht-form input[type=radio] input[type=checkbox]:indeterminate:focus,
+.ht-tricolor.ht-form input[type=checkbox] input[type=checkbox]:indeterminate:focus, .ht-tricolor .ht-form input[type=radio] input[type=checkbox]:indeterminate:focus,
+.ht-tricolor .ht-form input[type=checkbox] input[type=checkbox]:indeterminate:focus, .ht-form fieldset.ht-tricolor input[type=radio] input[type=checkbox]:indeterminate:focus,
+.ht-form fieldset.ht-tricolor input[type=checkbox] input[type=checkbox]:indeterminate:focus {
+  background-color: #ccbf00;
+  border-color: #ffef00;
+}
+
+.ht-tricolor.ht-form label.ht-form-file, .ht-tricolor .ht-form label.ht-form-file, .ht-form fieldset.ht-tricolor label.ht-form-file {
+  border: 1px solid #cf2200;
+  color: white;
+  background: #ff6c4f;
+}
+
+.ht-toolbar.ht-form input[type=radio]:focus,
+.ht-toolbar.ht-form input[type=checkbox]:focus, .ht-toolbar .ht-form input[type=radio]:focus,
+.ht-toolbar .ht-form input[type=checkbox]:focus, .ht-form fieldset.ht-toolbar input[type=radio]:focus,
+.ht-form fieldset.ht-toolbar input[type=checkbox]:focus {
+  border-color: #f2f2f2;
+}
+
+.ht-toolbar.ht-form input[type=radio]:checked,
+.ht-toolbar.ht-form input[type=checkbox]:checked, .ht-toolbar .ht-form input[type=radio]:checked,
+.ht-toolbar .ht-form input[type=checkbox]:checked, .ht-form fieldset.ht-toolbar input[type=radio]:checked,
+.ht-form fieldset.ht-toolbar input[type=checkbox]:checked {
+  background-color: #f2f2f2;
+}
+
+.ht-toolbar.ht-form input[type=radio]:checked:focus,
+.ht-toolbar.ht-form input[type=checkbox]:checked:focus, .ht-toolbar .ht-form input[type=radio]:checked:focus,
+.ht-toolbar .ht-form input[type=checkbox]:checked:focus, .ht-form fieldset.ht-toolbar input[type=radio]:checked:focus,
+.ht-form fieldset.ht-toolbar input[type=checkbox]:checked:focus {
+  background-color: #e0d1d1;
+  border-color: #f2f2f2;
+}
+
+.ht-toolbar.ht-form input[type=radio] input[type=checkbox]:indeterminate,
+.ht-toolbar.ht-form input[type=checkbox] input[type=checkbox]:indeterminate, .ht-toolbar .ht-form input[type=radio] input[type=checkbox]:indeterminate,
+.ht-toolbar .ht-form input[type=checkbox] input[type=checkbox]:indeterminate, .ht-form fieldset.ht-toolbar input[type=radio] input[type=checkbox]:indeterminate,
+.ht-form fieldset.ht-toolbar input[type=checkbox] input[type=checkbox]:indeterminate {
+  background-color: #f2f2f2;
+}
+
+.ht-toolbar.ht-form input[type=radio] input[type=checkbox]:indeterminate:focus,
+.ht-toolbar.ht-form input[type=checkbox] input[type=checkbox]:indeterminate:focus, .ht-toolbar .ht-form input[type=radio] input[type=checkbox]:indeterminate:focus,
+.ht-toolbar .ht-form input[type=checkbox] input[type=checkbox]:indeterminate:focus, .ht-form fieldset.ht-toolbar input[type=radio] input[type=checkbox]:indeterminate:focus,
+.ht-form fieldset.ht-toolbar input[type=checkbox] input[type=checkbox]:indeterminate:focus {
+  background-color: #e0d1d1;
+  border-color: #f2f2f2;
+}
+
+.ht-toolbar.ht-form label.ht-form-file, .ht-toolbar .ht-form label.ht-form-file, .ht-form fieldset.ht-toolbar label.ht-form-file {
+  border: 1px solid #050505;
+  color: #fbf9f9;
+  background: #444742;
+}
+
+.ht-danger.ht-form input[type=radio]:focus,
+.ht-danger.ht-form input[type=checkbox]:focus, .ht-danger .ht-form input[type=radio]:focus,
+.ht-danger .ht-form input[type=checkbox]:focus, .ht-form fieldset.ht-danger input[type=radio]:focus,
+.ht-form fieldset.ht-danger input[type=checkbox]:focus {
+  border-color: #362626;
+}
+
+.ht-danger.ht-form input[type=radio]:checked,
+.ht-danger.ht-form input[type=checkbox]:checked, .ht-danger .ht-form input[type=radio]:checked,
+.ht-danger .ht-form input[type=checkbox]:checked, .ht-form fieldset.ht-danger input[type=radio]:checked,
+.ht-form fieldset.ht-danger input[type=checkbox]:checked {
+  background-color: #362626;
+}
+
+.ht-danger.ht-form input[type=radio]:checked:focus,
+.ht-danger.ht-form input[type=checkbox]:checked:focus, .ht-danger .ht-form input[type=radio]:checked:focus,
+.ht-danger .ht-form input[type=checkbox]:checked:focus, .ht-form fieldset.ht-danger input[type=radio]:checked:focus,
+.ht-form fieldset.ht-danger input[type=checkbox]:checked:focus {
+  background-color: #1c0d0d;
+  border-color: #362626;
+}
+
+.ht-danger.ht-form input[type=radio] input[type=checkbox]:indeterminate,
+.ht-danger.ht-form input[type=checkbox] input[type=checkbox]:indeterminate, .ht-danger .ht-form input[type=radio] input[type=checkbox]:indeterminate,
+.ht-danger .ht-form input[type=checkbox] input[type=checkbox]:indeterminate, .ht-form fieldset.ht-danger input[type=radio] input[type=checkbox]:indeterminate,
+.ht-form fieldset.ht-danger input[type=checkbox] input[type=checkbox]:indeterminate {
+  background-color: #362626;
+}
+
+.ht-danger.ht-form input[type=radio] input[type=checkbox]:indeterminate:focus,
+.ht-danger.ht-form input[type=checkbox] input[type=checkbox]:indeterminate:focus, .ht-danger .ht-form input[type=radio] input[type=checkbox]:indeterminate:focus,
+.ht-danger .ht-form input[type=checkbox] input[type=checkbox]:indeterminate:focus, .ht-form fieldset.ht-danger input[type=radio] input[type=checkbox]:indeterminate:focus,
+.ht-form fieldset.ht-danger input[type=checkbox] input[type=checkbox]:indeterminate:focus {
+  background-color: #1c0d0d;
+  border-color: #362626;
+}
+
+.ht-danger.ht-form label.ht-form-file, .ht-danger .ht-form label.ht-form-file, .ht-form fieldset.ht-danger label.ht-form-file {
+  border: 1px solid #b30600;
+  color: white;
+  background: #ff3a33;
+}
+
+.ht-base.ht-form input[type=radio]:focus,
+.ht-base.ht-form input[type=checkbox]:focus, .ht-base .ht-form input[type=radio]:focus,
+.ht-base .ht-form input[type=checkbox]:focus, .ht-form fieldset.ht-base input[type=radio]:focus,
+.ht-form fieldset.ht-base input[type=checkbox]:focus {
+  border-color: #3090ff;
+}
+
+.ht-base.ht-form input[type=radio]:checked,
+.ht-base.ht-form input[type=checkbox]:checked, .ht-base .ht-form input[type=radio]:checked,
+.ht-base .ht-form input[type=checkbox]:checked, .ht-form fieldset.ht-base input[type=radio]:checked,
+.ht-form fieldset.ht-base input[type=checkbox]:checked {
+  background-color: #3090ff;
+}
+
+.ht-base.ht-form input[type=radio]:checked:focus,
+.ht-base.ht-form input[type=checkbox]:checked:focus, .ht-base .ht-form input[type=radio]:checked:focus,
+.ht-base .ht-form input[type=checkbox]:checked:focus, .ht-form fieldset.ht-base input[type=radio]:checked:focus,
+.ht-form fieldset.ht-base input[type=checkbox]:checked:focus {
+  background-color: #0075fc;
+  border-color: #3090ff;
+}
+
+.ht-base.ht-form input[type=radio] input[type=checkbox]:indeterminate,
+.ht-base.ht-form input[type=checkbox] input[type=checkbox]:indeterminate, .ht-base .ht-form input[type=radio] input[type=checkbox]:indeterminate,
+.ht-base .ht-form input[type=checkbox] input[type=checkbox]:indeterminate, .ht-form fieldset.ht-base input[type=radio] input[type=checkbox]:indeterminate,
+.ht-form fieldset.ht-base input[type=checkbox] input[type=checkbox]:indeterminate {
+  background-color: #3090ff;
+}
+
+.ht-base.ht-form input[type=radio] input[type=checkbox]:indeterminate:focus,
+.ht-base.ht-form input[type=checkbox] input[type=checkbox]:indeterminate:focus, .ht-base .ht-form input[type=radio] input[type=checkbox]:indeterminate:focus,
+.ht-base .ht-form input[type=checkbox] input[type=checkbox]:indeterminate:focus, .ht-form fieldset.ht-base input[type=radio] input[type=checkbox]:indeterminate:focus,
+.ht-form fieldset.ht-base input[type=checkbox] input[type=checkbox]:indeterminate:focus {
+  background-color: #0075fc;
+  border-color: #3090ff;
+}
+
+.ht-base.ht-form label.ht-form-file, .ht-base .ht-form label.ht-form-file, .ht-form fieldset.ht-base label.ht-form-file {
+  border: 1px solid #bcbc9d;
+  color: #080805;
+  background: #f0f0e9;
+}
+
 /* HT-Loading scss 1.0.0 */
 /* Copyright (c) 2021 Hentech under MIT Lisence */
 /* 
@@ -4882,6 +5513,13 @@ a.ht-base.uk-link-muted.uk-icon:focus, a.ht-base.uk-link-muted .uk-icon:active, 
       ontouch: User touches or cursor is on
       dent: Used when view type is signboard
       text: Text color
+
+  Form:
+    input: Background color for input areas but it is recomended not to change from white
+    dent: Impless there is a dent which is used for border
+    disabled: Background color disabled input area
+    text: Text color in input area
+    text-muted: Used for placeholder in input area
  */
 /* 
  * base
@@ -4908,13 +5546,16 @@ a.ht-base.uk-link-muted.uk-icon:focus, a.ht-base.uk-link-muted .uk-icon:active, 
  * accent
  */
 /* 
-  * infomation
-  */
+ * infomation
+ */
 /* 
  * warning
  */
 /* 
  * error
+ */
+/* 
+ * form
  */
 /* 
  * _layout.scss: Defines window breakpoint and indent size 
@@ -4948,7 +5589,7 @@ a.ht-base.uk-link-muted.uk-icon:focus, a.ht-base.uk-link-muted .uk-icon:active, 
   left: 0;
   height: 100vh;
   width: 100vw;
-  z-index: 970;
+  z-index: 990;
   background-color: rgba(0, 0, 0, 0.4);
 }
 
@@ -4956,6 +5597,10 @@ a.ht-base.uk-link-muted.uk-icon:focus, a.ht-base.uk-link-muted .uk-icon:active, 
   position: relative;
   height: 100%;
   width: 100%;
+}
+
+.ht-overlay:not(.ht-overlay-active) {
+  display: none;
 }
 
 .ht-loading {
@@ -5128,6 +5773,13 @@ a.ht-base.uk-link-muted.uk-icon:focus, a.ht-base.uk-link-muted .uk-icon:active, 
       ontouch: User touches or cursor is on
       dent: Used when view type is signboard
       text: Text color
+
+  Form:
+    input: Background color for input areas but it is recomended not to change from white
+    dent: Impless there is a dent which is used for border
+    disabled: Background color disabled input area
+    text: Text color in input area
+    text-muted: Used for placeholder in input area
  */
 /* 
  * base
@@ -5154,13 +5806,16 @@ a.ht-base.uk-link-muted.uk-icon:focus, a.ht-base.uk-link-muted .uk-icon:active, 
  * accent
  */
 /* 
-  * infomation
-  */
+ * infomation
+ */
 /* 
  * warning
  */
 /* 
  * error
+ */
+/* 
+ * form
  */
 /* 
  * _layout.scss: Defines window breakpoint and indent size 
@@ -5329,7 +5984,7 @@ nav p, .ht-navbar p {
 }
 
 .ht-navbar-logo.ht-toolbar a, .ht-navbar-logo.ht-toolbar .uk-link, .ht-toolbar .ht-navbar-logo a, .ht-toolbar .ht-navbar-logo .uk-link {
-  color: #f2f2f2;
+  color: #ccc2c2;
 }
 
 @media screen and (max-width: 480px) {
@@ -5429,6 +6084,13 @@ nav p, .ht-navbar p {
       ontouch: User touches or cursor is on
       dent: Used when view type is signboard
       text: Text color
+
+  Form:
+    input: Background color for input areas but it is recomended not to change from white
+    dent: Impless there is a dent which is used for border
+    disabled: Background color disabled input area
+    text: Text color in input area
+    text-muted: Used for placeholder in input area
  */
 /* 
  * base
@@ -5455,13 +6117,16 @@ nav p, .ht-navbar p {
  * accent
  */
 /* 
-  * infomation
-  */
+ * infomation
+ */
 /* 
  * warning
  */
 /* 
  * error
+ */
+/* 
+ * form
  */
 /* 
  * _layout.scss: Defines window breakpoint and indent size 
@@ -5485,6 +6150,16 @@ nav p, .ht-navbar p {
 /* ========================================================================
    Component: Telop
  ========================================================================== */
+@keyframes ht-telop-add {
+  0% {
+    opacity: 0;
+    transform: rotateX(-45deg);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .ht-telop-container {
   width: 100%;
 }
@@ -5496,6 +6171,7 @@ nav p, .ht-navbar p {
   padding-block-end: 1rem;
   padding-inline-start: 25px;
   padding-inline-end: 25px;
+  animation: ht-telop-add 0.3s linear 0s;
 }
 
 .ht-telop-container .ht-telop-info {
@@ -5680,6 +6356,13 @@ nav p, .ht-navbar p {
       ontouch: User touches or cursor is on
       dent: Used when view type is signboard
       text: Text color
+
+  Form:
+    input: Background color for input areas but it is recomended not to change from white
+    dent: Impless there is a dent which is used for border
+    disabled: Background color disabled input area
+    text: Text color in input area
+    text-muted: Used for placeholder in input area
  */
 /* 
  * base
@@ -5706,13 +6389,16 @@ nav p, .ht-navbar p {
  * accent
  */
 /* 
-  * infomation
-  */
+ * infomation
+ */
 /* 
  * warning
  */
 /* 
  * error
+ */
+/* 
+ * form
  */
 /* 
  * _layout.scss: Defines window breakpoint and indent size 

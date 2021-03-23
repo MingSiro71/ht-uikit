@@ -1,0 +1,1523 @@
+<!-- Form:
+  ht-uikit-form supports input type:
+    button
+    checkbox
+    color
+    date
+    email
+    file
+    month
+    number
+    password
+    radio
+    range
+    search
+    submit
+    tel
+    text
+    time
+    url
+  and:
+    select
+    textarea
+
+  Group elements
+    form: Required: Has ht-form in class list and make form layout 
+    fieldset: Optional: Is able to group input elements
+      default: Make a group of questions
+      selection: Make a group as a question includes elements like radio
+      selection-horizontal: Make a group as a question arraging elements horizontally
+    legend: Expected for each fieldset: Works as the title
+
+    Fieldset has different role between default form and multidata form
+    In multidata form, fieldset is required to recognize 
+    a series of inputs element for a data
+
+    Layout patters for checkbox and radio:
+      (default):
+        Each of input element takes margin after them
+        Supposed that label is after element
+      side-by-side:
+        Each of input element is located at the right side of container
+
+  Sizing:
+    (default):
+    small:
+    large:
+
+    Sizing defines only height and inner size
+    Width is always 100% as long as you define in other class
+    Or bound with container
+
+  Instructon: Add instluction after label
+    required: Add "- Reauired"
+    optional: Add "- Optional"
+    Using instruction, label should not nest other form element
+    Instruction can be applied to:
+      checkbox
+      color
+      date
+      email
+      file
+      month
+      number
+      password
+      radio
+      range
+      tel
+      text
+      time
+      url
+      select
+      textarea
+
+  Object:
+    star: Locate star before or after input as if it is a parts of form
+    icon: Locate custom icon before or after input as if it is a parts of form
+
+    To use object, wrap input element and them by label to indecate
+    the objects' owner element, which can be hidden label
+    Object can be applied to:
+      color
+      date
+      email
+      month
+      number
+      password
+      tel
+      text
+      time
+      url
+      select
+    Only star object can be applyed to:
+      checkbox
+      file
+      radio
+      textarea
+    with specificated view
+    Checkbox and radio are need different way to equip star
+
+  Discription:
+    You can display discription after label with .ht-form-discription
+    this only works in default form (does not work in multidata form)
+
+  Show warning:
+    Adding .ht-form-warning to label, input element in or after it,
+    is colored by warning color
+    Warning can be applyed to:
+      checkbox
+      date
+      email
+      file
+      month
+      number
+      password
+      radio
+      tel
+      text
+      time
+      url
+      select
+      textarea
+
+  Note that in ht-uikit-form, file input depends on and shaped by label
+  If you need to display label to file input, use fieldset with .ht-form-selection
+  and legend for real label in addition to fake:functional label
+  which contains the class .ht-form-file
+  To display file name attached, use javascript
+
+  Width-fixed object such as button and color can not be labeled wrap-style label with pure text
+  You should use separate label and "for" attribute or use <text> for label text
+  
+  To label radio and checkbox, You should wrap label text with <text>
+  or use sepalate label not to let margin collapse
+-->
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta property="og:title" content="HT-UIKit | Form">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.ht-uikit.com/form.html">
+  <meta property="og:image" content="https://www.ht-uikit.com/image/form_ogp.png">
+  <meta property="og:site_name" content="HT-UIKit">
+  <meta property="og:description" content="Customized UIKit by Hentech">
+
+  <link rel="stylesheet" href="../compiled/ht-uikit.css">
+
+  <title>HT-UIKit | Form</title>
+</head>
+
+<body>
+  <header class="ht-navbar-container ht-navbar-container-sticky">
+    <nav>
+      <div class="ht-navbar-left ht-navbar-logo">
+        <a href="/">
+          <img src="../asset/image/niwatori.png" alt="cook doodle doo!" style="height: 36px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34"
+            xlink:href="data：image/png;">
+            <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 " />
+            <path fill="#000"
+              d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z" />
+          </svg>
+          <text>HT-UIkit<text>
+        </a>
+      </div>
+      <div class="ht-navbar-center ht-optionfor-notebook">
+        <p>Text on the center</p>
+      </div>
+      <div class="ht-navbar-right">
+        <ul class="ht-navbar-navigation ht-optionfor-mobile-landscape">
+          <li class="uk-active"><a href="#">Active</a></li>
+          <li class=""><a href="#">Item</a></li>
+          <li class=""><a href="#">Item</a></li>
+          <li class=""><a href="#">Item</a></li>
+        </ul>
+        <button class="uk-button">Button</button>
+      </div>
+    </nav>
+  </header>
+  <!-- Set main content next to navbar! Do not locate other object! -->
+  <section>
+    <p>Default form</p>
+    <form class="ht-form">
+      <input type="button" value="Button">
+      <fieldset class="ht-form-selection">
+        <input type="checkbox">
+        <input type="checkbox">
+      </fieldset>
+      <fieldset class="ht-form-selection-horizontal">
+        <input type="checkbox">
+        <input type="checkbox">
+      </fieldset>
+      <input type="color" value="#303030">
+      <input type="date">
+      <input type="email" placeholder="email">
+      <fieldset class="ht-form-selection">
+        <label class="ht-form-file">Select file<input type="file"></label>
+      </fieldset>
+      <input type="month">
+      <input type="number" placeholder="0">
+      <input type="password" placeholder="password">
+      <fieldset class="ht-form-selection">
+        <input type="radio" name="radio-1">
+        <input type="radio" name="radio-1">
+      </fieldset>
+      <fieldset class="ht-form-selection-horizontal">
+        <input type="radio" name="radio-2">
+        <input type="radio" name="radio-2">
+      </fieldset>
+      <input type="range" min="0" max="100" value="50" step="5">
+      <input type="search" placeholder="search">
+      <input type="submit" value="Submit">
+      <input type="tel" placeholder="tel">
+      <input type="text" placeholder="text">
+      <input type="time">
+      <input type="url" placeholder="https://url">
+      <select>
+        <option hidden>Select Option</option>
+        <optgroup>
+          <option value="Option-1">Option 1</option>
+          <option value="Option-2">Option 2</option>
+        </optgroup>
+      </select>
+      <textarea placeholder="textarea"></textarea>
+    </form>
+  </section>
+  <section>
+    <p>Labeled form</p>
+    <form class="ht-form">
+      <label>
+        <text>Button</text>
+        <input type="button" value="Button">
+      </label>
+      <fieldset class="ht-form-selection">
+        <legend>Checkboxes with label after input</legend>
+        <label><input type="checkbox">Jhon is</label>
+        <label><input type="checkbox">Tobby is</label>
+      </fieldset>
+      <fieldset class="ht-form-selection ht-form-selection-sidebyside">
+        <legend>Checkboxes side by side layout left label</legend>
+        <label>Jhon is<input type="checkbox"></label>
+        <label>Tobby is<input type="checkbox"></label>
+      </fieldset>
+      <fieldset class="ht-form-selection-horizontal">
+        <legend>Checkboxes with label after input</legend>
+        <label><input type="checkbox">Jhon is</label>
+        <label><input type="checkbox">Tobby is</label>
+      </fieldset>
+      <label>
+        <text>Color</text>
+        <input type="color" value="#303030">
+      </label>
+      <label>
+        Date
+        <input type="date">
+      </label>
+      <label>
+        Email
+        <input type="email" placeholder="email">
+      </label>
+      <fieldset class="ht-form-selection">
+        <legend>File</legend>
+        <label class="ht-form-file">Select file<input type="file"></label>
+      </fieldset>
+      <label>
+        Month
+        <input type="month">
+      </label>
+      <label>
+        Number
+        <input type="number" placeholder="0">
+      </label>
+      <label>
+        Password
+        <input type="password" placeholder="password">
+      </label>
+      <fieldset class="ht-form-selection">
+        <legend>Radios with label after input</legend>
+        <label><input type="radio">Jhon is</label>
+        <label><input type="radio">Tobby is</label>
+      </fieldset>
+      <fieldset class="ht-form-selection ht-form-selection-sidebyside">
+        <legend>Radios side by side layout left label</legend>
+        <label>Jhon is<input type="radio"></label>
+        <label>Tobby is<input type="radio"></label>
+      </fieldset>
+      <fieldset class="ht-form-selection-horizontal">
+        <legend>Radios with label after input</legend>
+        <label><input type="radio">Jhon is</label>
+        <label><input type="radio">Tobby is</label>
+      </fieldset>
+      <label>
+        Range
+        <input type="range" min="0" max="100" value="50" step="5">
+      </label>
+      <label>
+        Search
+        <input type="search" placeholder="search">
+      </label>
+      <label>
+        <text>Submit</text>
+        <input type="submit" value="Submit">
+      </label>
+      <label>
+        Tel
+        <input type="tel" placeholder="tel">
+      </label>
+      <label>
+        Text
+        <input type="text" placeholder="text">
+      </label>
+      <label>
+        Time
+        <input type="time">
+      </label>
+      <label>
+        URL
+        <input type="url" placeholder="https://url">
+      </label>
+      <label>
+        Select
+        <select>
+          <option hidden>Select Option</option>
+          <optgroup>
+            <option value="Option-1">Option 1</option>
+            <option value="Option-2">Option 2</option>
+          </optgroup>
+        </select>
+      </label>
+      <label>
+        Textarea
+        <textarea placeholder="textarea"></textarea>
+      </label>
+    </form>
+  </section>
+  <section>
+    <p>Label and legend</p>
+    <form class="ht-form">
+      <fieldset>
+        <legend>Legend</legend>
+        <label>
+          <text>Button</text>
+          <input type="button" value="Button">
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>Legend</legend>
+        <fieldset class="ht-form-selection">
+          <legend>Checkboxes with label after input</legend>
+          <label><input type="checkbox">Jhon is</label>
+          <label><input type="checkbox">Tobby is</label>
+        </fieldset>
+        <fieldset class="ht-form-selection ht-form-selection-sidebyside">
+          <legend>Checkboxes side by side layout left label</legend>
+          <label>Jhon is<input type="checkbox"></label>
+          <label>Tobby is<input type="checkbox"></label>
+        </fieldset>
+        <fieldset class="ht-form-selection-horizontal">
+          <legend>Checkboxes with label after input</legend>
+          <label><input type="checkbox">Jhon is</label>
+          <label><input type="checkbox">Tobby is</label>
+        </fieldset>
+      </fieldset>
+      <fieldset>
+        <legend>Legend</legend>
+        <label>
+          <text>Color</text>
+          <input type="color" value="#303030">
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>Legend</legend>
+        <label>
+          Date
+          <input type="date">
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>Legend</legend>
+        <label>
+          Email
+          <input type="email" placeholder="email">
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>Legend</legend>
+        <fieldset class="ht-form-selection">
+          <legend>File</legend>
+          <label class="ht-form-file">Select file<input type="file"></label>
+        </fieldset>
+      </fieldset>
+      <fieldset>
+        <legend>Legend</legend>
+        <label>
+          Month
+          <input type="month">
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>Legend</legend>
+        <label>
+          Number
+          <input type="number" placeholder="0">
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>Legend</legend>
+        <label>
+          Password
+          <input type="password" placeholder="password">
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>Legend</legend>
+        <fieldset class="ht-form-selection">
+          <legend>Radios with label after input</legend>
+          <label><input type="radio">Jhon is</label>
+          <label><input type="radio">Tobby is</label>
+        </fieldset>
+        <fieldset class="ht-form-selection ht-form-selection-sidebyside">
+          <legend>Radios side by side layout left label</legend>
+          <label>Jhon is<input type="radio"></label>
+          <label>Tobby is<input type="radio"></label>
+        </fieldset>
+        <fieldset class="ht-form-selection-horizontal">
+          <legend>Radios with label after input</legend>
+          <label><input type="radio">Jhon is</label>
+          <label><input type="radio">Tobby is</label>
+        </fieldset>
+      </fieldset>
+      <fieldset>
+        <legend>Legend</legend>
+        <label>
+          Range
+          <input type="range" min="0" max="100" value="50" step="5">
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>Legend</legend>
+        <label>
+          Search
+          <input type="search" placeholder="search">
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>Legend</legend>
+        <label>
+          <text>Submit</text>
+          <input type="submit" value="Submit">
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>Legend</legend>
+        <label>
+          Tel
+          <input type="tel" placeholder="tel">
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>Legend</legend>
+        <label>
+          Text
+          <input type="text" placeholder="text">
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>Legend</legend>
+        <label>
+          Time
+          <input type="time">
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>Legend</legend>
+        <label>
+          URL
+          <input type="url" placeholder="https://url">
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>Legend</legend>
+        <label>
+          Select
+          <select>
+            <option hidden>Select Option</option>
+            <optgroup>
+              <option value="Option-1">Option 1</option>
+              <option value="Option-2">Option 2</option>
+            </optgroup>
+          </select>
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>Legend</legend>
+        <label>
+          Textarea
+          <textarea placeholder="textarea"></textarea>
+        </label>
+      </fieldset>
+    </form>
+  </section>
+  <section>
+    <p>Separate label</p>
+    <form class="ht-form">
+      <label>Button</label>
+      <input type="button" value="Button">
+      <fieldset class="ht-form-selection">
+        <legend>Checkboxes with label after input</legend>
+        <label><input type="checkbox">Jhon is</label>
+        <label><input type="checkbox">Tobby is</label>
+      </fieldset>
+      <fieldset class="ht-form-selection ht-form-selection-sidebyside">
+        <legend>Checkboxes side by side layout left label</legend>
+        <label>Jhon is<input type="checkbox"></label>
+        <label>Tobby is<input type="checkbox"></label>
+      </fieldset>
+      <fieldset class="ht-form-selection-horizontal">
+        <legend>Checkboxes with label after input</legend>
+        <label><input type="checkbox">Jhon is</label>
+        <label><input type="checkbox">Tobby is</label>
+      </fieldset>
+      <label>Color</label>
+      <input type="color" value="#303030">
+      <label>Date</label>
+      <input type="date">
+      <label>Email</label>
+      <input type="email" placeholder="email">
+      <fieldset class="ht-form-selection">
+        <legend>File</legend>
+        <label class="ht-form-file">Select file</label><input type="file">
+      </fieldset>
+      <label>Month</label>
+      <input type="month">
+      <label>Number</label>
+      <input type="number" placeholder="0">
+      <label>Password</label>
+      <input type="password" placeholder="password">
+      <fieldset class="ht-form-selection">
+        <legend>Radios with label after input</legend>
+        <label><input type="radio">Jhon is</label>
+        <label><input type="radio">Tobby is</label>
+      </fieldset>
+      <fieldset class="ht-form-selection ht-form-selection-sidebyside">
+        <legend>Radios side by side layout left label</legend>
+        <label>Jhon is<input type="radio"></label>
+        <label>Tobby is<input type="radio"></label>
+      </fieldset>
+      <fieldset class="ht-form-selection-horizontal">
+        <legend>Radios with label after input</legend>
+        <label><input type="radio">Jhon is</label>
+        <label><input type="radio">Tobby is</label>
+      </fieldset>
+      <label>Range</label>
+      <input type="range" min="0" max="100" value="50" step="5">
+      <label>Search</label>
+      <input type="search" placeholder="search">
+      <label>Submit</label>
+      <input type="submit" value="Submit">
+      <label>Tel</label>
+      <input type="tel" placeholder="tel">
+      <label>Text</label>
+      <input type="text" placeholder="text">
+      <label>Time</label>
+      <input type="time">
+      <label>URL</label>
+      <input type="url" placeholder="https://url">
+      <label>Select</label>
+      <select>
+        <option hidden>Select Option</option>
+        <optgroup>
+          <option value="Option-1">Option 1</option>
+          <option value="Option-2">Option 2</option>
+        </optgroup>
+      </select>
+      <label>Textarea</label>
+      <textarea placeholder="textarea"></textarea>
+    </form>
+  </section>
+  <section>
+    <p>Discription</p>
+    <form class="ht-form">
+      <label>
+        <text>Button</text>
+        <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <input type="button" value="Button">
+      </label>
+      <fieldset class="ht-form-selection">
+        <legend>Checkboxes with label after input</legend>
+        <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <label><input type="checkbox">Jhon is</label>
+        <label><input type="checkbox">Tobby is</label>
+      </fieldset>
+      <fieldset class="ht-form-selection ht-form-selection-sidebyside">
+        <legend>Checkboxes side by side layout left label</legend>
+        <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <label>Jhon is<input type="checkbox"></label>
+        <label>Tobby is<input type="checkbox"></label>
+      </fieldset>
+      <fieldset class="ht-form-selection-horizontal">
+        <legend>Checkboxes with label after input</legend>
+        <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <label><input type="checkbox">Jhon is</label>
+        <label><input type="checkbox">Tobby is</label>
+      </fieldset>
+      <label>
+        Color
+        <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <input type="color" value="#303030">
+      </label>
+      <label>
+        Date
+        <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <input type="date">
+      </label>
+      <label>
+        Email
+        <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <input type="email" placeholder="email">
+      </label>
+      <fieldset class="ht-form-selection">
+        <legend>File</legend>
+        <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <label class="ht-form-file">Select file<input type="file"></label>
+      </fieldset>
+      <label>
+        Month
+        <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <input type="month">
+      </label>
+      <label>
+        Number
+        <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <input type="number" placeholder="0">
+      </label>
+      <label>
+        Password
+        <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <input type="password" placeholder="password">
+      </label>
+      <fieldset class="ht-form-selection">
+        <legend>Radios with label after input</legend>
+        <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <label><input type="radio">Jhon is</label>
+        <label><input type="radio">Tobby is</label>
+      </fieldset>
+      <fieldset class="ht-form-selection ht-form-selection-sidebyside">
+        <legend>Radios side by side layout left label</legend>
+        <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <label>Jhon is<input type="radio"></label>
+        <label>Tobby is<input type="radio"></label>
+      </fieldset>
+      <fieldset class="ht-form-selection-horizontal">
+        <legend>Radios with label after input</legend>
+        <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <label><input type="radio">Jhon is</label>
+        <label><input type="radio">Tobby is</label>
+      </fieldset>
+      <label>
+        Range
+        <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <input type="range" min="0" max="100" value="50" step="5">
+      </label>
+      <label>
+        Search
+        <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <input type="search" placeholder="search">
+      </label>
+      <label>
+        <text>Submit</text>
+        <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <input type="submit" value="Submit">
+      </label>
+      <label>
+        Tel
+        <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <input type="tel" placeholder="tel">
+      </label>
+      <label>
+        Text
+        <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <input type="text" placeholder="text">
+      </label>
+      <label>
+        Time
+        <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <input type="time">
+      </label>
+      <label>
+        URL
+        <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <input type="url" placeholder="https://url">
+      </label>
+      <label>
+        Select
+        <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <select>
+          <option hidden>Select Option</option>
+          <optgroup>
+            <option value="Option-1">Option 1</option>
+            <option value="Option-2">Option 2</option>
+          </optgroup>
+        </select>
+      </label>
+      <label>
+        Textarea
+        <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <textarea placeholder="textarea"></textarea>
+      </label>
+    </form>
+  </section>
+  <section>
+    <p>Discription with separate label</p>
+    <form class="ht-form">
+      <label>Button</label>
+      <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+      <input type="button" value="Button">
+      <fieldset class="ht-form-selection">
+        <legend>Checkboxes with label after input</legend>
+        <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <label><input type="checkbox">Jhon is</label>
+        <label><input type="checkbox">Tobby is</label>
+      </fieldset>
+      <fieldset class="ht-form-selection ht-form-selection-sidebyside">
+        <legend>Checkboxes side by side layout left label</legend>
+        <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <label>Jhon is<input type="checkbox"></label>
+        <label>Tobby is<input type="checkbox"></label>
+      </fieldset>
+      <fieldset class="ht-form-selection-horizontal">
+        <legend>Checkboxes with label after input</legend>
+        <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <label><input type="checkbox">Jhon is</label>
+        <label><input type="checkbox">Tobby is</label>
+      </fieldset>
+      <label>Color</label>
+      <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+      <input type="color" value="#303030">
+      <label>Date</label>
+      <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+      <input type="date">
+      <label>Email</label>
+      <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+      <input type="email" placeholder="email">
+      <fieldset class="ht-form-selection">
+        <legend>File</legend>
+        <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <label class="ht-form-file">Select file</label><input type="file">
+      </fieldset>
+      <label>Month</label>
+      <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+      <input type="month">
+      <label>Number</label>
+      <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+      <input type="number" placeholder="0">
+      <label>Password</label>
+      <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+      <input type="password" placeholder="password">
+      <fieldset class="ht-form-selection">
+        <legend>Radios with label after input</legend>
+        <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <label><input type="radio">Jhon is</label>
+        <label><input type="radio">Tobby is</label>
+      </fieldset>
+      <fieldset class="ht-form-selection ht-form-selection-sidebyside">
+        <legend>Radios side by side layout left label</legend>
+        <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <label>Jhon is<input type="radio"></label>
+        <label>Tobby is<input type="radio"></label>
+      </fieldset>
+      <fieldset class="ht-form-selection-horizontal">
+        <legend>Radios with label after input</legend>
+        <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <label><input type="radio">Jhon is</label>
+        <label><input type="radio">Tobby is</label>
+      </fieldset>
+      <label>Range</label>
+      <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+      <input type="range" min="0" max="100" value="50" step="5">
+      <label>Search</label>
+      <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+      <input type="search" placeholder="search">
+      <label>Submit</label>
+      <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+      <input type="submit" value="Submit">
+      <label>Tel</label>
+      <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+      <input type="tel" placeholder="tel">
+      <label>Text</label>
+      <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+      <input type="text" placeholder="text">
+      <label>Time</label>
+      <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+      <input type="time">
+      <label>URL</label>
+      <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+      <input type="url" placeholder="https://url">
+      <label>Select</label>
+      <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+      <select>
+        <option hidden>Select Option</option>
+        <optgroup>
+          <option value="Option-1">Option 1</option>
+          <option value="Option-2">Option 2</option>
+        </optgroup>
+      </select>
+      <label>Textarea</label>
+      <p class="ht-form-discription">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+      <textarea placeholder="textarea"></textarea>
+    </form>
+  </section>
+  <section>
+    <p>Small form</p>
+    <form class="ht-form ht-form-small">
+      <input type="button" value="Button">
+      <fieldset class="ht-form-selection">
+        <label><input type="checkbox">Jhon is</label>
+        <label><input type="checkbox">Tobby is</label>
+      </fieldset>
+      <fieldset class="ht-form-selection ht-form-selection-sidebyside">
+        <label>Jhon is<input type="checkbox"></label>
+        <label>Tobby is<input type="checkbox"></label>
+      </fieldset>
+      <fieldset class="ht-form-selection-horizontal">
+        <label><input type="checkbox">Jhon is</label>
+        <label><input type="checkbox">Tobby is</label>
+      </fieldset>
+      <input type="color" value="#303030">
+      <input type="date">
+      <input type="email" placeholder="email">
+      <fieldset class="ht-form-selection">
+        <label class="ht-form-file">Select file<input type="file"></label>
+      </fieldset>
+      <input type="month">
+      <input type="number" placeholder="0">
+      <input type="password" placeholder="password">
+      <fieldset class="ht-form-selection">
+        <label><input type="radio">Jhon is</label>
+        <label><input type="radio">Tobby is</label>
+      </fieldset>
+      <fieldset class="ht-form-selection ht-form-selection-sidebyside">
+        <label>Jhon is<input type="radio"></label>
+        <label>Tobby is<input type="radio"></label>
+      </fieldset>
+      <fieldset class="ht-form-selection-horizontal">
+        <label><input type="radio">Jhon is</label>
+        <label><input type="radio">Tobby is</label>
+      </fieldset>
+      <input type="range" min="0" max="100" value="50" step="5">
+      <input type="search" placeholder="search">
+      <input type="submit" value="Submit">
+      <input type="tel" placeholder="tel">
+      <input type="text" placeholder="text">
+      <input type="time">
+      <input type="url" placeholder="https://url">
+      <select>
+        <option hidden>Select Option</option>
+        <optgroup>
+          <option value="Option-1">Option 1</option>
+          <option value="Option-2">Option 2</option>
+        </optgroup>
+      </select>
+      <textarea placeholder="textarea"></textarea>
+    </form>
+  </section>
+  <section>
+    <p>Large form</p>
+    <form class="ht-form ht-form-large">
+      <input type="button" value="Button">
+      <fieldset class="ht-form-selection">
+        <label><input type="checkbox">Jhon is</label>
+        <label><input type="checkbox">Tobby is</label>
+      </fieldset>
+      <fieldset class="ht-form-selection ht-form-selection-sidebyside">
+        <label>Jhon is<input type="checkbox"></label>
+        <label>Tobby is<input type="checkbox"></label>
+      </fieldset>
+      <fieldset class="ht-form-selection-horizontal">
+        <label><input type="checkbox">Jhon is</label>
+        <label><input type="checkbox">Tobby is</label>
+      </fieldset>
+      <input type="color" value="#303030">
+      <input type="date">
+      <input type="email" placeholder="email">
+      <fieldset class="ht-form-selection">
+        <label class="ht-form-file">Select file<input type="file"></label>
+      </fieldset>
+      <input type="month">
+      <input type="number" placeholder="0">
+      <input type="password" placeholder="password">
+      <fieldset class="ht-form-selection">
+        <label><input type="radio">Jhon is</label>
+        <label><input type="radio">Tobby is</label>
+      </fieldset>
+      <fieldset class="ht-form-selection ht-form-selection-sidebyside">
+        <label>Jhon is<input type="radio"></label>
+        <label>Tobby is<input type="radio"></label>
+      </fieldset>
+      <fieldset class="ht-form-selection-horizontal">
+        <label><input type="radio">Jhon is</label>
+        <label><input type="radio">Tobby is</label>
+      </fieldset>
+      <input type="range" min="0" max="100" value="50" step="5">
+      <input type="search" placeholder="search">
+      <input type="submit" value="Submit">
+      <input type="tel" placeholder="tel">
+      <input type="text" placeholder="text">
+      <input type="time">
+      <input type="url" placeholder="https://url">
+      <select>
+        <option hidden>Select Option</option>
+        <optgroup>
+          <option value="Option-1">Option 1</option>
+          <option value="Option-2">Option 2</option>
+        </optgroup>
+      </select>
+      <textarea placeholder="textarea"></textarea>
+    </form>
+  </section>
+  <section>
+    <p>Label with required notice and legend</p>
+    <form class="ht-form">
+      <fieldset>
+        <legend>Legend</legend>
+        <label class="ht-form-instruction-required">Text</label>
+        <input type="text" placeholder="text">
+      </fieldset>
+      <fieldset>
+        <legend>Legend</legend>
+        <fieldset class="ht-form-selection">
+          <legend class="ht-form-instruction-required">Checkboxes with label after input</legend>
+          <label><input type="checkbox">Jhon is</label>
+          <label><input type="checkbox">Tobby is</label>
+        </fieldset>
+        <fieldset class="ht-form-selection ht-form-selection-sidebyside">
+          <legend class="ht-form-instruction-required">Checkboxes side by side layout left label</legend>
+          <label>Jhon is<input type="checkbox"></label>
+          <label>Tobby is<input type="checkbox"></label>
+        </fieldset>
+        <fieldset class="ht-form-selection-horizontal">
+          <legend class="ht-form-instruction-required">Checkboxes with label after input</legend>
+          <label><input type="checkbox">Jhon is</label>
+          <label><input type="checkbox">Tobby is</label>
+        </fieldset>
+      <fieldset>
+        <legend>Legend</legend>
+        <fieldset class="ht-form-selection">
+          <legend class="ht-form-instruction-required">File</legend>
+          <label class="ht-form-file">Select file<input type="file"></label>
+        </fieldset>
+      </fieldset>
+      <fieldset>
+        <legend>Legend</legend>
+        <label class="ht-form-instruction-required">Select</label>
+        <select>
+          <option hidden>Select Option</option>
+          <optgroup>
+            <option value="Option-1">Option 1</option>
+            <option value="Option-2">Option 2</option>
+          </optgroup>
+        </select>
+      </fieldset>
+      <fieldset>
+        <legend>Legend</legend>
+        <label class="ht-form-instruction-required">Textarea</label>
+        <textarea placeholder="textarea"></textarea>
+      </fieldset>
+    </form>
+  </section>
+  <section>
+    <p>Label with optional notice and legend</p>
+    <form class="ht-form">
+      <fieldset>
+        <legend>Legend</legend>
+        <label class="ht-form-instruction-optional">Text</label>
+        <input type="text" placeholder="text">
+      </fieldset>
+      <fieldset>
+        <legend>Legend</legend>
+        <fieldset class="ht-form-selection">
+          <legend class="ht-form-instruction-optional">Checkboxes with label after input</legend>
+          <label><input type="checkbox">Jhon is</label>
+          <label><input type="checkbox">Tobby is</label>
+        </fieldset>
+        <fieldset class="ht-form-selection ht-form-selection-sidebyside">
+          <legend class="ht-form-instruction-optional">Checkboxes side by side layout left label</legend>
+          <label>Jhon is<input type="checkbox"></label>
+          <label>Tobby is<input type="checkbox"></label>
+        </fieldset>
+        <fieldset class="ht-form-selection-horizontal">
+          <legend class="ht-form-instruction-optional">Checkboxes with label after input</legend>
+          <label><input type="checkbox">Jhon is</label>
+          <label><input type="checkbox">Tobby is</label>
+        </fieldset>
+      </fieldset>
+      <fieldset>
+        <legend>Legend</legend>
+        <fieldset class="ht-form-selection">
+          <legend class="ht-form-instruction-optional">File</legend>
+          <label class="ht-form-file">Select file<input type="file"></label>
+        </fieldset>
+      </fieldset>
+      <fieldset>
+        <legend>Legend</legend>
+        <label class="ht-form-instruction-optional">Select</label>
+        <select>
+          <option hidden>Select Option</option>
+          <optgroup>
+            <option value="Option-1">Option 1</option>
+            <option value="Option-2">Option 2</option>
+          </optgroup>
+        </select>
+      </fieldset>
+      <fieldset>
+        <legend>Legend</legend>
+        <label class="ht-form-instruction-optional">Textarea</label>
+        <textarea placeholder="textarea"></textarea>
+      </fieldset>
+    </form>
+  </section>
+  <section>
+    <p>Object</p>
+    <form class="ht-form">
+      <fieldset class="ht-form-selection">
+        <legend>Checkboxes with label after input</legend>
+        <label><input type="checkbox">Jhon is</label>
+        <label><input type="checkbox">Tobby is</label>
+        <div class="ht-form-object"><div class="ht-form-object-star"></div></div>
+      </fieldset>
+      <fieldset class="ht-form-selection ht-form-selection-sidebyside">
+        <legend>Checkboxes side by side layout left label</legend>
+        <label>Jhon is<input type="checkbox"></label>
+        <label>Tobby is<input type="checkbox"></label>
+        <div class="ht-form-object"><div class="ht-form-object-star"></div></div>
+      </fieldset>
+      <fieldset class="ht-form-selection-horizontal">
+        <legend>Checkboxes with label after input</legend>
+        <label><input type="checkbox">Jhon is</label>
+        <label><input type="checkbox">Tobby is</label>
+        <div class="ht-form-object"><div class="ht-form-object-star"></div></div>
+      </fieldset>
+      <label>
+        Color
+        <div class="ht-form-object">
+          <div class="ht-form-object-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </div>
+          <input type="color" value="#303030">
+          <div class="ht-form-object-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </div>
+          <div class="ht-form-object-star"></div>
+        </div>
+      </label>
+      <label>
+        Date
+        <div class="ht-form-object">
+          <div class="ht-form-object-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </div>
+          <input type="date">
+          <div class="ht-form-object-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </div>
+          <div class="ht-form-object-star"></div>
+        </div>
+      </label>
+      <label>
+        Email
+        <div class="ht-form-object">
+          <div class="ht-form-object-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </div>
+          <input type="email" placeholder="email">
+          <div class="ht-form-object-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </div>
+          <div class="ht-form-object-star"></div>
+        </div>
+      </label>
+      <fieldset class="ht-form-selection">
+        <legend>File</legend>
+        <div class="ht-form-object">
+          <label class="ht-form-file">
+            Select file<input type="file">
+          </label>
+          <div class="ht-form-object-star"></div>
+        </div>
+      </fieldset>
+      <label>
+        Month
+        <div class="ht-form-object">
+          <div class="ht-form-object-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </div>
+          <input type="month">
+          <div class="ht-form-object-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </div>
+          <div class="ht-form-object-star"></div>
+        </div>
+      </label>
+      <label>
+        Number
+        <div class="ht-form-object">
+          <div class="ht-form-object-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </div>
+          <input type="number" placeholder="0">
+          <div class="ht-form-object-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </div>
+          <div class="ht-form-object-star"></div>
+        </div>
+      </label>
+      <label>
+        Password
+        <div class="ht-form-object">
+          <div class="ht-form-object-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </div>
+          <input type="password" placeholder="password">
+          <div class="ht-form-object-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </div>
+          <div class="ht-form-object-star"></div>
+        </div>
+      </label>
+      <fieldset class="ht-form-selection">
+        <legend>Radios with label after input</legend>
+        <label><input type="radio">Jhon is</label>
+        <label><input type="radio">Tobby is</label>
+        <div class="ht-form-object"><div class="ht-form-object-star"></div></div>
+      </fieldset>
+      <fieldset class="ht-form-selection ht-form-selection-sidebyside">
+        <legend>Radios side by side layout left label</legend>
+        <label>Jhon is<input type="radio"></label>
+        <label>Tobby is<input type="radio"></label>
+        <div class="ht-form-object"><div class="ht-form-object-star"></div></div>
+      </fieldset>
+      <fieldset class="ht-form-selection-horizontal">
+        <legend>Radios with label after input</legend>
+        <label><input type="radio">Jhon is</label>
+        <label><input type="radio">Tobby is</label>
+        <div class="ht-form-object"><div class="ht-form-object-star"></div></div>
+      </fieldset>
+      <label>
+        Tel
+        <div class="ht-form-object">
+          <div class="ht-form-object-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </div>
+          <input type="tel" placeholder="tel">
+          <div class="ht-form-object-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </div>
+          <div class="ht-form-object-star"></div>
+        </div>
+      </label>
+      <label>
+        Text
+        <div class="ht-form-object">
+          <div class="ht-form-object-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </div>
+          <input type="text" placeholder="text">
+          <div class="ht-form-object-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </div>
+          <div class="ht-form-object-star"></div>
+        </div>
+      </label>
+      <label>
+        Time
+        <div class="ht-form-object">
+          <div class="ht-form-object-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </div>
+          <input type="time">
+          <div class="ht-form-object-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </div>
+          <div class="ht-form-object-star"></div>
+        </div>
+      </label>
+      <label>
+        URL
+        <div class="ht-form-object">
+          <div class="ht-form-object-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </div>
+          <input type="url" placeholder="https://url">
+          <div class="ht-form-object-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </div>
+          <div class="ht-form-object-star"></div>
+        </div>
+      </label>
+      <label>
+        Select
+        <div class="ht-form-object">
+          <div class="ht-form-object-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </div>
+          <select>
+            <option hidden>Select Option</option>
+            <optgroup>
+              <option value="Option-1">Option 1</option>
+              <option value="Option-2">Option 2</option>
+            </optgroup>
+          </select>
+          <div class="ht-form-object-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </div>
+          <div class="ht-form-object-star"></div>
+        </div>
+      </label>
+      <label>
+        <text>Textarea</text>
+        <div class="ht-form-object">
+          <textarea placeholder="textarea"></textarea>
+          <div class="ht-form-object-star"></div>
+        </div>
+      </label>
+    </form>
+  </section>
+  <section>
+    <p>Show warning</p>
+    <form class="ht-form">
+      <fieldset class="ht-form-selection">
+        <input class="ht-form-warning" type="checkbox">
+        <input class="ht-form-warning" type="checkbox">
+      </fieldset>
+      <fieldset class="ht-form-selection-horizontal">
+        <input class="ht-form-warning" type="checkbox">
+        <input class="ht-form-warning" type="checkbox">
+      </fieldset>
+      <input class="ht-form-warning" type="date">
+      <input class="ht-form-warning" type="email" placeholder="email">
+      <fieldset class="ht-form-selection">
+        <label class="ht-form-file ht-form-warning">Select file<input type="file"></label>
+      </fieldset>
+      <input class="ht-form-warning" type="month">
+      <input class="ht-form-warning" type="number" placeholder="0">
+      <input class="ht-form-warning" type="password" placeholder="password">
+      <fieldset class="ht-form-selection">
+        <input class="ht-form-warning" type="radio" name="radio-1">
+        <input class="ht-form-warning" type="radio" name="radio-1">
+      </fieldset>
+      <fieldset class="ht-form-selection-horizontal">
+        <input class="ht-form-warning" type="radio" name="radio-2">
+        <input class="ht-form-warning" type="radio" name="radio-2">
+      </fieldset>
+      <input class="ht-form-warning" type="tel" placeholder="tel">
+      <input class="ht-form-warning" type="text" placeholder="text">
+      <input class="ht-form-warning" type="time">
+      <input class="ht-form-warning" type="url" placeholder="https://url">
+      <select class="ht-form-warning">
+        <option hidden>Select Option</option>
+        <optgroup>
+          <option value="Option-1">Option 1</option>
+          <option value="Option-2">Option 2</option>
+        </optgroup>
+      </select>
+      <textarea class="ht-form-warning" placeholder="textarea"></textarea>
+    </form>
+  </section>
+  <section class="ht-bicolor">
+    <p>On bicolor</p>
+    <form class="ht-form">
+      <input type="button" value="Button">
+      <fieldset class="ht-form-selection">
+        <input type="checkbox">
+        <input type="checkbox">
+      </fieldset>
+      <fieldset class="ht-form-selection-horizontal">
+        <input type="checkbox">
+        <input type="checkbox">
+      </fieldset>
+      <input type="color" value="#303030">
+      <input type="date">
+      <input type="email" placeholder="email">
+      <fieldset class="ht-form-selection">
+        <label class="ht-form-file">Select file<input type="file"></label>
+      </fieldset>
+      <input type="month">
+      <input type="number" placeholder="0">
+      <input type="password" placeholder="password">
+      <fieldset class="ht-form-selection">
+        <input type="radio" name="radio-1">
+        <input type="radio" name="radio-1">
+      </fieldset>
+      <fieldset class="ht-form-selection-horizontal">
+        <input type="radio" name="radio-2">
+        <input type="radio" name="radio-2">
+      </fieldset>
+      <input type="range" min="0" max="100" value="50" step="5">
+      <input type="search" placeholder="search">
+      <input type="submit" value="Submit">
+      <input type="tel" placeholder="tel">
+      <input type="text" placeholder="text">
+      <input type="time">
+      <input type="url" placeholder="https://url">
+      <select>
+        <option hidden>Select Option</option>
+        <optgroup>
+          <option value="Option-1">Option 1</option>
+          <option value="Option-2">Option 2</option>
+        </optgroup>
+      </select>
+      <textarea placeholder="textarea"></textarea>
+    </form>
+  </section>
+  <section class="ht-tricolor">
+    <p>On tricolor</p>
+    <form class="ht-form">
+      <input type="button" value="Button">
+      <fieldset class="ht-form-selection">
+        <input type="checkbox">
+        <input type="checkbox">
+      </fieldset>
+      <fieldset class="ht-form-selection-horizontal">
+        <input type="checkbox">
+        <input type="checkbox">
+      </fieldset>
+      <input type="color" value="#303030">
+      <input type="date">
+      <input type="email" placeholder="email">
+      <fieldset class="ht-form-selection">
+        <label class="ht-form-file">Select file<input type="file"></label>
+      </fieldset>
+      <input type="month">
+      <input type="number" placeholder="0">
+      <input type="password" placeholder="password">
+      <fieldset class="ht-form-selection">
+        <input type="radio" name="radio-1">
+        <input type="radio" name="radio-1">
+      </fieldset>
+      <fieldset class="ht-form-selection-horizontal">
+        <input type="radio" name="radio-2">
+        <input type="radio" name="radio-2">
+      </fieldset>
+      <input type="range" min="0" max="100" value="50" step="5">
+      <input type="search" placeholder="search">
+      <input type="submit" value="Submit">
+      <input type="tel" placeholder="tel">
+      <input type="text" placeholder="text">
+      <input type="time">
+      <input type="url" placeholder="https://url">
+      <select>
+        <option hidden>Select Option</option>
+        <optgroup>
+          <option value="Option-1">Option 1</option>
+          <option value="Option-2">Option 2</option>
+        </optgroup>
+      </select>
+      <textarea placeholder="textarea"></textarea>
+    </form>
+  </section>
+  <section class="ht-toolbar">
+    <p>On toolbar</p>
+    <form class="ht-form">
+      <input type="button" value="Button">
+      <fieldset class="ht-form-selection">
+        <input type="checkbox">
+        <input type="checkbox">
+      </fieldset>
+      <fieldset class="ht-form-selection-horizontal">
+        <input type="checkbox">
+        <input type="checkbox">
+      </fieldset>
+      <input type="color" value="#303030">
+      <input type="date">
+      <input type="email" placeholder="email">
+      <fieldset class="ht-form-selection">
+        <label class="ht-form-file">Select file<input type="file"></label>
+      </fieldset>
+      <input type="month">
+      <input type="number" placeholder="0">
+      <input type="password" placeholder="password">
+      <fieldset class="ht-form-selection">
+        <input type="radio" name="radio-1">
+        <input type="radio" name="radio-1">
+      </fieldset>
+      <fieldset class="ht-form-selection-horizontal">
+        <input type="radio" name="radio-2">
+        <input type="radio" name="radio-2">
+      </fieldset>
+      <input type="range" min="0" max="100" value="50" step="5">
+      <input type="search" placeholder="search">
+      <input type="submit" value="Submit">
+      <input type="tel" placeholder="tel">
+      <input type="text" placeholder="text">
+      <input type="time">
+      <input type="url" placeholder="https://url">
+      <select>
+        <option hidden>Select Option</option>
+        <optgroup>
+          <option value="Option-1">Option 1</option>
+          <option value="Option-2">Option 2</option>
+        </optgroup>
+      </select>
+      <textarea placeholder="textarea"></textarea>
+    </form>
+  </section>
+  <section class="ht-danger">
+    <p>On danger</p>
+    <form class="ht-form">
+      <input type="button" value="Button">
+      <fieldset class="ht-form-selection">
+        <input type="checkbox">
+        <input type="checkbox">
+      </fieldset>
+      <fieldset class="ht-form-selection-horizontal">
+        <input type="checkbox">
+        <input type="checkbox">
+      </fieldset>
+      <input type="color" value="#303030">
+      <input type="date">
+      <input type="email" placeholder="email">
+      <fieldset class="ht-form-selection">
+        <label class="ht-form-file">Select file<input type="file"></label>
+      </fieldset>
+      <input type="month">
+      <input type="number" placeholder="0">
+      <input type="password" placeholder="password">
+      <fieldset class="ht-form-selection">
+        <input type="radio" name="radio-1">
+        <input type="radio" name="radio-1">
+      </fieldset>
+      <fieldset class="ht-form-selection-horizontal">
+        <input type="radio" name="radio-2">
+        <input type="radio" name="radio-2">
+      </fieldset>
+      <input type="range" min="0" max="100" value="50" step="5">
+      <input type="search" placeholder="search">
+      <input type="submit" value="Submit">
+      <input type="tel" placeholder="tel">
+      <input type="text" placeholder="text">
+      <input type="time">
+      <input type="url" placeholder="https://url">
+      <select>
+        <option hidden>Select Option</option>
+        <optgroup>
+          <option value="Option-1">Option 1</option>
+          <option value="Option-2">Option 2</option>
+        </optgroup>
+      </select>
+      <textarea placeholder="textarea"></textarea>
+    </form>
+  </section>
+</body>
+
+</html>

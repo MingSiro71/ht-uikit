@@ -1,0 +1,913 @@
+/* HT-Telop scss 1.0.0 */
+/* Copyright (c) 2021 Hentech under MIT Lisence */
+
+@import "config/_font.scss";
+@import "config/_colors.scss";
+@import "config/_layout.scss";
+
+$break-margin: 10px;
+$indent-width: 6px;
+$spacing-around-small-input: 6px;
+
+$form-height-default: 38px;
+$form-height-large: 53px;
+$form-height-small: 28px;
+
+$form-check-size-default: 16px;
+$form-check-size-large: 24px;
+$form-check-size-small: 16px;
+
+$form-font-default: inherit;
+$form-font-large: 1.5rem;
+$form-font-small: inherit;
+
+
+/* ========================================================================
+   Component: Form
+ ========================================================================== */
+ /*
+ * 1. Remove default style in iOS.
+ * 1. Define consistent box sizing.
+ *    Default is `content-box` with following exceptions set to `border-box`
+ *    `select`, `input[type="checkbox"]` and `input[type="radio"]`
+ *    `input[type="search"]` in Chrome, Safari and Opera
+ *    `input[type="color"]` in Firefox
+ * 2. Address margins set differently in Firefox/IE and Chrome/Safari/Opera.
+ * 3. Remove `border-radius` in iOS.
+ * 4. Change font properties to `inherit` in all browsers.
+ * 1. Prevent content overflow if a fixed width is used
+ * 2. Take the full width
+ * 3. Reset default
+ * 4. Style
+ * 1. Show the overflow in Edge.
+ * 2. Remove the inheritance of text transform in Firefox.
+ * 3. Remove the default vertical scrollbar in IE 10+.
+ */
+.ht-form {
+  display: flex;
+  flex-direction: column;
+  /* 1 */
+  input,textarea {
+    -webkit-appearance: none;
+  }
+  input,select,textarea {
+    /* 1 */
+    box-sizing: border-box;
+    /* 2 */
+    margin: 0 0 calc(#{$break-margin} * 2) 0;
+    /* 3 */
+    border-radius: 0;
+    /* 4 */
+    font: inherit;
+    /* 1 */
+    max-width: 100%;
+    /* 2 */
+    // width: 100%;
+    /* 3 */
+    // border: 0 none;
+    /* 4 */
+    padding: 0 10px;
+    background: map-get($form-color, input);
+    color: map-get($form-color, text);
+    border: 1px solid map-get($form-color, dent);
+    transition: 0.2s ease-in-out;
+    transition-property: color, background-color, border;
+    /* 5 */
+    overflow: visible;
+    &:not([type=button]):not([type=file]):not([type=submit]):not([type="checkbox"]):not([type="radio"]):not([type=color]) {
+      width: 100%;
+    }
+    &[type=button], &[type=submit] {
+      width: fit-content;
+    }
+    &[type=color] {
+      width: 120px;
+      max-width: 120px;
+      flex-grow: 0;
+    }
+    &:focus {
+      outline: none;
+      background-color: map-get($form-color, input);;
+      color: inherit;
+      border-color: map-get($form-color, dent);;
+    }
+    &:disabled {
+      background-color: map-get($form-color, disabled);;
+      color: map-get($form-color, text-muted);
+      border-color: map-get($form-color, dent);;
+    }
+  }
+  select {
+    /* 2 */
+    text-transform: none;
+    /*
+      * 1. Change font properties to `inherit` in all browsers
+      * 2. Don't inherit the `font-weight` and use `bold` instead.
+      * NOTE: Both declarations don't work in Chrome, Safari and Opera.
+      */
+    optgroup {
+      /* 1 */
+      font: inherit;
+      /* 2 */
+      font-weight: bold;
+    }
+  }
+  /* 3 */
+  textarea {
+    overflow: auto;
+  }
+  input, select {
+    height: calc(#{$form-height-default} + 2px);
+    vertical-align: middle;
+  }
+  input, textarea {
+    &::placeholder, &::-ms-input-placeholder {
+      background-color: map-get($form-color, text-muted);
+    }
+  }
+  > label, > fieldset, > legend, > input, > select, > textarea {
+    &:first-child {
+      margin-top: calc(#{$break-margin} * 2);
+    }
+  }
+}
+/* Radio and checkbox
+ * Note: Does not work in IE11
+ ========================================================================== */
+/*
+ * 1. Style
+ * 2. Make box more robust so it clips the child element
+ * 3. Vertical alignment
+ * 4. Remove default style
+ * 5. Fix black background on iOS
+ * 6. Center icons
+ */
+.ht-form {
+  input[type=radio] {
+    border-radius: 50%;
+  }
+  input[type=radio],
+  input[type=checkbox] {
+    /* 1 */
+    display: inline-block;
+    height: $form-check-size-default;
+    width: $form-check-size-default;
+    /* 2 */
+    overflow: hidden;
+    /* 3 */
+    vertical-align: middle;
+    /* 4 */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* 5 */
+    background-color: map-get($form-color, input);
+    /* 6 */
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    border: 1px solid map-get($form-color, dent);
+    transition: 0.2s ease-in-out;
+    transition-property: background-color, border;
+    /* 7 */
+    padding: 0;
+    /* 8 */
+    flex-shrink: 0;
+    /* 9 */
+    &:not(:disabled) {
+      cursor: pointer;
+    }
+    &:focus {
+      outline: none;
+      border-color: map-get($base-color, link);
+    }
+    &:checked {
+      background-color: map-get($base-color, link);
+      border-color: transparent;
+    }
+    &:checked:focus {
+      background-color: map-get($base-color, link-ontouch);
+      border-color: map-get($base-color, link);
+    }
+    &:disabled {
+      background-color: map-get($form-color, disabled);
+      border-color: map-get($form-color, dent);
+    }
+    input[type=checkbox] {
+      &:indeterminate {
+        background-color: map-get($base-color, link);
+        border-color: transparent;
+      }
+      &:indeterminate:focus {
+        background-color: map-get($base-color, link-ontouch);
+        border-color: map-get($base-color, link);
+      }
+    }
+  }
+  input[type=radio]:checked {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Ccircle%20fill%3D%22%23fff%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%222%22%20%2F%3E%0A%3C%2Fsvg%3E");
+  }
+  input[type=checkbox]:checked {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%22%20height%3D%2211%22%20viewBox%3D%220%200%2014%2011%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23fff%22%20points%3D%2212%201%205%207.5%202%205%201%205.5%205%2010%2013%201.5%22%20%2F%3E%0A%3C%2Fsvg%3E%0A");
+  }
+  input[type=checkbox]:indeterminate {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Crect%20fill%3D%22%23fff%22%20x%3D%223%22%20y%3D%228%22%20width%3D%2210%22%20height%3D%221%22%20%2F%3E%0A%3C%2Fsvg%3E");
+  }
+  input[type=radio]:disabled:checked {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Ccircle%20fill%3D%22%23999%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%222%22%20%2F%3E%0A%3C%2Fsvg%3E");
+  }
+  input[type=checkbox]:disabled:checked {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%22%20height%3D%2211%22%20viewBox%3D%220%200%2014%2011%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23999%22%20points%3D%2212%201%205%207.5%202%205%201%205.5%205%2010%2013%201.5%22%20%2F%3E%0A%3C%2Fsvg%3E%0A");
+  }
+  input[type=checkbox]:disabled:indeterminate {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Crect%20fill%3D%22%23999%22%20x%3D%223%22%20y%3D%228%22%20width%3D%2210%22%20height%3D%221%22%20%2F%3E%0A%3C%2Fsvg%3E");
+  }
+}
+.ht-form {
+  .ht-form-selection {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0 $indent-width;
+    margin: 0 0 calc(#{$break-margin} * 2) 0;
+    width: 100%;
+    max-width: calc(100% - (2* #{$indent-width}));
+    line-height: 1.5rem;
+    input[type=radio], input[type=checkbox] {
+      margin: $break-margin $spacing-around-small-input $break-margin 0;
+      &:first-child {
+        margin-top: 0px;
+      }
+      &:last-child {
+        margin-bottom: 0px;
+      }
+    }
+    label {
+      display: flex;
+      flex-direction: row;
+      width: fit-content;
+      align-items: center;
+      input[type=radio], input[type=checkbox] {
+        margin: 0 $spacing-around-small-input 0 0;
+      }
+    }
+  }
+  .ht-form-selection-horizontal {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 0 calc(#{$break-margin} * 2) 0;
+    padding: 0 $indent-width;
+    align-items: center;
+    line-height: 1.5rem;
+    border: none;
+    input[type=radio], input[type=checkbox] {
+      &:not(:last-child) {
+        margin-inline-end: $spacing-around-small-input;
+      }
+    }
+    label {
+      width: fit-content;
+      margin: 0 $spacing-around-small-input 0 0;
+      input[type=radio], input[type=checkbox] {
+        margin: 0 $spacing-around-small-input 0 0;
+      }
+    }
+  }
+  .ht-form-selection:first-child,.ht-form-selection-horizontal:first-child {
+    margin-top: calc(#{$break-margin} * 2);
+  }
+  .ht-form-selection-sidebyside {
+    > div, label {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      input[type=radio], input[type=checkbox] {
+        margin: 0 $spacing-around-small-input 0 0;
+      }
+    }
+  }
+}
+
+/*
+ * Removes placeholder transparency in Firefox.
+ */
+.uk-input::-moz-placeholder,
+.uk-textarea::-moz-placeholder {
+  opacity: 1;
+}
+/*
+ * Define consistent border, margin, and padding.
+ */
+.ht-form {
+  fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+/* Sizing
+ ========================================================================== */
+/*
+ * Small
+ */
+.ht-form.ht-form-small {
+  font-size: $form-font-small;
+  input, select {
+    height: calc(#{$form-height-small} + 2px);
+  }
+  input[type=radio],
+  input[type=checkbox] {
+    height: $form-check-size-small;
+    width: $form-check-size-small;
+  }
+  input[type="button"], input[type="submit"] {
+    line-height: $form-height-small !important;
+  }
+  .ht-form-selection {
+    line-height: 1.5rem;
+  }
+}
+/*
+ * Large
+ */
+.ht-form.ht-form-large {
+  font-size: $form-font-large;
+  input, select {
+    height: calc(#{$form-height-large} + 2px);
+  }
+  input[type=radio],
+  input[type=checkbox] {
+    height: $form-check-size-large;
+    width: $form-check-size-large;
+  }
+  input[type="button"], input[type="submit"] {
+    line-height: $form-height-large !important;
+  }
+  .ht-form-selection {
+    line-height: 2.4rem;
+  }
+}
+/* Range
+ ========================================================================== */
+.ht-form {
+  /* Common style */
+  input[type=range] {
+    -webkit-appearance: none;
+    margin: 0 0 calc(#{$break-margin} * 2) 0;
+    padding: 0;
+    width: 100%;
+    height: calc(#{$form-height-default} + 2px);
+    cursor: pointer;
+    vertical-align: middle;
+    background-color: transparent;
+    border: none;
+    &:focus {
+      outline: none;  
+    }
+  }
+  /* Webkit */
+  input[type=range]::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    height: 2px;
+    border: none;
+    border-radius: 0px;
+    background: map-get($form-color, dent);
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: calc((#{$form-height-default}/2) - 1px);
+    width: calc((#{$form-height-default}/2) - 1px);
+    margin-top: calc((-1 * #{$form-height-default} / 4) + 1.5px);
+    border: none;
+    border-radius: 50%;
+    background: map-get($form-color, dent);
+  }
+  /* Mozilla */
+  input[type=range]::-moz-range-track {
+    height: 2px;
+    border: none;
+    border-radius: 0px;
+    background: map-get($form-color, dent);
+  }
+  input[type=range]::-moz-range-thumb {
+    height: calc((#{$form-height-default}/2) - 1px);
+    width: calc((#{$form-height-default}/2) - 1px);
+    margin-top: calc((-1 * #{$form-height-default} / 4) + 1.5px);
+    border: none;
+    border-radius: 50%;
+    background: map-get($form-color, dent);
+  }
+  /* Microsoft */
+  input[type=range]::-ms-track {
+    height: 2px;
+    border: none;
+    border-radius: 0px;
+    background: map-get($form-color, dent);
+  }
+  input[type=range]::-ms-fill-lower {
+    background: map-get($form-color, dent);
+  }
+  input[type=range]::-ms-fill-upper {
+    background: map-get($form-color, dent);
+  }
+  input[type=range]::-ms-thumb {
+    height: calc((#{$form-height-default}/2) - 1px);
+    width: calc((#{$form-height-default}/2) - 1px);
+    margin-top: calc((-1 * #{$form-height-default} / 4) + 1.5px);
+    border: none;
+    border-radius: 50%;
+    background: map-get($form-color, dent);
+  }
+  input[type=range]::-ms-tooltip {
+    display: none;
+  }
+  @supports (-ms-ime-align: auto) {
+    input[type=range]::-webkit-slider-thumb {
+      margin-top: 0 !important;
+    }
+  }
+}
+.ht-form.ht-form-small {
+  input[type=range] {
+    height: calc(#{$form-height-small} + 2px);
+  }
+  input[type=range]::-webkit-slider-thumb {
+    height: calc((#{$form-height-small}/2) - 1px);
+    width: calc((#{$form-height-small}/2) - 1px);
+    margin-top: calc((-1 * #{$form-height-small} / 4) + 1.5px);
+  }
+  input[type=range]::-moz-range-thumb {
+    height: calc((#{$form-height-small}/2) - 1px);
+    width: calc((#{$form-height-small}/2) - 1px);
+    margin-top: calc((-1 * #{$form-height-small} / 4) + 1.5px);
+  }
+  input[type=range]::-ms-thumb {
+    height: calc((#{$form-height-small}/2) - 1px);
+    width: calc((#{$form-height-small}/2) - 1px);
+    margin-top: calc((-1 * #{$form-height-small} / 4) + 1.5px);
+  }
+}
+.ht-form.ht-form-large {
+  input[type=range] {
+    height: calc(#{$form-height-large} + 2px);
+  }
+  input[type=range]::-webkit-slider-thumb {
+    height: calc((#{$form-height-large}/2) - 1px);
+    width: calc((#{$form-height-large}/2) - 1px);
+    margin-top: calc((-1 * #{$form-height-large} / 4) + 1.5px);
+  }
+  input[type=range]::-moz-range-thumb {
+    height: calc((#{$form-height-large}/2) - 1px);
+    width: calc((#{$form-height-large}/2) - 1px);
+    margin-top: calc((-1 * #{$form-height-large} / 4) + 1.5px);
+  }
+  input[type=range]::-ms-thumb {
+    height: calc((#{$form-height-large}/2) - 1px);
+    width: calc((#{$form-height-large}/2) - 1px);
+    margin-top: calc((-1 * #{$form-height-large} / 4) + 1.5px);
+  }
+}
+/* File
+ ========================================================================== */
+/*
+ * 1. Do not display input itself
+ * 2. Instead of input, shape label as if button entity
+ */
+.ht-form {
+  /* 1 */
+  input[type=file] {
+    display: none;
+  }
+  /* 2 */
+  label.ht-form-file {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0 10px;
+    height: calc(#{$form-height-default} + 2px);
+    line-height: $form-height-default;
+    max-width: 100%;
+    border: 1px solid map-get($base-color, dent);
+    overflow: visible;
+    border-radius: 0;
+    color: map-get($base-color, text);
+    background: map-get($base-color, input);
+    transition: 0.2s ease-in-out;
+    transition-property: color, background-color, border;
+  }
+  .ht-form-selection .ht-form-file,
+  .ht-form-selection-horizontal .ht-form-file {
+    margin-left: calc(-1 * #{$indent-width});
+  }
+}
+.ht-form.ht-form-small {
+  label.ht-form-file {
+    height: calc(#{$form-height-small} + 2px);
+    line-height: $form-height-small;
+  }
+}
+.ht-form.ht-form-large {
+  label.ht-form-file {
+    height: calc(#{$form-height-large} + 2px);
+    line-height: $form-height-large;
+  }
+}
+/*
+ * Remove the inner padding and cancel buttons in Chrome on OS X and Safari on OS X.
+ */
+.uk-input[type="search"]::-webkit-search-cancel-button,
+.uk-input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+/*
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+.uk-input[type="number"]::-webkit-inner-spin-button,
+.uk-input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+/* Legend
+ ========================================================================== */
+/*
+ * Legend
+ * 1. Behave like block element
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove padding so people aren't caught out if they zero out fieldsets.
+ * 4. Style
+ */
+.ht-form legend {
+  /* 1 */
+  width: 100%;
+  /* 2 */
+  color: inherit;
+  /* 3 */
+  padding: 0;
+  /* 4 */
+  font-size: map-get($font-size-heading, h3);
+  line-height: map-get($font-size-heading, h3);
+
+  margin: 0 0 $break-margin 0;
+}
+
+/* Label
+ ========================================================================== */
+.ht-form label {
+  width: 100%;
+  overflow: hidden;
+  text {
+    display: inline-block;
+    width: 100%;
+    margin: 0 0 $break-margin 0;
+  }
+  & + input,& + select,& + textarea {
+    margin-top: $break-margin;
+  }
+  > *:first-child:not(text) {
+    margin-top: $break-margin;
+  }
+}
+.ht-form .ht-form-selection legend,
+.ht-form .ht-form-selection-horizontal legend {
+  display: inline-block;
+  width: 100%;
+  margin-left: calc(-1 * #{$indent-width});
+  font-size: inherit;
+}
+/* Layout
+ ========================================================================== */
+/*
+ * Stacked
+ */
+.ht-form-stacked .ht-form-label {
+  display: block;
+  margin-bottom: 5px;
+}
+/*
+ * Horizontal
+ */
+/* Tablet portrait and smaller */
+@media (max-width: calc(#{map-get($breakpoint, include_desktop)} - 1px)) {
+  /* Behave like `ht-form-stacked` */
+  .ht-form-horizontal .ht-form-label {
+    display: block;
+    margin-bottom: 5px;
+  }
+}
+/* Tablet landscape and bigger */
+@media (min-width: map-get($breakpoint, include_desktop)) {
+  .ht-form-horizontal .ht-form-label {
+    width: 200px;
+    margin-top: 7px;
+    float: left;
+  }
+  .ht-form-horizontal .ht-form-controls {
+    margin-left: 215px;
+  }
+  /* Better vertical alignment if controls are checkboxes and radio buttons with text */
+  .ht-form-horizontal .ht-form-controls-text {
+    padding-top: 7px;
+  }
+
+/* Instruction
+ ========================================================================== */}
+.ht-form-instruction-required::after {
+  content: " - Required";
+  color: map-get($base-color, text-muted);
+}
+.ht-form-instruction-optional::after {
+  content: " - Optional";
+  color: map-get($base-color, text-muted);
+}
+/* Object
+ ========================================================================== */
+.ht-form-object {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: 16px;
+  .ht-form-object-icon {
+    flex-shrink: 0;
+    flex-grow: 0;
+    height: calc(#{$form-height-default} - 6px);
+    width: calc(#{$form-height-default} - 6px);
+    margin: 0 0 calc(#{$break-margin} * 2) 0;
+    padding: 3px 10px;
+    border-style: solid;
+    border-color: map-get($form-color, dent);
+    background-color: map-get($form-color, input);
+  }
+  .ht-form-object-star {
+    position: relative;
+    flex-shrink: 0;
+    flex-grow: 0;
+    height: $form-height-default;
+    width: 24px;
+    margin: 0 0 calc(#{$break-margin} * 2) 0;
+    border-style: solid;
+    border-color: map-get($form-color, dent);
+    background-color: map-get($form-color, input);
+    &::before {
+      content: "*";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.5rem;
+      color: #ff0000;
+      background-color: transparent;
+    }
+    &:first-child:last-child {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 16px;
+      background-color: inherit;
+      border: none;
+    }
+  }
+  textarea + .ht-form-object-star {
+    width: 0;
+    &::before {
+      content: "*";
+      position: absolute;
+      width: 24px;
+      height: calc(#{$form-height-default} + 2px);
+      top: 0;
+      left: auto;
+      right: 0;
+      transform: translate(0%, 0%);
+      text-align: center;
+      font-size: 1.5rem;
+      color: #ff0000;
+      background-color: transparent;
+    }
+  }
+  .ht-form-file ~ .ht-form-object-star {
+    margin-left: -1px;
+    background-color: map-get($base-color, basis);
+  }
+  input, select {
+    flex-shrink: 1;
+    flex-grow: 1;
+  }
+  .ht-form-object-icon, .ht-form-object-star, input, select {
+    border-width: 1px 0px;
+  }
+  *:not(textarea) + .ht-form-object-icon, *:not(textarea) +.ht-form-object-star,
+  input[type=color],input[type=date],input[type=email],input[type=month],
+  input[type=number],input[type=password],input[type=tel],input[type=text],
+  input[type=time],input[type=url],select {
+    &:first-child::after {
+      content: "";
+      position: absolute;
+      width: 1px;
+      height: calc(#{$form-height-default} + 2px);
+      top: 50%;
+      left: 0px;
+      transform: translateY(-50%);
+      background-color: map-get($form-color, dent);
+    }
+    &:last-child::after {
+      content: "";
+      position: absolute;
+      width: 1px;
+      height: calc(#{$form-height-default} + 2px);
+      top: 50%;
+      right: 0px;
+      transform: translateY(-50%);
+      background-color: map-get($form-color, dent);
+    }
+  }
+}
+/* Discription
+ ========================================================================== */
+.ht-form {
+  .ht-form-discription {
+    display: inline-block;
+    width: 100%;
+    margin: 0 0 $break-margin 0;
+  }
+  .ht-form-selection, .ht-form-selection-horizontal {
+    .ht-form-discription {
+      margin-left: calc(-1 * #{$indent-width});
+    } 
+  }
+  label + .ht-form-discription {
+    margin-top: $break-margin;
+  }
+}
+/* Show warning
+ ========================================================================== */
+.ht-form {
+  input[type=checkbox].ht-form-warning,input[type=date].ht-form-warning,input[type=email].ht-form-warning,input[type=month].ht-form-warning,
+  input[type=number].ht-form-warning,input[type=password].ht-form-warning,input[type=radio].ht-form-warning,input[type=tel].ht-form-warning,
+  input[type=text].ht-form-warning,input[type=time].ht-form-warning,input[type=url].ht-form-warning,
+  select.ht-form-warning, textarea.ht-form-warning {
+    background-color: #ffcccc;
+  }
+  .ht-form-file.ht-form-warning:before {
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border-top: solid 5px #ff6666;
+    border-left: solid 5px #ff6666;
+    border-bottom: solid 5px transparent;
+    border-right: solid 5px transparent;
+    top: 4px;
+    left: 4px;
+  }
+}
+
+/*
+ * Adopt theme colors
+ */
+
+.ht-bicolor.ht-form, .ht-bicolor .ht-form, .ht-form fieldset.ht-bicolor {
+  input[type=radio],
+  input[type=checkbox] {
+    &:focus {
+      border-color: map-get($bicolor-color, link);
+    }
+    &:checked {
+      background-color: map-get($bicolor-color, link);
+    }
+    &:checked:focus {
+      background-color: map-get($bicolor-color, link-ontouch);
+      border-color: map-get($bicolor-color, link);
+    }
+    input[type=checkbox] {
+      &:indeterminate {
+        background-color: map-get($bicolor-color, link);
+      }
+      &:indeterminate:focus {
+        background-color: map-get($bicolor-color, link-ontouch);
+        border-color: map-get($bicolor-color, link);
+      }
+    }
+  }
+  label.ht-form-file {
+    border: 1px solid map-get($bicolor-color, dent);
+    color: map-get($bicolor-color, heading);
+    background: map-get($bicolor-color, basis);
+  }
+}
+.ht-tricolor.ht-form, .ht-tricolor .ht-form, .ht-form fieldset.ht-tricolor {
+  input[type=radio],
+  input[type=checkbox] {
+    &:focus {
+      border-color: map-get($tricolor-color, link);
+    }
+    &:checked {
+      background-color: map-get($tricolor-color, link);
+    }
+    &:checked:focus {
+      background-color: map-get($tricolor-color, link-ontouch);
+      border-color: map-get($tricolor-color, link);
+    }
+    input[type=checkbox] {
+      &:indeterminate {
+        background-color: map-get($tricolor-color, link);
+      }
+      &:indeterminate:focus {
+        background-color: map-get($tricolor-color, link-ontouch);
+        border-color: map-get($tricolor-color, link);
+      }
+    }
+  }
+  label.ht-form-file {
+    border: 1px solid map-get($tricolor-color, dent);
+    color: map-get($tricolor-color, heading);
+    background: map-get($tricolor-color, basis);
+  }
+}
+.ht-toolbar.ht-form, .ht-toolbar .ht-form, .ht-form fieldset.ht-toolbar {
+  input[type=radio],
+  input[type=checkbox] {
+    &:focus {
+      border-color: map-get($toolbar-color, link);
+    }
+    &:checked {
+      background-color: map-get($toolbar-color, link);
+    }
+    &:checked:focus {
+      background-color: map-get($toolbar-color, link-ontouch);
+      border-color: map-get($toolbar-color, link);
+    }
+    input[type=checkbox] {
+      &:indeterminate {
+        background-color: map-get($toolbar-color, link);
+      }
+      &:indeterminate:focus {
+        background-color: map-get($toolbar-color, link-ontouch);
+        border-color: map-get($toolbar-color, link);
+      }
+    }
+  }
+  label.ht-form-file {
+    border: 1px solid map-get($toolbar-color, dent);
+    color: map-get($toolbar-color, heading);
+    background: map-get($toolbar-color, basis);
+  }
+}
+.ht-danger.ht-form, .ht-danger .ht-form, .ht-form fieldset.ht-danger {
+  input[type=radio],
+  input[type=checkbox] {
+    &:focus {
+      border-color: map-get($danger-color, link);
+    }
+    &:checked {
+      background-color: map-get($danger-color, link);
+    }
+    &:checked:focus {
+      background-color: map-get($danger-color, link-ontouch);
+      border-color: map-get($danger-color, link);
+    }
+    input[type=checkbox] {
+      &:indeterminate {
+        background-color: map-get($danger-color, link);
+      }
+      &:indeterminate:focus {
+        background-color: map-get($danger-color, link-ontouch);
+        border-color: map-get($danger-color, link);
+      }
+    }
+  }
+  label.ht-form-file {
+    border: 1px solid map-get($danger-color, dent);
+    color: map-get($danger-color, heading);
+    background: map-get($danger-color, basis);
+  }
+}
+.ht-base.ht-form, .ht-base .ht-form, .ht-form fieldset.ht-base {
+  input[type=radio],
+  input[type=checkbox] {
+    &:focus {
+      border-color: map-get($base-color, link);
+    }
+    &:checked {
+      background-color: map-get($base-color, link);
+    }
+    &:checked:focus {
+      background-color: map-get($base-color, link-ontouch);
+      border-color: map-get($base-color, link);
+    }
+    input[type=checkbox] {
+      &:indeterminate {
+        background-color: map-get($base-color, link);
+      }
+      &:indeterminate:focus {
+        background-color: map-get($base-color, link-ontouch);
+        border-color: map-get($base-color, link);
+      }
+    }
+  }
+  label.ht-form-file {
+    border: 1px solid map-get($base-color, dent);
+    color: map-get($base-color, heading);
+    background: map-get($base-color, basis);
+  }
+}

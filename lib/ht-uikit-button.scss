@@ -23,48 +23,146 @@ $button-padding-small: 15px;
  ========================================================================== */
 /*
  * 1. Remove margins in Chrome, Safari and Opera.
- * 2. Remove borders for `button`.
- * 3. Address `overflow` set to `hidden` in IE.
- * 4. Correct `font` properties and `color` not being inherited for `button`.
- * 5. Remove the inheritance of text transform in Edge, Firefox, and IE.
- * 6. Style
- * 7. `line-height` is used to create a height because it also centers the text vertically for `a` elements.
- *    Better would be to use height and flexbox to center the text vertically but flexbox doesn't work in Firefox on `button` elements.
- * 8. Align text if button has a width
- * 9. Required for `a`.
+ * 2. Address `overflow` set to `hidden` in IE.
+ * 3. Correct `font` properties and `color` not being inherited for `button`.
+ * 4. Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 5. Remove the inner border and padding in Firefox.
+ * 6. Remove outline when the element is focused.
  */
-.uk-button, button, input[type="button"] {
+.uk-button,button,input[type="button"],input[type="submit"],input[type="file"] {
   /* 1 */
   margin: 0;
   /* 2 */
-  // border: none;
-  /* 3 */
   overflow: visible;
-  /* 4 */
+  /* 3 */
   font: inherit;
-  /* 5 */
+  /* 4 */
   text-transform: none;
+  /* 5 */
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
   /* 6 */
+  outline: none;
+
+  position: relative;
   display: inline-block;
   box-sizing: border-box;
-
   vertical-align: middle;
   font-size: 0.875rem;
-  /* 7 */
-
-  /* 8 */
   text-align: center;
-  /* 9 */
   text-decoration: none;
-  text-transform: uppercase;
   transition: 0.1s ease-in-out;
   transition-property: color, background-color, border-color;
   &:not(:disabled) {
     cursor: pointer;
   }
-  position: relative;
-
-  /* Sizing */
+  &:active,&:hover,&:focus {
+    text-decoration: none;
+  }
+}
+/*
+ * default color inherit each of base theme
+ */
+a.uk-button {
+  &:active,&:hover,&:focus {
+    color: map-get($base-color, heading);
+  }
+}
+.uk-button, button, input[type="button"], input[type="submit"] {
+  &:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
+    border: solid 1px map-get($base-color, dent);
+    color: map-get($base-color, heading);
+    background-color: inherit;
+    &:active,&:hover,&:focus {
+      border-color: darken(map-get($base-color, dent), 30%);
+    }
+  }
+}
+.ht-bicolor {
+  a.uk-button,&a.uk-button {
+    color: map-get($bicolor-color, heading);
+  }
+  .uk-button, button, input[type="button"], input[type="submit"],
+  &.uk-button, &button, &input[type="button"], &input[type="submit"] {
+    &:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
+      border: solid 1px map-get($bicolor-color, dent);
+      color: map-get($bicolor-color, heading);
+      background-color: inherit;
+      &:active,&:hover,&:focus {
+        border-color: darken(map-get($bicolor-color, dent), 30%);
+      }
+    }
+  }
+}
+.ht-tricolor {
+  a.uk-button,&a.uk-button {
+    color: map-get($tricolor-color, heading);
+  }
+  .uk-button, button, input[type="button"], input[type="submit"],
+  &.uk-button, &button, &input[type="button"], &input[type="submit"] {
+    &:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
+      border: solid 1px map-get($tricolor-color, dent);
+      color: map-get($tricolor-color, heading);
+      background-color: inherit;
+      &:active,&:hover,&:focus {
+        border-color: darken(map-get($tricolor-color, dent), 30%);
+      }
+    }
+  }
+}
+.ht-toolbar {
+  a.uk-button,&a.uk-button {
+    color: map-get($toolbar-color, heading);
+  }
+  .uk-button, button, input[type="button"], input[type="submit"],
+  &.uk-button, &button, &input[type="button"], &input[type="submit"] {
+    &:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
+      border: solid 1px map-get($toolbar-color, dent);
+      color: map-get($toolbar-color, heading);
+      background-color: inherit;
+      &:active,&:hover,&:focus {
+        border-color: darken(map-get($toolbar-color, dent), 30%);
+      }
+    }
+  }
+}
+.ht-danger {
+  a.uk-button,&a.uk-button {
+    color: map-get($danger-color, heading);
+  }
+  .uk-button, button, input[type="button"], input[type="submit"],
+  &.uk-button, &button, &input[type="button"], &input[type="submit"] {
+    &:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
+      border: solid 1px map-get($danger-color, dent);
+      color: map-get($danger-color, heading);
+      background-color: inherit;
+      &:active,&:hover,&:focus {
+        border-color: darken(map-get($danger-color, dent), 30%);
+      }
+    }
+  }
+}
+.ht-base {
+  a.uk-button,&a.uk-button {
+    color: map-get($base-color, heading);
+  }
+  .uk-button, button, input[type="button"], input[type="submit"]
+  &.uk-button, &button, &input[type="button"], &input[type="submit"] {
+    &:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
+      border: solid 1px map-get($base-color, dent);
+      color: map-get($base-color, heading);
+      background-color: inherit;
+      &:active,&:hover,&:focus {
+        border-color: darken(map-get($base-color, dent), 30%);
+      }
+    }
+  }
+}
+/* Sizing
+ ========================================================================== */
+.uk-button, button, input[type="button"], input[type="submit"] {
   &:not(.uk-button-large):not(.uk-button-small):not(.uk-icon-button) {
     padding: 0 #{$button-padding-default};
     line-height: $button-height-default;
@@ -128,121 +226,6 @@ $button-padding-small: 15px;
       }
     }
   }
-}
-/*
- * default color inherit each of base theme
- */
-a.uk-button {
-  &:active,&:hover,&:focus {
-    color: map-get($base-color, heading);
-  }
-}
-.uk-button, button, input[type="button"] {
-  &:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
-    border: solid 1px map-get($base-color, dent);
-    color: map-get($base-color, heading);
-    background-color: inherit;
-    &:active,&:hover,&:focus {
-      border-color: darken(map-get($base-color, dent), 30%);
-    }
-  }
-}
-.ht-bicolor {
-  a.uk-button,&a.uk-button {
-    color: map-get($bicolor-color, heading);
-  }
-  .uk-button, button, input[type="button"],
-  &.uk-button, &button, &input[type="button"] {
-    &:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
-      border: solid 1px map-get($bicolor-color, dent);
-      color: map-get($bicolor-color, heading);
-      background-color: inherit;
-      &:active,&:hover,&:focus {
-        border-color: darken(map-get($bicolor-color, dent), 30%);
-      }
-    }
-  }
-}
-.ht-tricolor {
-  a.uk-button,&a.uk-button {
-    color: map-get($tricolor-color, heading);
-  }
-  .uk-button, button, input[type="button"],
-  &.uk-button, &button, &input[type="button"] {
-    &:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
-      border: solid 1px map-get($tricolor-color, dent);
-      color: map-get($tricolor-color, heading);
-      background-color: inherit;
-      &:active,&:hover,&:focus {
-        border-color: darken(map-get($tricolor-color, dent), 30%);
-      }
-    }
-  }
-}
-.ht-toolbar {
-  a.uk-button,&a.uk-button {
-    color: map-get($toolbar-color, heading);
-  }
-  .uk-button, button, input[type="button"],
-  &.uk-button, &button, &input[type="button"] {
-    &:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
-      border: solid 1px map-get($toolbar-color, dent);
-      color: map-get($toolbar-color, heading);
-      background-color: inherit;
-      &:active,&:hover,&:focus {
-        border-color: darken(map-get($toolbar-color, dent), 30%);
-      }
-    }
-  }
-}
-.ht-danger {
-  a.uk-button,&a.uk-button {
-    color: map-get($danger-color, heading);
-  }
-  .uk-button, button, input[type="button"],
-  &.uk-button, &button, &input[type="button"] {
-    &:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
-      border: solid 1px map-get($danger-color, dent);
-      color: map-get($danger-color, heading);
-      background-color: inherit;
-      &:active,&:hover,&:focus {
-        border-color: darken(map-get($danger-color, dent), 30%);
-      }
-    }
-  }
-}
-.ht-base {
-  a.uk-button,&a.uk-button {
-    color: map-get($base-color, heading);
-  }
-  .uk-button, button, input[type="button"],
-  &.uk-button, &button, &input[type="button"] {
-    &:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
-      border: solid 1px map-get($base-color, dent);
-      color: map-get($base-color, heading);
-      background-color: inherit;
-      &:active,&:hover,&:focus {
-        border-color: darken(map-get($base-color, dent), 30%);
-      }
-    }
-  }
-}
-
-/*
- * Remove the inner border and padding in Firefox.
- */
-.uk-button::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
-/* Hover */
-.uk-button:hover {
-  /* 9 */
-  text-decoration: none;
-}
-/* Focus */
-.uk-button:focus {
-  outline: none;
 }
 /* Colors
  ========================================================================== */
@@ -407,20 +390,20 @@ a.uk-button {
   position: relative;
 }
 /* Group
-     ========================================================================== */
+ ========================================================================== */
 /*
-     * Collapse border
-     */
+ * Collapse border
+ */
 .uk-button-group > .uk-button:nth-child(n+2),
 .uk-button-group > div:nth-child(n+2) .uk-button {
   margin-left: -1px;
 }
 /*
-     * Create position context to superimpose the successor elements border
-     * Known issue: If you use an `a` element as button and an icon inside,
-     * the active state will not work if you click the icon inside the button
-     * Workaround: Just use a `button` or `input` element as button
-     */
+ * Create position context to superimpose the successor elements border
+ * Known issue: If you use an `a` element as button and an icon inside,
+ * the active state will not work if you click the icon inside the button
+ * Workaround: Just use a `button` or `input` element as button
+ */
 .uk-button-group .uk-button:hover,
 .uk-button-group .uk-button:focus,
 .uk-button-group .uk-button:active,

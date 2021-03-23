@@ -399,7 +399,6 @@ h1,h2,h3,h4,h5,h6 {
     color: map-get($danger-color, heading);
     border-color: map-get($danger-color, dent);
   }
-
 }
 /* ========================================================================
    Component: Horizon
@@ -682,9 +681,57 @@ a.uk-link-silent,.uk-link.uk-link-silent,
     border-color: map-get($base-color, link-ontouch);
   }
 }
-.uk-tab > .uk-active > a,
-.ht-base.uk-tab > .uk-active > a,
-.ht-base .uk-tab > .uk-active > a {
+.ht-bicolor.uk-tab > * > a,
+.ht-bicolor .uk-tab > * > a {
+  &:hover,&:focus {
+    color: map-get($bicolor-color, text);
+  }
+  &:active {
+    color: map-get($bicolor-color, text-active);
+    border-color: map-get($bicolor-color, link-ontouch);
+  }
+}
+.ht-tricolor.uk-tab > * > a,
+.ht-tricolor .uk-tab > * > a {
+  &:hover,&:focus {
+    color: map-get($tricolor-color, text);
+  }
+  &:active {
+    color: map-get($tricolor-color, text-active);
+    border-color: map-get($tricolor-color, link-ontouch);
+  }
+}
+.ht-toolbar.uk-tab > * > a,
+.ht-toolbar .uk-tab > * > a {
+  &:hover,&:focus {
+    color: map-get($toolbar-color, text);
+  }
+  &:active {
+    color: map-get($toolbar-color, text-active);
+    border-color: map-get($toolbar-color, link-ontouch);
+  }
+}
+.ht-danger.uk-tab > * > a,
+.ht-danger .uk-tab > * > a {
+  &:hover,&:focus {
+    color: map-get($danger-color, text);
+  }
+  &:active {
+    color: map-get($danger-color, text-active);
+    border-color: map-get($danger-color, link-ontouch);
+  }
+}
+.ht-base.uk-tab > * > a,
+.ht-base .uk-tab > * > a {
+  &:hover,&:focus {
+    color: map-get($base-color, text);
+  }
+  &:active {
+    color: map-get($base-color, text-active);
+    border-color: map-get($base-color, link-ontouch);
+  }
+}
+.uk-tab > .uk-active > a {
   color: map-get($base-color, text-active);
   border-color: map-get($base-color, link-ontouch);
 }
@@ -708,9 +755,12 @@ a.uk-link-silent,.uk-link.uk-link-silent,
   color: map-get($danger-color, text-active);
   border-color: map-get($danger-color, link-ontouch);
 }
-.uk-tab > .uk-disabled > a,
-.ht-base.uk-tab > .uk-disabled > a,
-.ht-base .uk-tab > .uk-disabled > a {
+.ht-base.uk-tab > .uk-active > a,
+.ht-base .uk-tab > .uk-active > a {
+  color: map-get($base-color, text-active);
+  border-color: map-get($base-color, link-ontouch);
+}
+.uk-tab > .uk-disabled > a {
   color: map-get($base-color, text-muted);
   pointer-events: none;
 }
@@ -729,6 +779,11 @@ a.uk-link-silent,.uk-link.uk-link-silent,
 .ht-danger.uk-tab > .uk-disabled > a,
 .ht-danger .uk-tab > .uk-disabled > a {
   color: map-get($danger-color, text-muted);
+}
+.ht-base.uk-tab > .uk-disabled > a,
+.ht-base .uk-tab > .uk-disabled > a {
+  color: map-get($base-color, text-muted);
+  pointer-events: none;
 }
 .uk-tab.uk-tab-locate-center {
   justify-content: center;

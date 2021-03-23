@@ -41,12 +41,17 @@
       ontouch: User touches or cursor is on
       dent: Used when view type is signboard
       text: Text color
- */
 
+  Form:
+    input: Background color for input areas but it is recomended not to change from white
+    dent: Impless there is a dent which is used for border
+    disabled: Background color disabled input area
+    text: Text color in input area
+    text-muted: Used for placeholder in input area
+ */
 /* 
  * base
  */
-
 $base-background: #f0f0e9;
 $base-text: #3c3d36;
 $base-link: #3090ff;
@@ -54,17 +59,18 @@ $base-color: (
   basis: $base-background,
   dent: darken($base-background, 25%),
   text: $base-text,
-  text-muted: lighten($base-text, 15%),
-  text-active: saturate(darken($base-text, 15%), 15%),
-  heading: saturate(darken($base-text, 20%), 20%),
+  text-muted: lighten($base-text, 15%), // Light theme
+  // text-muted: darken($base-text, 15%), // Dark theme
+  text-active: saturate(darken($base-text, 15%), 15%), // Light theme
+  // text-active: saturate(lighten($base-text, 15%), 15%), // Dark theme
+  heading: saturate(darken($base-text, 20%), 20%), // Light theme
+  // heading: saturate(lighten($base-text, 20%), 20%), // Light theme
   link: $base-link,
   link-ontouch: saturate(darken($base-link, 10%), 20%),
 );
-
 /* 
  * bicolor
  */
-
 $bicolor-background: #d1deff;
 $bicolor-text: #313745;
 $bicolor-link: #3090ff;
@@ -72,9 +78,12 @@ $bicolor-color: (
   basis: $bicolor-background,
   dent: darken($bicolor-background, 25%),
   text: $bicolor-text,
-  text-muted: lighten($bicolor-text, 15%),
-  text-active: saturate(darken($bicolor-text, 15%), 15%),
-  heading: saturate(darken($bicolor-text, 20%), 20%),
+  text-muted: lighten($bicolor-text, 15%), // Light theme
+  // text-muted: darken($bicolor-text, 15%), // Dark theme
+  text-active: saturate(darken($bicolor-text, 15%), 15%), // Light theme
+  // text-active: saturate(lighten($bicolor-text, 15%), 15%), // Dark theme
+  heading: saturate(darken($bicolor-text, 20%), 20%), // Light theme
+  // heading: saturate(lighten($bicolor-text, 20%), 20%), // Light theme
   link: $bicolor-link,
   link-ontouch: saturate(darken($bicolor-link, 10%), 20%),
 );
@@ -88,10 +97,12 @@ $tricolor-color: (
   basis: $tricolor-background,
   dent: darken($tricolor-background, 25%),
   text: $tricolor-text,
-  text-muted: lighten($tricolor-text, 15%),
-  text-active: saturate(darken($tricolor-text, 15%), 15%),
-  // heading: saturate(darken($tricolor-text, 20%), 20%),
-  heading: $tricolor-text,
+  // text-muted: lighten($tricolor-text, 15%), // Light theme
+  text-muted: darken($tricolor-text, 15%), // Dark theme
+  // text-active: saturate(darken($tricolor-text, 15%), 15%), // Light theme
+  text-active: saturate(lighten($tricolor-text, 15%), 15%), // Dark theme
+  // heading: saturate(darken($tricolor-text, 20%), 20%), // Light theme
+  heading: saturate(lighten($tricolor-text, 20%), 20%), // Light theme
   link: $tricolor-link,
   link-ontouch: saturate(darken($tricolor-link, 10%), 20%),
 );
@@ -99,7 +110,7 @@ $tricolor-color: (
  * toolbar
  */
 $toolbar-background: #444742;
-$toolbar-text: #f2f2f2;
+$toolbar-text: #ccc2c2;
 $toolbar-link: #f2f2f2;
 $toolbar-color: (
   basis: $toolbar-background,
@@ -107,9 +118,12 @@ $toolbar-color: (
   ontouch: lighten($toolbar-background, 5%),
   active: darken($toolbar-background, 5%),
   text: $toolbar-text,
-  text-muted: lighten($toolbar-text, 15%),
-  text-active: saturate(darken($toolbar-text, 15%), 15%),
-  heading: saturate(darken($toolbar-text, 20%), 20%),
+  // text-muted: lighten($toolbar-text, 15%), // Light theme
+  text-muted: darken($toolbar-text, 15%), // Dark theme
+  // text-active: saturate(darken($toolbar-text, 15%), 15%), // Light theme
+  text-active: saturate(lighten($toolbar-text, 15%), 15%), // Dark theme
+  // heading: saturate(darken($toolbar-text, 20%), 20%), // Light theme
+  heading: saturate(lighten($toolbar-text, 20%), 20%), // Light theme
   link: $toolbar-link,
   link-ontouch: saturate(darken($toolbar-link, 10%), 20%),
 );
@@ -123,10 +137,12 @@ $toolbar-color: (
   basis: $danger-background,
   dent: darken($danger-background, 25%),
   text: $danger-text,
-  text-muted: lighten($danger-text, 15%),
-  text-active: saturate(darken($danger-text, 15%), 15%),
-  // heading: saturate(darken($danger-text, 20%), 20%),
-  heading: $danger-text,
+  // text-muted: lighten($danger-text, 15%), // Light theme
+  text-muted: darken($danger-text, 15%), // Dark theme
+  // text-active: saturate(darken($danger-text, 15%), 15%), // Light theme
+  text-active: saturate(lighten($danger-text, 15%), 15%), // Dark theme
+  // heading: saturate(darken($danger-text, 20%), 20%), // Light theme
+  heading: saturate(lighten($danger-text, 20%), 20%), // Light theme
   link: $danger-link,
   link-ontouch: saturate(darken($danger-link, 10%), 20%),
   /* danger theme as object */
@@ -166,9 +182,9 @@ $accent-color: (
   active: darken($accent-background, 15%),
   text: $accent-text,
 );
- /* 
-  * infomation
-  */
+/* 
+ * infomation
+ */
 $information-background: #1e87f0;
 $information-text: #f9fcfc;
 $infomation-color: (
@@ -199,4 +215,17 @@ $error-color: (
   dent: darken($error-background, 25%),
   text: $error-text,
 );
+/* 
+ * form
+ */
+$form-input: #ffffff;
+$form-disabled: #f8f8f8;
+$form-text: #3c3d36;
+$form-color: (
+  input: $form-input,
+  dent: darken($form-input, 25%),
+  disabled: $form-disabled,
+  text: $form-text,
+  text-muted: lighten($base-text, 15%),
+)
  

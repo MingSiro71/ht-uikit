@@ -1,4 +1,34 @@
 <!-- Card:
+  Color: Define color theme
+    (default)
+    primary
+    secondary
+    accent
+
+  Hover: Strengthen shadow on hover
+
+  Padding:
+    (default)
+    small
+    large: Only efficient in case window size is wide enough
+
+  Ingredients:
+    media: Locate image in card, which fits its edge on card's edge 
+      media-top: Locate image top of card
+      media-bottom: Locate image bottom of card
+    badge: Display tag-like badge at the top-right of card
+           It is different from original uikit that badge's appearnce
+           is fixed to label badge style
+           Only one badge can attach to each card
+    header: Insert header
+    body: Define body area
+    footer: Insert footer
+
+    title: Use it in header or body to indecate title
+           This changes size of letter
+
+  Card does not provide height, width or margin
+  You should define them in the element wrap cards
 -->
 <!DOCTYPE html>
 <html lang="ja">
@@ -15,6 +45,19 @@
   <meta property="og:description" content="Customized UIKit by Hentech">
 
   <link rel="stylesheet" href="../compiled/ht-uikit.css">
+  <style>
+    .uk-card-container {
+      display:flex;
+      flex-direction: row;
+    }
+    .uk-card-container > .uk-card {
+      flex-shrink: 1;
+      flex-grow: 1;
+    }
+    .uk-card-container > .uk-card:not(:first-child) {
+      margin-inline-start: 12px;
+    }
+  </style>
 
   <title>HT-UIKit | Card</title>
 </head>
@@ -45,7 +88,1421 @@
   </header>
   <!-- Set main content next to navbar! Do not locate other object! -->
   <section>
-    Main contents
+    <p>Card as block</p>
+    <div class="uk-card">
+      <div class="uk-card-body">
+        <a>Link</a><br>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+        <span class="uk-icon uk-icon-medium">
+          <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+            <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+            <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+          </svg>
+        </span>
+      </div>
+    </div>
+    <p>Card as flex items</p>
+    <div class="uk-card-container">
+      <div class="uk-card">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="uk-card">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="uk-card">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+    <!-- Color -->
+    <p>Color and themes</p>
+    <div class="uk-card-container">
+      <div class="uk-card">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="uk-card uk-card-primary">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="uk-card uk-card-secondary">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="uk-card uk-card-accent">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+    <!-- Hover -->
+    <p>Hover</p>
+    <div class="uk-card-container">
+      <div class="uk-card uk-card-hover">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="uk-card uk-card-primary uk-card-hover">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="uk-card uk-card-secondary uk-card-hover">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="uk-card uk-card-accent uk-card-hover">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+    <!-- Media -->
+    <p>Media top</p>
+    <div class="uk-card-container">
+      <div class="uk-card">
+        <div class="uk-card-media-top">
+          <img src="../asset/image/niwatori.png" alt="Cooc?">
+        </div>
+        <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+      </div>
+      <div class="uk-card uk-card-primary">
+        <div class="uk-card-media-top">
+          <img src="../asset/image/niwatori.png" alt="Cooc?">
+        </div>
+        <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+      </div>
+      <div class="uk-card uk-card-secondary">
+        <div class="uk-card-media-top">
+          <img src="../asset/image/niwatori.png" alt="Cooc?">
+        </div>
+        <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+      </div>
+      <div class="uk-card uk-card-accent">
+        <div class="uk-card-media-top">
+          <img src="../asset/image/niwatori.png" alt="Cooc?">
+        </div>
+        <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+      </div>
+    </div>
+    <p>Media bottom</p>
+    <div class="uk-card-container">
+      <div class="uk-card">
+        <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+        <div class="uk-card-media-bottom">
+          <img src="../asset/image/niwatori.png" alt="Cooc?">
+        </div>
+      </div>
+      <div class="uk-card uk-card-primary">
+        <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+        <div class="uk-card-media-bottom">
+          <img src="../asset/image/niwatori.png" alt="Cooc?">
+        </div>
+      </div>
+      <div class="uk-card uk-card-secondary">
+        <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+        <div class="uk-card-media-bottom">
+          <img src="../asset/image/niwatori.png" alt="Cooc?">
+        </div>
+      </div>
+      <div class="uk-card uk-card-accent">
+        <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+        <div class="uk-card-media-bottom">
+          <img src="../asset/image/niwatori.png" alt="Cooc?">
+        </div>
+      </div>
+    </div>
+    <!-- Badge -->
+    <p>Badge</p>
+    <div class="uk-card-container">
+      <div class="uk-card">
+        <div class="uk-card-badge">Badge, Badge</div>
+        <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+      </div>
+      <div class="uk-card uk-card-primary">
+        <div class="uk-card-badge">Badge</div>
+        <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+      </div>
+      <div class="uk-card uk-card-secondary">
+        <div class="uk-card-badge">Badge</div>
+        <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+      </div>
+      <div class="uk-card uk-card-accent">
+        <div class="uk-card-badge">Badge</div>
+        <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+      </div>
+    </div>
+    <p>Coexistance of media at the top and badge</p>
+    <div class="uk-card-container">
+      <div class="uk-card">
+        <div class="uk-card-media-top">
+          <img src="../asset/image/niwatori.png" alt="Cooc?">
+        </div>
+        <div class="uk-card-badge">Badge, Badge</div>
+        <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+      </div>
+      <div class="uk-card uk-card-primary">
+        <div class="uk-card-media-top">
+          <img src="../asset/image/niwatori.png" alt="Cooc?">
+        </div>
+        <div class="uk-card-badge">Badge</div>
+        <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+      </div>
+      <div class="uk-card uk-card-secondary">
+        <div class="uk-card-media-top">
+          <img src="../asset/image/niwatori.png" alt="Cooc?">
+        </div>
+        <div class="uk-card-badge">Badge</div>
+        <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+      </div>
+      <div class="uk-card uk-card-accent">
+        <div class="uk-card-media-top">
+          <img src="../asset/image/niwatori.png" alt="Cooc?">
+        </div>
+        <div class="uk-card-badge">Badge</div>
+        <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+      </div>
+    </div>
+
+    <p>Paddings</p>
+    <div class="uk-card-container">
+      <div class="uk-card">
+        <div class="uk-card-media-top">
+          <img src="../asset/image/niwatori.png" alt="Cooc?">
+        </div>
+        <div class="uk-card-header"><h2 class="uk-card-title">Default</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+      </div>
+      <div class="uk-card uk-card-padding-small">
+        <div class="uk-card-media-top">
+          <img src="../asset/image/niwatori.png" alt="Cooc?">
+        </div>
+        <div class="uk-card-header"><h2 class="uk-card-title">Small</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+      </div>
+      <div class="uk-card uk-card-padding-large">
+        <div class="uk-card-media-top">
+          <img src="../asset/image/niwatori.png" alt="Cooc?">
+        </div>
+        <div class="uk-card-header"><h2 class="uk-card-title">Large</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+      </div>
+    </div>
+  </section>
+  <!-- Override base on bicolor -->
+  <section class="ht-bicolor">
+    <p>Override base on bicolor</p>
+    <div class="ht-base" style="margin: 4px">
+      <!-- Color -->
+      <p>Color and themes</p>
+      <div class="uk-card-container">
+        <div class="uk-card">
+          <div class="uk-card-body">
+            <a>Link</a><br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+            <span class="uk-icon uk-icon-medium">
+              <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+                <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+                <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+        <div class="uk-card uk-card-primary">
+          <div class="uk-card-body">
+            <a>Link</a><br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+            <span class="uk-icon uk-icon-medium">
+              <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+                <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+                <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+        <div class="uk-card uk-card-secondary">
+          <div class="uk-card-body">
+            <a>Link</a><br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+            <span class="uk-icon uk-icon-medium">
+              <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+                <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+                <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+        <div class="uk-card uk-card-accent">
+          <div class="uk-card-body">
+            <a>Link</a><br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+            <span class="uk-icon uk-icon-medium">
+              <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+                <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+                <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+      <!-- Hover -->
+      <p>Hover</p>
+      <div class="uk-card-container">
+        <div class="uk-card uk-card-hover">
+          <div class="uk-card-body">
+            <a>Link</a><br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+            <span class="uk-icon uk-icon-medium">
+              <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+                <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+                <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+        <div class="uk-card uk-card-primary uk-card-hover">
+          <div class="uk-card-body">
+            <a>Link</a><br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+            <span class="uk-icon uk-icon-medium">
+              <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+                <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+                <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+        <div class="uk-card uk-card-secondary uk-card-hover">
+          <div class="uk-card-body">
+            <a>Link</a><br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+            <span class="uk-icon uk-icon-medium">
+              <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+                <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+                <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+        <div class="uk-card uk-card-accent uk-card-hover">
+          <div class="uk-card-body">
+            <a>Link</a><br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+            <span class="uk-icon uk-icon-medium">
+              <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+                <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+                <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+      <!-- Badge -->
+      <p>Coexistance of media at the top and badge</p>
+      <div class="uk-card-container">
+        <div class="uk-card">
+          <div class="uk-card-media-top">
+            <img src="../asset/image/niwatori.png" alt="Cooc?">
+          </div>
+          <div class="uk-card-badge">Badge, Badge</div>
+          <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+          <div class="uk-card-body">
+            <a>Link</a><br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+            <span class="uk-icon uk-icon-medium">
+              <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+                <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+                <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+              </svg>
+            </span>
+          </div>
+          <div class="uk-card-footer">Footer</div>
+        </div>
+        <div class="uk-card uk-card-primary">
+          <div class="uk-card-media-top">
+            <img src="../asset/image/niwatori.png" alt="Cooc?">
+          </div>
+          <div class="uk-card-badge">Badge</div>
+          <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+          <div class="uk-card-body">
+            <a>Link</a><br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+            <span class="uk-icon uk-icon-medium">
+              <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+                <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+                <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+              </svg>
+            </span>
+          </div>
+          <div class="uk-card-footer">Footer</div>
+        </div>
+        <div class="uk-card uk-card-secondary">
+          <div class="uk-card-media-top">
+            <img src="../asset/image/niwatori.png" alt="Cooc?">
+          </div>
+          <div class="uk-card-badge">Badge</div>
+          <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+          <div class="uk-card-body">
+            <a>Link</a><br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+            <span class="uk-icon uk-icon-medium">
+              <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+                <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+                <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+              </svg>
+            </span>
+          </div>
+          <div class="uk-card-footer">Footer</div>
+        </div>
+        <div class="uk-card uk-card-accent">
+          <div class="uk-card-media-top">
+            <img src="../asset/image/niwatori.png" alt="Cooc?">
+          </div>
+          <div class="uk-card-badge">Badge</div>
+          <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+          <div class="uk-card-body">
+            <a>Link</a><br>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+            <span class="uk-icon uk-icon-medium">
+              <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+                <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+                <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+              </svg>
+            </span>
+          </div>
+          <div class="uk-card-footer">Footer</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Bicolor -->
+  <section class="ht-bicolor">
+    <p>Bicolor</p>
+    <!-- Color -->
+    <p>Color and themes</p>
+    <div class="uk-card-container">
+      <div class="uk-card">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="uk-card uk-card-primary">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="uk-card uk-card-secondary">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="uk-card uk-card-accent">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+    <!-- Hover -->
+    <p>Hover</p>
+    <div class="uk-card-container">
+      <div class="uk-card uk-card-hover">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="uk-card uk-card-primary uk-card-hover">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="uk-card uk-card-secondary uk-card-hover">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="uk-card uk-card-accent uk-card-hover">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+    <!-- Badge -->
+    <p>Coexistance of media at the top and badge</p>
+    <div class="uk-card-container">
+      <div class="uk-card">
+        <div class="uk-card-media-top">
+          <img src="../asset/image/niwatori.png" alt="Cooc?">
+        </div>
+        <div class="uk-card-badge">Badge, Badge</div>
+        <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+      </div>
+      <div class="uk-card uk-card-primary">
+        <div class="uk-card-media-top">
+          <img src="../asset/image/niwatori.png" alt="Cooc?">
+        </div>
+        <div class="uk-card-badge">Badge</div>
+        <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+      </div>
+      <div class="uk-card uk-card-secondary">
+        <div class="uk-card-media-top">
+          <img src="../asset/image/niwatori.png" alt="Cooc?">
+        </div>
+        <div class="uk-card-badge">Badge</div>
+        <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+      </div>
+      <div class="uk-card uk-card-accent">
+        <div class="uk-card-media-top">
+          <img src="../asset/image/niwatori.png" alt="Cooc?">
+        </div>
+        <div class="uk-card-badge">Badge</div>
+        <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+      </div>
+    </div>
+  </section>
+  <!-- Tricolor -->
+  <section class="ht-tricolor">
+    <p>Tricolor</p>
+    <!-- Color -->
+    <p>Color and themes</p>
+    <div class="uk-card-container">
+      <div class="uk-card">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="uk-card uk-card-primary">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="uk-card uk-card-secondary">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="uk-card uk-card-accent">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+    <!-- Hover -->
+    <p>Hover</p>
+    <div class="uk-card-container">
+      <div class="uk-card uk-card-hover">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="uk-card uk-card-primary uk-card-hover">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="uk-card uk-card-secondary uk-card-hover">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="uk-card uk-card-accent uk-card-hover">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+    <!-- Badge -->
+    <p>Coexistance of media at the top and badge</p>
+    <div class="uk-card-container">
+      <div class="uk-card">
+        <div class="uk-card-media-top">
+          <img src="../asset/image/niwatori.png" alt="Cooc?">
+        </div>
+        <div class="uk-card-badge">Badge, Badge</div>
+        <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+      </div>
+      <div class="uk-card uk-card-primary">
+        <div class="uk-card-media-top">
+          <img src="../asset/image/niwatori.png" alt="Cooc?">
+        </div>
+        <div class="uk-card-badge">Badge</div>
+        <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+      </div>
+      <div class="uk-card uk-card-secondary">
+        <div class="uk-card-media-top">
+          <img src="../asset/image/niwatori.png" alt="Cooc?">
+        </div>
+        <div class="uk-card-badge">Badge</div>
+        <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+      </div>
+      <div class="uk-card uk-card-accent">
+        <div class="uk-card-media-top">
+          <img src="../asset/image/niwatori.png" alt="Cooc?">
+        </div>
+        <div class="uk-card-badge">Badge</div>
+        <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+      </div>
+    </div>
+  </section>
+  <!-- Toolbar -->
+  <section class="ht-toolbar">
+    <p>Toolbar</p>
+    <!-- Color -->
+    <p>Color and themes</p>
+    <div class="uk-card-container">
+      <div class="uk-card">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="uk-card uk-card-primary">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="uk-card uk-card-secondary">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="uk-card uk-card-accent">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+    <!-- Hover -->
+    <p>Hover</p>
+    <div class="uk-card-container">
+      <div class="uk-card uk-card-hover">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="uk-card uk-card-primary uk-card-hover">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="uk-card uk-card-secondary uk-card-hover">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="uk-card uk-card-accent uk-card-hover">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+    <!-- Badge -->
+    <p>Coexistance of media at the top and badge</p>
+    <div class="uk-card-container">
+      <div class="uk-card">
+        <div class="uk-card-media-top">
+          <img src="../asset/image/niwatori.png" alt="Cooc?">
+        </div>
+        <div class="uk-card-badge">Badge, Badge</div>
+        <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+      </div>
+      <div class="uk-card uk-card-primary">
+        <div class="uk-card-media-top">
+          <img src="../asset/image/niwatori.png" alt="Cooc?">
+        </div>
+        <div class="uk-card-badge">Badge</div>
+        <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+      </div>
+      <div class="uk-card uk-card-secondary">
+        <div class="uk-card-media-top">
+          <img src="../asset/image/niwatori.png" alt="Cooc?">
+        </div>
+        <div class="uk-card-badge">Badge</div>
+        <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+      </div>
+      <div class="uk-card uk-card-accent">
+        <div class="uk-card-media-top">
+          <img src="../asset/image/niwatori.png" alt="Cooc?">
+        </div>
+        <div class="uk-card-badge">Badge</div>
+        <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+      </div>
+    </div>
+  </section>
+  <!-- Danger -->
+  <section class="ht-danger">
+    <p>Danger</p>
+    <!-- Color -->
+    <p>Color and themes</p>
+    <div class="uk-card-container">
+      <div class="uk-card">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="uk-card uk-card-primary">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="uk-card uk-card-secondary">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="uk-card uk-card-accent">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+    <!-- Hover -->
+    <p>Hover</p>
+    <div class="uk-card-container">
+      <div class="uk-card uk-card-hover">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="uk-card uk-card-primary uk-card-hover">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="uk-card uk-card-secondary uk-card-hover">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="uk-card uk-card-accent uk-card-hover">
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+    <!-- Badge -->
+    <p>Coexistance of media at the top and badge</p>
+    <div class="uk-card-container">
+      <div class="uk-card">
+        <div class="uk-card-media-top">
+          <img src="../asset/image/niwatori.png" alt="Cooc?">
+        </div>
+        <div class="uk-card-badge">Badge, Badge</div>
+        <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+      </div>
+      <div class="uk-card uk-card-primary">
+        <div class="uk-card-media-top">
+          <img src="../asset/image/niwatori.png" alt="Cooc?">
+        </div>
+        <div class="uk-card-badge">Badge</div>
+        <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+      </div>
+      <div class="uk-card uk-card-secondary">
+        <div class="uk-card-media-top">
+          <img src="../asset/image/niwatori.png" alt="Cooc?">
+        </div>
+        <div class="uk-card-badge">Badge</div>
+        <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+      </div>
+      <div class="uk-card uk-card-accent">
+        <div class="uk-card-media-top">
+          <img src="../asset/image/niwatori.png" alt="Cooc?">
+        </div>
+        <div class="uk-card-badge">Badge</div>
+        <div class="uk-card-header"><h2 class="uk-card-title">Title</h2><p>Header sentence</p></div>
+        <div class="uk-card-body">
+          <a>Link</a><br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.<br>
+          <span class="uk-icon uk-icon-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="85" viewBox="0 0 28 34" xlink:href="data：image/png;">
+              <polygon fill="#1e87f0" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+              <path fill="none" stroke="#28a5f5" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+            </svg>
+          </span>
+        </div>
+        <div class="uk-card-footer">Footer</div>
+      </div>
+    </div>
   </section>
 </body>
 </html>

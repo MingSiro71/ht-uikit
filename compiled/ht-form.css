@@ -1,0 +1,1148 @@
+/* HT-Telop scss 1.0.0 */
+/* Copyright (c) 2021 Hentech under MIT Lisence */
+/* 
+ * _colors.scss: Defines colors for areas and objects
+ *
+  Themes:
+    Areas:
+      *base: Base color and standard text colors
+      *bicolor: The second base color
+      *tricolor: The third base color
+      *toolbar: Colers for user interface which can be find that not the parts of page, but utility object
+      *danger: Areas which user should not touch in usual case use this colors
+    Objects:
+      *primary: Colors for object which user should watch at first
+      *secondary: Colors for object which is important next to primary
+      *accent: Accent color for object which is no relation for user flow
+    Nocices:
+      *information: Colors for infomation message or telop
+      *warning: Colors for warning message or telop
+      *error: Colors for error message or telop
+
+  Colors for each theme:
+    Areas:
+      basis: Used for background color
+      dent: Impless there is a dent which is used for hr or border
+      text: Text color
+      text-muted: Text color which is muted, also used link hover
+      text-active: Text in active element
+      heading: Used for heading, which is stronger than text color
+      link: Impress that text is link
+      link-ontouch: Used for link on touch or on cursor
+
+      Only toolbar and danger:
+        ontouch: User touches or cursor is on
+        active: Impress the element is active seemes to be pushed
+    Objects:
+      basis: Used for object's background color
+      ontouch: User touches or cursor is on, seems to be reflecting ray
+      active: Impress the element is active, seems pushed
+      text: Text color
+    Nocices:
+      basis: Used for object's background color
+      ontouch: User touches or cursor is on
+      dent: Used when view type is signboard
+      text: Text color
+
+  Form:
+    input: Background color for input areas but it is recomended not to change from white
+    dent: Impless there is a dent which is used for border
+    disabled: Background color disabled input area
+    text: Text color in input area
+    text-muted: Used for placeholder in input area
+ */
+/* 
+ * base
+ */
+/* 
+ * bicolor
+ */
+/* 
+ * tricolor
+ */
+/* 
+ * toolbar
+ */
+/* 
+  * danger
+  */
+/* 
+ * primary
+ */
+/* 
+ * secondary
+ */
+/* 
+ * accent
+ */
+/* 
+ * infomation
+ */
+/* 
+ * warning
+ */
+/* 
+ * error
+ */
+/* 
+ * form
+ */
+/* 
+ * _layout.scss: Defines window breakpoint and indent size 
+ *
+  Stream-width:
+    Width Definitions for Stream Component
+    It is recomended that keep main-min smaller than 375
+    enough not to hide content in small mobile
+  Breakpoint
+    Devices are called here
+      - mobile: mobile phone such as smartphone
+        mobile-portlate
+        mobile-landscape
+      - notebook: Laptop and tablet computer
+                  Using tablet in landscape layout, is included in workstation 
+      - workstation: Computers larger than notebook such as desktop computer
+  Others
+    nav-height: Height of navigation bar
+ */
+/* Do not touch! Auto configuration */
+/* ========================================================================
+   Component: Form
+ ========================================================================== */
+/*
+ * 1. Remove default style in iOS.
+ * 1. Define consistent box sizing.
+ *    Default is `content-box` with following exceptions set to `border-box`
+ *    `select`, `input[type="checkbox"]` and `input[type="radio"]`
+ *    `input[type="search"]` in Chrome, Safari and Opera
+ *    `input[type="color"]` in Firefox
+ * 2. Address margins set differently in Firefox/IE and Chrome/Safari/Opera.
+ * 3. Remove `border-radius` in iOS.
+ * 4. Change font properties to `inherit` in all browsers.
+ * 1. Prevent content overflow if a fixed width is used
+ * 2. Take the full width
+ * 3. Reset default
+ * 4. Style
+ * 1. Show the overflow in Edge.
+ * 2. Remove the inheritance of text transform in Firefox.
+ * 3. Remove the default vertical scrollbar in IE 10+.
+ */
+.ht-form {
+  display: flex;
+  flex-direction: column;
+  /* 1 */
+  /* 3 */
+}
+
+.ht-form input, .ht-form textarea {
+  -webkit-appearance: none;
+}
+
+.ht-form input, .ht-form select, .ht-form textarea {
+  /* 1 */
+  box-sizing: border-box;
+  /* 2 */
+  margin: 0 0 calc(10px * 2) 0;
+  /* 3 */
+  border-radius: 0;
+  /* 4 */
+  font: inherit;
+  /* 1 */
+  max-width: 100%;
+  /* 2 */
+  /* 3 */
+  /* 4 */
+  padding: 0 10px;
+  background: #ffffff;
+  color: #3c3d36;
+  border: 1px solid #bfbfbf;
+  transition: 0.2s ease-in-out;
+  transition-property: color, background-color, border;
+  /* 5 */
+  overflow: visible;
+}
+
+.ht-form input:not([type=button]):not([type=file]):not([type=submit]):not([type="checkbox"]):not([type="radio"]):not([type=color]), .ht-form select:not([type=button]):not([type=file]):not([type=submit]):not([type="checkbox"]):not([type="radio"]):not([type=color]), .ht-form textarea:not([type=button]):not([type=file]):not([type=submit]):not([type="checkbox"]):not([type="radio"]):not([type=color]) {
+  width: 100%;
+}
+
+.ht-form input[type=button], .ht-form input[type=submit], .ht-form select[type=button], .ht-form select[type=submit], .ht-form textarea[type=button], .ht-form textarea[type=submit] {
+  width: fit-content;
+}
+
+.ht-form input[type=color], .ht-form select[type=color], .ht-form textarea[type=color] {
+  width: 120px;
+  max-width: 120px;
+  flex-grow: 0;
+}
+
+.ht-form input:focus, .ht-form select:focus, .ht-form textarea:focus {
+  outline: none;
+  background-color: #ffffff;
+  color: inherit;
+  border-color: #bfbfbf;
+}
+
+.ht-form input:disabled, .ht-form select:disabled, .ht-form textarea:disabled {
+  background-color: #f8f8f8;
+  color: #64665a;
+  border-color: #bfbfbf;
+}
+
+.ht-form select {
+  /* 2 */
+  text-transform: none;
+  /*
+      * 1. Change font properties to `inherit` in all browsers
+      * 2. Don't inherit the `font-weight` and use `bold` instead.
+      * NOTE: Both declarations don't work in Chrome, Safari and Opera.
+      */
+}
+
+.ht-form select optgroup {
+  /* 1 */
+  font: inherit;
+  /* 2 */
+  font-weight: bold;
+}
+
+.ht-form textarea {
+  overflow: auto;
+}
+
+.ht-form input, .ht-form select {
+  height: calc(38px + 2px);
+  vertical-align: middle;
+}
+
+.ht-form input::placeholder, .ht-form input::-ms-input-placeholder, .ht-form textarea::placeholder, .ht-form textarea::-ms-input-placeholder {
+  background-color: #64665a;
+}
+
+.ht-form > label:first-child, .ht-form > fieldset:first-child, .ht-form > legend:first-child, .ht-form > input:first-child, .ht-form > select:first-child, .ht-form > textarea:first-child {
+  margin-top: calc(10px * 2);
+}
+
+/* Radio and checkbox
+ * Note: Does not work in IE11
+ ========================================================================== */
+/*
+ * 1. Style
+ * 2. Make box more robust so it clips the child element
+ * 3. Vertical alignment
+ * 4. Remove default style
+ * 5. Fix black background on iOS
+ * 6. Center icons
+ */
+.ht-form input[type=radio] {
+  border-radius: 50%;
+}
+
+.ht-form input[type=radio],
+.ht-form input[type=checkbox] {
+  /* 1 */
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  /* 2 */
+  overflow: hidden;
+  /* 3 */
+  vertical-align: middle;
+  /* 4 */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /* 5 */
+  background-color: #ffffff;
+  /* 6 */
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  border: 1px solid #bfbfbf;
+  transition: 0.2s ease-in-out;
+  transition-property: background-color, border;
+  /* 7 */
+  padding: 0;
+  /* 8 */
+  flex-shrink: 0;
+  /* 9 */
+}
+
+.ht-form input[type=radio]:not(:disabled),
+.ht-form input[type=checkbox]:not(:disabled) {
+  cursor: pointer;
+}
+
+.ht-form input[type=radio]:focus,
+.ht-form input[type=checkbox]:focus {
+  outline: none;
+  border-color: #3090ff;
+}
+
+.ht-form input[type=radio]:checked,
+.ht-form input[type=checkbox]:checked {
+  background-color: #3090ff;
+  border-color: transparent;
+}
+
+.ht-form input[type=radio]:checked:focus,
+.ht-form input[type=checkbox]:checked:focus {
+  background-color: #0075fc;
+  border-color: #3090ff;
+}
+
+.ht-form input[type=radio]:disabled,
+.ht-form input[type=checkbox]:disabled {
+  background-color: #f8f8f8;
+  border-color: #bfbfbf;
+}
+
+.ht-form input[type=radio] input[type=checkbox]:indeterminate,
+.ht-form input[type=checkbox] input[type=checkbox]:indeterminate {
+  background-color: #3090ff;
+  border-color: transparent;
+}
+
+.ht-form input[type=radio] input[type=checkbox]:indeterminate:focus,
+.ht-form input[type=checkbox] input[type=checkbox]:indeterminate:focus {
+  background-color: #0075fc;
+  border-color: #3090ff;
+}
+
+.ht-form input[type=radio]:checked {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Ccircle%20fill%3D%22%23fff%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%222%22%20%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.ht-form input[type=checkbox]:checked {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%22%20height%3D%2211%22%20viewBox%3D%220%200%2014%2011%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23fff%22%20points%3D%2212%201%205%207.5%202%205%201%205.5%205%2010%2013%201.5%22%20%2F%3E%0A%3C%2Fsvg%3E%0A");
+}
+
+.ht-form input[type=checkbox]:indeterminate {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Crect%20fill%3D%22%23fff%22%20x%3D%223%22%20y%3D%228%22%20width%3D%2210%22%20height%3D%221%22%20%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.ht-form input[type=radio]:disabled:checked {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Ccircle%20fill%3D%22%23999%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%222%22%20%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.ht-form input[type=checkbox]:disabled:checked {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%22%20height%3D%2211%22%20viewBox%3D%220%200%2014%2011%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23999%22%20points%3D%2212%201%205%207.5%202%205%201%205.5%205%2010%2013%201.5%22%20%2F%3E%0A%3C%2Fsvg%3E%0A");
+}
+
+.ht-form input[type=checkbox]:disabled:indeterminate {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Crect%20fill%3D%22%23999%22%20x%3D%223%22%20y%3D%228%22%20width%3D%2210%22%20height%3D%221%22%20%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.ht-form .ht-form-selection {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0 6px;
+  margin: 0 0 calc(10px * 2) 0;
+  width: 100%;
+  max-width: calc(100% - (2* 6px));
+  line-height: 1.5rem;
+}
+
+.ht-form .ht-form-selection input[type=radio], .ht-form .ht-form-selection input[type=checkbox] {
+  margin: 10px 6px 10px 0;
+}
+
+.ht-form .ht-form-selection input[type=radio]:first-child, .ht-form .ht-form-selection input[type=checkbox]:first-child {
+  margin-top: 0px;
+}
+
+.ht-form .ht-form-selection input[type=radio]:last-child, .ht-form .ht-form-selection input[type=checkbox]:last-child {
+  margin-bottom: 0px;
+}
+
+.ht-form .ht-form-selection label {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  align-items: center;
+}
+
+.ht-form .ht-form-selection label input[type=radio], .ht-form .ht-form-selection label input[type=checkbox] {
+  margin: 0 6px 0 0;
+}
+
+.ht-form .ht-form-selection-horizontal {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 0 calc(10px * 2) 0;
+  padding: 0 6px;
+  align-items: center;
+  line-height: 1.5rem;
+  border: none;
+}
+
+.ht-form .ht-form-selection-horizontal input[type=radio]:not(:last-child), .ht-form .ht-form-selection-horizontal input[type=checkbox]:not(:last-child) {
+  margin-inline-end: 6px;
+}
+
+.ht-form .ht-form-selection-horizontal label {
+  width: fit-content;
+  margin: 0 6px 0 0;
+}
+
+.ht-form .ht-form-selection-horizontal label input[type=radio], .ht-form .ht-form-selection-horizontal label input[type=checkbox] {
+  margin: 0 6px 0 0;
+}
+
+.ht-form .ht-form-selection:first-child, .ht-form .ht-form-selection-horizontal:first-child {
+  margin-top: calc(10px * 2);
+}
+
+.ht-form .ht-form-selection-sidebyside > div, .ht-form .ht-form-selection-sidebyside label {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ht-form .ht-form-selection-sidebyside > div input[type=radio], .ht-form .ht-form-selection-sidebyside > div input[type=checkbox], .ht-form .ht-form-selection-sidebyside label input[type=radio], .ht-form .ht-form-selection-sidebyside label input[type=checkbox] {
+  margin: 0 6px 0 0;
+}
+
+/*
+ * Removes placeholder transparency in Firefox.
+ */
+.uk-input::-moz-placeholder,
+.uk-textarea::-moz-placeholder {
+  opacity: 1;
+}
+
+/*
+ * Define consistent border, margin, and padding.
+ */
+.ht-form fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Sizing
+ ========================================================================== */
+/*
+ * Small
+ */
+.ht-form.ht-form-small {
+  font-size: inherit;
+}
+
+.ht-form.ht-form-small input, .ht-form.ht-form-small select {
+  height: calc(28px + 2px);
+}
+
+.ht-form.ht-form-small input[type=radio],
+.ht-form.ht-form-small input[type=checkbox] {
+  height: 16px;
+  width: 16px;
+}
+
+.ht-form.ht-form-small input[type="button"], .ht-form.ht-form-small input[type="submit"] {
+  line-height: 28px !important;
+}
+
+.ht-form.ht-form-small .ht-form-selection {
+  line-height: 1.5rem;
+}
+
+/*
+ * Large
+ */
+.ht-form.ht-form-large {
+  font-size: 1.5rem;
+}
+
+.ht-form.ht-form-large input, .ht-form.ht-form-large select {
+  height: calc(53px + 2px);
+}
+
+.ht-form.ht-form-large input[type=radio],
+.ht-form.ht-form-large input[type=checkbox] {
+  height: 24px;
+  width: 24px;
+}
+
+.ht-form.ht-form-large input[type="button"], .ht-form.ht-form-large input[type="submit"] {
+  line-height: 53px !important;
+}
+
+.ht-form.ht-form-large .ht-form-selection {
+  line-height: 2.4rem;
+}
+
+/* Range
+ ========================================================================== */
+.ht-form {
+  /* Common style */
+  /* Webkit */
+  /* Mozilla */
+  /* Microsoft */
+}
+
+.ht-form input[type=range] {
+  -webkit-appearance: none;
+  margin: 0 0 calc(10px * 2) 0;
+  padding: 0;
+  width: 100%;
+  height: calc(38px + 2px);
+  cursor: pointer;
+  vertical-align: middle;
+  background-color: transparent;
+  border: none;
+}
+
+.ht-form input[type=range]:focus {
+  outline: none;
+}
+
+.ht-form input[type=range]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  height: 2px;
+  border: none;
+  border-radius: 0px;
+  background: #bfbfbf;
+}
+
+.ht-form input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: calc((38px/2) - 1px);
+  width: calc((38px/2) - 1px);
+  margin-top: calc((-1 * 38px / 4) + 1.5px);
+  border: none;
+  border-radius: 50%;
+  background: #bfbfbf;
+}
+
+.ht-form input[type=range]::-moz-range-track {
+  height: 2px;
+  border: none;
+  border-radius: 0px;
+  background: #bfbfbf;
+}
+
+.ht-form input[type=range]::-moz-range-thumb {
+  height: calc((38px/2) - 1px);
+  width: calc((38px/2) - 1px);
+  margin-top: calc((-1 * 38px / 4) + 1.5px);
+  border: none;
+  border-radius: 50%;
+  background: #bfbfbf;
+}
+
+.ht-form input[type=range]::-ms-track {
+  height: 2px;
+  border: none;
+  border-radius: 0px;
+  background: #bfbfbf;
+}
+
+.ht-form input[type=range]::-ms-fill-lower {
+  background: #bfbfbf;
+}
+
+.ht-form input[type=range]::-ms-fill-upper {
+  background: #bfbfbf;
+}
+
+.ht-form input[type=range]::-ms-thumb {
+  height: calc((38px/2) - 1px);
+  width: calc((38px/2) - 1px);
+  margin-top: calc((-1 * 38px / 4) + 1.5px);
+  border: none;
+  border-radius: 50%;
+  background: #bfbfbf;
+}
+
+.ht-form input[type=range]::-ms-tooltip {
+  display: none;
+}
+
+@supports (-ms-ime-align: auto) {
+  .ht-form input[type=range]::-webkit-slider-thumb {
+    margin-top: 0 !important;
+  }
+}
+
+.ht-form.ht-form-small input[type=range] {
+  height: calc(28px + 2px);
+}
+
+.ht-form.ht-form-small input[type=range]::-webkit-slider-thumb {
+  height: calc((28px/2) - 1px);
+  width: calc((28px/2) - 1px);
+  margin-top: calc((-1 * 28px / 4) + 1.5px);
+}
+
+.ht-form.ht-form-small input[type=range]::-moz-range-thumb {
+  height: calc((28px/2) - 1px);
+  width: calc((28px/2) - 1px);
+  margin-top: calc((-1 * 28px / 4) + 1.5px);
+}
+
+.ht-form.ht-form-small input[type=range]::-ms-thumb {
+  height: calc((28px/2) - 1px);
+  width: calc((28px/2) - 1px);
+  margin-top: calc((-1 * 28px / 4) + 1.5px);
+}
+
+.ht-form.ht-form-large input[type=range] {
+  height: calc(53px + 2px);
+}
+
+.ht-form.ht-form-large input[type=range]::-webkit-slider-thumb {
+  height: calc((53px/2) - 1px);
+  width: calc((53px/2) - 1px);
+  margin-top: calc((-1 * 53px / 4) + 1.5px);
+}
+
+.ht-form.ht-form-large input[type=range]::-moz-range-thumb {
+  height: calc((53px/2) - 1px);
+  width: calc((53px/2) - 1px);
+  margin-top: calc((-1 * 53px / 4) + 1.5px);
+}
+
+.ht-form.ht-form-large input[type=range]::-ms-thumb {
+  height: calc((53px/2) - 1px);
+  width: calc((53px/2) - 1px);
+  margin-top: calc((-1 * 53px / 4) + 1.5px);
+}
+
+/* File
+ ========================================================================== */
+/*
+ * 1. Do not display input itself
+ * 2. Instead of input, shape label as if button entity
+ */
+.ht-form {
+  /* 1 */
+  /* 2 */
+}
+
+.ht-form input[type=file] {
+  display: none;
+}
+
+.ht-form label.ht-form-file {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0 10px;
+  height: calc(38px + 2px);
+  line-height: 38px;
+  max-width: 100%;
+  border: 1px solid #bcbc9d;
+  overflow: visible;
+  border-radius: 0;
+  color: #3c3d36;
+  transition: 0.2s ease-in-out;
+  transition-property: color, background-color, border;
+}
+
+.ht-form .ht-form-selection .ht-form-file,
+.ht-form .ht-form-selection-horizontal .ht-form-file {
+  margin-left: calc(-1 * 6px);
+}
+
+.ht-form.ht-form-small label.ht-form-file {
+  height: calc(28px + 2px);
+  line-height: 28px;
+}
+
+.ht-form.ht-form-large label.ht-form-file {
+  height: calc(53px + 2px);
+  line-height: 53px;
+}
+
+/*
+ * Remove the inner padding and cancel buttons in Chrome on OS X and Safari on OS X.
+ */
+.uk-input[type="search"]::-webkit-search-cancel-button,
+.uk-input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+.uk-input[type="number"]::-webkit-inner-spin-button,
+.uk-input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/* Legend
+ ========================================================================== */
+/*
+ * Legend
+ * 1. Behave like block element
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove padding so people aren't caught out if they zero out fieldsets.
+ * 4. Style
+ */
+.ht-form legend {
+  /* 1 */
+  width: 100%;
+  /* 2 */
+  color: inherit;
+  /* 3 */
+  padding: 0;
+  /* 4 */
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+  margin: 0 0 10px 0;
+}
+
+/* Label
+ ========================================================================== */
+.ht-form label {
+  width: 100%;
+  overflow: hidden;
+}
+
+.ht-form label text {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 10px 0;
+}
+
+.ht-form label + input, .ht-form label + select, .ht-form label + textarea {
+  margin-top: 10px;
+}
+
+.ht-form label > *:first-child:not(text) {
+  margin-top: 10px;
+}
+
+.ht-form .ht-form-selection legend,
+.ht-form .ht-form-selection-horizontal legend {
+  display: inline-block;
+  width: 100%;
+  margin-left: calc(-1 * 6px);
+  font-size: inherit;
+}
+
+/* Layout
+ ========================================================================== */
+/*
+ * Stacked
+ */
+.ht-form-stacked .ht-form-label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/*
+ * Horizontal
+ */
+/* Tablet portrait and smaller */
+@media (max-width: calc( - 1px)) {
+  /* Behave like `ht-form-stacked` */
+  .ht-form-horizontal .ht-form-label {
+    display: block;
+    margin-bottom: 5px;
+  }
+}
+
+/* Tablet landscape and bigger */
+@media (min-width: null) {
+  .ht-form-horizontal .ht-form-label {
+    width: 200px;
+    margin-top: 7px;
+    float: left;
+  }
+  .ht-form-horizontal .ht-form-controls {
+    margin-left: 215px;
+  }
+  /* Better vertical alignment if controls are checkboxes and radio buttons with text */
+  .ht-form-horizontal .ht-form-controls-text {
+    padding-top: 7px;
+  }
+  /* Instruction
+ ========================================================================== */
+}
+
+.ht-form-instruction-required::after {
+  content: " - Required";
+  color: #64665a;
+}
+
+.ht-form-instruction-optional::after {
+  content: " - Optional";
+  color: #64665a;
+}
+
+/* Object
+ ========================================================================== */
+.ht-form-object {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: 16px;
+}
+
+.ht-form-object .ht-form-object-icon {
+  flex-shrink: 0;
+  flex-grow: 0;
+  height: calc(38px - 6px);
+  width: calc(38px - 6px);
+  margin: 0 0 calc(10px * 2) 0;
+  padding: 3px 10px;
+  border-style: solid;
+  border-color: #bfbfbf;
+  background-color: #ffffff;
+}
+
+.ht-form-object .ht-form-object-star {
+  position: relative;
+  flex-shrink: 0;
+  flex-grow: 0;
+  height: 38px;
+  width: 24px;
+  margin: 0 0 calc(10px * 2) 0;
+  border-style: solid;
+  border-color: #bfbfbf;
+  background-color: #ffffff;
+}
+
+.ht-form-object .ht-form-object-star::before {
+  content: "*";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  color: #ff0000;
+  background-color: transparent;
+}
+
+.ht-form-object .ht-form-object-star:first-child:last-child {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 16px;
+  background-color: inherit;
+  border: none;
+}
+
+.ht-form-object textarea + .ht-form-object-star {
+  width: 0;
+}
+
+.ht-form-object textarea + .ht-form-object-star::before {
+  content: "*";
+  position: absolute;
+  width: 24px;
+  height: calc(38px + 2px);
+  top: 0;
+  left: auto;
+  right: 0;
+  transform: translate(0%, 0%);
+  text-align: center;
+  font-size: 1.5rem;
+  color: #ff0000;
+  background-color: transparent;
+}
+
+.ht-form-object .ht-form-file ~ .ht-form-object-star {
+  margin-left: -1px;
+  background-color: #f0f0e9;
+}
+
+.ht-form-object input, .ht-form-object select {
+  flex-shrink: 1;
+  flex-grow: 1;
+}
+
+.ht-form-object .ht-form-object-icon, .ht-form-object .ht-form-object-star, .ht-form-object input, .ht-form-object select {
+  border-width: 1px 0px;
+}
+
+.ht-form-object *:not(textarea) + .ht-form-object-icon:first-child::after, .ht-form-object *:not(textarea) + .ht-form-object-star:first-child::after,
+.ht-form-object input[type=color]:first-child::after, .ht-form-object input[type=date]:first-child::after, .ht-form-object input[type=email]:first-child::after, .ht-form-object input[type=month]:first-child::after,
+.ht-form-object input[type=number]:first-child::after, .ht-form-object input[type=password]:first-child::after, .ht-form-object input[type=tel]:first-child::after, .ht-form-object input[type=text]:first-child::after,
+.ht-form-object input[type=time]:first-child::after, .ht-form-object input[type=url]:first-child::after, .ht-form-object select:first-child::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: calc(38px + 2px);
+  top: 50%;
+  left: 0px;
+  transform: translateY(-50%);
+  background-color: #bfbfbf;
+}
+
+.ht-form-object *:not(textarea) + .ht-form-object-icon:last-child::after, .ht-form-object *:not(textarea) + .ht-form-object-star:last-child::after,
+.ht-form-object input[type=color]:last-child::after, .ht-form-object input[type=date]:last-child::after, .ht-form-object input[type=email]:last-child::after, .ht-form-object input[type=month]:last-child::after,
+.ht-form-object input[type=number]:last-child::after, .ht-form-object input[type=password]:last-child::after, .ht-form-object input[type=tel]:last-child::after, .ht-form-object input[type=text]:last-child::after,
+.ht-form-object input[type=time]:last-child::after, .ht-form-object input[type=url]:last-child::after, .ht-form-object select:last-child::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: calc(38px + 2px);
+  top: 50%;
+  right: 0px;
+  transform: translateY(-50%);
+  background-color: #bfbfbf;
+}
+
+/* Discription
+ ========================================================================== */
+.ht-form .ht-form-discription {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 10px 0;
+}
+
+.ht-form .ht-form-selection .ht-form-discription, .ht-form .ht-form-selection-horizontal .ht-form-discription {
+  margin-left: calc(-1 * 6px);
+}
+
+.ht-form label + .ht-form-discription {
+  margin-top: 10px;
+}
+
+/* Show warning
+ ========================================================================== */
+.ht-form input[type=checkbox].ht-form-warning, .ht-form input[type=date].ht-form-warning, .ht-form input[type=email].ht-form-warning, .ht-form input[type=month].ht-form-warning,
+.ht-form input[type=number].ht-form-warning, .ht-form input[type=password].ht-form-warning, .ht-form input[type=radio].ht-form-warning, .ht-form input[type=tel].ht-form-warning,
+.ht-form input[type=text].ht-form-warning, .ht-form input[type=time].ht-form-warning, .ht-form input[type=url].ht-form-warning,
+.ht-form select.ht-form-warning, .ht-form textarea.ht-form-warning {
+  background-color: #ffcccc;
+}
+
+.ht-form .ht-form-file.ht-form-warning:before {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  border-top: solid 5px #ff6666;
+  border-left: solid 5px #ff6666;
+  border-bottom: solid 5px transparent;
+  border-right: solid 5px transparent;
+  top: 4px;
+  left: 4px;
+}
+
+/*
+ * Adopt theme colors
+ */
+.ht-bicolor.ht-form input[type=radio]:focus,
+.ht-bicolor.ht-form input[type=checkbox]:focus, .ht-bicolor .ht-form input[type=radio]:focus,
+.ht-bicolor .ht-form input[type=checkbox]:focus, .ht-form fieldset.ht-bicolor input[type=radio]:focus,
+.ht-form fieldset.ht-bicolor input[type=checkbox]:focus {
+  border-color: #3090ff;
+}
+
+.ht-bicolor.ht-form input[type=radio]:checked,
+.ht-bicolor.ht-form input[type=checkbox]:checked, .ht-bicolor .ht-form input[type=radio]:checked,
+.ht-bicolor .ht-form input[type=checkbox]:checked, .ht-form fieldset.ht-bicolor input[type=radio]:checked,
+.ht-form fieldset.ht-bicolor input[type=checkbox]:checked {
+  background-color: #3090ff;
+}
+
+.ht-bicolor.ht-form input[type=radio]:checked:focus,
+.ht-bicolor.ht-form input[type=checkbox]:checked:focus, .ht-bicolor .ht-form input[type=radio]:checked:focus,
+.ht-bicolor .ht-form input[type=checkbox]:checked:focus, .ht-form fieldset.ht-bicolor input[type=radio]:checked:focus,
+.ht-form fieldset.ht-bicolor input[type=checkbox]:checked:focus {
+  background-color: #0075fc;
+  border-color: #3090ff;
+}
+
+.ht-bicolor.ht-form input[type=radio] input[type=checkbox]:indeterminate,
+.ht-bicolor.ht-form input[type=checkbox] input[type=checkbox]:indeterminate, .ht-bicolor .ht-form input[type=radio] input[type=checkbox]:indeterminate,
+.ht-bicolor .ht-form input[type=checkbox] input[type=checkbox]:indeterminate, .ht-form fieldset.ht-bicolor input[type=radio] input[type=checkbox]:indeterminate,
+.ht-form fieldset.ht-bicolor input[type=checkbox] input[type=checkbox]:indeterminate {
+  background-color: #3090ff;
+}
+
+.ht-bicolor.ht-form input[type=radio] input[type=checkbox]:indeterminate:focus,
+.ht-bicolor.ht-form input[type=checkbox] input[type=checkbox]:indeterminate:focus, .ht-bicolor .ht-form input[type=radio] input[type=checkbox]:indeterminate:focus,
+.ht-bicolor .ht-form input[type=checkbox] input[type=checkbox]:indeterminate:focus, .ht-form fieldset.ht-bicolor input[type=radio] input[type=checkbox]:indeterminate:focus,
+.ht-form fieldset.ht-bicolor input[type=checkbox] input[type=checkbox]:indeterminate:focus {
+  background-color: #0075fc;
+  border-color: #3090ff;
+}
+
+.ht-bicolor.ht-form label.ht-form-file, .ht-bicolor .ht-form label.ht-form-file, .ht-form fieldset.ht-bicolor label.ht-form-file {
+  border: 1px solid #5283ff;
+  color: #05070b;
+  background: #d1deff;
+}
+
+.ht-tricolor.ht-form input[type=radio]:focus,
+.ht-tricolor.ht-form input[type=checkbox]:focus, .ht-tricolor .ht-form input[type=radio]:focus,
+.ht-tricolor .ht-form input[type=checkbox]:focus, .ht-form fieldset.ht-tricolor input[type=radio]:focus,
+.ht-form fieldset.ht-tricolor input[type=checkbox]:focus {
+  border-color: #ffef00;
+}
+
+.ht-tricolor.ht-form input[type=radio]:checked,
+.ht-tricolor.ht-form input[type=checkbox]:checked, .ht-tricolor .ht-form input[type=radio]:checked,
+.ht-tricolor .ht-form input[type=checkbox]:checked, .ht-form fieldset.ht-tricolor input[type=radio]:checked,
+.ht-form fieldset.ht-tricolor input[type=checkbox]:checked {
+  background-color: #ffef00;
+}
+
+.ht-tricolor.ht-form input[type=radio]:checked:focus,
+.ht-tricolor.ht-form input[type=checkbox]:checked:focus, .ht-tricolor .ht-form input[type=radio]:checked:focus,
+.ht-tricolor .ht-form input[type=checkbox]:checked:focus, .ht-form fieldset.ht-tricolor input[type=radio]:checked:focus,
+.ht-form fieldset.ht-tricolor input[type=checkbox]:checked:focus {
+  background-color: #ccbf00;
+  border-color: #ffef00;
+}
+
+.ht-tricolor.ht-form input[type=radio] input[type=checkbox]:indeterminate,
+.ht-tricolor.ht-form input[type=checkbox] input[type=checkbox]:indeterminate, .ht-tricolor .ht-form input[type=radio] input[type=checkbox]:indeterminate,
+.ht-tricolor .ht-form input[type=checkbox] input[type=checkbox]:indeterminate, .ht-form fieldset.ht-tricolor input[type=radio] input[type=checkbox]:indeterminate,
+.ht-form fieldset.ht-tricolor input[type=checkbox] input[type=checkbox]:indeterminate {
+  background-color: #ffef00;
+}
+
+.ht-tricolor.ht-form input[type=radio] input[type=checkbox]:indeterminate:focus,
+.ht-tricolor.ht-form input[type=checkbox] input[type=checkbox]:indeterminate:focus, .ht-tricolor .ht-form input[type=radio] input[type=checkbox]:indeterminate:focus,
+.ht-tricolor .ht-form input[type=checkbox] input[type=checkbox]:indeterminate:focus, .ht-form fieldset.ht-tricolor input[type=radio] input[type=checkbox]:indeterminate:focus,
+.ht-form fieldset.ht-tricolor input[type=checkbox] input[type=checkbox]:indeterminate:focus {
+  background-color: #ccbf00;
+  border-color: #ffef00;
+}
+
+.ht-tricolor.ht-form label.ht-form-file, .ht-tricolor .ht-form label.ht-form-file, .ht-form fieldset.ht-tricolor label.ht-form-file {
+  border: 1px solid #cf2200;
+  color: white;
+  background: #ff6c4f;
+}
+
+.ht-toolbar.ht-form input[type=radio]:focus,
+.ht-toolbar.ht-form input[type=checkbox]:focus, .ht-toolbar .ht-form input[type=radio]:focus,
+.ht-toolbar .ht-form input[type=checkbox]:focus, .ht-form fieldset.ht-toolbar input[type=radio]:focus,
+.ht-form fieldset.ht-toolbar input[type=checkbox]:focus {
+  border-color: #f2f2f2;
+}
+
+.ht-toolbar.ht-form input[type=radio]:checked,
+.ht-toolbar.ht-form input[type=checkbox]:checked, .ht-toolbar .ht-form input[type=radio]:checked,
+.ht-toolbar .ht-form input[type=checkbox]:checked, .ht-form fieldset.ht-toolbar input[type=radio]:checked,
+.ht-form fieldset.ht-toolbar input[type=checkbox]:checked {
+  background-color: #f2f2f2;
+}
+
+.ht-toolbar.ht-form input[type=radio]:checked:focus,
+.ht-toolbar.ht-form input[type=checkbox]:checked:focus, .ht-toolbar .ht-form input[type=radio]:checked:focus,
+.ht-toolbar .ht-form input[type=checkbox]:checked:focus, .ht-form fieldset.ht-toolbar input[type=radio]:checked:focus,
+.ht-form fieldset.ht-toolbar input[type=checkbox]:checked:focus {
+  background-color: #e0d1d1;
+  border-color: #f2f2f2;
+}
+
+.ht-toolbar.ht-form input[type=radio] input[type=checkbox]:indeterminate,
+.ht-toolbar.ht-form input[type=checkbox] input[type=checkbox]:indeterminate, .ht-toolbar .ht-form input[type=radio] input[type=checkbox]:indeterminate,
+.ht-toolbar .ht-form input[type=checkbox] input[type=checkbox]:indeterminate, .ht-form fieldset.ht-toolbar input[type=radio] input[type=checkbox]:indeterminate,
+.ht-form fieldset.ht-toolbar input[type=checkbox] input[type=checkbox]:indeterminate {
+  background-color: #f2f2f2;
+}
+
+.ht-toolbar.ht-form input[type=radio] input[type=checkbox]:indeterminate:focus,
+.ht-toolbar.ht-form input[type=checkbox] input[type=checkbox]:indeterminate:focus, .ht-toolbar .ht-form input[type=radio] input[type=checkbox]:indeterminate:focus,
+.ht-toolbar .ht-form input[type=checkbox] input[type=checkbox]:indeterminate:focus, .ht-form fieldset.ht-toolbar input[type=radio] input[type=checkbox]:indeterminate:focus,
+.ht-form fieldset.ht-toolbar input[type=checkbox] input[type=checkbox]:indeterminate:focus {
+  background-color: #e0d1d1;
+  border-color: #f2f2f2;
+}
+
+.ht-toolbar.ht-form label.ht-form-file, .ht-toolbar .ht-form label.ht-form-file, .ht-form fieldset.ht-toolbar label.ht-form-file {
+  border: 1px solid #050505;
+  color: #fbf9f9;
+  background: #444742;
+}
+
+.ht-danger.ht-form input[type=radio]:focus,
+.ht-danger.ht-form input[type=checkbox]:focus, .ht-danger .ht-form input[type=radio]:focus,
+.ht-danger .ht-form input[type=checkbox]:focus, .ht-form fieldset.ht-danger input[type=radio]:focus,
+.ht-form fieldset.ht-danger input[type=checkbox]:focus {
+  border-color: #362626;
+}
+
+.ht-danger.ht-form input[type=radio]:checked,
+.ht-danger.ht-form input[type=checkbox]:checked, .ht-danger .ht-form input[type=radio]:checked,
+.ht-danger .ht-form input[type=checkbox]:checked, .ht-form fieldset.ht-danger input[type=radio]:checked,
+.ht-form fieldset.ht-danger input[type=checkbox]:checked {
+  background-color: #362626;
+}
+
+.ht-danger.ht-form input[type=radio]:checked:focus,
+.ht-danger.ht-form input[type=checkbox]:checked:focus, .ht-danger .ht-form input[type=radio]:checked:focus,
+.ht-danger .ht-form input[type=checkbox]:checked:focus, .ht-form fieldset.ht-danger input[type=radio]:checked:focus,
+.ht-form fieldset.ht-danger input[type=checkbox]:checked:focus {
+  background-color: #1c0d0d;
+  border-color: #362626;
+}
+
+.ht-danger.ht-form input[type=radio] input[type=checkbox]:indeterminate,
+.ht-danger.ht-form input[type=checkbox] input[type=checkbox]:indeterminate, .ht-danger .ht-form input[type=radio] input[type=checkbox]:indeterminate,
+.ht-danger .ht-form input[type=checkbox] input[type=checkbox]:indeterminate, .ht-form fieldset.ht-danger input[type=radio] input[type=checkbox]:indeterminate,
+.ht-form fieldset.ht-danger input[type=checkbox] input[type=checkbox]:indeterminate {
+  background-color: #362626;
+}
+
+.ht-danger.ht-form input[type=radio] input[type=checkbox]:indeterminate:focus,
+.ht-danger.ht-form input[type=checkbox] input[type=checkbox]:indeterminate:focus, .ht-danger .ht-form input[type=radio] input[type=checkbox]:indeterminate:focus,
+.ht-danger .ht-form input[type=checkbox] input[type=checkbox]:indeterminate:focus, .ht-form fieldset.ht-danger input[type=radio] input[type=checkbox]:indeterminate:focus,
+.ht-form fieldset.ht-danger input[type=checkbox] input[type=checkbox]:indeterminate:focus {
+  background-color: #1c0d0d;
+  border-color: #362626;
+}
+
+.ht-danger.ht-form label.ht-form-file, .ht-danger .ht-form label.ht-form-file, .ht-form fieldset.ht-danger label.ht-form-file {
+  border: 1px solid #b30600;
+  color: white;
+  background: #ff3a33;
+}
+
+.ht-base.ht-form input[type=radio]:focus,
+.ht-base.ht-form input[type=checkbox]:focus, .ht-base .ht-form input[type=radio]:focus,
+.ht-base .ht-form input[type=checkbox]:focus, .ht-form fieldset.ht-base input[type=radio]:focus,
+.ht-form fieldset.ht-base input[type=checkbox]:focus {
+  border-color: #3090ff;
+}
+
+.ht-base.ht-form input[type=radio]:checked,
+.ht-base.ht-form input[type=checkbox]:checked, .ht-base .ht-form input[type=radio]:checked,
+.ht-base .ht-form input[type=checkbox]:checked, .ht-form fieldset.ht-base input[type=radio]:checked,
+.ht-form fieldset.ht-base input[type=checkbox]:checked {
+  background-color: #3090ff;
+}
+
+.ht-base.ht-form input[type=radio]:checked:focus,
+.ht-base.ht-form input[type=checkbox]:checked:focus, .ht-base .ht-form input[type=radio]:checked:focus,
+.ht-base .ht-form input[type=checkbox]:checked:focus, .ht-form fieldset.ht-base input[type=radio]:checked:focus,
+.ht-form fieldset.ht-base input[type=checkbox]:checked:focus {
+  background-color: #0075fc;
+  border-color: #3090ff;
+}
+
+.ht-base.ht-form input[type=radio] input[type=checkbox]:indeterminate,
+.ht-base.ht-form input[type=checkbox] input[type=checkbox]:indeterminate, .ht-base .ht-form input[type=radio] input[type=checkbox]:indeterminate,
+.ht-base .ht-form input[type=checkbox] input[type=checkbox]:indeterminate, .ht-form fieldset.ht-base input[type=radio] input[type=checkbox]:indeterminate,
+.ht-form fieldset.ht-base input[type=checkbox] input[type=checkbox]:indeterminate {
+  background-color: #3090ff;
+}
+
+.ht-base.ht-form input[type=radio] input[type=checkbox]:indeterminate:focus,
+.ht-base.ht-form input[type=checkbox] input[type=checkbox]:indeterminate:focus, .ht-base .ht-form input[type=radio] input[type=checkbox]:indeterminate:focus,
+.ht-base .ht-form input[type=checkbox] input[type=checkbox]:indeterminate:focus, .ht-form fieldset.ht-base input[type=radio] input[type=checkbox]:indeterminate:focus,
+.ht-form fieldset.ht-base input[type=checkbox] input[type=checkbox]:indeterminate:focus {
+  background-color: #0075fc;
+  border-color: #3090ff;
+}
+
+.ht-base.ht-form label.ht-form-file, .ht-base .ht-form label.ht-form-file, .ht-form fieldset.ht-base label.ht-form-file {
+  border: 1px solid #bcbc9d;
+  color: #080805;
+  background: #f0f0e9;
+}
+/*# sourceMappingURL=ht-form.css.map */

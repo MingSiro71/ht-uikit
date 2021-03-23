@@ -65,6 +65,13 @@
       ontouch: User touches or cursor is on
       dent: Used when view type is signboard
       text: Text color
+
+  Form:
+    input: Background color for input areas but it is recomended not to change from white
+    dent: Impless there is a dent which is used for border
+    disabled: Background color disabled input area
+    text: Text color in input area
+    text-muted: Used for placeholder in input area
  */
 /* 
  * base
@@ -91,13 +98,16 @@
  * accent
  */
 /* 
-  * infomation
-  */
+ * infomation
+ */
 /* 
  * warning
  */
 /* 
  * error
+ */
+/* 
+ * form
  */
 /* 
  * _layout.scss: Defines window breakpoint and indent size 
@@ -470,7 +480,7 @@ template {
 
 .ht-toolbar {
   background-color: #444742;
-  color: #f2f2f2;
+  color: #ccc2c2;
 }
 
 .ht-danger {
@@ -528,17 +538,17 @@ h1.ht-bicolor, .ht-bicolor h1, h2.ht-bicolor, .ht-bicolor h2, h3.ht-bicolor, .ht
 }
 
 h1.ht-tricolor, .ht-tricolor h1, h2.ht-tricolor, .ht-tricolor h2, h3.ht-tricolor, .ht-tricolor h3, h4.ht-tricolor, .ht-tricolor h4, h5.ht-tricolor, .ht-tricolor h5, h6.ht-tricolor, .ht-tricolor h6 {
-  color: #ffffff;
+  color: white;
   border-color: #cf2200;
 }
 
 h1.ht-toolbar, .ht-toolbar h1, h2.ht-toolbar, .ht-toolbar h2, h3.ht-toolbar, .ht-toolbar h3, h4.ht-toolbar, .ht-toolbar h4, h5.ht-toolbar, .ht-toolbar h5, h6.ht-toolbar, .ht-toolbar h6 {
-  color: #ccb2b2;
+  color: #fbf9f9;
   border-color: #050505;
 }
 
 h1.ht-danger, .ht-danger h1, h2.ht-danger, .ht-danger h2, h3.ht-danger, .ht-danger h3, h4.ht-danger, .ht-danger h4, h5.ht-danger, .ht-danger h5, h6.ht-danger, .ht-danger h6 {
-  color: #e9e9e9;
+  color: white;
   border-color: #b30600;
 }
 
@@ -663,7 +673,7 @@ a.uk-link-muted.ht-bicolor:active, a.uk-link-muted.ht-bicolor:hover, a.uk-link-m
 a.uk-link-muted.ht-tricolor, .ht-tricolor a.uk-link-muted, .uk-link.uk-link-muted.ht-tricolor, .ht-tricolor .uk-link.uk-link-muted,
 .uk-link-muted a.ht-tricolor, .ht-tricolor
 .uk-link-muted a {
-  color: white;
+  color: #d9d9d9;
 }
 
 a.uk-link-muted.ht-tricolor:active, a.uk-link-muted.ht-tricolor:hover, a.uk-link-muted.ht-tricolor:focus, .ht-tricolor a.uk-link-muted:active, .ht-tricolor a.uk-link-muted:hover, .ht-tricolor a.uk-link-muted:focus, .uk-link.uk-link-muted.ht-tricolor:active, .uk-link.uk-link-muted.ht-tricolor:hover, .uk-link.uk-link-muted.ht-tricolor:focus, .ht-tricolor .uk-link.uk-link-muted:active, .ht-tricolor .uk-link.uk-link-muted:hover, .ht-tricolor .uk-link.uk-link-muted:focus,
@@ -679,7 +689,7 @@ a.uk-link-muted.ht-tricolor:active, a.uk-link-muted.ht-tricolor:hover, a.uk-link
 a.uk-link-muted.ht-toolbar, .ht-toolbar a.uk-link-muted, .uk-link.uk-link-muted.ht-toolbar, .ht-toolbar .uk-link.uk-link-muted,
 .uk-link-muted a.ht-toolbar, .ht-toolbar
 .uk-link-muted a {
-  color: white;
+  color: #a99898;
 }
 
 a.uk-link-muted.ht-toolbar:active, a.uk-link-muted.ht-toolbar:hover, a.uk-link-muted.ht-toolbar:focus, .ht-toolbar a.uk-link-muted:active, .ht-toolbar a.uk-link-muted:hover, .ht-toolbar a.uk-link-muted:focus, .uk-link.uk-link-muted.ht-toolbar:active, .uk-link.uk-link-muted.ht-toolbar:hover, .uk-link.uk-link-muted.ht-toolbar:focus, .ht-toolbar .uk-link.uk-link-muted:active, .ht-toolbar .uk-link.uk-link-muted:hover, .ht-toolbar .uk-link.uk-link-muted:focus,
@@ -689,13 +699,13 @@ a.uk-link-muted.ht-toolbar:active, a.uk-link-muted.ht-toolbar:hover, a.uk-link-m
 .uk-link-muted a:active, .ht-toolbar
 .uk-link-muted a:hover, .ht-toolbar
 .uk-link-muted a:focus {
-  color: #f2f2f2;
+  color: #ccc2c2;
 }
 
 a.uk-link-muted.ht-danger, .ht-danger a.uk-link-muted, .uk-link.uk-link-muted.ht-danger, .ht-danger .uk-link.uk-link-muted,
 .uk-link-muted a.ht-danger, .ht-danger
 .uk-link-muted a {
-  color: white;
+  color: #c3c3c3;
 }
 
 a.uk-link-muted.ht-danger:active, a.uk-link-muted.ht-danger:hover, a.uk-link-muted.ht-danger:focus, .ht-danger a.uk-link-muted:active, .ht-danger a.uk-link-muted:hover, .ht-danger a.uk-link-muted:focus, .uk-link.uk-link-muted.ht-danger:active, .uk-link.uk-link-muted.ht-danger:hover, .uk-link.uk-link-muted.ht-danger:focus, .ht-danger .uk-link.uk-link-muted:active, .ht-danger .uk-link.uk-link-muted:hover, .ht-danger .uk-link.uk-link-muted:focus,
@@ -767,13 +777,13 @@ a.uk-link-text.ht-tricolor:active, a.uk-link-text.ht-tricolor:hover, a.uk-link-t
 .uk-link-text a:active, .ht-tricolor
 .uk-link-text a:hover, .ht-tricolor
 .uk-link-text a:focus {
-  color: white;
+  color: #d9d9d9;
 }
 
 a.uk-link-text.ht-toolbar, .ht-toolbar a.uk-link-text, .uk-link.uk-link-text.ht-toolbar, .ht-toolbar .uk-link.uk-link-text,
 .uk-link-text a.ht-toolbar, .ht-toolbar
 .uk-link-text a {
-  color: #f2f2f2;
+  color: #ccc2c2;
 }
 
 a.uk-link-text.ht-toolbar:active, a.uk-link-text.ht-toolbar:hover, a.uk-link-text.ht-toolbar:focus, .ht-toolbar a.uk-link-text:active, .ht-toolbar a.uk-link-text:hover, .ht-toolbar a.uk-link-text:focus, .uk-link.uk-link-text.ht-toolbar:active, .uk-link.uk-link-text.ht-toolbar:hover, .uk-link.uk-link-text.ht-toolbar:focus, .ht-toolbar .uk-link.uk-link-text:active, .ht-toolbar .uk-link.uk-link-text:hover, .ht-toolbar .uk-link.uk-link-text:focus,
@@ -783,7 +793,7 @@ a.uk-link-text.ht-toolbar:active, a.uk-link-text.ht-toolbar:hover, a.uk-link-tex
 .uk-link-text a:active, .ht-toolbar
 .uk-link-text a:hover, .ht-toolbar
 .uk-link-text a:focus {
-  color: white;
+  color: #a99898;
 }
 
 a.uk-link-text.ht-danger, .ht-danger a.uk-link-text, .uk-link.uk-link-text.ht-danger, .ht-danger .uk-link.uk-link-text,
@@ -799,7 +809,7 @@ a.uk-link-text.ht-danger:active, a.uk-link-text.ht-danger:hover, a.uk-link-text.
 .uk-link-text a:active, .ht-danger
 .uk-link-text a:hover, .ht-danger
 .uk-link-text a:focus {
-  color: white;
+  color: #c3c3c3;
 }
 
 /* Heading
@@ -851,7 +861,7 @@ a.uk-link-heading.ht-bicolor:active, a.uk-link-heading.ht-bicolor:hover, a.uk-li
 a.uk-link-heading.ht-tricolor, .ht-tricolor a.uk-link-heading, .uk-link.uk-link-heading.ht-tricolor, .ht-tricolor .uk-link.uk-link-heading,
 .uk-link-heading a.ht-tricolor, .ht-tricolor
 .uk-link-heading a {
-  color: #ffffff;
+  color: white;
 }
 
 a.uk-link-heading.ht-tricolor:active, a.uk-link-heading.ht-tricolor:hover, a.uk-link-heading.ht-tricolor:focus, .ht-tricolor a.uk-link-heading:active, .ht-tricolor a.uk-link-heading:hover, .ht-tricolor a.uk-link-heading:focus, .uk-link.uk-link-heading.ht-tricolor:active, .uk-link.uk-link-heading.ht-tricolor:hover, .uk-link.uk-link-heading.ht-tricolor:focus, .ht-tricolor .uk-link.uk-link-heading:active, .ht-tricolor .uk-link.uk-link-heading:hover, .ht-tricolor .uk-link.uk-link-heading:focus,
@@ -867,7 +877,7 @@ a.uk-link-heading.ht-tricolor:active, a.uk-link-heading.ht-tricolor:hover, a.uk-
 a.uk-link-heading.ht-toolbar, .ht-toolbar a.uk-link-heading, .uk-link.uk-link-heading.ht-toolbar, .ht-toolbar .uk-link.uk-link-heading,
 .uk-link-heading a.ht-toolbar, .ht-toolbar
 .uk-link-heading a {
-  color: #ccb2b2;
+  color: #fbf9f9;
 }
 
 a.uk-link-heading.ht-toolbar:active, a.uk-link-heading.ht-toolbar:hover, a.uk-link-heading.ht-toolbar:focus, .ht-toolbar a.uk-link-heading:active, .ht-toolbar a.uk-link-heading:hover, .ht-toolbar a.uk-link-heading:focus, .uk-link.uk-link-heading.ht-toolbar:active, .uk-link.uk-link-heading.ht-toolbar:hover, .uk-link.uk-link-heading.ht-toolbar:focus, .ht-toolbar .uk-link.uk-link-heading:active, .ht-toolbar .uk-link.uk-link-heading:hover, .ht-toolbar .uk-link.uk-link-heading:focus,
@@ -883,7 +893,7 @@ a.uk-link-heading.ht-toolbar:active, a.uk-link-heading.ht-toolbar:hover, a.uk-li
 a.uk-link-heading.ht-danger, .ht-danger a.uk-link-heading, .uk-link.uk-link-heading.ht-danger, .ht-danger .uk-link.uk-link-heading,
 .uk-link-heading a.ht-danger, .ht-danger
 .uk-link-heading a {
-  color: #e9e9e9;
+  color: white;
 }
 
 a.uk-link-heading.ht-danger:active, a.uk-link-heading.ht-danger:hover, a.uk-link-heading.ht-danger:focus, .ht-danger a.uk-link-heading:active, .ht-danger a.uk-link-heading:hover, .ht-danger a.uk-link-heading:focus, .uk-link.uk-link-heading.ht-danger:active, .uk-link.uk-link-heading.ht-danger:hover, .uk-link.uk-link-heading.ht-danger:focus, .ht-danger .uk-link.uk-link-heading:active, .ht-danger .uk-link.uk-link-heading:hover, .ht-danger .uk-link.uk-link-heading:focus,
@@ -931,7 +941,7 @@ a.uk-link-silent.ht-tricolor, .ht-tricolor a.uk-link-silent, .uk-link.uk-link-si
 a.uk-link-silent.ht-toolbar, .ht-toolbar a.uk-link-silent, .uk-link.uk-link-silent.ht-toolbar, .ht-toolbar .uk-link.uk-link-silent,
 .uk-link-silent a.ht-toolbar, .ht-toolbar
 .uk-link-silent a {
-  color: #f2f2f2;
+  color: #ccc2c2;
 }
 
 a.uk-link-silent.ht-danger, .ht-danger a.uk-link-silent, .uk-link.uk-link-silent.ht-danger, .ht-danger .uk-link.uk-link-silent,
@@ -1033,9 +1043,67 @@ a.uk-link-silent.ht-danger, .ht-danger a.uk-link-silent, .uk-link.uk-link-silent
   border-color: #0075fc;
 }
 
-.uk-tab > .uk-active > a,
-.ht-base.uk-tab > .uk-active > a,
-.ht-base .uk-tab > .uk-active > a {
+.ht-bicolor.uk-tab > * > a:hover, .ht-bicolor.uk-tab > * > a:focus,
+.ht-bicolor .uk-tab > * > a:hover,
+.ht-bicolor .uk-tab > * > a:focus {
+  color: #313745;
+}
+
+.ht-bicolor.uk-tab > * > a:active,
+.ht-bicolor .uk-tab > * > a:active {
+  color: #0e121b;
+  border-color: #0075fc;
+}
+
+.ht-tricolor.uk-tab > * > a:hover, .ht-tricolor.uk-tab > * > a:focus,
+.ht-tricolor .uk-tab > * > a:hover,
+.ht-tricolor .uk-tab > * > a:focus {
+  color: #ffffff;
+}
+
+.ht-tricolor.uk-tab > * > a:active,
+.ht-tricolor .uk-tab > * > a:active {
+  color: white;
+  border-color: #ccbf00;
+}
+
+.ht-toolbar.uk-tab > * > a:hover, .ht-toolbar.uk-tab > * > a:focus,
+.ht-toolbar .uk-tab > * > a:hover,
+.ht-toolbar .uk-tab > * > a:focus {
+  color: #ccc2c2;
+}
+
+.ht-toolbar.uk-tab > * > a:active,
+.ht-toolbar .uk-tab > * > a:active {
+  color: #f1e9e9;
+  border-color: #e0d1d1;
+}
+
+.ht-danger.uk-tab > * > a:hover, .ht-danger.uk-tab > * > a:focus,
+.ht-danger .uk-tab > * > a:hover,
+.ht-danger .uk-tab > * > a:focus {
+  color: #e9e9e9;
+}
+
+.ht-danger.uk-tab > * > a:active,
+.ht-danger .uk-tab > * > a:active {
+  color: white;
+  border-color: #1c0d0d;
+}
+
+.ht-base.uk-tab > * > a:hover, .ht-base.uk-tab > * > a:focus,
+.ht-base .uk-tab > * > a:hover,
+.ht-base .uk-tab > * > a:focus {
+  color: #3c3d36;
+}
+
+.ht-base.uk-tab > * > a:active,
+.ht-base .uk-tab > * > a:active {
+  color: #16170f;
+  border-color: #0075fc;
+}
+
+.uk-tab > .uk-active > a {
   color: #16170f;
   border-color: #0075fc;
 }
@@ -1048,25 +1116,29 @@ a.uk-link-silent.ht-danger, .ht-danger a.uk-link-silent, .uk-link.uk-link-silent
 
 .ht-tricolor.uk-tab > .uk-active > a,
 .ht-tricolor .uk-tab > .uk-active > a {
-  color: #ded3d3;
+  color: white;
   border-color: #ccbf00;
 }
 
 .ht-toolbar.uk-tab > .uk-active > a,
 .ht-toolbar .uk-tab > .uk-active > a {
-  color: #d3c4c4;
+  color: #f1e9e9;
   border-color: #e0d1d1;
 }
 
 .ht-danger.uk-tab > .uk-active > a,
 .ht-danger .uk-tab > .uk-active > a {
-  color: #ccbaba;
+  color: white;
   border-color: #1c0d0d;
 }
 
-.uk-tab > .uk-disabled > a,
-.ht-base.uk-tab > .uk-disabled > a,
-.ht-base .uk-tab > .uk-disabled > a {
+.ht-base.uk-tab > .uk-active > a,
+.ht-base .uk-tab > .uk-active > a {
+  color: #16170f;
+  border-color: #0075fc;
+}
+
+.uk-tab > .uk-disabled > a {
   color: #64665a;
   pointer-events: none;
 }
@@ -1078,17 +1150,23 @@ a.uk-link-silent.ht-danger, .ht-danger a.uk-link-silent, .uk-link.uk-link-silent
 
 .ht-tricolor.uk-tab > .uk-disabled > a,
 .ht-tricolor .uk-tab > .uk-disabled > a {
-  color: white;
+  color: #d9d9d9;
 }
 
 .ht-toolbar.uk-tab > .uk-disabled > a,
 .ht-toolbar .uk-tab > .uk-disabled > a {
-  color: white;
+  color: #a99898;
 }
 
 .ht-danger.uk-tab > .uk-disabled > a,
 .ht-danger .uk-tab > .uk-disabled > a {
-  color: white;
+  color: #c3c3c3;
+}
+
+.ht-base.uk-tab > .uk-disabled > a,
+.ht-base .uk-tab > .uk-disabled > a {
+  color: #64665a;
+  pointer-events: none;
 }
 
 .uk-tab.uk-tab-locate-center {

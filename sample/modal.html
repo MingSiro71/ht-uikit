@@ -1,0 +1,202 @@
+<!-- Modal:
+  Unlike other components, themes for modal is defined regidly
+  You would choose
+  (default): White based colored dialog
+  toolbar: Reffer to toolbar in _colors.scss 
+
+  Position:
+    (default): Locate at the top of window
+    center: Locate at the center of window
+  
+  Width:
+    (default):
+    wide: 
+
+  Content:
+    header:
+    body:
+    footer:
+    close: Locate close button at the top-right
+
+   It is recomended to use modal with overlay
+   You can use .ht-overlay by importing ht-loading.scss
+-->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta property="og:title" content="HT-UIKit | Modal">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.ht-uikit.com/modal.html">
+  <meta property="og:image" content="https://www.ht-uikit.com/image/modal-ogp.png">
+  <meta property="og:site_name" content="HT-UIKit">
+  <meta property="og:description" content="Customized UIKit by Hentech">
+
+  <link rel="stylesheet" href="../compiled/ht-uikit.css">
+
+  <title>HT-UIKit | Modal</title>
+</head>
+<body>
+  <header class="ht-navbar-container ht-navbar-container-sticky">
+    <nav>
+      <div class="ht-navbar-left ht-navbar-logo">
+        <a href="/">
+          <img src="../asset/image/niwatori.png" alt="cook doodle doo!" style="height: 36px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 28 34" xlink:href="data：image/png;">
+            <polygon fill="#000" points="19.1,4.1 13.75,1 8.17,4.45 13.6,7.44 "/>
+            <path fill="#000" d="M21.67,5.43l-5.53,3.34l6.26,3.63v9.52l-8.44,4.76L5.6,21.93v-7.38L0,11.7v13.51l13.75,8.08L28,25.21V9.07 L21.67,5.43z"/>
+          </svg>
+          <text>HT-UIkit<text>
+        </a>
+      </div>
+      <div class="ht-navbar-center ht-optionfor-notebook"><p>Text on the center</p></div>
+      <div class="ht-navbar-right">
+        <ul class="ht-navbar-navigation ht-optionfor-mobile-landscape">
+          <li class="uk-active"><a href="#">Active</a></li>
+          <li class=""><a href="#">Item</a></li>
+          <li class=""><a href="#">Item</a></li>
+          <li class=""><a href="#">Item</a></li>
+        </ul>
+        <button class="uk-button">Button</button>
+      </div>
+    </nav>
+  </header>
+  <section>
+    <!-- 1 -->
+    <p>Default modal</p>
+    <button onclick="openDefault()">Open</button>
+    <script>
+      const openDefault = (e) => {
+        displayOverlay();
+        document.getElementById("modal-default").classList.add("uk-modal-active");
+      }
+    </script>
+    <!-- 2 -->
+    <p>Toolbar color</p>
+    <button onclick="openToolbar()">Open</button>
+    <script>
+      const openToolbar = (e) => {
+        displayOverlay();
+        document.getElementById("modal-toolbar").classList.add("uk-modal-active");
+      }
+    </script>
+    <!-- 3 -->
+    <p>Center</p>
+    <button onclick="openCenter()">Open</button>
+    <script>
+      const openCenter = (e) => {
+        displayOverlay();
+        document.getElementById("modal-center").classList.add("uk-modal-active");
+      }
+    </script>
+    <!-- 4 -->
+    <p>Wide</p>
+    <button onclick="openWide()">Open</button>
+    <script>
+      const openWide = (e) => {
+        displayOverlay();
+        document.getElementById("modal-wide").classList.add("uk-modal-active");
+      }
+    </script>
+    <!-- 5 -->
+    <p>Separate content</p>
+    <button onclick="openContent()">Open</button>
+    <script>
+      const openContent = (e) => {
+        displayOverlay();
+        document.getElementById("modal-content").classList.add("uk-modal-active");
+      }
+    </script>
+    <!-- 6 -->
+    <p>Separate content in toolbar theme</p>
+    <button onclick="openContentToolbar()">Open</button>
+    <script>
+      const openContentToolbar = (e) => {
+        displayOverlay();
+        document.getElementById("modal-content-toolbar").classList.add("uk-modal-active");
+      }
+    </script>
+  </section>
+  <div id="overlay" class="ht-overlay">
+    <div class="ht-overlay-field">
+    </div>
+  </div>
+  <!-- 1 -->
+  <div id="modal-default" class="uk-modal">
+    <div class="uk-modal-close" onClick="closeModal()"></div>
+    <h2 class="uk-modal-title">Default</h2>
+    <a>Link</a>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+  <!-- 2 -->
+  <div id="modal-toolbar" class="uk-modal uk-modal-toolbar">
+    <div class="uk-modal-close" onClick="closeModal()"></div>
+    <h2 class="uk-modal-title">Toolbar</h2>
+    <a>Link</a>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+  <!-- 3 -->
+  <div id="modal-center" class="uk-modal uk-modal-center">
+    <div class="uk-modal-close" onClick="closeModal()"></div>
+    <h2 class="uk-modal-title">Center</h2>
+    <a>Link</a>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+  <!-- 4 -->
+  <div id="modal-wide" class="uk-modal uk-modal-wide">
+    <div class="uk-modal-close" onClick="closeModal()"></div>
+    <h2 class="uk-modal-title">Wide</h2>
+    <a>Link</a>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+  <!-- 5 -->
+  <div id="modal-content" class="uk-modal uk-modal-content">
+    <div class="uk-modal-close" onClick="closeModal()"></div>
+    <div class="uk-modal-header">
+      <h2 class="uk-modal-title">Content</h2>
+      Header
+    </div>
+    <div class="uk-modal-body">
+      <a>Link</a>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+    <div class="uk-modal-footer">
+      <button class="uk-button-primary">OK</button>
+      <button>Ah hun?</button>
+    </div>
+  </div>
+  <!-- 6 -->
+  <div id="modal-content-toolbar" class="uk-modal uk-modal-toolbar uk-modal-content">
+    <div class="uk-modal-close" onClick="closeModal()"></div>
+    <div class="uk-modal-header">
+      <h2 class="uk-modal-title">Content</h2>
+      Header
+    </div>
+    <div class="uk-modal-body">
+      <a>Link</a>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+    <div class="uk-modal-footer">
+      <button class="uk-button-primary">OK</button>
+      <button>Ah hun?</button>
+    </div>
+  </div>
+  <script>
+    const displayOverlay = (e) => {
+      document.getElementById("overlay").classList.add("ht-overlay-active");
+    }
+    const removeOverlay = (e) => {
+      document.getElementById("overlay").classList.remove("ht-overlay-active");
+    }
+    const closeModal = (e) => {
+      Array.from(document.getElementsByClassName("uk-modal")).map((el)=>{
+        el.classList.remove("uk-modal-active");
+      });
+      removeOverlay();
+    }
+  </script>
+</body>
+</html>

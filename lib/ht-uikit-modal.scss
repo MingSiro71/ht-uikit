@@ -17,38 +17,75 @@
  * 5. Mask the background page
  * 6. Fade-in transition
  */
+@keyframes uk-modal-activate {
+  0% { opacity: 0; top: 0px; } 100% { opacity: 1; top: 50px }
+}
+
+@keyframes uk-modal-center-activate {
+  0% { opacity: 0; top: calc(50% - 50px); } 100% { opacity: 1; top: 50% }
+}
+
 .uk-modal {
-  /* 1 */
-  display: none;
-  /* 2 */
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 1010;
-  /* 3 */
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  /* 4 */
-  padding: 15px 15px;
-  /* 5 */
-  background: rgba(0, 0, 0, 0.6);
-  /* 6 */
-  opacity: 0;
-  transition: opacity 0.15s linear;
-}
-/* Phone landscape and bigger */
-@media (min-width: 640px) {
-  .uk-modal {
-    padding: 50px 30px;
+  height: min-content;
+  width: calc(100vw - 100px);
+  max-height: calc(100vh - 100px);
+  max-width: 580px;
+  box-sizing: border-box;
+  padding: 50px 30px;
+  background-color: white;
+  &:not(.uk-modal-active):not(.uk-modal-center) {
+    display: none;
+    opacity: 0;
+    top: 0;
+  }
+  &.uk-modal-active:not(.uk-modal-center) {
+    animation: uk-modal-activate 0.15s linear 0s;
+    opacity: 1;
+    top: 50px;    
+  }
+  &.uk-modal-center:not(.uk-modal-active) {
+    display: none;
+    opacity: 0;
+    top: calc(50% - 50px);
+    transform: translate(-50%, -50%);
+  }
+  &.uk-modal-center.uk-modal-active {
+    animation: uk-modal-center-activate 0.15s linear 0s;
+    opacity: 1;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &.uk-modal-wide {
+    max-width: 1024px;
   }
 }
-/* Tablet landscape and bigger */
-@media (min-width: map-get($breakpoint, tablet)) {
+.uk-modal.uk-modal-toolbar {
+  background-color: map-get($toolbar-color, basis);
+  color: map-get($toolbar-color, text);
+  * {
+    border-color: map-get($toolbar-color, dent);
+  }
+  h1,h2,h3,h4,h5,h6 {
+    color: map-get($toolbar-color, heading);
+  }
+  a,.uk-link {
+    color: map-get($toolbar-color, link);
+    &:active,&:hover,&:focus {
+      color: map-get($toolbar-color, link-ontouch);
+    } 
+  }
+}
+@media #{map-get($bp-max, mobile-portlate)} {
   .uk-modal {
-    padding-left: 40px;
-    padding-right: 40px;
+    width: calc(100vw - 30px);
+    max-height: calc(100vh - 30px);
+    padding: 30px 15px;
   }
 }
 /*
@@ -132,13 +169,27 @@
 }
 .uk-modal-header {
   padding: 15px 30px;
-  background: #fff;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid #9b9b9b;
 }
 .uk-modal-footer {
   padding: 15px 30px;
-  background: #fff;
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid #9b9b9b;
+}
+.uk-modal-toolbar {
+  .uk-modal-header,.uk-modal-footer {
+    border-color: 1px solid map-get($toolbar-color, dent);
+  }
+  .uk-button,button,input[type="button"] {
+    color: map-get($toolbar-color, heading);
+    &:not(.uk-button-primary):not(.uk-button-secondary):not(.uk-button-accent):not(.uk-button-danger) {
+      border: solid 1px map-get($toolbar-color, dent);
+      color: map-get($toolbar-color, heading);
+      background-color: inherit;
+      &:active,&:hover,&:focus {
+        border-color: darken(map-get($toolbar-color, dent), 30%);
+      }
+    }
+  }
 }
 /*
  * Micro clearfix
@@ -170,4 +221,34 @@
 .uk-modal-title {
   font-size: 2rem;
   line-height: 1.3;
+  margin-top: 0px;
+}
+/* Close
+ ========================================================================== */
+.uk-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 14px;
+  height: 14px;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(45deg, transparent 48%, currentColor 48%, currentColor 52%, transparent 52%, transparent);
+    border: none;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(-45deg, transparent 48%, currentColor 48%, currentColor 52%, transparent 52%, transparent);
+    border: none;
+  }
 }

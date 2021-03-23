@@ -44,6 +44,13 @@
       ontouch: User touches or cursor is on
       dent: Used when view type is signboard
       text: Text color
+
+  Form:
+    input: Background color for input areas but it is recomended not to change from white
+    dent: Impless there is a dent which is used for border
+    disabled: Background color disabled input area
+    text: Text color in input area
+    text-muted: Used for placeholder in input area
  */
 /* 
  * base
@@ -70,13 +77,16 @@
  * accent
  */
 /* 
-  * infomation
-  */
+ * infomation
+ */
 /* 
  * warning
  */
 /* 
  * error
+ */
+/* 
+ * form
  */
 /* 
  * _layout.scss: Defines window breakpoint and indent size 
@@ -356,7 +366,7 @@ a.ht-toolbar.uk-link-muted.uk-icon, a.ht-toolbar.uk-link-muted .uk-icon,
 .ht-toolbar.uk-link-muted a.uk-icon, .ht-toolbar.uk-link-muted a .uk-icon,
 .uk-link-muted a.ht-toolbar.uk-icon, .uk-link-muted a.ht-toolbar .uk-icon,
 .uk-link-muted a .ht-toolbar.uk-icon {
-  color: #f2f2f2;
+  color: #ccc2c2;
 }
 
 .ht-toolbar a.uk-link-muted.uk-icon:active, .ht-toolbar a.uk-link-muted.uk-icon:hover, .ht-toolbar a.uk-link-muted.uk-icon:focus, .ht-toolbar a.uk-link-muted .uk-icon:active, .ht-toolbar a.uk-link-muted .uk-icon:hover, .ht-toolbar a.uk-link-muted .uk-icon:focus,
@@ -375,7 +385,7 @@ a.ht-toolbar.uk-link-muted.uk-icon:focus, a.ht-toolbar.uk-link-muted .uk-icon:ac
 .uk-link-muted a .ht-toolbar.uk-icon:active,
 .uk-link-muted a .ht-toolbar.uk-icon:hover,
 .uk-link-muted a .ht-toolbar.uk-icon:focus {
-  color: #f2f2f2;
+  color: #ccc2c2;
 }
 
 .ht-danger a.uk-link-muted.uk-icon, .ht-danger a.uk-link-muted .uk-icon,

@@ -12,6 +12,11 @@ $space-workstation: 25px;
 $space-notebook: 25px;
 $space-mobile-landscape: 15px;
 $space-mobile-portlate: 5px;
+
+@keyframes ht-telop-add {
+  0% {opacity:0; transform:rotateX(-45deg)} 100% {opacity: 1}
+}
+
 .ht-telop-container {
   width: 100%;
   .ht-telop-info,.ht-telop-warn,.ht-telop-error {
@@ -21,6 +26,7 @@ $space-mobile-portlate: 5px;
     padding-block-end: 1rem;
     padding-inline-start: 25px;
     padding-inline-end: 25px;
+    animation: ht-telop-add 0.3s linear 0s;
   }
   .ht-telop-info {
     background-color: map-get($infomation-color, basis);
